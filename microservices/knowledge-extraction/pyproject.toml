@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "knowledge-extraction"
+version = "0.1.0"
+description = ""
+authors = ["Dorus <doruskeijzer@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+neo4j-graphrag = { version = "^1.8.0", extras = ["ollama"] } 
+requests = "^2.32.4"
+openai = "^1.93.0"
+numpy = "^2.3.1"
+rapidfuzz = "^3.13.0"
+spacy = "^3.8.7"
+ollama = "^0.4.9"
+neo4j = "^5.28.1"
+pdfplumber = "^0.11.4"
+python-docx = "^1.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

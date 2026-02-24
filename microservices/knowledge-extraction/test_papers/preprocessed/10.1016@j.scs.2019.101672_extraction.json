@@ -1,0 +1,42 @@
+{
+  "entities": [
+    {
+      "name": {
+        "value": "Residential NZEB",
+        "context": "A holistic design approach for residential sustainable buildings"
+      },
+      "country": {
+        "value": "Singapore",
+        "context": "Location of the case study building"
+      },
+      "city": {
+        "value": "N/A",
+        "context": "N/A"
+      },
+      "street": {
+        "value": "N/A",
+        "context": "N/A"
+      },
+      "year_of_construction": {
+        "value": "N/A",
+        "context": "No specific year mentioned"
+      }
+    }
+  ],
+  "design_strategies": [
+    {
+      "name": "Solar Energy Systems",
+      "context": [
+        "The considered building systems are different because of the tropical climate.",
+        "No specific solar energy system is mentioned, but photovoltaic panels might be used for electricity generation."
+      ]
+    },
+    {
+      "name": "Energy Efficiency Measures",
+      "context": [
+        "Costeffectiveness is evaluated based on the lifecycle cost.",
+        "The adaptive model relates indoor comfort temperature to prevailing outdoor temperature in naturally ventilated buildings."
+      ]
+    }
+  ]
+}

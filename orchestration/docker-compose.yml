@@ -1,0 +1,150 @@
+# orchestration/docker-compose.yml
+
+services:
+  document-db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ../microservices/document-database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s # Give PostgreSQL time to initialize its database
+
+  neo4j:
+    image: neo4j:5.20
+    restart: always
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD}
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_apoc_export_file_enabled: 'true'
+      NEO4J_apoc_import_file_enabled: 'true'
+      NEO4J_apoc_import_file_use__neo4j__config: 'true'
+    ports:
+      - "7474:7474" # Browser UI
+      - "7687:7687" # Bolt protocol
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: [ "CMD-SHELL", "neo4j-admin server status || exit 1" ]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+      start_period: 10s
+
+  crawler:
+    profiles: [ "crawl" ]
+    build:
+      context: ../microservices/paper-crawler
+      dockerfile: Dockerfile
+    depends_on:
+      document-db:
+        condition: service_healthy # Crawler depends on document-db being healthy
+    environment:
+      DB_HOST: document-db
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
+      DB_PORT: 5432
+      SS_API_KEY: ${SS_API_KEY}
+    ports:
+      - "8001:8000" # <--- CHANGED: Mapped to host port 8001 to avoid conflict
+    # Note: If crawler's internal code also makes requests to other services,
+    # it can still use their service names (e.g., http://api-backend:8000) inside the Docker network.
+
+  ollama:
+    profiles: [ "extract" ]
+    image: ollama/ollama:latest
+    container_name: orchestration-ollama-1
+    ports:
+      - "11434:11434"
+    volumes:
+      - ~/.ollama:/root/.ollama
+    healthcheck:
+      # Added healthcheck for consistency and reliability
+      test: [ "CMD", "ollama", "list" ]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+
+  knowledge-extraction:
+    profiles: [ "extract" ]
+    build:
+      context: ../microservices/knowledge-extraction
+      dockerfile: Dockerfile
+    depends_on:
+      document-db:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    environment:
+      DB_HOST: document-db
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
+      DB_PORT: 5432
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USER: ${NEO4J_USER}
+      NEO4J_PASSWORD: ${NEO4J_PASSWORD}
+      OLLAMA_HOST: ${OLLAMA_HOST}
+      OLLAMA_LLM_MODEL: ${OLLAMA_LLM_MODEL}
+      OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL}
+    ports:
+      - "8002:8001" # Changed from 8001 to 8002 to avoid potential future conflict if 8001 is used
+    volumes:
+      # Added for checking local pdfs and getting preprocessed results
+      - ../microservices/knowledge-extraction/test_papers:/app/test_papers
+    entrypoint: [ "/bin/sh", "-c", "python /app/scripts/pull_model.py && poetry run python -m src.main" ]
+
+  # NEW SERVICE: FastAPI Backend
+  api-backend:
+    # Renamed to 'api-backend' for clarity (distinguishes from 'backend' directory)
+    build:
+      context: ../microservices/backend # Path to your FastAPI backend directory
+      dockerfile: Dockerfile # Name of the Dockerfile in that directory
+    # No profiles, so it runs by default
+    ports:
+      - "8000:8000" # Expose FastAPI backend on host port 8000
+    # No depends_on document-db/neo4j for now, as it's using dummy data.
+    # We'll add this when we integrate Postgres.
+    healthcheck:
+      test: [ "CMD", "/app/.venv/bin/python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
+
+  # NEW SERVICE: Frontend (React/Bun)
+  frontend:
+    build:
+      context: ../frontend # Path to your frontend directory
+      dockerfile: Dockerfile # Name of the Dockerfile in that directory
+    # No profiles, so it runs by default
+    ports:
+      - "3000:80" # Expose Nginx (internal port 80) on host port 3000
+    depends_on:
+      api-backend:
+        # Frontend depends on backend API being available
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost/" ] # Basic health check for Nginx
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+volumes:
+  pgdata:
+  neo4j_data:

@@ -1,0 +1,8 @@
+# bunfig.toml
+
+# This section configures static file serving.
+[serve]
+dir = "./src" # Ensure this points to your src directory where index.html is
+# env = "BUN_PUBLIC_*" # You can keep this or remove it, less relevant for proxy
+
+# REMOVE THE [serve.proxy."/api"] SECTION AND EVERYTHING BELOW IT

@@ -1,0 +1,7 @@
+{
+  "model": "FineTuneBERT_v0.5",
+  "schema": "Simple_Schema_Entities",
+  "prompt_template": "template_beta",
+  "data_source": "PubMed_Abstracts_2023",
+  "max_entities": 200
+}

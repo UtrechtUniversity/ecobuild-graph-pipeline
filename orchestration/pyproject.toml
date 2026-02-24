@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "orchestration"
+version = "0.1.0"
+description = ""
+authors = ["Dorus <doruskeijzer@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+psycopg2-binary = "^2.9.10"
+python-dotenv = "^1.1.1"
+neo4j = "^5.28.1"
+python-docx = "^0.8.11"
+pdfplumber = "^0.9.0"
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

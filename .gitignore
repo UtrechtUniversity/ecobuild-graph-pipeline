@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+bin/
+lib/
+64/
+include/
+.venv/
+vh/
+pyvenv.cfg
+.pytest_cache/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+.astro/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data/Large Files
+*.pdf
+neo4j_data/
+neo4j_imports/
+results/
+logs/
+temp_configs/
+temp_container_files/
+zz_old_proj_backup/
+
+# Git
+# Ignore inner git directories to allow root repo to track everything
+!microservices/knowledge-extraction/.git/
+!orchestration/.git/
+# However, for a clean re-upload, we will actually remove these .git folders manually
+# so they don't interfere.

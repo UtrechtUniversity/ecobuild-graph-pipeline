@@ -1,0 +1,85 @@
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.App-header h1 {
+  margin: 0;
+}
+
+.App-header nav {
+  margin-top: 10px;
+}
+
+.App-header a {
+  color: #61dafb;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.App-header a:hover {
+  text-decoration: underline;
+}
+
+.App-main-content {
+  padding: 0 20px; /* Add padding to main content */
+  max-width: 1200px; /* Max width for better layout */
+  margin: 0 auto; /* Center content */
+}
+
+/* New button styles for ExperimentList */
+.remove-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.remove-button:hover {
+  background-color: #d32f2f; /* Darker red */
+}
+
+.remove-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Style for error message in past experiments list */
+.error-message {
+  color: #d32f2f;
+  font-weight: bold;
+}

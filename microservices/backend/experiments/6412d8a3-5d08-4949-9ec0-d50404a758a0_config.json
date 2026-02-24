@@ -1,0 +1,7 @@
+{
+  "model": "T5_FineTune",
+  "schema": "Financial_Reports_KG",
+  "prompt_template": "template_delta",
+  "data_source": "SEC_Filings_Q2_2025",
+  "embedding_dim": 768
+}

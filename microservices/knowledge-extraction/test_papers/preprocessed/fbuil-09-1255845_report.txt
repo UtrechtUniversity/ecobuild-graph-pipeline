@@ -1,0 +1,80 @@
+================================================================================
+EXTRACTION REPORT: fbuil-09-1255845
+================================================================================
+
+### ENTITIES (BUILDINGS) ###
+
+Entity 1:
+  Name: Affordable Housing
+    Context: "A case study of affordable housing in Brazil"
+  Country: Brazil
+    Context: "Country where the research was conducted"
+  City: no specified city
+    Context: "Affordable housing project location not explicitly mentioned"
+  Street: null
+    Context: "null"
+
+
+### DESIGN STRATEGIES ###
+
+Strategy 1: Solar Heating Systems
+  Mentions: 2
+
+  Quote 1:
+    "Model 3 integrates an SHS."
+
+  Quote 2:
+    "This research contributes to informed decision-making processes regarding the utilization of photovoltaic panels and SHS, thereby fostering energy efficiency and sustainability in buildings."
+
+Strategy 2: Photovoltaic Panels
+  Mentions: 2
+
+  Quote 1:
+    "The approach involves a novel comparison between photovoltaic panels and Solar Heating Systems (SHS) based on both environmental and financial considerations."
+
+  Quote 2:
+    "Model 1 stands out with superior performance in terms of estimated energy generation, energy savings, and annual reduction of CO emissions."
+
+Strategy 3: Building Information Modeling (BIM)
+  Mentions: 2
+
+  Quote 1:
+    "This study aims to draw insights that resonate with the global transition toward cleaner and more sustainable energy solutions."
+
+  Quote 2:
+    "Researchers have used digital models to enhance decision-making processes, creating a virtual environment for assessing and comparing various project designs"
+
+Strategy 4: Energy Management Systems
+  Mentions: 2
+
+  Quote 1:
+    "This study aims to draw insights that resonate with the global transition toward cleaner and more sustainable energy solutions."
+
+  Quote 2:
+    "Researchers have used digital models to enhance decision-making processes, creating a virtual environment for assessing and comparing various project designs"
+
+Strategy 5: Insulation
+  Mentions: 1
+
+  Quote 1:
+    "The construction industry worldwide consumes high levels of information, it is empowering evaluators to scrutinize multiple scenarios and making processes without needing physical construction, resulting in substantial reductions in costs and time typically associated with prototyping and testing."
+
+Strategy 6: Passive Design
+  Mentions: 1
+
+  Quote 1:
+    "The construction industry worldwide consumes high levels of information, it is empowering evaluators to scrutinize multiple scenarios and making processes without needing physical construction, resulting in substantial reductions in costs and time typically associated with prototyping and testing."
+
+Strategy 7: Natural Ventilation
+  Mentions: 1
+
+  Quote 1:
+    "The construction industry worldwide consumes high levels of information, it is empowering evaluators to scrutinize multiple scenarios and making processes without needing physical construction, resulting in substantial reductions in costs and time typically associated with prototyping and testing."
+
+Strategy 8: Greywater Recycling
+  Mentions: 1
+
+  Quote 1:
+    "The objective of this study is to conduct a rigorous cost-benefit analysis of the utilization of solar energy in buildingstoenhancethedecision-makingprocessesforconstructionprojects."
+
+================================================================================

@@ -1,0 +1,110 @@
+{
+    "version_": 1,
+    "template_": "SimpleKGPipeline",
+    "neo4j_config": {
+        "params_": {
+            "uri": "bolt://neo4j:7687",
+            "user": {"resolver_": "ENV", "var_": "NEO4J_USER"},
+            "password": {"resolver_": "ENV", "var_": "NEO4J_PASSWORD"}
+        }
+    },
+    "llm_config": {
+        "class_": "OllamaLLM",
+        "params_": {
+            "model_name": {"resolver_": "ENV", "var_": "OLLAMA_LLM_MODEL"},
+            "host": {"resolver_": "ENV", "var_": "OLLAMA_HOST"}
+        }
+    },
+    "embedder_config": {
+        "class_": "OllamaEmbeddings",
+        "params_": {
+            "model": {"resolver_": "ENV", "var_": "OLLAMA_EMBEDDING_MODEL"},
+            "host": {"resolver_": "ENV", "var_": "OLLAMA_HOST"}
+        }
+    },
+    "schema": {
+        "node_types": [
+            {
+                "label": "Design strategy",
+                "description": "A strategy for building to leverage some ecosystem service. From the list: 'Rooftop garden', 'Vertical greenery system', 'Blue-green roof'. description of implementation should be specific: e.g. for a vertical greenery system the size, species and amount of plants used, their exposure (north,south,east,west) etc.",
+                "properties": [
+                    {"name": "name", "type": "STRING", "required": true}
+                    {"name": "description_of_implementation", "type": "STRING", "required": true}
+                ]
+            },
+            {
+                "label": "Ecosystem service",
+                "description": "A benefit humans derive from the ecosystem. From the list: 'Regulation of temperature', 'Regulation of water quality', 'provision of habitat'",
+                "properties": [
+                    {"name": "name", "type": "STRING", "required": true}
+                ]
+            },
+            {
+                "label": "Building",
+                "description": "A building in which a certain design strategy was employed.",
+                "properties": [
+                    {"name": "name", "type": "STRING", "required": true},
+                    {"name": "description", "type": "STRING", "required": true},
+                    {"name": "design", "type": "STRING", "required": false},
+                    {"name": "location", "type": "STRING", "required": false},
+                    {"name": "year_built", "type": "DATE", "required": false}
+                ]
+            },
+            {
+                "label": "Product",
+                "description": "A commercial product employing a given design strategy. Note which company creates the product and where this company is based.",
+                "properties": [
+                    {"name": "name", "type": "STRING", "required": true},
+                    {"name": "company", "type": "STRING", "required": false}
+                    {"name": "company_country", "type": "STRING", "required": false}
+                ]
+            }
+        ],
+        "relationship_types": [
+            {
+                "label": "EVIDENCE",
+                "description": "Evidence of how the employment of a certain design strategy supports a certain ecosystem service. Only use claims demonstrated in the paper you are currently reading (no second hand sources). The source should be the name of the current paper.",
+                "properties": [
+                    {"name": "source", "type": "STRING", "required": true},
+                    {"name": "measurement_unit", "type": "STRING", "required": false},
+                    {"name": "measurement_method", "type": "STRING", "required": false},
+                    {"name": "measurement_value", "type": "FLOAT", "required": false}
+                ]
+            },
+            {
+                "label": "BUILDING_EMPLOYS_STRAT",
+                "description": "Whether a building employs a certain design strategy",
+                "properties": [
+                    {"name": "source", "type": "STRING", "required": false},
+                    {"name": "description", "type": "STRING", "required": false},
+                    {"name": "implementation_details", "type": "STRING", "required": false}
+                ]
+            },
+            {
+                "label": "PRODUCT_EMPLOYS_STRAT",
+                "description": "Whether a product employs a certain design strategy",
+                "properties": [
+                    {"name": "source", "type": "STRING", "required": false}
+                ]
+            },
+            {
+                "label": "BUILDING_EMPLOYS_PRODUCT",
+                "description": "Whether a building employs a certain commercial product",
+                "properties": [
+                    {"name": "source", "type": "STRING", "required": false}
+                ]
+            }
+        ],
+        "patterns": [
+            ["Design strategy", "EVIDENCE", "Ecosystem service"],
+            ["Building", "BUILDING_EMPLOYS_STRAT", "Design strategy"],
+            ["Product", "PRODUCT_EMPLOYS_STRAT", "Design strategy"],
+            ["Building", "BUILDING_EMPLOYS_PRODUCT", "Product"]
+        ]
+    },
+    "from_pdf": true,
+    "perform_entity_resolution": true,
+    "neo4j_database": "neo4j",
+    "prompt_template": "You are an expert knowledge graph extraction AI specializing in sustainable design, architecture, and ecological services. Your task is to precisely extract entities and their relationships from provided text, strictly adhering to the predefined schema.\n\n**EXTRACTION INSTRUCTIONS:**\n\n1. **Identify Entities (Nodes):**\n   - For each entity, determine its correct label from the schema\n   - Extract all relevant properties, paying attention to data types and required fields\n   - Assign a unique string ID to each node\n\n2. **Identify Relationships:**\n   - Find connections between extracted nodes\n   - Determine the appropriate relationship type from the schema\n   - Identify start_node_id and end_node_id respecting the specified direction\n   - Extract all relevant properties for each relationship\n\n**SCHEMA:**\n{schema}\n\n**OUTPUT FORMAT:**\nReturn ONLY a valid JSON object with no additional text, backticks, or formatting:\n\n{{\n    \"nodes\": [\n        {{\n            \"id\": \"unique_string_id\",\n            \"label\": \"NodeLabel\",\n            \"properties\": {{\n                \"property_name\": \"property_value\"\n            }}\n        }}\n    ],\n    \"relationships\": [\n        {{\n            \"type\": \"RELATIONSHIP_TYPE\",\n            \"start_node_id\": \"start_id\",\n            \"end_node_id\": \"end_id\",\n            \"properties\": {{\n                \"property_name\": \"property_value\"\n            }}\n        }}\n    ]\n}}\n\n**EXAMPLES:**\n\nExample 1:\nInput: \"The research paper \"Use of natural ventilation design strategies in Green tower in Berlin\" found that The Green Tower in Berlin uses natural ventilation design strategy. This reduces energy consumption by 15 kWh/m2 per year according to the 2023 sustainability report, enhancing air quality services.\"\n\nOutput:\n{{\n    \"nodes\": [\n        {{\n            \"id\": \"b1\",\n            \"label\": \"Building\",\n            \"properties\": {{\n                \"name\": \"Green Tower\",\n                \"description\": \"A building in Berlin that uses natural ventilation\",\n                \"location\": \"Berlin\"\n            }}\n        }},\n        {{\n            \"id\": \"ds1\",\n            \"label\": \"Design strategy\",\n            \"properties\": {{\n                \"name\": \"natural ventilation\"\n            }}\n        }},\n        {{\n            \"id\": \"es1\",\n            \"label\": \"Ecosystem service\",\n            \"properties\": {{\n                \"name\": \"air quality\"\n            }}\n        }}\n    ],\n    \"relationships\": [\n        {{\n            \"type\": \"BUILDING_EMPLOYS_STRAT\",\n            \"start_node_id\": \"b1\",\n            \"end_node_id\": \"ds1\",\n            \"properties\": {{\n                \"description\": \"employs natural ventilation design\",\n                \"implementation_details\": \"reduces energy consumption by 15 kWh/m2/year\"\n            }}\n        }},\n        {{\n            \"type\": \"EVIDENCE\",\n            \"start_node_id\": \"ds1\",\n            \"end_node_id\": \"es1\",\n            \"properties\": {{\n                \"source\": \"Use of natural ventilation design strategies in Green tower in Berlin\",\n                \"measurement_unit\": \"kWh/m2 per year\",\n                \"measurement_value\": 15.0\n            }}\n        }}\n    ]\n}}\n\nExample 2:\nInput: \"BioFilter, a product by EcoSolutions, employs wetland filtration strategy to enhance water purification.\"\n\nOutput:\n{{\n    \"nodes\": [\n        {{\n            \"id\": \"p1\",\n            \"label\": \"Product\",\n            \"properties\": {{\n                \"name\": \"BioFilter\",\n                \"company\": \"EcoSolutions\"\n            }}\n        }},\n        {{\n            \"id\": \"ds2\",\n            \"label\": \"Design strategy\",\n            \"properties\": {{\n                \"name\": \"wetland filtration\"\n            }}\n        }},\n        {{\n            \"id\": \"es2\",\n            \"label\": \"Ecosystem service\",\n            \"properties\": {{\n                \"name\": \"water purification\"\n            }}\n        }}\n    ],\n    \"relationships\": [\n        {{\n            \"type\": \"PRODUCT_EMPLOYS_STRAT\",\n            \"start_node_id\": \"p1\",\n            \"end_node_id\": \"ds2\"\n        }},\n        {{\n            \"type\": \"EVIDENCE\",\n            \"start_node_id\": \"ds2\",\n            \"end_node_id\": \"es2\"\n        }}\n    ]\n}}\n\n**INPUT TEXT:**\n{text}"
+
+}

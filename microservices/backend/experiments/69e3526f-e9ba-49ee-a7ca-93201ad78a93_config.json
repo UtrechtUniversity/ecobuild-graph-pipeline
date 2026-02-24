@@ -1,0 +1,7 @@
+{
+  "model": "KnowledgeBERT_v1.0",
+  "schema": "Neo4j_Schema_Paper_Author",
+  "prompt_template": "template_alpha",
+  "data_source": "arXiv_2024_Q1",
+  "max_relations": 10
+}

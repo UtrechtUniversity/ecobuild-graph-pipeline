@@ -1,0 +1,20 @@
+{
+  "id": "7f958c86-2ae7-486b-887a-eb7462aa3e9f",
+  "finished_at": "2025-07-15T00:33:05.340977",
+  "config": {
+    "model": "FineTuneBERT_v0.5",
+    "schema": "Simple_Schema_Entities",
+    "prompt_template": "template_beta",
+    "data_source": "PubMed_Abstracts_2023",
+    "max_entities": 200
+  },
+  "metrics": {
+    "error_message": "Model convergence failed due to invalid hyperparams.",
+    "status": "failed",
+    "runtime_seconds": 600
+  },
+  "graph": {
+    "nodes": [],
+    "edges": []
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "model": "GPT4_Custom",
+  "schema": "Complex_Medical_KG",
+  "prompt_template": "template_gamma",
+  "data_source": "Clinical_Trials_Phase3",
+  "temperature": 0.7
+}

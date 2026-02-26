@@ -272,7 +272,7 @@ if __name__ == "__main__":
 
 
 
-#Dump for unused prompt text
+## Dump for unused prompt text
 # LOOK FOR:
 # - "Model 1", "Model 2", "Model 3" (different design configurations)
 # - "photovoltaic system", "PV panels", "solar panels"

@@ -1,0 +1,97 @@
+{
+    "paper_id": "Lan_2019",
+    "citation": "Lan et al. (2019) - A holistic design approach for residential net-zero energy buildings: A case study in Singapore",
+    "description": "Section-skeleton few-shot example for building entity extraction. Blue-highlighted passages from the annotated PDF are preserved as relevant_snippets.",
+    "section_skeleton": "Paper structure (Lan et al., 2019 — 16 pages):\n--- TITLE & ABSTRACT (page 1) ---\n[...about holistic design of residential NZEBs in a tropical country, Singapore...]\n\"the potential of building residential NZEBs in Singapore is evaluated with two typical residential building types: a landed house and apartment building.\"\n--- INTRODUCTION (pages 1-3) ---\n[...background on net-zero energy buildings, literature review — IGNORE THIS]\n--- METHODOLOGY (pages 3-4) ---\n[...design optimization methodology, thermal comfort models — IGNORE THIS]\n--- CASE STUDY (pages 4-5) --- ← LOOK HERE\n\"To test the effectiveness of the proposed methodology, a case study is conducted to design residential NZEBs in a tropical country, Singapore.\"\n\"The most common housing types in Singapore are HDB (Housing and Development Board) flats, condominiums, and landed houses.\"\n\"Both HDB flats and condominiums are high-rise buildings, which range from 10 to 40 storeys.\"\n\"Among landed houses, terraced houses are the most common, followed by semi-detached and bungalows. Most terraced and semi-detached houses are 6 m wide and 14–20 m long with 2-3 floors. The floor area is in 200–400 m2 range.\"\n\"This case study is based on a hypothetical floor plan of a typical terraced house in Singapore. The house has three floors with total floor area of 306 m2 and floor height of 3.5 m.\"\n--- LANDED HOUSE RESULTS (pages 5-8) ---\n[...optimization results for the terraced house — IGNORE THIS]\n--- APARTMENT BUILDING CASE STUDY (page 8) --- ← LOOK HERE\n\"The building model is based on a hypothesis floor plan of a typical apartment building in Singapore. There are 25 floors with 4 units on each floor.\"\n--- APARTMENT BUILDING RESULTS (pages 8-11) ---\n[...optimization results, solar energy analysis — IGNORE THIS]\n--- SENSITIVITY ANALYSIS & CONCLUSION (pages 12-16) ---\n[...sensitivity analysis, comparison with related work, references — IGNORE THIS]",
+    "relevant_snippets": [
+        {
+            "text": "design of residential NZEBs in a tropical country, Singapore.",
+            "why_relevant": "Identifies the country of the case study",
+            "page": 1
+        },
+        {
+            "text": "the potential of building residential NZEBs in Singapore is evaluated with two typical residential building types: a landed house and apartment building. The required capacity of a renewable energy system (RES) is calculated.",
+            "why_relevant": "Identifies there are TWO case study buildings and their types",
+            "page": 1
+        },
+        {
+            "text": "To test the effectiveness of the proposed methodology, a case study is conducted to design residential NZEBs in a tropical country, Singapore.",
+            "why_relevant": "Confirms Singapore as the case study location",
+            "page": 4
+        },
+        {
+            "text": "The most common housing types in Singapore are HDB (Housing and Development Board) flats, condominiums, and landed houses.",
+            "why_relevant": "Describes Singapore housing context",
+            "page": 5
+        },
+        {
+            "text": "Both HDB flats and condominiums are high-rise buildings, which range from 10 to 40 storeys. The average size of a housing unit is 95 m2, and the average family size is 3.4 residents per household. On average, there are about 100 units in one block. In the case studies, 'apartment building' is used to refer to high-rise residential building types to include HDB flats and condominiums.",
+            "why_relevant": "Describes the apartment building type used in the case study",
+            "page": 5
+        },
+        {
+            "text": "Among landed houses, terraced houses are the most common, followed by semi-detached and bungalows. Most terraced and semi-detached houses are 6 m wide and 14–20 m long with 2-3 floors. The floor area is in 200–400 m2 range.",
+            "why_relevant": "Describes the landed house type used in the case study",
+            "page": 5
+        },
+        {
+            "text": "This case study is based on a hypothetical floor plan of a typical terraced house in Singapore. The house has three floors with total floor area of 306 m2 and floor height of 3.5 m. It has one living room, four bedrooms, four bathrooms, two study rooms, and one kitchen.",
+            "why_relevant": "Detailed description of the first case study building (terraced house)",
+            "page": 5
+        },
+        {
+            "text": "The building model is based on a hypothesis floor plan of a typical apartment building in Singapore. There are 25 floors with 4 units on each floor. This is identical to the average number of units per building block in Singapore. Each unit has a master bedroom,",
+            "why_relevant": "Detailed description of the second case study building (apartment building)",
+            "page": 8
+        }
+    ],
+    "expected_output": {
+        "entities": [
+            {
+                "name": {
+                    "value": "Typical terraced house",
+                    "context": "This case study is based on a hypothetical floor plan of a typical terraced house in Singapore"
+                },
+                "country": {
+                    "value": "Singapore",
+                    "context": "a case study is conducted to design residential NZEBs in a tropical country, Singapore"
+                },
+                "city": {
+                    "value": "Singapore",
+                    "context": "a typical terraced house in Singapore"
+                },
+                "street": {
+                    "value": null,
+                    "context": null
+                },
+                "year_of_construction": {
+                    "value": null,
+                    "context": null
+                }
+            },
+            {
+                "name": {
+                    "value": "Typical apartment building",
+                    "context": "The building model is based on a hypothesis floor plan of a typical apartment building in Singapore"
+                },
+                "country": {
+                    "value": "Singapore",
+                    "context": "design residential NZEBs in a tropical country, Singapore"
+                },
+                "city": {
+                    "value": "Singapore",
+                    "context": "a typical apartment building in Singapore"
+                },
+                "street": {
+                    "value": null,
+                    "context": null
+                },
+                "year_of_construction": {
+                    "value": null,
+                    "context": null
+                }
+            }
+        ]
+    },
+    "lesson": "From this 16-page paper, only snippets from pages 1, 4-5, and 8 contained building entity information. The paper describes TWO distinct case study buildings (a landed terraced house and a high-rise apartment building), both in Singapore. The model should extract ALL case study buildings, not just the first one mentioned. Focus on 'Case Study' sections and IGNORE introduction, methodology details, optimization results, and conclusion sections."
+}

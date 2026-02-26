@@ -34,33 +34,39 @@ class OllamaPromptBuilder:
     # ── Few-shot example helpers ─────────────────────────────────────────
 
     @staticmethod
-    def _load_building_example() -> dict | None:
-        """Load the section-skeleton few-shot example for building extraction.
-        Returns None silently if the file is missing so the prompt still works."""
-        example_path = _EXAMPLES_DIR / "building_extraction_example.json"
-        if not example_path.exists():
-            logger.warning(f"Few-shot example not found at {example_path} — skipping.")
-            return None
-        try:
-            with open(example_path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception as e:
-            logger.warning(f"Failed to load few-shot example: {e} — skipping.")
-            return None
+    def _load_all_building_examples() -> List[dict]:
+        """Load all section-skeleton few-shot examples for building extraction.
+        Globs for building_extraction_example_*.json in the examples directory.
+        Returns an empty list if no files are found so the prompt still works."""
+        pattern = "building_extraction_example_*.json"
+        example_paths = sorted(_EXAMPLES_DIR.glob(pattern))
+        if not example_paths:
+            logger.warning(f"No few-shot examples matching {pattern} in {_EXAMPLES_DIR} — skipping.")
+            return []
+        examples = []
+        for path in example_paths:
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    examples.append(json.load(f))
+                    logger.info(f"Loaded few-shot example: {path.name}")
+            except Exception as e:
+                logger.warning(f"Failed to load few-shot example {path.name}: {e} — skipping.")
+        return examples
 
     @staticmethod
-    def _format_example_block(example: dict) -> str:
+    def _format_example_block(example: dict, index: int = 1, total: int = 1) -> str:
         """Format the loaded example dict into a prompt-ready text block."""
         skeleton = example.get("section_skeleton", "")
         expected = json.dumps(example.get("expected_output", {}), indent=2)
         lesson  = example.get("lesson", "")
+        citation = example.get("citation", f"Example {index}")
 
         return (
-            "\n--- FEW-SHOT EXAMPLE (read carefully, then extract from the ACTUAL paper below) ---\n"
+            f"\n--- FEW-SHOT EXAMPLE {index} of {total}: {citation} ---\n"
             f"{skeleton}\n\n"
             f"Correct extraction from the example paper above:\n{expected}\n\n"
             f"KEY LESSON: {lesson}\n"
-            "--- END OF EXAMPLE ---\n"
+            f"--- END OF EXAMPLE {index} ---\n"
         )
 
     # ── Main prompt builder ──────────────────────────────────────────────
@@ -69,13 +75,19 @@ class OllamaPromptBuilder:
     def build_building_extraction_prompt(text: str) -> str:
         """Build prompt for extracting primary entities and their metadata"""
 
-        # Optionally inject few-shot example
-        example = OllamaPromptBuilder._load_building_example()
-        example_block = OllamaPromptBuilder._format_example_block(example) if example else ""
+        # Optionally inject few-shot examples
+        examples = OllamaPromptBuilder._load_all_building_examples()
+        if examples:
+            example_blocks = "\n".join(
+                OllamaPromptBuilder._format_example_block(ex, i + 1, len(examples))
+                for i, ex in enumerate(examples)
+            )
+        else:
+            example_blocks = ""
 
         return f"""
         You are an expert in academic information extraction.
-        {example_block}
+        {example_blocks}
         Now extract from THIS paper:
 
         Paper text:
@@ -93,7 +105,7 @@ class OllamaPromptBuilder:
 
         IGNORE PHRASES LIKE:
         - "previous studies"
-        - "Literature review sections"
+        - Literature review sections
         
         Do not use data about the authors or the journal metadata.
         For each building, provide its name, location details and year of construction. 

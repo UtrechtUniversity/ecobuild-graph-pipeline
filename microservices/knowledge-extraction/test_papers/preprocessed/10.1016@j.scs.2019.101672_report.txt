@@ -6,15 +6,13 @@ EXTRACTION REPORT: 10.1016@j.scs.2019.101672
 
 Entity 1:
   Name: Residential NZEB
-    Context: "A holistic design approach for residential sustainable buildings"
+    Context: "The aim of this study"
   Country: Singapore
-    Context: "Location of the case study building"
-  City: N/A
-    Context: "N/A"
-  Street: N/A
-    Context: "N/A"
-  Year Of Construction: N/A
-    Context: "No specific year mentioned"
+    Context: "building location"
+  City: n/a
+    Context: "no city mentioned"
+  Street: n/a
+    Context: "no street address mentioned"
 
 
 ### DESIGN STRATEGIES ###
@@ -23,18 +21,21 @@ Strategy 1: Solar Energy Systems
   Mentions: 2
 
   Quote 1:
-    "The considered building systems are different because of the tropical climate."
+    "The considered building systems are different because of the tropical climate. Therefore, the considered building systems are different because c"
 
   Quote 2:
-    "No specific solar energy system is mentioned, but photovoltaic panels might be used for electricity generation."
+    "No specific quotes mentioned"
 
 Strategy 2: Energy Efficiency Measures
-  Mentions: 2
+  Mentions: 1
 
   Quote 1:
-    "Costeffectiveness is evaluated based on the lifecycle cost."
+    "Costeffectivenessisevaluatedbasedonthelifecyclecost,"
 
-  Quote 2:
-    "The adaptive model relates indoor comfort temperature to prevailing outdoor temperature in naturally ventilated buildings."
+Strategy 3: Renewable Energy Systems
+  Mentions: 1
+
+  Quote 1:
+    "The TBL principles are used to evaluate sustainability using three factors: Social, Environmental, and Economic (Hall, 2011)."
 
 ================================================================================

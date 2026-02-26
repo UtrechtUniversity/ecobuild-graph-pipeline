@@ -3,23 +3,23 @@
     {
       "name": {
         "value": "Residential NZEB",
-        "context": "A holistic design approach for residential sustainable buildings"
+        "context": "The aim of this study"
       },
       "country": {
         "value": "Singapore",
-        "context": "Location of the case study building"
+        "context": "building location"
       },
       "city": {
-        "value": "N/A",
-        "context": "N/A"
+        "value": "n/a",
+        "context": "no city mentioned"
       },
       "street": {
-        "value": "N/A",
-        "context": "N/A"
+        "value": "n/a",
+        "context": "no street address mentioned"
       },
       "year_of_construction": {
-        "value": "N/A",
-        "context": "No specific year mentioned"
+        "value": null,
+        "context": "no year of construction mentioned"
       }
     }
   ],
@@ -27,15 +27,20 @@
     {
       "name": "Solar Energy Systems",
       "context": [
-        "The considered building systems are different because of the tropical climate.",
-        "No specific solar energy system is mentioned, but photovoltaic panels might be used for electricity generation."
+        "The considered building systems are different because of the tropical climate. Therefore, the considered building systems are different because c",
+        "No specific quotes mentioned"
       ]
     },
     {
       "name": "Energy Efficiency Measures",
       "context": [
-        "Costeffectiveness is evaluated based on the lifecycle cost.",
-        "The adaptive model relates indoor comfort temperature to prevailing outdoor temperature in naturally ventilated buildings."
+        "Costeffectivenessisevaluatedbasedonthelifecyclecost,"
+      ]
+    },
+    {
+      "name": "Renewable Energy Systems",
+      "context": [
+        "The TBL principles are used to evaluate sustainability using three factors: Social, Environmental, and Economic (Hall, 2011)."
       ]
     }
   ]

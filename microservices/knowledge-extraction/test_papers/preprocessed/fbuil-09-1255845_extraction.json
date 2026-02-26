@@ -3,73 +3,51 @@
     {
       "name": {
         "value": "Affordable Housing",
-        "context": "A case study of affordable housing in Brazil"
+        "context": "for this study, a case of affordable housing in Brazil"
       },
       "country": {
         "value": "Brazil",
-        "context": "Country where the research was conducted"
+        "context": "affordable housing example for this research"
       },
       "city": {
-        "value": "no specified city",
-        "context": "Affordable housing project location not explicitly mentioned"
+        "value": null,
+        "context": null
       },
       "street": {
-        "value": "null",
-        "context": "null"
+        "value": null,
+        "context": null
+      },
+      "year_of_construction": {
+        "value": null,
+        "context": null
       }
     }
   ],
   "design_strategies": [
     {
-      "name": "Solar Heating Systems",
+      "name": "Solar Heating Systems (SHS)",
       "context": [
         "Model 3 integrates an SHS.",
-        "This research contributes to informed decision-making processes regarding the utilization of photovoltaic panels and SHS, thereby fostering energy efficiency and sustainability in buildings."
+        "This study focuses on conducting a comprehensive cost-benefit analysis of solar energy integration in residential buildings. The approach involves a novel comparison between photovoltaic panels and Solar Heating Systems (SHS) based on both environmental and financial considerations."
       ]
     },
     {
       "name": "Photovoltaic Panels",
       "context": [
-        "The approach involves a novel comparison between photovoltaic panels and Solar Heating Systems (SHS) based on both environmental and financial considerations.",
-        "Model 1 stands out with superior performance in terms of estimated energy generation, energy savings, and annual reduction of CO emissions."
+        "Model 1 stands out with superior performance in terms of estimated energy generation, energy savings, and annual reduction of CO emissions. Model 2 incorporates a grid-connected photovoltaic project with two solar panels generating 340 W each.",
+        "The approach involves a novel comparison between photovoltaic panels and Solar Heating Systems (SHS) based on both environmental and financial considerations."
       ]
     },
     {
       "name": "Building Information Modeling (BIM)",
       "context": [
-        "This study aims to draw insights that resonate with the global transition toward cleaner and more sustainable energy solutions.",
-        "Researchers have used digital models to enhance decision-making processes, creating a virtual environment for assessing and comparing various project designs"
-      ]
-    },
-    {
-      "name": "Energy Management Systems",
-      "context": [
-        "This study aims to draw insights that resonate with the global transition toward cleaner and more sustainable energy solutions.",
-        "Researchers have used digital models to enhance decision-making processes, creating a virtual environment for assessing and comparing various project designs"
-      ]
-    },
-    {
-      "name": "Insulation",
-      "context": [
-        "The construction industry worldwide consumes high levels of information, it is empowering evaluators to scrutinize multiple scenarios and making processes without needing physical construction, resulting in substantial reductions in costs and time typically associated with prototyping and testing."
-      ]
-    },
-    {
-      "name": "Passive Design",
-      "context": [
-        "The construction industry worldwide consumes high levels of information, it is empowering evaluators to scrutinize multiple scenarios and making processes without needing physical construction, resulting in substantial reductions in costs and time typically associated with prototyping and testing."
-      ]
-    },
-    {
-      "name": "Natural Ventilation",
-      "context": [
-        "The construction industry worldwide consumes high levels of information, it is empowering evaluators to scrutinize multiple scenarios and making processes without needing physical construction, resulting in substantial reductions in costs and time typically associated with prototyping and testing."
+        "This study aims to draw insights that resonate with the global transition toward cleaner and more sustainable energy solutions. In the context of the nation’s evolving energy matrix, this case study is instrumental in elucidating the multifaceted aspect of solar energy integration, encompassing factors such as implementation costs, payback periods, energy generation, and reductions in CO emissions."
       ]
     },
     {
       "name": "Greywater Recycling",
       "context": [
-        "The objective of this study is to conduct a rigorous cost-benefit analysis of the utilization of solar energy in buildingstoenhancethedecision-makingprocessesforconstructionprojects."
+        "The construction industry worldwide consumes high levels of information, it is expected to remain a critical hurdle in many Moroccan cities. Optimizing renewable energy systems, such as solar greywater recycling, demands careful planning and analysis to enhance performance."
       ]
     }
   ]

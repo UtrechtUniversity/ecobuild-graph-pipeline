@@ -28,17 +28,156 @@ You are an expert in sustainable building design and renewable energy systems.
 Your task: Extract ALL design strategies, systems, or technologies implemented in the CASE STUDY BUILDING (not from literature review or other examples).
 
 DESIGN STRATEGIES include (but are not limited to):
-- Solar energy systems (photovoltaic panels, solar heating systems, BIPV)
-- Green infrastructure (green roofs, green walls, vertical gardens)
-- Water management (rainwater harvesting, greywater recycling, stormwater management)
-- Energy efficiency measures (insulation, passive design, natural ventilation)
-- Renewable energy (wind, geothermal, biomass)
-- Smart building systems (BIM, energy management systems)
-- Sustainable materials (recycled, bio-based, local materials)
+- Aeroponic systems
+- Airdrop irrigation systems
+- Aquaponic systems
+- Beehives
+- Biofilters
+- Biomass energy collection
+- Biophilic design
+- Bioremediation
+- Black/greywater treatment
+- Blue-green roofs
+- Blueroofs
+- Botanical garden
+- Burning hydrogen
+- Cisterns
+- Coated glass
+- Community gardens
+- Compact construction
+- Companion planting
+- Composting
+- Cradle to cradle design
+- Cross ventilation
+- Delayed drainage systems
+- Design for deconstruction
+- Downspout strategies
+- Drip irrigation systems
+- Dynamic/aerodynamic architecture
+- Ecological analogue design
+- Edible Landscapes
+- Elevated constructions
+- Extensive green roof
+- Façade cladding
+- Fit form to function
+- Floating contructions
+- Fog harvesting
+- Food forests
+- Green corridors
+- Green façade
+- Green wall system
+- Greenhouse agriculture
+- Heat-cold storage installation
+- Hedgerows consisting of edible plants
+- Herb gardens
+- High albedo materials
+- Hydro turbines
+- Hydrogen burning system
+- Hydronic radiant system
+- Hydroponic systems
+- Increase of native plants
+- Increase species diversity
+- Indoor (food) gardens
+- Infiltration systems for excess rain water
+- Insect attracting structures
+- Insulation material
+- Integration of retaining walls
+- Integration of thermal mass
+- Intensive green roof
+- Intercropping
+- Interlocking panels
+- Introduction of keystone species in property
+- Leakage control
+- Light filtering for temperature keeping
+- Living Plant Constructions (Baubotanik)
+- Location planning with little sun and wind
+- Low albedo materials
+- Medicinal gardens
+- Micro livestock
+- Microbial fuel cells
+- Moss wall
+- Noise reducing technologies
+- Organic farming
+- Orientation sound barriers
+- Permaculture
+- Permeable paving system
+- Photovoltaic cells integration
+- Photovoltaic panels
+- Pile foundations
+- Placed on columns or stilts
+- Planter green wall
+- Pocket garden/park
+- Private gardens
+- Rainwater Cooling System
+- Rainwater harvesting systems
+- Reduction of light pollution
+- Replace equipment or install water saving devices
+- Retaining wall system
+- Revegetation
+- Roof ponds
+- Sacrificial ground floors
+- Seismic architecture
+- Semi-intensive green roof
+- Separation of waste streams
+- Smart irrigation
+- Smart roofs
+- Soakwells
+- Soil filtration
+- Soil quality monitoring
+- Solar thermal collectors
+- Solar water heaters
+- Solid walls
+- Source separation of wastewater
+- Stack ventilation
+- Stepping stone habitats
+- Structural bracing strategies
+- Sunscreens
+- Sustainably sourced materials
+- Texture and form based sound barriers
+- Thermal desorption
+- Thermal energy storage system
+- Trellis/fence farms
+- Urban mining
+- Urban orchards
+- Urban (rooftop) farming
+- Use of biodegradable materials
+- Use of carbon/GHG storing building materials
+- Use of daylight
+- Use of locally sourced materials
+- Use of mulch
+- Use of pre-existing vegetation
+- Use of readily available materials
+- Use of recycled materials
+- Use of traditional techniques
+- Vegetable gardens
+- Vegetated grid pave
+- Vegetated pergola
+- Vegetation cover increase
+- Vegetation for insulation
+- Vertical farming
+- Vertical mobile garden
+- Waste management
+- Water cooling systems
+- Water efficient systems
+- Water less systems
+- Water source heat pump
+- Water storage
+- Wind barriers
+- Wind turbines
+- Xeriscaping
 
 For EACH design strategy found, provide:
 1. name: The strategy name or system type
-2. context: A list of medium-length quotes (30-50 words) showing where/how it's mentioned
+2. anchor: A SHORT EXACT PHRASE of 5-10 words copied verbatim from the paper that
+   best locates where this design strategy is discussed. This phrase will be searched in the
+   source document to retrieve the surrounding passage — it must exist exactly as
+   written in the paper text above.
+   RULES FOR ANCHOR:
+   - Copy 5-10 consecutive words exactly as they appear in the paper text above
+   - Choose words that are specific and unique to this design strategy mention
+   - Do NOT paraphrase, summarise, or change any words
+   - If you cannot identify a specific passage in the text above, set anchor to null
+3. confidence: A score from 0.0 to 1.0 indicating how confident you are that the paper's own case study genuinely evidences this strategy (1.0 = explicitly discussed with data/results, 0.5 = implied but not primary focus, 0.1 = only tangentially mentioned)
 
 Reply with a SINGLE JSON object only. No preamble, no conversational filler.
 
@@ -47,16 +186,13 @@ The JSON object MUST follow this structure:
     "design_strategies": [
         {{
             "name": "strategy name",
-            "context": [
-                "first quote showing this strategy (30-50 words from paper)",
-                "second quote if mentioned again (30-50 words from paper)"
-            ]
+            "anchor": "five to ten exact words from the paper",
+            "confidence": 0.8
         }},
         {{
             "name": "another strategy name",
-            "context": [
-                "quote about this strategy (30-50 words from paper)"
-            ]
+            "anchor": null,
+            "confidence": 0.4
         }}
     ]
 }}
@@ -64,9 +200,11 @@ The JSON object MUST follow this structure:
 CRITICAL RULES:
 - Extract ONLY strategies from the case study building (often in "Case Study" or "Methods" sections)
 - Do NOT extract strategies mentioned in literature review or introduction
-- Each quote in "context" must be 30-50 words, verbatim from the text
-- Include ALL design strategies found, even if multiple models/configurations
-- Use null for name if no strategies found
+- The anchor must be a verbatim copy of words from the paper text above — do not
+  invent or paraphrase
+- If you cannot find a passage in the text that evidences a strategy, set
+  anchor to null rather than guessing
+- Include ALL design strategies found, even if multiple models/configurations- Use null for name if no strategies found
 
 JSON output:"""
 
@@ -91,7 +229,7 @@ class DesignStrategyExtractor:
                     "prompt": prompt,
                     "stream": False,
                     "options": {
-                        "temperature": 0.2,  # Low for factual extraction
+                        "temperature": 0.01,  # Low for factual extraction
                         "num_predict": 2000  # Allow longer responses for multiple strategies
                     }
                 },
@@ -127,14 +265,19 @@ class DesignStrategyExtractor:
     
     def extract_from_text(self, text: str, verbose: bool = True) -> Dict:
         """
-        Extract design strategies from a research paper text
-        
+        Extract design strategies from a research paper text.
+
+        Returns raw LLM output with 'anchor' fields. Call
+        resolve_design_strategy_contexts() from context_resolver.py afterwards
+        to replace anchors with verified context passages.
+
         Args:
             text: Full text of the research paper
             verbose: Print progress information
-        
+
         Returns:
-            Dictionary containing list of design strategies
+            Dictionary containing list of design strategies (with anchor fields,
+            not yet resolved to context passages)
         """
         if verbose:
             logger.info("Extracting design strategies from text...")
@@ -163,10 +306,11 @@ class DesignStrategyExtractor:
         
         if verbose:
             logger.info(f"Found {len(strategies)} design strategies")
-            for strategy in strategies[:5]:  # Show first 5
-                name = strategy.get('name', 'Unnamed')
-                num_contexts = len(strategy.get('context', []))
-                logger.info(f"  - {name} ({num_contexts} mentions)")
+            for strategy in strategies[:5]:
+                name = strategy.get("name", "Unnamed")
+                anchor = strategy.get("anchor")
+                anchor_display = f'"{anchor[:40]}..."' if anchor else "null"
+                logger.info(f"  - {name} | anchor: {anchor_display}")
         
         return {'design_strategies': strategies}
     
@@ -174,12 +318,8 @@ class DesignStrategyExtractor:
         """
         Extract design strategies from a text file
         
-        Args:
-            filepath: Path to the text file
-            verbose: Print progress information
-        
-        Returns:
-            Dictionary containing extracted design strategies
+        Note: for anchor resolution you will need the same text string — either
+        re-read the file or pass raw_text directly to extract_from_text(). 
         """
         with open(filepath, 'r', encoding='utf-8') as f:
             text = f.read()
@@ -207,17 +347,31 @@ class DesignStrategyExtractor:
             report_lines.append(f"\nTotal strategies found: {len(strategies)}\n")
             
             for i, strategy in enumerate(strategies, 1):
-                name = strategy.get('name', 'Unnamed Strategy')
-                contexts = strategy.get('context', [])
-                
+                name = strategy.get("name", "Unnamed Strategy")
+                confidence = strategy.get("confidence", "N/A")
+                context = strategy.get("context")           # resolved passage (str|None)
+                anchor_text = strategy.get("anchor_text")  # original LLM anchor
+                verified = strategy.get("anchor_verified")
+                score = strategy.get("anchor_match_score")
+
                 report_lines.append(f"### Strategy {i}: {name} ###")
-                report_lines.append(f"  Mentions: {len(contexts)}")
-                
-                for j, context in enumerate(contexts, 1):
-                    report_lines.append(f"\n  Quote {j}:")
+                report_lines.append(f"  Confidence: {confidence}")
+
+                # Verification status line
+                if verified is not None:
+                    status = "✓ verified" if verified else "✗ UNVERIFIED"
+                    score_str = f" (match score: {score:.2f})" if score is not None else ""
+                    report_lines.append(f"  Anchor: {status}{score_str}")
+                    if anchor_text:
+                        report_lines.append(f'  Anchor text: "{anchor_text}"')
+
+                if context:
+                    report_lines.append(f"\n  Context passage:")
                     report_lines.append(f'    "{context}"')
-                
-                report_lines.append("")  # Blank line between strategies
+                else:
+                    report_lines.append("\n  Context passage: not retrieved")
+
+                report_lines.append("")  # blank line between strategies
         
         report_lines.append("=" * 80)
         return "\n".join(report_lines)
@@ -226,30 +380,35 @@ class DesignStrategyExtractor:
 def main():
     """Example usage"""
     import sys
-    
+
     if len(sys.argv) < 2:
         print("Usage: python design_strategy_extractor.py <input_text_file> [output_json_file]")
         print("\nExample:")
         print("  python design_strategy_extractor.py paper.txt design_strategies.json")
         sys.exit(1)
-    
-    # Setup logging
+
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(levelname)s - %(message)s",
     )
-    
+
     input_file = sys.argv[1]
     output_file = sys.argv[2] if len(sys.argv) > 2 else "design_strategies.json"
-    
+
     print(f"Processing: {input_file}")
     print(f"Output will be saved to: {output_file}\n")
-    
-    # Initialize extractor
+
+    with open(input_file, "r", encoding="utf-8") as f:
+        raw_text = f.read()
+
     extractor = DesignStrategyExtractor(model="llama3.2")
-    
-    # Extract design strategies
-    results = extractor.extract_from_file(input_file, verbose=True)
+
+    # Step 1: extract (produces anchors)
+    results = extractor.extract_from_text(raw_text, verbose=True)
+
+    # Step 2: resolve anchors → real context passages
+    from context_resolver import resolve_design_strategy_contexts
+    results = resolve_design_strategy_contexts(results, raw_text)
     
     # Save results
     extractor.save_results(results, output_file)

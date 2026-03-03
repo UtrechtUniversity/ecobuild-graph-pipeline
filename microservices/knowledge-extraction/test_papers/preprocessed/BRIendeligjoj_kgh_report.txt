@@ -1,0 +1,55 @@
+================================================================================
+EXTRACTION REPORT: BRIendeligjoj_kgh
+================================================================================
+
+### ENTITIES (BUILDINGS) ###
+
+Entity 1:
+  Name: Urban Ecology
+    Context: "a holistic and context-based understanding of sustainable buildings"
+  Country: Denmark
+    Context: "in a Danish context the differentiation has been between ‘urban ecology’ and ‘environmental regulation’ as two fundamentally different ways of perceiving sustainable buildings"
+  City: null
+  Street: null
+
+Entity 2:
+  Name: Building Regulations
+    Context: "have had energy savings as their main theme since 1982"
+  Country: Denmark
+    Context: "This illustrates that new types of regulation, governance, network management, etc. are typically taking place in parallel with the traditional top-down regulation, or as governance in the shadows of the hierarchy"
+  City: null
+  Street: null
+  Year Of Construction: 1982
+    Context: "since 1982"
+
+Entity 3:
+  Name: Building Regulations
+    Context: "have had energy savings as their main theme since 1982"
+  Country: Denmark
+    Context: "This illustrates that new types of regulation, governance, network management, etc. are typically taking place in parallel with the traditional top-down regulation, or as governance in the shadows of the hierarchy"
+  City: null
+  Street: null
+
+Entity 4:
+  Name: Building Regulations
+    Context: "have had energy savings as their main theme since 1982"
+  Country: Denmark
+    Context: "This illustrates that new types of regulation, governance, network management, etc. are typically taking place in parallel with the traditional top-down regulation, or as governance in the shadows of the hierarchy"
+  City: null
+  Street: null
+  Year Of Construction: 1982
+    Context: "since 1982"
+
+
+### DESIGN STRATEGIES ###
+  Anchor verification: 0/10 verified
+
+  No strategies with verified anchors.
+
+
+### ECOSYSTEM SERVICES ###
+  Anchor verification: 0/3 verified
+
+  No services with verified anchors.
+
+================================================================================

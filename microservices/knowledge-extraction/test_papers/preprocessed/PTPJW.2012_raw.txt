@@ -1,0 +1,3133 @@
+This article was downloaded by: [92.21.192.133]
+On: 07 November 2014, At: 03:00
+Publisher: Routledge
+Informa Ltd Registered in England and Wales Registered Number: 1072954 Registered office:
+Mortimer House, 37-41 Mortimer Street, London W1T 3JH, UK
+
+Planning Theory & Practice
+Publication details, including instructions for authors and subscription
+information:
+http://www.tandfonline.com/loi/rptp20
+
+Exploring the Challenges of Environmental
+Planning and Green Design: Cases from
+Europe and the USA Renovating to
+Passive Housing in the Swedish Million
+Programme Regulative, facilitative and
+strategic contributions of planning to
+achieving low carbon development West
+Village: Development of a New Ecological
+Neighborhood in Davis, California The
+Aldo Leopold Legacy Center: Expanding
+the Definition of “Community” in Carbon
+Management Low carbon developments as
+laboratories of innovative planning tools
+Integrated planning for ecological urban
+regeneration Behind the Green Curtain:
+Shifting Goals and Shifting Roles Creating
+Post-Carbon Communities: The Return of the
+Public Sector
+
+Andres Walliser a , Nicholas B. Rajkovich b , John Forester c , Carley Friesen
+d , Björn Malbert e , Henrik Nolmark d , Jo Williams f , Stephen M. Wheeler
+g , Robert B. Segar g , Michael Utzinger h , Steve Swenson i , Ignacio Bisbal
+
+Grandal j , Carlos Verdaguer k , Larissa Larsen l & Robert F. Young m
+
+a Ecosistema Urbano , Madrid , Spain
+b University of Michigan , USA
+c Cornell University , USA
+d Mistra Urban Futures , Sweden
+e Chalmers University of Technology , Sweden
+f UCL Bartlett Faculty of the Built Environment , London , UK
+g University of California , Davis
+
+h School of Architecture and Urban Planning, University of Wisconsin-
+Milwaukee
+i The Aldo Leopold Foundation (ALF) , USA
+j Escuela Tecnica Superior de Arquitectura y Geodesia, Universidad de Alcalá
+, Spain
+k Escuela Técnica superiar de Arquitectura de Madrid , Spain
+l University of Michigan , USA
+m University of Oregon , USA
+Published online: 22 Mar 2012.
+
+To cite this article: Andres Walliser , Nicholas B. Rajkovich , John Forester , Carley Friesen , Björn Malbert ,
+Henrik Nolmark , Jo Williams , Stephen M. Wheeler , Robert B. Segar , Michael Utzinger , Steve Swenson ,
+Ignacio Bisbal Grandal , Carlos Verdaguer , Larissa Larsen & Robert F. Young (2012) Exploring the Challenges
+of Environmental Planning and Green Design: Cases from Europe and the USA Renovating to Passive
+Housing in the Swedish Million Programme Regulative, facilitative and strategic contributions of planning
+to achieving low carbon development West Village: Development of a New Ecological Neighborhood in
+Davis, California The Aldo Leopold Legacy Center: Expanding the Definition of “Community” in Carbon
+Management Low carbon developments as laboratories of innovative planning tools Integrated planning for
+ecological urban regeneration Behind the Green Curtain: Shifting Goals and Shifting Roles Creating Post-
+Carbon Communities: The Return of the Public Sector, Planning Theory & Practice, 13:1, 113-174, DOI:
+10.1080/14649357.2012.652007
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+To link to this article:  http://dx.doi.org/10.1080/14649357.2012.652007
+
+PLEASE SCROLL DOWN FOR ARTICLE
+
+Taylor & Francis makes every effort to ensure the accuracy of all the information (the “Content”)
+contained in the publications on our platform. However, Taylor & Francis, our agents, and our
+licensors make no representations or warranties whatsoever as to the accuracy, completeness, or
+suitability for any purpose of the Content. Any opinions and views expressed in this publication
+are the opinions and views of the authors, and are not the views of or endorsed by Taylor &
+Francis. The accuracy of the Content should not be relied upon and should be independently
+verified with primary sources of information. Taylor and Francis shall not be liable for any
+losses, actions, claims, proceedings, demands, costs, expenses, damages, and other liabilities
+whatsoever or howsoever caused arising directly or indirectly in connection with, in relation to or
+arising out of the use of the Content.
+
+This article may be used for research, teaching, and private study purposes. Any substantial
+or systematic reproduction, redistribution, reselling, loan, sub-licensing, systematic supply, or
+distribution in any form to anyone is expressly forbidden. Terms & Conditions of access and use
+can be found at http://www.tandfonline.com/page/terms-and-conditions
+
+Planning Theory & Practice, Vol. 13, No. 1, 113–174, March 2012
+
+INTERFACE
+
+Exploring the Challenges
+of Environmental Planning and Green
+Design: Cases from Europe and the USA
+
+ANDRES WALLISER1, NICHOLAS B. RAJKOVICH 2 & JOHN FORESTER3
+
+1Ecosistema Urbano, Madrid, Spain; 2University of Michigan, USA; 3Cornell University, USA
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Introduction
+
+This symposium deals head-on with pressing challenges of sustainable environmental
+and land-use planning, with real cases of experimenting with green planning and design
+taken well beyond the scale of green buildings. In an earlier auto- and oil-centric time we’d
+have said that these cases show us “where the rubber hits the road”, but these cases try to
+show us exactly the opposite of that: how we might design neighborhoods and plan
+environmental footprints that make energy conservation and even carbon neutrality
+possible in radically new ways so that less and less rubber needs to hit any road.
+We present four studies, European and American, along with four critical
+commentaries, to explore the complexity of sustainability and its relationship to the
+much debated topic of eco-communities. We have chosen these cases to range across scales
+and political settings—from single buildings to potentially millions of housing units— so
+that we might assess both shared elements and signiﬁcant differences as well. In every
+case, though, the planners and designers involved have struggled to understand
+sustainability and green design as ecologically complex, fully social and political as well as
+technically thought out, thus innovative in all of these dimensions as well.
+Our aim has been to approach these issues from an integrated perspective looking for
+cases that covered a whole spectrum of possibilities in relation to such communities,
+ranging from a small case of a single non-residential compound to whole neighborhoods
+that were the outcome of Scandinavian social democratic housing policies several decades
+ago.
+Our aim is to address a series of questions, not so much answers, that will undoubtedly
+arise in different disciplines and policy realms in the next decades: What might the main
+features of eco-communities be in the immediate future? Should they be considered as
+ideal types of sustainability, developing new models of urban life? Or rather, should the
+mere notion of sustainability make us look at what we have already done and try to
+redress its deﬁciencies as much as possible? Is retroﬁtting or new construction the real
+path to urban sustainability and to approach the potentials of eco-communities? How
+important are the physical qualities of the built environment in relation to the social,
+political or economic dimensions of sustainability?
+
+Correspondence Address: Andres Walliser, Ecosistema Urbano, Estanislao Figueras 6, 28008 Madrid, Spain. Email:
+andres@ceacs.march.es.
+
+1464-9357 Print/1470-000X On-line/12/010113-62 q 2012 Taylor & Francis
+http://dx.doi.org/10.1080/14649357.2012.652007
+
+Interface
+
+We hope that the following pieces will contribute to these debates, now in an early stage,
+that we expect will become even more relevant in the context of continuing environmental
+and political-economic crisis.
+
+Four Exemplary Case Studies
+
+Although the concept of sustainability has its roots in the late-nineteenth-century
+“sustained yield” forestry practices of Germany, contemporary deﬁnitions of sustainable
+development relate more to an improvement in the long-term health of human and
+natural environments (Wheeler, 2000). Carbon dioxide mitigation, efﬁcient use of energy,
+and renewable energy generation are all technical goals of contemporary eco-
+communities; the appropriate role of planning, interactions between the public and
+private sectors, and the appropriate balance of conservation and development continue
+their evolution.
+In the ﬁrst case study from the University of California at Davis, we see how the
+presence of a powerful sponsor, collaborative planning practices and creative public–
+private partnerships can result in high levels of environmental performance. When
+fully built-out, the West Village project will be the ﬁrst net zero energy community in
+the USA, producing as much renewable energy on-site as is consumed by the commer-
+cial and residential buildings. Although the project displaces 53 hectares of prime
+farmland, it is one model for new town construction in the fast-growing sunbelt cities
+of the USA.
+The second case study from Alingsa˚s, Sweden challenges the need for new construction
+by showing how eco-neighborhoods can be created through the renovating of existing
+buildings and housing. From 1965 to 1974, the Swedish government responded to a
+housing shortage by constructing one million dwellings, typically as a “tower in a park”
+scheme. Many of these buildings now need renovation; in 2005, the local public housing
+authority in Alingsa˚s started by retroﬁtting one building to a high level of energy
+efﬁciency. After learning numerous lessons from the ﬁrst renovation, and collaborating
+with residents on subsequent projects, the remaining buildings have been able to meet a
+passive house standard, needing little to no inputs of energy to maintain interior comfort,
+even during long Nordic winters.
+The third study describes additional lessons learned by examining the contribution of
+planning in the achievement of low-carbon development. The author compares two cases,
+the Hammarby Sjo¨stad project in Stockholm, Sweden and the car-free suburb of Vauban
+near Freiburg, Germany; both eco-communities have achieved signiﬁcant reductions in
+annual carbon dioxide emissions when compared to standard practice. Though a
+comparison of only two projects, the role of planning in determining regulations,
+facilitating the projects, and providing strategic leadership is discussed. The paper
+concludes by recommending stricter building codes and better enforcement when
+residents are not engaged in the planning process; facilitation being more appropriate
+when residents are engaged energy citizens.
+The fourth and ﬁnal study, reviewing the design, construction, and operation of the
+Aldo Leopold Legacy Center in Baraboo, Wisconsin, returns the deﬁnition of
+sustainability to the sustained yield practices of foresters in the nineteenth century.
+While not a housing project, the design and construction of a structure that honors the
+“land ethic” expands the notion of community to include biotic systems, and documents
+how carbon management policies might expand to include woodlands and native prairies.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+Reference
+
+Wheeler, S. (2000) Planning for Metropolitan Sustainability, Journal of Planning Education and Research, 20(2),
+pp. 133–145.
+
+Renovating to Passive Housing in the
+Swedish Million Programme
+
+CARLEY FRIESEN1, BJO¨ RN MALBERT2 & HENRIK NOLMARK1
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+1Mistra Urban Futures, Sweden; 2Chalmers University of Technology, Sweden
+
+ABSTRACT
+In Sweden, there is a wealth of existing housing stock from the 1965–1974 intensive
+construction period known as the Million Programme. Many of the apartment buildings are now in
+need of renovation and have the potential for transformation to more energy-efﬁcient constructions.
+This article examines the renovation of Million Programme apartment blocks in Alingsa˚s, Sweden.
+The case study of Broga˚rden, an urban housing area in the small city of Alingsa˚s, reveals the
+quantitative success in energy savings through renovation to passive houses, and the qualitative
+success of the pragmatic process as residents, contractors and academics attest to the beneﬁts of
+renovating with a strong environmental vision and a humanistic approach. Involving actors in a
+highly communicative process, and across multiple phases of the project, has closed the gap between
+research and practice. Combining existing data on the energy savings and comfort levels in the
+apartments together with interviews conducted with stakeholders from the partnering process
+illustrates the renovated buildings as technically efﬁcient, and that the planning and construction
+process yielded unexpected results in social and economic sustainability. The Broga˚rden renovations
+provide a concrete example of sustainable housing and overcome the typical challenges of moving
+from theory and idea to planning and realization. This article aims to discover the challenges and
+beneﬁts of realizing ambitious passive house renovation projects to create eco-neighbourhoods.
+
+Keywords: passive solar housing; the Swedish million program; Broga˚rden; partnering; pragmatic process; eco-
+neighbourhood; urban design
+
+Introduction
+
+Eco-neighbourhoods can be successfully created through renovating existing buildings
+and housing areas. In Sweden, passive house techniques can be effectively used for
+dramatic results in energy savings. The process of renovating to passive housing requires
+partnering between stakeholders, and a pragmatic process where participants learn as
+they work, continually developing their technique to achieve the highest quality. The case
+of Broga˚rden, Sweden provides an excellent example of renovating to the passive house
+standard to create an energy-efﬁcient and socially sustainable neighbourhood.
+
+Correspondence Address: Carley Friesen, Mistra Urban Futures, Chalmers Tekniska Ho¨gskola, SE-412 96 Go¨teborg,
+Sweden. Email: carleyfriesen@gmail.com
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 1. Apartments before. Successful courtyard typology; problems with thermal bridges from
+inset balconies. Source: Carley Friesen.
+
+Broga˚rden is an urban housing area located in Alingsa˚s, Sweden, a city of around 26,511
+inhabitants (Alingsa˚s Kommun). Broga˚rden was built between 1970–1972 as part of
+Sweden’s intensive construction period, known as the Million Programme. In 2005
+Alingsa˚shem, the public housing company owning the area, made the decision to renovate
+the sixteen buildings comprising the Broga˚rden neighbourhood. For years there had been
+problems with the brick facades crumbling due to freeze-thaw cycles and acid rain, and
+complaints about drafts and low indoor temperatures (Figure 1). They made the decision to
+renovate the houses to the passive house standard, which suited the needs of the Broga˚rden
+apartments perfectly; simple to construct when a fac¸ade renovation was needed anyway,
+and providing good indoor comfort for residents.
+The solution was augmented with the inclusion of consultants interested in the social
+and environmental sustainability of the area. Alingsa˚shem decided that increased
+accessibility and diversity would provide social and economic stability in the area, and
+that the lower energy costs could stabilize rent levels in the years to come. Combining
+these interests, the project unexpectedly grew from a simple passive house conversion to
+an extensive renovation of the buildings.
+The Broga˚rden renovations exemplify how an integrated planning approach and a
+pragmatic process have a ripple effect, creating direct and indirect beneﬁts for social,
+economic and environmental sustainability. Quantitative evaluation of the performance of
+the renovated buildings shows the high quality of passive house construction which was
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 2. Apartments after. Maintained courtyard typology and look of facade while using new
+materials and ﬁxing balconies. Source: Carley Friesen.
+
+achieved by the pragmatic process (Figure 2). Interviews1 from stakeholders were then
+compiled to give form to the process and show the far-reaching beneﬁts of partnering.
+Several questions formulate the analysis of both project data and interview anecdotes:
+How is passive house renovation an answer to energy concerns, as well as social and
+economic sustainability? How did the Broga˚rden project beneﬁt from a pragmatic process
+and partnering agreement, and how did the surprises during the process beneﬁt the
+result? What are the challenges to passive house renovations becoming a recognized
+contribution to the eco-neighbourhoods trend?
+
+History
+
+During the period from 1965 to 1974 the Swedish government decided to respond to a
+nationwide housing shortage by constructing one million dwellings. This became known
+as the Million Programme (Hall & Viden, 2005, p. 303). There are a variety of styles and
+typologies within the Million Programme housing areas (p. 304). However, they are often
+associated with freestanding apartment blocks set in large green areas. The buildings were
+usually prefabricated and the rational, repeated designs were intended to provide an
+efﬁcient construction process.
+Almost since its inception, some aspects of the Million Programme have been a point of
+debate in Sweden, such as the uniformity of the design and construction, and segregation
+due to separated trafﬁc planning and building typology.
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 3. Demonstration apartment. The demonstration apartment is used for resident meetings and
+to educate about the passive house construction. Source: Carley Friesen.
+
+In Broga˚rden there are ﬁve arrangements of three- to four-storey apartment buildings
+around square courtyards. The area has been successful in terms of a pleasant and safe
+community atmosphere. The repeated designs however, have resulted in a lack of
+diversity in the area. Problems due to material degradation have led to poor indoor
+comfort and inadequate energy efﬁciency.
+
+Technical Dimension
+
+In August 2005 Alingsa˚shem decided to renovate all 300 apartments in Broga˚rden. The
+general manager of Alingsa˚shem, Ing-Marie Odegren, responded seriously to a non-
+committal phrase in their charter that states “work actively in energy efﬁciency” and used
+it as a convincing starting point in the decision for a low-energy renovation (Kyrkander, A.,
+Energy Consultant, The Passive House Centre. Personal Communication, 31 March 2011).
+The thermal bridges caused by the balconies being on the same concrete slab as the interior
+ﬂoors, combined with drafts due to the crumbling brick facades, had resulted in
+complaints of poor indoor comfort. Passive house techniques provided the desired
+solutions (Janson, 2010). A passive solar construction has a highly insulated, airtight
+building envelope, and uses an air-to-air heat exchanger for heating and ventilation. The
+original idea was to wrap the house in an air barrier, install extra insulation on the walls,
+build in the balconies, replace the windows, and put on a new fac¸ade material
+(Eek, H. Passive House Expert and New Resident, The Passive House Centre. Personal
+Communication, 14 March 2011). An additional goal of the renovations was to increase
+physical accessibility, especially for seniors and people with reduced mobility, by
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 4. Stakeholder meeting. Residents, Alingsa˚shem, Tenants Society and the general contractor
+meet regularly to discuss the renovations. Source: Carley Friesen.
+
+updating the washrooms for wheelchair access. These two aspects of the renovation
+would be relatively quick, and residents could stay in their apartments. The scope of the
+renovation, however, grew unexpectedly as several other factors came into play.
+Alingsa˚shem engaged residents in a tenant survey, the results of which indicated the
+need for additional apartment types. There was also a need to equip some of the buildings
+with elevators since none of the original layouts have elevator access. Combined with a
+consultant evaluation to upgrade to wheelchair accessibility, many details of the interior
+layout had to change.
+Alingsa˚shem decided that one building would be renovated ﬁrst to have a more
+detailed view of the wall construction and to determine exactly what condition the
+buildings were in. They could then measure the quality of the passive house renovation.
+After starting the demonstration house, the general contractor found the inside of the
+walls, ﬂoors, and kitchens to be in worse condition than previously thought and the scope
+of the project again expanded.
+Today, each building undergoes a major renovation where the residents are evacuated
+and the structural concrete frame is the only part of the building that is salvaged. The
+exterior walls are rebuilt with a steel frame, 480 mm of insulation and ceramic tile cladding
+(Figures 7 and 9). The old balconies are built in, and new balconies are placed on plinths
+separate from the fac¸ade. This requires a re-build of the roof, to properly protect extended
+walls. Insulation is added to the concrete slab foundation, and in the attic (Janson, 2010).
+A central ventilation unit is added in a room on the top ﬂoor. Energy saving appliances are
+installed in all apartments.
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 5. Renovation of a neighbourhood. Residents live on site during renovations, but there is a
+good atmosphere on the work site. Source: Carley Friesen.
+
+The project in itself is very revolutionary. It is the ﬁrst time you go to the Million
+Programme and make a renovation, and take the renovation so far. (Eek, H.
+Passive House Expert and New Resident, The Passive House Centre. Personal
+Communication, 14 March 2011)
+
+The major targets for energy savings were calculated and set early on. Consultants
+evaluated the buildings before and after renovation and compared their performance to
+calculated results.2,3 The renovations have reduced the average total apartment energy
+consumption from 215 kWh/m2 to 86 kWh/m2 (Skanska, 2009) (Figure 8). This proves
+renovation to passive housing extremely effective from a technical standpoint, and
+economically effective, especially if fac¸ade renovations are needed anyway.
+The level of renovation raises some questions, as it generates a large amount of waste and
+restricts design opportunities to the original concrete frame. The waste materials, however,
+are carefully sorted and about 85% of the material is diverted from landﬁlls. The limitations
+of the concrete frame posed difﬁculties as the ceiling was lowered to accommodate air
+ducts. This makes a noticeable difference spatially and may make the apartments
+unattractive. The saving of the concrete frame, however, is environmentally signiﬁcant as
+it is estimated that 5% of Sweden’s total energy comes from the production of concrete
+(Jorlo¨v, B., General Contractor, Skanska. Personal Communication, 21 April 2011).
+
+Some people would say, “This is a compromise I wouldn’t accept. It is the
+reason to build new.” The Million Program was built up on rational building,
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 6. Public spaces. The community atmosphere is maintained throughout the renovations.
+Source: Carley Friesen.
+
+the same apartment, the same stairs, very rational to build. We did some things
+that made these houses irrational. (Westholm, H., Architect, Efem Architect
+Ofﬁce AB. Personal Communication, 13 April 2011)
+
+Possibilities to heighten the overall sustainability of the building such as insulation
+types and material choices were not exploited, perhaps due to the unexpected complexity
+of the renovation. In the courtyards there is a similar problem, as infrastructure such as
+bike racks, benches and play areas have been updated, but the ecological possibilities of
+the landscape such as day water systems, gardening opportunities, and healthy habitats
+have not been sufﬁciently explored. This shows the difﬁculty in providing well-rounded
+solutions to all of the issues in sustainable urban development. The Broga˚rden project
+provides a base for passive house renovation techniques and positive social processes that
+in the future can be developed to provide more comprehensive efﬁciency renovations.
+
+Governance Dimension (Political, Economic, and Community Relations)
+
+Although the energy calculations prove the technical efﬁciency of the renovation, quality
+of life both during and after construction must be a main concern in the design of an eco-
+neighbourhood. The interviews revealed that the technical knowledge gains from the
+Broga˚rden renovation were not as great as the learning outside of the actual construction
+process (Kyrkander, A., Energy Consultant, The Passive House Centre. Personal
+Communication, 31 March 2011).
+
+Interface
+
+Building envelope before
+Building envelope after
+U-Value [ W/m2K ]
+U-Value [ W/m2K ]
+
+0.2
+Ground floor
+(12 -20 cm insulation)
+
+Ground floor
+0.38
+
+Exterior walls
+(wood construction, 13 cm
+insulation,
+120 mm brick cladding)
+
+0.09
+Exterior walls
+(steel construction, 44 cm
+insulation,ceramic tile cladding)
+
+0.3
+
+Windows
+2.0
+
+0.85
+Windows
+
+Roof
+(18 cm mineral wool and
+cellulose)
+0.22
+
+0.10
+Roof (30 cm loose wool and
+10 cm mineral wool board
+insulation)
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 7. Building speciﬁcations. Source: Figures and Details from Ulla Janson and Alingsa˚shem.
+
+Maintaining the existing public life for the community is crucial in a renovation project
+(Figures 5 and 6). A strong community is connected through shared experiences and
+depends on the spaces that facilitate community activities (Sassi, 2006, p. 53). One measure
+the housing company took was to ensure that residents have the opportunity to live beside
+the same neighbour after renovation (Kyrkander, A., Energy Consultant, The Passive
+House Centre. Personal Communication, 31 March 2011). Another important aspect to
+community well-being is maintaining the sense of place and identity (Sassi, 2006, p. 129).
+A new building could be built for the same cost as the renovation but would have a
+different form, and more stories per building (Jorlo¨v, B., General Contractor, Skanska.
+Personal Communication, 21 April 2011). This would completely alter Broga˚rden’s
+intimate courtyard typology that has been effective in instilling a community atmosphere.
+If the Broga˚rden apartments are desirable throughout a resident’s life, they will be valued
+for many years to come and longevity is a key factor to sustainability (Sassi, 2006, p. 53). After
+renovation there are two, three, and four-room apartments and around 60% of the
+apartments are accessible with an elevator (Skanska, 2009). This provides the opportunity for
+residents to live in a suitable apartment if their living situation or physical ability changes.
+
+First renovation
+(demonstration)
+Second renovation
+Calculated
+
+Existing building
+
+Heating
+24.3
+
+Hot water
+
+Domestic electricity
+
+Common electricity
+
+Total energy use
+
+Figure 8. Energy use [kWh/m2, 220 indoor temperature]. Source: Figures and Details from Ulla
+Janson, Alingsa˚shem (2007, 2010a), and The Passive House Centre2.
+
+Interface
+
+Figure 9. Passive house construction methods in Broga˚rden. Source: The Passive House Centre2 and Alingsa˚shem (2007).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+Because the construction will be ongoing until 2013, Alingsa˚shem and the general
+contractor4 carry out the renovations in a series, usually one building around a courtyard
+at a time, to cause the least possible disturbance to the residents. The general contractor
+designates the courtyards as construction-free zones, temporary ofﬁces and storage are
+accommodated in the buildings under renovation and delivery areas are set up at the back
+(Skanska, 2009).
+Alingsa˚shem, together with the Tenants Society established a local newsletter5 that has
+become important for all of the stakeholders. For the general contractor and Alingsa˚shem,
+it is a successful forum to share detailed updates on the renovation process. For the
+Tenants Society it is a way to advertise formal meetings, social community events and to
+answer resident questions and concerns. For residents, the newsletter provides renovation
+and passive house education in a simple and tangible form.
+One apartment in the demonstration building has been set aside as a community space
+(Figure 3). Alingsa˚shem and the Tenants Society use the apartment to show how the
+renovated apartments look, for resident consultations, and for participative meetings in a
+familiar and welcoming context. At the participative meetings with the residents and
+general contractor, it is obvious that the residents are well informed, have pointed
+questions, and take advantage of their involvement (Figure 4). The general contractor has
+a sense of responsibility for explaining the procedures of the renovation to the residents.
+Alingsa˚shem negotiated a rent increase of around £25/m2 per year with the residents.
+The increase in rent per m2, together with the increase in rentable area due to the balconies
+being built-in ensures Alingsa˚shem that the investment pays off in 10 to 20 years (Skanska,
+2009). The interviews have revealed that most existing tenants are happy with the
+renovations (Corriere, C., Tenants Society Representative and Long-term Resident, The
+Tenants Society. Personal Communication, 26 April 2011). The long-term renters see the
+beneﬁts of having their apartment refurbished by the housing company and appreciate
+the value-added measures, for example, choosing their own interior design materials and
+colours, and the opportunity to glass-in their balcony. The Broga˚rden apartments required
+upgrading to provide suitable living for existing tenants and future tenants. The goal was
+to ﬁx inadequate housing stock for the existing residents, and provide great variety in the
+neighbourhood without changing the social or economic proﬁle of the area. Some tenants,
+usually from single households or elderly, have expressed concern about the rent increase,
+and chose to move. The question of some residents leaving is a political question, as the
+amount paid out by the government for elderly housing allowance has remained the same
+for many years, not following regular, incremental increases (Corriere, C., Tenants Society
+Representative and Long-term Resident, The Tenants Society. Personal Communication,
+26 April 2011). Alingsa˚shem has stated that the current rent levels will not be changed for
+the next ﬁve years (Janson, 2010, p. 251).
+The stability of rent levels through the event of rising energy costs will show the
+economic beneﬁts of passive renovation. This is also important in terms of social
+sustainability. A rise in energy prices disproportionately affects the poor, who often live in
+less efﬁcient buildings with higher energy demands (Kyrkander, A., Energy Consultant,
+The Passive House Centre. Personal Communication, 31 March 2011). Alingsa˚shem
+estimates that the passive buildings will be the only proﬁtable properties in ﬁfteen years if
+energy prices rise as predicted (Kyrkander, A., Energy Consultant, The Passive House
+Centre. Personal Communication, 31 March 2011).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+It is costly but there are several things that make it cheaper in the long term.
+Ing-Marie Odegren had the politicians see the whole thing, and how this will
+
+Interface
+
+help Alingsa˚s Municipality. (Westholm, H., Architect, Efem Architect Ofﬁce
+AB. Personal Communication, 13 April 2011)
+
+Process of Implementation
+
+Due to integrated involvement, the project grew from a desire for a simple passive house
+renovation to a multifaceted overhaul of the buildings. Alingsa˚shem saw the beneﬁts of
+including consultants and considering long-term resident needs to provide a
+comprehensive renovation.
+The subsequent renovations translated the lessons from the demonstration project
+directly into modiﬁcations of the process and design. The outcome was energy savings
+better than the calculated targets. The same level of air tightness was achieved (0.2 L/s/m2
+
+at ^50 Pa (Janson, 2010, p. 253)) as that expected for newly constructed passive buildings
+(Jorlo¨v, B., General Contractor, Skanska. Personal Communication, 21 April 2011).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+We made energy calculations from the beginning. When the consultants
+measured the ﬁrst house, the results were better than our calculations. That is
+astonishing. You use normal materials. The only difference is you take
+more care of the building physics, and all of the workers know about that.
+The process in itself is a sort of development. (Eek, H. Passive House Expert
+and New Resident, The Passive House Centre. Personal Communication,
+14 March 2011)
+
+The Broga˚rden project has arrived at these concrete results due to a pragmatic process
+which involved many local participants, and included a partnering agreement. The
+partnering agreement involved stakeholders in the early stages of the project. The
+experiences from the demonstration building were recorded in a database and could be
+translated directly to the subsequent renovations as part of a pragmatic process. The
+community atmosphere in Broga˚rden enabled a high degree of communication between
+participants.
+
+Pragmatic Process
+
+Planners and architects often discuss pragmatic methods of development in their theory
+behind design solutions. However, with barriers such as high-paced development, short-
+term economic focus, and a lack of political will, the method is too often lost during the
+practice of building.
+In Broga˚rden there was not a conscious decision by the stakeholders to base the project
+in a pragmatic process. Looking back on the series of decisions, however, one can clearly
+see that Alingsa˚shem arrived at the process through recognizing the importance of
+“learning-by-doing”, rather than exclusively adhering to predetermined plans and
+solutions. Alingsa˚shem connected previous experiences to the new situation through
+inviting sub-contractors to contribute to the design and involving many stakeholders to
+increase the insights into what is required to achieve sustainability (Farmer & Guy, 2010).
+Aside from stakeholders, Alingsa˚shem had a variety of consultants participate in the
+demonstration project. Involving passive house experts, a PhD architecture student3 and
+accessibility planners increased the scope of the renovation (Figure 10). The relevance of
+the buildings improved both as an example of the possibilities for passive house
+architecture, and of renovations for greater physical accessibility.
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 10. Participants in Broga˚rden project. Source: Interviews1 by Carley Friesen.
+
+There are so many buildings in the area so during the process you could do
+adjustments and that was good. Researchers were involved and were very
+helpful. I could sketch and the researcher would do the energy calculations and
+come back with the results of how the change would impact the efﬁciency.
+(Westholm, H., Architect, Efem Architect Ofﬁce AB. Personal Communication,
+13 April 2011)
+
+The project is learning-by-doing. It is an actual part of production. They are
+developing a method for all of the Million Programme areas housing stock.
+(Kyrkander, A., Energy Consultant, The Passive House Centre. Personal
+Communication, 31 March 2011)
+
+Renovation is a challenge because knowledge about the building’s construction and the
+precise condition of hidden materials can be difﬁcult to obtain. During and after the
+demonstration project construction plans had to be adapted. For example, during the
+demonstration project, individual ventilation units were installed in each bathroom. Now
+they install a central ventilation unit in each building, which is augmented by a heating coil
+placed in the supply air duct in each apartment. Alingsa˚shem has estimated they will save
+approximately£5,766eachyearinmaintenancecosts,andtheyareabletooffertenantsalarger
+bathroom, since it will no longer contain an individual ventilation unit (Janson, 2010, p. 277).
+The residents in Broga˚rden were not initially involved in the decision to renovate to
+passive houses. It was after this decision that Alingsa˚shem together with the Tenants
+Society held meetings to discuss the passive house renovation with residents and carried
+out a survey to ask for their concerns and suggestions for other aspects of the renovation
+(Kyrkander, A., Energy Consultant, The Passive House Centre. Personal Communication,
+31 March 2011). The residents are subject to post-evaluation (Corriere, C., Tenants Society
+
+Interface
+
+Representative and Long-term Resident, The Tenants Society. Personal Communication,
+26 April 2011) and the contractors use their feedback to reﬁne the work. For example, the
+placement of electrical outlets in the apartments was unsatisfactory, especially in the
+kitchens. A small group of residents photographed and sent in their suggestions. They
+received detailed comments about why the outlets were placed where, and which ones
+could be changed to meet the suggestions. The outlet locations have been changed in
+subsequent renovations.
+
+It was the wrong way in the beginning. The residents were not involved from
+the start, and voiced their concern. Alingsa˚shem took their reaction very
+seriously and changed; they began a dialogue with them about the problems. To
+make something better you ﬁrst have to understand what is bad. (Corriere, C.,
+Tenants Society Representative and Long-term Resident, The Tenants Society.
+Personal Communication, 26 April 2011)
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+The experience-based approach, where learning throughout the process reframes design
+problems, ensures a high quality in the design and construction of the building, which is
+difﬁcult to achieve in a typical closed and linear operation. During the interviews, all of the
+stakeholders attested to the beneﬁts of having trans-disciplinary contact, and the ability to
+utilize the skills and knowledge of the other stakeholders to aid their own portion of the
+process. It is critical, however, that the housing company has a strong strategy for the
+pragmaticprocessfromthebeginning,expectingadaptations.AlthoughAlingsa˚shemarrived
+at a ﬂexible process and learned early on from their oversights, residents and consultants in
+Broga˚rden were sometimes engaged too late, forcing changes during the construction instead
+of the design phase (Janson, 2010, pp. 234, 279) causing time delays and adding to costs.
+
+Partnering Agreement
+
+The term “partnering” describes an agreement, often coupled with a legal contract, which
+implies a high level of communication and quality performance objectives (Smyth &
+Rawlings, 2004, p. 6). In a conventional construction project, the clients usually hire for a
+ﬁxed amount of time, based on the best price or tender. In Broga˚rden, the general contractor
+has entered an agreement with Alingsa˚shem based on the services they can provide
+throughout the course of the renovations. The general contractor then hired other contractors
+into a similar, long-term agreement based on their offer of services (Jorlo¨v, B., General
+Contractor, Skanska. Personal Communication, 21 April 2011).
+Economically, the practice of partnering pays off through the beneﬁts the
+communicative process delivers both to the contractors and the clients. The time spent
+on a well-designed building, together with the attention to detail required for passive
+house construction, results in lower maintenance costs (Pitts, 2004, p. 101). The focus is
+taken away from speed, and put on accuracy, creating a positive and safe work
+environment for the contractors. The project contractors have been hired from Alingsa˚s or
+within 30 km of the site (Skanska), lending to local knowledge of the area and environment,
+as well as encouraging choices to support local businesses and material sources.
+Environmentally, partnering allows a comprehensive approach to sustainability
+considerations. With all parties engaged, the agreement enables a deeper evaluation of
+the whole life cycle of construction materials and systems (Smyth & Rawlings, 2004, p. 6).
+InBroga˚rden, partnerswere encouragedtocontributetheirexpertise towards the planning
+of the renovation and to set goals for achieving the air tightness required for an efﬁcient
+passive house construction, including ensuring that all of the processes, from electrical to
+
+Interface
+
+plumbing, did not disturb the plastic air barrier. It was important for each discipline to
+maintain a dialogue with the others, so that they were all aware of the modiﬁcations and
+that changes did not sacriﬁce the energy-saving solutions (Janson, 2010, p. 340).
+As the project progressed, the contractors had the opportunity to suggest improvements
+in the process which they saw necessary. When these suggestions were implemented in
+future phases of construction, not only did the procedure become more efﬁcient, but the
+carpenters felt more committed, as it was their own innovation helping to guide the
+project (Janson, 2010, p. 341).
+For example, the experience of the demonstration project revealed that there was a need
+to simplify the construction of the exterior walls which contained four thicknesses of
+insulation and was difﬁcult to install. The design also included a material used for the
+window installation which was time consuming to order, and heavy and itchy for those
+working with it. A meeting was held involving Alingsa˚shem and their partners; the
+general contractor, the designer, the salesperson of the exterior wall building system, and a
+carpenter. They came up with a new design that used only two thicknesses of insulation
+and a new material for the window installation. Economically, they estimated a time
+saving of 100 working hours per building, and a material savings worth approximately
+£9,690 per building. The savings in transport of these materials can also be deducted from
+both economic and environmental costs. Most importantly, they improved the work and
+health of the carpenters (Janson, 2010, p. 278).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+The workers arevery satisﬁed with their work environment. As a resident, it is so
+nice to go there when they are working. They are very friendly to each other and
+don’t have conﬂict or competition between each other. They really appreciate
+that, and really enjoy this job site. (Eek, H. Passive House Expert and New
+Resident, The Passive House Centre. Personal Communication, 14 March 2011)
+
+Community Atmosphere
+
+The interviews reveal that the partnerships and general networking between the
+stakeholders was a foundation of the project. With a connection to various opinions, the
+politicians were able to understand the beneﬁts of the Broga˚rden renovations from
+multiple standpoints.
+The interviews revealed that an ordinary town was able to carry out a revolutionary and
+nationally acclaimed project precisely because of the strengths that come with being a small
+community. The stakeholder connectivity is in part due to neighbourly relationships
+fostered by the relatively small city (which, interestingly, is known for having many local
+cafes, around 26 in total). There are many crossovers in stakeholders, such as Eek, the
+passive house expert becoming a resident of Broga˚rden, or Corriere, the administrator for
+the Tenants Society as an existing resident. These crossovers provide unique perspectives on
+the situation. The local government was closely tied into the project, and calculations from
+Alingsa˚shem convinced them of the beneﬁts. Local ofﬁces and a main meeting space in the
+demonstration apartment provided physical space for in-person meetings and discussions.
+
+Passive House Challenges
+
+Passive house construction is becoming more widespread in Sweden, from two known
+projects in 2005 to over 1000 houses and apartments in 2010 (Passivhuscentrum cited in
+Janson, 2010, p. 337). Despite efﬁcacy in lowering energy use, and the suitability of passive
+
+Interface
+
+house techniques, there continue to be challenges in generating a wider acceptance of
+passive house construction and renovation.
+Because passive house construction requires a high quality level of design and
+construction, time and in turn economic investment are higher in the beginning than in
+conventional construction projects. It is difﬁcult for both housing companies and individuals
+to look beyond this initial investment to the long-term beneﬁts of energy savings and the
+effects of comfortable indoor environments on quality of life and workplace efﬁciency.
+
+Alingsa˚shem’s forward-looking vision is possible because it is owned by the
+municipality of Alingsa˚s. They can conﬁrm savings in elderly care to the
+politicians in the immediate future, which is signiﬁcant to the small community
+where cost for elderly care is 26% higher than the national average (Statistics
+Sweden, 2011). They can also demonstrate stable rent levels due to low energy
+use, and a contribution to variety in housing stock for the community. Private
+housing companies do not usually have the same long-term ﬁnancial planning,
+connection to in-direct beneﬁts, or community mindedness . . .
+In pilot
+projects there is often a huge wall between the project and the real thing. There
+is one project, no repetition, and they limit the possibility for learning. What is
+actually interesting is when it is used as a stepping stone. To Alingsa˚shem, this
+is not an experiment; it is development. The project is part of an internal
+development that is long-term. (Kyrkander, A., Energy Consultant, The Passive
+House Centre. Personal Communication, 31 March 2011)
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Media often focuses on eco-neighbourhoods with innovative new technology, and
+newly built areas. Focusing on a renovation project, which looks very similar to the existing
+and whose key components (heavy insulation, and a ventilation system) are rarely seen, is
+not the type of visually exciting story which many media desire. Focus on the high-tech in
+eco-neighbourhood has generated scepticism around technologies which are owned, and
+the selling of “eco-ideas”. Passive house technology, in fact, is not a technology but a
+technique. Housing owners may be sceptical of who is beneﬁting from their use of passive
+house techniques, and not realize that it is a free and unprotected method (Kyrkander, A.,
+Energy Consultant, The Passive House Centre. Personal Communication, 31 March 2011).
+Experts at the passive house organization2 that supported Alingsa˚shem have been
+working actively to shift the mindset from energy generation to energy conservation. The
+focus of the energy crisis is shifted from the energy source to an exploration of the potential
+of energy savings through good design and sound construction methods.
+Concerning new construction, the European Union has a mandate that by 2020 all new
+houses in the Member States must be built to passive house standards, or as nearly zero-
+energy buildings (Council of the EU, 2010). In Sweden, solar orientation and thermal mass
+make little difference to the efﬁcacy of a passive solar house (Eek, H. Passive House Expert
+and New Resident, The Passive House Centre. Personal Communication, 14 March 2011),
+so there are many possibilities for passive house renovations as well.
+It is crucial that passive house renovations such as the Broga˚rden example continue. It is
+estimated that there are 400,000 apartments in Sweden with the same construction as the
+Broga˚rden Million Homes programme area, which can be similarly renovated (Skanska, 2009).
+
+We are bound to reduce our energy. We cannot do it only in new houses; we
+must retroﬁt. The Million Programme areas are able to be renovated in this
+way; this is a good possibility. (Jorlo¨v, B., General Contractor, Skanska.
+Personal Communication, 21 April 2011)
+
+Interface
+
+Conclusion
+
+Passive house renovations are an appropriate method for adapting Sweden’s Million
+Program areas into energy-efﬁcient neighbourhoods. A pragmatic process combining a
+strong environmental vision and a humanistic approach to quality of life negates the
+conventional gaps between planning and realizing ambitious projects by involving public
+and private sector stakeholders, experts and residents.
+Professionals, media, and politicians must focus on the multiple facets of sustainable
+eco-neighbourhoods. There are common goals for most communities, including a desire
+for inclusive, safe and healthy places, calm, attractive and natural areas, a balance of
+public, private and social life (Barton cited in Sassi, 2006, p. 53). Although these factors
+may be more difﬁcult to evaluate than technical aspects, and thus are often neglected both
+by media and authorities, their inclusion in the design of neighbourhoods will lead to
+indirect and often unexpected beneﬁts in economic and social sustainability, in turn
+contributing to environmental efﬁciency in the long term.
+For passive house techniques and renovation projects to become an accepted
+contribution to the eco-neighbourhoods trend, practitioners must shift focus and include
+the variety of solutions found in a humble and humanistic implementation of efﬁciency
+strategies, one step at a time.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Notes
+
+1.
+To gain a better understanding of the Broga˚rden project the author conducted a series of ﬁve interviews, along
+with study trips to the renovated buildings and construction site. The interviews can be found on the works
+cited page.
+2.
+Passivhuscentrum (the Passive House Centre) is a non-proﬁt organization operating in Alingsa˚s, Sweden, to
+deliver resources, advice and education on passive house construction. They can be found at http://
+passivhuscentrum.se/en
+3.
+Lund University, Faculty of Energy and Building Design has been involved with the advice and evaluation of
+the project. Ulla Janson conducted a full research project into the Broga˚rden projects and three other passive
+house projects in Sweden. The full results of this detailed study can be found at http://www.ebd.lth.se/
+publikationer/
+4.
+The general contractor is Skanska Sweden. Their tender was chosen on competition and based on the
+acceptance for a partnering offer for all the building projects for Alingsa˚shem (Janson).
+5.
+The newsletter, Broga˚rdsbladet, is available in Swedish on the Alingsa˚shem website at http://www.
+alingsashem.se/index.php?page ¼ brogardsbladet
+
+References
+
+Alingsa˚shem (2007) Alingsa˚shem Builds a Sustainable Future (Alingsa˚s, Sweden, Alingsa˚shem).
+Alingsa˚shem (2010a) Broga˚rden in Figures (Alingsa˚s, Sweden, Alingsa˚shem).
+Alingsa˚shem (2010b) Broga˚rden: Energy Efﬁcient Renovation—A Million Possibilities (Alingsa˚s, Sweden,
+Alingsa˚shem).
+Council of the EU (2010) Directive of the European Parliament and of the Council on the Energy Performance of Buildings
+(Brussels, Belgium, Council of the European Union).
+Farmer, G. & Guy, S. (2010) Making morality: Sustainable architecture and the pragmatic imagination, Building
+Research and Information, 38, pp. 368–378.
+Hall, T. & Vide´n, S. (2005) The Million Homes Programme: A review of the great Swedish planning project,
+Planning Perspectives, 20, pp. 301–328.
+Janson, U. (2010) Passive houses in Sweden: From design to evaluation of four demonstration projects. Doctoral
+dissertation, Lund University, Sweden.
+Pitts, A. (2004) Planning and Design Strategies for Sustainability and Proﬁt (Oxford, Architectural Press).
+Sassi, P. (2006) Strategies for Sustainable Architecture (New York, Taylor & Francis).
+Skanska (2009) Case Study 64: Broga˚rden, Sweden (Gothenburg, Sweden, Skanska).
+
+Interface
+
+Smyth, D. & Rawlings, P. (2004) Sustainable Construction and the Need for Partnering., Paper presented at the
+International Conference of Greening of Industry Network: Partnerships for Sustainable Development, Hong
+Kong, November
+Statistics Sweden (2011) Alingsa˚s Municipality: Municipal Facts., Available at: http://www.alingsas.se/sites/
+default/ﬁles/1489_alingsas_fakta_eng1_0.pdf
+
+Regulative, facilitative and strategic
+contributions of planning to achieving
+low carbon development
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+JO WILLIAMS
+
+UCL Bartlett Faculty of the Built Environment, London, UK
+
+ABSTRACT
+The triple threats of climate change, resource depletion and energy security have led to
+a need to re-think the way in which we build and regenerate our cities. Increasingly low carbon
+infrastructure, buildings and lifestyles are being encouraged in urban areas. This trend has resulted
+in the emergence of a number of low carbon demonstration projects in cities across the world.
+The planning process is one of many tools in the armory for delivering low carbon development. It
+has a clear role in the delivery of low carbon demonstration projects and may also be used to
+encourage wider deployment of low carbon systems in cities. It has several roles – strategic,
+regulatory and facilitation (identiﬁed by planning theory) – all of which can be used to assist in the
+delivery of low carbon development.
+Strategic planning can be used to coordinate resource and development strategies as well as
+encourage the alterations to urban form needed to support the deployment of
+low carbon
+technologies. The planning process itself can be manipulated to reduce the cost of low carbon
+development; used to facilitate discussion between key players involved in delivering low carbon
+development; and build support for low carbon infrastructure in communities. In its regulatory role
+planning can be used to enforce the adoption of low carbon infrastructure in communities.
+The role of planning in delivering low carbon development will be investigated in this paper using a
+two casestudiesfromEurope.Theweaknessofplanningasa toolfordeliveringlowcarbondevelopment
+and the factors which can provide greater leverage are also explored using case study examples. Finally
+the future role for the planning system in delivering low carbon development is discussed.
+
+Keywords: low carbon development; planning; Freiburg; Stockholm; Hammarby; Vauban
+
+Introduction
+
+The triple threats of climate change, resource depletion and energy security have led to a
+need to re-think the way in which we build and regenerate our cities. Increasingly, low
+carbon infrastructure, buildings and lifestyles, the constituents of a low carbon energy
+system are being encouraged in urban areas. This trend has resulted in the emergence of a
+
+Correspondence Address: Jo Williams, UCL Bartlett Faculty of the Built Environment, Wates House, 22 Gordon Street,
+London WC1H 0QB. Email: joanna.williams@ucl.ac.uk
+
+Interface
+
+number of low carbon neighbourhoods in cities across the world. Some of the most cited
+examples can be found in Europe.
+This paper discusses, critically analyses and compares different planning approaches to
+the delivery of low carbon development in Hammarby Sjo¨stad (Stockholm, Sweden) and
+Vauban (Freiburg, Germany). The critique is based on a detailed analysis of both
+neighbourhoods conducted as part of the Zero Carbon Homes project (the ﬁndings of
+which are presented in Williams, 2011). Both neighbourhoods have achieved considerable
+carbon reductions when compared with the average carbon footprint of citizens living in
+the cities in which they are situated.
+Planning is one tool in the armoury for delivering low carbon development. As the local
+context (physical form, resource availability, culture, social capital, institutions, political
+and economic systems) greatly inﬂuences the implementation of different low carbon
+energy systems, the planning process has a clear function in delivery. Through strategic,
+regulatory, and facilitative roles, the planning process can deliver low carbon
+neighbourhoods (Bulkeley & Kern, 2006; Campbell, 2006; Crawford & French, 2008;
+Day et al., 2009; Williams, 2010).
+The community (residents, businesses, etc.) can take an active or passive approach to the
+delivery of low carbon energy systems. It can take an active role in supporting, designing,
+ﬁnancing and operating low carbon energy systems, or play a passive role. In the former case
+the community becomes a co-provider, which ensures community support and engagement
+in the transition to a low carbon system (Devine-Wright & Devine-Wright, 2004; Sauter &
+Watson, 2007). In the latter case producers (utilities, municipalities, developers, etc.) deliver
+low carbonsystems, whilst the communitytendtoact purely asconsumers(Sauter & Watson,
+2007). This approach has the beneﬁt that it can often be applied over a relatively short time
+frame, although behavioural change and associated carbon reductions may be limited.
+In each case planning plays a different role, in this paper exempliﬁed by two low carbon
+neighbourhoods: Vauban and Hammarby Sjo¨stad. In both instances the regulatory, strategic
+and facilitative functions of planning have been used to deliver low carbon
+neighbourhoods. Both cases focus on the facilitative role of planning in building capacity
+amongst key stakeholders to deliver low carbon neighbourhoods. However, the stakeholder
+focus has differed between the community and those producing the built environment.
+The Freiburg approach heavily involved the community (local businesses and
+residents) in the process of planning Vauban. This helped to raise energy awareness,
+engage public interest and involvement in the project. It built local social capital, which
+created the support and social structure needed to encourage pro-environmental
+behaviour, carbon reduction and the development of collective approaches towards
+energy generation and conservation (Williams, 2011). The Freiburg approach did produce
+a low carbon neighbourhood. However, the argument put here is that such an approach
+works well in localities where the public is already engaged, proactive and supportive of
+environmental objectives, but of course in many communities this is not the case.
+Often the community does not have adequate interest or expertise to be involved in the
+development of low carbon neighbourhoods. In this context the application of passive low
+carbon energy systems through a top-down planning approach can be more fruitful
+(Williams, 2011). Here the planning process can be used to engage producers (the
+construction industry, municipalities and utilities) to create low carbon technical systems
+and neighbourhoods (Williams, 2011).
+The process builds capacity to deliver low carbon neighbourhoods amongst producers
+(rather than the community). It enables more strategic approaches to the delivery of low
+carbon energy systems and wider deployment of low carbon technologies and lifestyles.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+Such an approach is exempliﬁed by the “Stockholm process” adopted in Hammarby
+Sjo¨stad. The problem with this approach is it does not address the attitudes or lifestyles of
+those living in low carbon neighbourhoods and thus will ultimately only partially address
+the issue of energy consumption.
+
+Comparing the Low Carbon Neighbourhoods
+
+Hammarby Sjo¨stad and Vauban are very different (Table 1). Hammarby is situated in a
+capital city rather than a regional town. It is four times the size of Vauban and signiﬁcantly
+denser. It is located in an inner urban area (a popular water-front location) whereas
+Vauban is in a suburban district. Residents living in Hammarby tend to be afﬂuent, whilst
+Vauban provides accommodation for diverse groups. The residents of Vauban are
+motivated by a green agenda,1 whilst Hammarby residents are not.
+In both neighbourhoods the aim was to lower carbon emissions from residents. In
+Freiburg the average citizen’s carbon footprint is 8.5 tonnes per capita per annum compared
+with 0.5 tonnes per capita per annum for those living in Vauban. In Hammarby Sjo¨stad the
+average resident’s carbon footprint is 2.5–3 tonnes per capita per annum compared with 4
+tonnes per capita per annum for those living in Stockholm. The instant difference in carbon
+footprints between Stockholm and Freiburg relates to the carbon intensity of the main
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Table 1. Comparing the case studies (key facts).
+
+Vauban
+Hammarby Sjo¨stad
+
+Population in neighbourhood
+5,000 residentsa
+20,000 residents (9,000 units)a
+
+Population urban area
+217,000b (Freiburg)
+1,000,000 (Stockholm)a
+
+First phase completion
+2007
+2004
+Income
+High, medium, low
+High
+Country
+Freiburg, Germany
+Stockholm, Sweden
+Location
+Suburban (former industrial site)
+Urban waterfront (former industrial site)
+– prime development site
+Land use mix
+Mixed
+Mixed
+Density
+Medium
+High (50 units/hectare)a
+
+District energy systems
+Local biomass fuelled combined
+heat and power (CHP) plant
+See Hammarby closed-loop model
+
+Energy-efﬁcient buildings
+65 kWh/m2/yeara or below
+(passive house [PH] and
+Energy-plus standard)
+
+60 kWh/m2/yearb
+
+Energy sources
+Photovoltaic and solar collectors,
+biofuel, biogas
+Solar, waste water treatment, biofuel,
+biogas, waste incineration, groundwater
+heating/cooling
+Transport
+Trams, buses, cycle lanes and
+parking,car pool, reduced parking
+spaces, car free development
+
+Trams, buses, cycle lanes and parking,
+car pool (powered by biofuel, gas)
+
+Carbon production in neighbour-
+hood(tonnespercapitaperannum)
+0.5c
+2.5–3.0d
+
+Carbon production in city (tonnes
+per capita per annum)
+8.5b
+4e
+
+Energy system
+Active
+Passive
+Residents
+Energy citizens
+Passive consumers
+
+a Antonoff (2007)
+b ICLEI (2009)
+c ACT Planning and Land Authority (2010)
+d Brick (2008)
+e City of Stockholm (2009).
+CHP, combined heat and power; PH, passive house.
+Source: Author.
+
+Interface
+
+energy supply. The carbon intensity of the energy supply in Freiburg (0.28) is double that of
+Stockholm (0.14) because Sweden’s energy supply (heat and power) is largely sourced from
+nuclear, renewable energy and waste rather than fossil fuels as is the case in Germany.
+Both neighbourhoods have achieved carbon reductions through:
+
+. higher energy standards in building,
+. efﬁcient energy systems,
+. generation of low carbon energy,
+. schemes to promote alternatives to fossil-fuelled cars (public transport, low carbon
+vehicles, car pools, cycle lanes, etc).
+
+Vauban and Hammarby took two different approaches towards visioning, designing,
+ﬁnancing and operating the energy systems. In Vauban the approach included the
+community in all four processes, thus Vauban residents are active energy citizens. Develop-
+ments within the neighbourhood adopted several different approaches to the delivery of
+carbon reductions. In some developments community heating was adopted, whilst others
+were connected to the district heating system powered by biofuel (2000 units). Some 59
+households generated all their energy from solar radiation. Others opted to be car-free.
+In contrast Hammarby residents were entirely excluded from the visioning, design,
+ﬁnancing and management of their energy system by the project team. Thus they are
+passive consumers. This situation is reinforced by a lack of metering in homes. All
+households in Hammarby are connected to a closed-loop energy system. This is
+conceptually based on an eco-cycle model, where waste products from urban processes
+are used as a source of energy. A low carbon electricity supply from the national grid and
+low carbon technologies embedded in buildings complement the closed-loop system in
+Hammarby Sjo¨stad. Hence it is a passive, low carbon energy system.
+The closed-loop system was initially developed by Stockholm Energi, Stockholm Water
+Company and the Stockholm Waste Management Administration. It utilises several low
+carbon energy sources including solid waste, biofuel, biogas and waste heat (Figure 1).
+Biofuel isusedbyStockholm’s combinedheat and power (CHP) plant,thermal powerstation
+and by municipal vehicles. Organic waste produced by households fertilises the biofuel
+crops outside Stockholm. Household waste water is processed to produce biogas, which
+powersvehiclesandprovidesgasforcookinginHammarbySjo¨stad.Theheatproducedfrom
+the process of purifying domestic waste water is used by the thermal power station.
+Two very different planning processes were used to produce these contrasting
+neighbourhoods.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Vauban
+
+The planning system has played a role in the incorporation of low carbon energy systems
+in Vauban. At the time Vauban was being developed, the planning system’s role in
+delivery was largely regulatory and facilitative. However, post-Vauban the role of the
+planning in producing low carbon development has also become strategic, encouraging
+the diffusion of low carbon systems throughout Freiburg.
+
+The Regulatory Role of Planning
+
+The planning system adopted a regulatory role in the case of Vauban by enforcing
+localised energy standards for buildings (Figure 2). All units achieved the low-energy
+standard as a minimum (65 kWh/m2/year). However, some exceeded this standard.
+For example, the passive and energy-plus houses achieved a space heating standard of
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 1. The Hammarby Model. Source: Hammarby (2010).
+
+15 kWh/m2/annum, whilst the latter also generated energy from solar radiation. Setting
+standards for new development on the site reduced energy consumption and associated
+carbon emissions, as demonstrated by the carbon footprint of an average Vauban resident.
+Market demand for housing in Freiburg and municipal control of the site delivered
+higher energy-efﬁciency standards for building in Vauban (Williams, 2011). Municipal
+
+Figure 2. Energy standards in Vauban. Source: Innovation Academy (2009).
+
+Interface
+
+ownership of the site provided the city council with the leverage it needed to demand
+higher energy standards in buildings (Daseking, interview, 2009; Donn, 2011). Market
+demand for housing in Freiburg in conjunction with limited land availability meant that
+competition amongst developers for the Vauban site was ﬁerce (Daseking, interview, 2009).
+Thus, even with higher energy standards (and the inﬂated build costs associated with the
+use of low carbon systems) there was considerable interest amongst developers in Vauban.
+The Vauban experiment showed that building to higher energy standards in new
+buildings was economically and technically feasible. As a result these standards are now
+being adopted by the latest zoning plan for Freiburg2 (Figure 3) and in fact have informed
+conditions placed on development in other German cities (e.g. Frankfurt, Hannover,
+Hamburg, Munich and Ulm) and are now inﬂuencing federal building codes.
+The Vauban experiment demonstrates that innovation in development can be
+encouraged locally using planning conditions. These are more ﬂexible than mandatory
+federal or national building code. Thus, where the context suits innovation, planning
+controls can be used as a stimulus to encourage it, whilst where the context does not suit
+innovation, using more ﬂexible planning controls can be useful to ensure sites do not
+become redundant (Williams, 2011).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+The Facilitative Role of Planning
+
+The planning process also acted in a facilitative role in Vauban. It helped to build the
+community’s capacity to understand, support and be involved in the delivery of a low
+carbon neighbourhood. The planning process adopted in Vauban engaged the community
+in visioning and design consultation exercises (Sperling, 2002). It encouraged community
+support for more innovative development models and new technological systems (Ries,
+interview, 2011; Sperling, 2002).
+Three key groups were involved in planning Vauban: Project Group Vauban,4 City
+Council Vauban Committee5 and Forum Vauban.6 Several other actors also had the
+opportunity to feed into the planning process (Figure 4). Workshops and exhibitions
+
+Figure 3. Energy requirements of new build development in Freiburg.3 Source: Innovation Academy
+(2009).
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 4. Actors involved in the participative planning of Vauban. Source: Brohmann et al. (2002).
+
+organised by Forum Vauban engaged all key stakeholders in thinking about and discussing
+the development of Vauban. It brought together citizens, architects, engineers, ﬁnancial
+experts, experienced managers of co-building projects and other partners. It acted as the hub
+for the exchange of ideas, concerns and expertise amongst these groups (Sperling, 2002).
+This approach helped to raise public awareness of ecological and socially conscious
+design. It provided a forum to consider possible development options and negotiate
+potential solutions. It also helped to build social capital within the community (through
+engagement, discussion and negotiation), which enhanced the feasibility of collective
+approaches to the delivery of some services including energy. Ultimately it strengthened
+commitment to the ecological and social objectives of the plan amongst all key stake-
+holders (Sperling, 2002). It also translated into greater community support in the ongoing
+operation of low carbon systems in the neighbourhood and the creation of active energy
+citizens (Williams, 2011).
+The range of stakeholders involved in the construction of several different housing
+projects on the site created diverse responses to the wider sustainability agenda. Some
+housing groups concentrated on environmental objectives and others on social objectives
+(Ries, interview, 2011). Some housing groups focused on maximising energy efﬁciency in
+their building and energy system (e.g. localised CHP biofuel systems), others sought to
+produce low carbon energy (e.g. energy-plus houses), others to share resources thus
+reducing energy consumption (e.g. through car-share schemes). These approaches
+produced models which could be used to deliver low carbon neighbourhoods. Allowing
+groups to choose their focus and solutions also ensures long-term support.
+Public subsidies (for new low energy buildings, energy refurbishment and the generation
+of low carbon energy) and the local cultural context give this planning approach greater
+leverage (Williams, 2011). Bottom-up, low carbon initiatives in Vauban (and Freiburg) have
+been supported by an array of federal and local subsidy schemes. The energy refurbishment
+
+Interface
+
+of existing stock and construction of low energy housing has been subsidised by low cost
+capital loans (e.g. KfW ¼ Kreditanstalt fu¨r Wiederaufbau banking group loans). Capital
+grants have also been available for the installation of renewable energy technologies (e.g.
+100,000 roofs solar programme which subsidised the photovoltaic (PV) arrays on the
+football stadium). The feed-in tariff (an operational subsidy) has encouraged the local
+community to invest in renewable energy projects. Local funds are also available from the
+regional energy company (Badenova) in Freiburg for local low carbon energy projects.
+The cultural context has been integral to the success of this planning approach. The
+degree of community engagement in local decision-making processes and the provision of
+services in Freiburg as a whole is unusually high. This is exempliﬁed by proliferation of
+community led, small-scale renewable energy generation projects (including local hydro-
+electric plants ﬁnanced by housing associations; the solar collectors on Freiburg football
+stadium ﬁnanced by the fans; the small wind farm constructed on the edge of Freiburg,
+wholly ﬁnanced by the community) and energy refurbishments of existing stock ﬁnanced
+by housing associations.
+The proactive nature of Freiburg’s community is further demonstrated by the
+emergence of Baugemeinschaft (30–40% of the housing stock in Vauban (Ries, interview,
+2011)). These are groups of citizens planning to build their own accommodation. They are
+involved in forming, visioning, ﬁnancing, designing and managing their own housing
+projects. This takes a great deal of commitment and demonstrates just how proactive the
+residents of Freiburg are prepared to be. Similar models do exist in a few other major cities
+(Munich and Berlin), but they were pioneered in Freiburg and Tu¨bingen.
+This high level of community engagement is (not surprisingly) also found in Vauban. In
+addition, residents strongly support the green agenda. During the European elections, the
+Green Party won 60% of the poll in Vauban (Paterson, 2009). Thus residents are clearly
+motivated by environmental concerns and prepared to prioritise environmental issues.
+Overall, residents in Vauban are very proactive and are keen to tackle their energy
+consumption and carbon footprint. Therefore, arguably it is not a huge leap for pro-
+environmental, proactive residents to become active energy citizens.
+However, it is an enormous leap for the disengaged, passive and environmentally
+unaware individuals (probably constituting the majority of citizens living in many
+European cities) to become active energy citizens. Thus, it seems unlikely that this
+planning approach would bring about the same results in a different cultural context.
+Nevertheless, the Vauban case study does show that where the community has the
+potential to become active energy citizens, adopting this more self-deterministic, bottom-
+up approach to planning, in conjunction with public funding, could help to facilitate the
+transition.
+The planning approach used in Vauban has now been adopted more widely by the
+municipality of Freiburg. Indeed, it has demonstrated signiﬁcant beneﬁts in terms of
+building support for both social and environmental agendas within the city. However, it is
+extremely resource intensive, particularly for the municipality. Involving such a large
+number of actors in the consultation process has also inevitably lengthened development
+time-lines and increased the cost of development. Thus, there are signiﬁcant resource
+implications for planning authorities considering adopting the model as well as
+consequences for the speed of future development (Donn, 2011).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+The Strategic Role of Planning
+
+Since the completion of Vauban, the municipality has adopted a more strategic
+approach towards the integration of land use and energy planning (Daseking, interview,
+2009; Donn, 2011). This approach should help to encourage the diffusion low carbon
+energy systems more widely throughout Freiburg. Carbon reduction targets inform the
+strategic plan, local policies and all planning decisions (Donn, 2011). The impacts of
+planning decisions on carbon emissions are now monitored and inform the strategic
+planning process.
+Key stakeholders delivering low carbon systems are involved in the strategic planning
+process. For example, the regional energy company is involved in the creation of the
+strategic plan (Daseking, interview, 2009; Donn, 2011). It provides planners with the
+information needed to determine the best approach to delivering a low carbon energy
+supply to the locality or to speciﬁc developments. It also advises developers on the optimal
+energy systems for new developments which comply with local planning requirements.
+This approach means that planners in Freiburg do not have to be technical experts in
+energy planning. Their close working relationship with the energy company enables them
+to work with experts to identify the best technical options for reducing carbon emissions in
+existing and new development (Williams, 2011).
+Strategically, the regional planning body for Baden Wurttemburg and the local planning
+body for Freiburg have been working in opposition in terms of delivering renewable energy
+(Donn, 2011). The latter has been supportive, whilst the former has actively prevented the
+development of renewable energy capacity. The regional planning body has prevented the
+development of wind farms in the region surrounding Freiburg, whilst the municipal
+planning authority has positively promoted all forms of renewable energy within the city
+boundaries.
+Baden Wurttemburg politicians have supported the development of the region’s
+nuclear capacity, whilst actively undermining renewable alternatives. This has limited the
+options for the development of renewable energy capacity to within the city-limits of
+Freiburg (only about 30 MW of installed energy) and resulted in the focus on biofuel and
+solar systems. It has also limited the potential for low carbon development. However,
+a recent political change in regional government, a shift towards a green agenda and the
+increasing unpopularity of nuclear energy in Germany look set to change this situation.
+This example demonstrates the importance of political support at an urban and regional
+level for low carbon systems.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Hammarby Sjo¨stad
+
+The planning system has played a role in the incorporation of low carbon energy systems
+in Hammarby. The planning systems role in the delivery of the low carbon neighbourhood
+was regulatory, facilitative and strategic. The strategic role was of key importance, unlike
+the Vauban case study. Another difference was that the facilitative role focused on
+producers rather than consumers of the built environment. The regulatory role was very
+similar to that found in Vauban.
+
+Regulatory Planning
+
+The planning authority in Stockholm produced an environmental plan for the
+development of Hammarby. It outlined targets for emission reductions from buildings
+
+Interface
+
+and the energy system. Overall, the target was to halve CO2 emissions from the
+neighbourhood. This ambitious standard could be applied to the development for several
+reasons: municipal ownership of the site, market demand for housing in Stockholm and
+the availability of public funds (Stoll, interview, 2009).The municipality owned the site
+and thus could control the release of land for development. There was (and still is)
+considerable demand for new housing and a limited availability of sites within the
+metropolitan region of Stockholm. Thus, in part, demand for units in central Stockholm
+drove improvements in environmental standards. A signiﬁcant injection of public funding
+in Hammarby also increased developer interest. The municipality and Swedish
+government invested a signiﬁcant amount in the decontamination and preparation of
+the site for construction (Bylund, 2003). The municipality also invested in the creation of
+the bespoke closed-loop energy system, which reduced build costs for developers (Stoll,
+interview, 2009).
+In reality, both buildings and the community energy system under-performed in respect
+to the CO2 emission reduction targets. The environmental assessment tool developed by
+the City of Stockholm, Royal Institute of Technology, and Grontmij shows a 28–42%
+reduction in non-renewable energy use and a 29–37% reduction in CO2 emissions
+resulting from the closed-loop system (Brick, 2008), when compared with the average for
+Stockholm.
+The higher energy standards set for new buildings were not achieved. This was blamed
+in part on design. The residential units were larger than average and oversized in relation
+to functional requirements (Stoll, interview, 2009). This increased the amount of energy
+needed for space heating and cooling. The units also had oversized windows, which
+increased heat loss during the winter and contributed to over-heating in the summer
+(Stoll, interview, 2009). The technologies used for the building fabric were also a lower
+energy standard than required.
+The system for monitoring and enforcing higher energy standards was lacking in
+Hammarby, relying on the accuracy of energy modelling; the expertise and skills of the
+builders in delivery, and integrity of those self-reporting build quality (Stoll, interview,
+2009). No mandatory system of quality control post-construction exists in Sweden (Na¨sse´n
+et al., 2008). This provides little incentive for developers to ensure construction has
+achieved the energy standards set. Post-construction monitoring and enforcement of
+energy standards by an impartial body is required.
+A change in political control in Stockholm over the construction period (1998–2012)
+also affected the environmental standards imposed on the project. When the
+principal decision to develop Hammarby was taken in 1995, the City of Stockholm was
+governed by a red-green coalition who supported the ambitious environmental
+programme (Vestebro, 2002). When the blue coalition took over in 1998 it decided to
+convert the environmental programme from being binding to a status of recommendation.
+Thus, municipal control over the project slackened (Vestebro, 2002).
+The blue coalition decided that municipally owned land should be sold to the private
+sector. Thus the municipality started to sell land on the Hammarby site to private housing
+and construction companies. They argued that land lease contracts could include clauses
+about environmental standards, but the reality was that selling the land made
+implementation of the environmental programme (and energy standards) much more
+difﬁcult (Vestbro, 2002). This example illustrates the fallibility of using planning controls
+rather than statutory building regulations to ensure high energy standards are achieved in
+new development.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+Poor energy performance was also explained by the energy consumption patterns of
+those living in the neighbourhood. Few of the units were ﬁtted with metering systems
+(Stoll, interview, 2009). Thus energy awareness amongst residents remained low. This
+exempliﬁes the problem of adopting an entirely passive energy system. Engaging residents
+more in the process of ﬁnancing, designing and operating the system might increase their
+energy awareness and reduce consumption.
+Hammarby residents tended to be more afﬂuent and thus could afford to spend more on
+energy (Exploateringskontoret, 2005). Improving the thermal efﬁciencies of housing units
+to an extent led to increased consumption of energy for appliances. Smart metering
+(interactive post-occupancy monitoring) could help to overcome this lack of energy
+literacy within the community, engage households in energy management and help to
+reduce CO2 emissions.
+
+The Facilitative Role of Planning
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+The model for city planning—the “Stockholm process”—was created through the
+development of Hammarby Sjo¨stad (Inghe-Hellstro¨m & Bjurstrom, 1997; Svane, 2005). In
+principle the “Stockholm process” is an iterative, dynamic and collaborative
+process
+which
+brings
+developers,
+municipality
+and
+those
+delivering
+the
+infrastructure to work alongside each other at the earliest possible stage in the development
+process (Stoll, interview, 2009). The planning authority in this model co-ordinates and
+encourages all the different interests in the plan, rather than enforces the vision. It also
+stimulates a learning process amongst producers (developers and utilities).
+The city formed a developmentadministration for Hammarbywithits own project budget,
+a CEO and an environmental unit. The group had visioning, planning and facilitation
+functions (Stoll, interview, 2009). The development administration brought together the
+municipality, developers and utilities to work on a single vision for Hammarby and was able
+to apply for national and city funds for the development (Stoll, interview, 2009).
+An overall vision for the project was developed by the group. The energy, water and
+waste partnership produced the vision for the integrated closed-loop system (Stoll,
+interview, 2009). The planners in the project group developed the master plan for the site
+alongside the infrastructural system (Stoll, interview, 2009). Twelve development districts
+were identiﬁed and handed over to a designer and builder. Competition (technical
+competitions) between developers was encouraged to try and achieve the best possible
+environmental design (Stoll, interview, 2009).
+The municipality held open meetings with all the developers putting in proposals for the site
+(Stoll, interview, 2009). The developers had to present their projects every couple of months to
+their peer group (Stoll, interview, 2009). This enabled the transfer of information about
+innovative technologies, designs and approaches to construction between those working on
+the site (Stoll, interview, 2009). In theory, this helped to build capacity amongst
+developers to deliver buildings constructed to higher energy standards. Yet in reality, new
+developments did not achieve the energy standards set (for reasons explained earlier). The
+success of this approach hinges on post-construction monitoring and enforcement of
+standards.
+
+Strategic Role of Planning
+
+Urban form and land use are hugely inﬂuential in the successful delivery of low carbon
+systems (Williams, 2011). Urban densities, mixture of land use, population size and the
+
+Interface
+
+availability of resources within the city-region all inﬂuence the technical viability of low
+carbon systems (as demonstrated in Freiburg). For example, dense mixed-use
+neighbourhoods support district energy and public transport systems. This has been
+recognised in Stockholm and informs the strategic plan for the city.
+The municipality in Stockholm has coordinated historically spatial and infrastructural
+planning (Stoll, interview, 2009). Thus, the optimal solutions for the provision of energy,
+water, waste and transport infrastructure to new development sites have been considered
+during the planning process. There is nothing particularly remarkable in this; however,
+close collaboration between the municipally owned utilities (energy, water and waste)—
+and the urban planning department resulted in the development of the prototype
+integrated closed-loop energy system (Stoll, interview, 2009). The importance of this
+relationship should not be underestimated. It was crucial for the creation of the closed-
+loop system. Since energy provision is no longer in the control of the municipality (after
+Stockholm Energi was taken over by Fortum Energy in 2002), coordination has become
+more difﬁcult (Stoll, interview, 2009).
+The role of planning has changed in Stockholm since the initial development of
+Hammarby. It is now focused on coordinating and encouraging collaboration between
+key stakeholders (i.e. utilities, developers, community and municipality) in the
+development process. To an extent this more deregulated model (resulting from the
+privatisation of the utilities and reduction in planning powers) has undermined the
+more strategic approach to spatial and infrastructural planning adopted previously,
+producing more ad hoc results (as demonstrated by the Royal Seaport, Stockholm
+(Williams, 2011).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Reﬂections
+
+These examples present two very different approaches to the implementation of low
+carbon neighbourhoods. The role of planning in each case is also different. The regulatory
+role of planning is important in both cases, although it is not the focus (Table 2).
+Hammarby demonstrates post-construction enforcement of standards and post-
+occupancy monitoring is needed if environmental standards set by the planning authority
+are to be achieved. Further, it suggests that environmental standards may be better
+enforced through statutory building code, as planning policy and process is often subject
+to political change which may undermine achievement of environmental standards.
+However, Vauban demonstrates that the ﬂexible nature of planning conditions can be
+useful in encouraging innovation in contexts which are suitable, whilst not enforcing high
+environmental standards where development is already difﬁcult.
+
+Table 2. Comparing planning approaches.
+
+Vauban
+Hammarby Sjo¨stad
+
+Carbon production in neighbourhood
+(tonnes per capita per annum)
+0.5
+2.5–3.0
+
+Regulatory role
+Yes
+Yes
+Strategic role for planning
+Not used for Vauban
+Yes (focus)
+Facilitative role
+Yes (focus)
+Yes
+Facilitative focus
+Consumers
+Producers
+
+Source: Author.
+
+Interface
+
+The facilitative role of planning is used in both case studies and is equally important,
+although more successful in delivering carbon reductions in Vauban. In Vauban the
+focus on the community helps to build support for new systems and adoption of new
+lifestyles. It seems to produce a greater reduction in CO2 emissions. However, the
+success of this approach is context dependent. In the right cultural context a more
+bottom-up approach to planning, in conjunction with public funding, could help to
+facilitate the transition to low carbon systems. In Hammarby the facilitative process
+focuses on producers. In theory this helps to build capacity amongst producers to
+deliver low carbon development. However, in practice it doesn’t seem to have been that
+successful. The success of this approach hinges on post-construction monitoring and
+enforcement of standards.
+The strategic role of planning in the delivery of low carbon systems in Vauban was
+limited, but it was critical to the successful delivery of the closed-loop system in
+Hammarby. It demonstrates the beneﬁts of strategic planning in designing integrated
+resource systems and co-ordinating low carbon infrastructure with development. Freiburg
+(post-Vauban) has developed a very strategic approach to the delivery of low carbon
+development. Carbon reduction targets are now integral to the strategic planning process.
+Key energy stakeholders are involved in the creation of the strategic plan. Certainly, this
+approach has developed rapidly in Freiburg recently. The clash between the strategic
+plans at a municipal and regional level which limited the development of renewable
+energy capacity in the city-region has further demonstrated the importance of a strategic
+planning approach.
+The case studies illustrated that different planning approaches produce different
+types of low carbon systems. The more active system in which residents are engaged
+energy citizens can be encouraged through a more facilitative planning approach. In this
+instance regulatory controls and strategic planning can provide a wider context in
+which the low carbon neighbourhood can operate effectively, whilst the planning
+process is used to facilitate the involvement of the community in decision-making and
+eventually managing their own energy systems. For a system where residents become
+passive consumers, the planning approach is somewhat different. In this instance the
+strategic and regulatory roles of planning are more important in terms of delivery. Both
+approaches described here are equally valid depending on contexts and desired
+outcomes.
+The case studies also revealed how planning as a tool for delivering low carbon
+development can be supported in a number of ways: the municipal ownership of land
+(Hammarby and Vauban) or utilities, transport and waste services (Hammarby); public
+funds (Hammarby); political support (Hammarby and Vauban); and cultural context
+(Vauban). Different planning roles are given leverage by different combinations of these
+factors. Regulatory and strategic roles are supported by public ownership of resources,
+public funding and political backing, whilst the facilitatory role is given leverage by public
+funding and cultural context.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Notes
+
+1.
+Around 60–70% of Vauban residents vote green. This also translates into green actions, for example only 16%
+of inhabitants in Vauban own a car, whilst 35% of inhabitants in Freiburg and 65% in Germany own a car.
+2.
+Latest zoning plan deposited in 2010.
+
+Interface
+
+3.
+Primary energy demand for passive house # 120 kWh/(m2/year)2; low energy home 1 (LEH1) # 40%
+maximum Energieeinsparungsverordnung (EnEV 2009) (Energy Conservation Ordinance) LEH2 # 55%
+maximum EnEV 2009; standard from existing zoning plan ¼ 65 kWh/m2/year.
+4.
+The administrative coordination of the local authorities dealing with the Vauban project.
+5.
+The main platform for information exchange, discussion and decision preparation.
+6.
+The local citizens association and the legal body of the extended participation process for the district.
+
+References
+
+ACT Planning & Land Authority (2010) Planning Services Branch Urban Form Analysis—Canberra’s Sustainability
+Performance: Technical Report (Canberra, ACT Planning & Land Authority).
+Antonoff, J. (2007) Energy Planning for a Sustainable Neighbourhood: An Energy-Plus Neighbourhood in Seattle’s South
+Downtown (Seattle, WA, International Sustainable Solutions).
+Brick, K. (2008) Follow up of Environmental Impact in Hammarby Sjo¨stad (Stockholm, Grontmij).
+Brohmann, B., Fritsche, U., Schmied, M., Schmitt, B., Stahl, H. & Wiegmann, K. (2002) Sustainable City Quarters:
+Material Flows Analysis as a Valuation Tool (Darmstadt, Freiburg, Berlin, Oko-Insitut).
+Bulkeley, H. & Kern, K. (2006) Local government and the governing of climate change in Germany and the UK,
+Urban Studies, 43(12), pp. 2237–2259.
+Bylund, J. (2003) What’s the problem with non-conventional technology? The Stockholm Local Investment
+Programme and the eco-cycling districts, Conference Proceedings of the ECEEE 2003 Summer Study—Time to Turn
+Down Energy Demand (Stockholm, University of Stockholm).
+Campbell, H. (2006) Is the issue of climate change too big for spatial planning?, Planning Theory and Practice, 7(2),
+pp. 201–203.
+City of Stockholm (2009) The City of Stockholm’s Climate Initiatives (City of Stockholm, Stockholm), http://www.
+stockholm.se/vaxthuseffekten.
+Crawford, J. & French, W. (2008) A low carbon future: spatial planning’s role in enhancing technological
+innovation in the built environment, Energy Policy, 36(12), pp. 4575–4579.
+Day, A., Ogumka, P., Jones, P. & Dunsdon, A. (2009) The use of the planning system to encourage low carbon
+energy technologies in buildings, Renewable Energy, 34(8), pp. 2016–2021.
+Devine-Wright, H. & Devine-Wright, P. (2004) From demand side management to demand side participation:
+Towards an environmental psychology of sustainable electricity system evolution, Journal of Applied Psychology,
+6(3–4), pp. 167–177.
+Donn, T. (2011) Presentation to the City of Freiburg, Planning Department, 17 February
+Exploateringskontoret (2005) Stockholm City: The Hammarby Model (Stockholm, Sweden, Exploateringskontoret).
+Hammarby (2009) The Hammarby Model website., Available at http://www.hammarbysjostad.se/inenglish/
+pdf/Kretslopp%20eng%2009%202009%20300ppi.pdf (accessed 1 September 2010)
+ICLEI (2009) Long-Term Strategies for Climate Protection in Green City Freiburg, ICLEI case study 104 (Toronto, ON,
+ICLEI Local Governments for Sustainability).
+Inghe-Hellstro¨m, J. & Bjurstrom, P. (1997) Hammarby Sjostad, Stockholm, Arkitektur: Swedish Review of
+Architecture, 97(7), pp. 32–39.
+Innovation Academy (2009) Sustainable City Freiburg. Power-point presentation
+Na¨sse´n, J., Sprei, F. and Holmberg, J. (2008) ‘Stagnating energy efﬁciency in the Swedish building sector –
+Economic and organisational explanations’, Energy Policy, 36(10), pp. 3814–3822.
+Paterson, T. (2009) Auto-ban: German town goes car-free, The Independent—Europe, 26 June
+Sauter, R. & Watson, J. (2007) Strategies for the deployment of micro-generation: Implications for social
+acceptance, Energy Policy, 35(5), pp. 2770–2779.
+Sperling, C. (2002) Sustainable Urban District Freiburg—Vauban. Excerpt from the submission for the 2002 Dubai
+International Award for Best Practices to Improve the Living Environment., Available at: http://www.
+forumvauban.de/overview.shtml (accessed 11 January 2009)
+Svane, O. (2005) Situation of opportunity—Hammarby Sjostad and Stockholm City’s process of
+environmental management., Available at: http://www.borg.hi.is/enhr2005iceland/ppr/Svane.pdf (accessed
+6 June 2009)
+Vestbro, D. (2002) Modernism versus sustainable development, in: D.U. Vestbro (Ed.) Architecture as Politics: The
+Role of Design and Planning for Peace and Sustainable Development (Stockholm, ARCPEACE International
+Architects Designers Planners for Social Responsibility in collaboration with the Division of Urban
+Studies/Built Environment Analysis, The Royal Institute of Technology).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+Williams, J. (2010) The deployment of decentralised energy systems as part of the housing growth programme in
+the UK, Energy Policy, 38(12), pp. 7604–7613.
+Williams, J. (2011) Zero Carbon Homes—A Road Map (London, Earthscan).
+
+West Village: Development of a New
+Ecological Neighborhood in Davis,
+California
+
+STEPHEN M. WHEELER & ROBERT B. SEGAR
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+University of California, Davis
+
+ABSTRACT
+In this case study we present the example of West Village in Davis, California, a new
+ecological neighborhood for 4,200 students, faculty, and staff of the University of California, Davis.
+With its ﬁrst phase opened in August 2011, the project includes housing, commercial space,
+recreational facilities, and a new community college center on 130 acres (53 hectares). We analyze
+this neighborhood’s decade-long planning process and factors facilitating its development. West
+Village shows that district-scale net-zero electricity development is indeed possible in the USA,
+although it helps to have a strong institutional sponsor and progressive planning environment.
+
+Keywords: West Village; ecodistrict; ecological neighborhood; zero net energy; zero net electricity; sustainable
+development
+
+Introduction
+
+University of California Davis (UC Davis) West Village is a new community in the town of
+Davis, Californa, that since the start of construction in 2009 has become the USA’s
+foremost example of ecological neighborhood development. Located adjacent to the
+University of California, Davis campus, near the city of Sacramento, West Village will
+eventually house 4,200 students, faculty, and staff. The project takes advantage of district-
+scale design for energy efﬁciency, drainage, transportation systems, and community
+vitality. Project developers intend the neighborhood to be net-zero electricity and to have
+very low motor vehicle usage, among many other green features.
+The University of California, Davis is a public university with more than 32,000
+students and more than 3,700 contiguous acres (1,497 hectares) in the Sacramento Valley of
+California. Faced in the early 2000s with limited and increasingly expensive housing in
+Davis, and the prospect of many students and employees being forced to live in
+surrounding towns and commute, Chancellor Larry N. Vanderhoef decided to construct a
+signiﬁcant new housing community on the campus. By providing rental housing for
+students and affordable for-sale housing to aid in the recruitment and retention of faculty
+
+Correspondence Address: Stephen M. Wheeler, Landscape Architecture, University of California at Davis, 131 Hunt Hall,
+Davis, CA 95616, USA. Email: smwheeler@ucdavis.edu.
+
+Interface
+
+and staff, university leaders aimed to provide all connected with the university the
+opportunity to live locally and participate fully in the life of the campus.
+About one mile from the academic center of the UC Davis campus, the initial 130-acre
+(53-hectare) phase of West Village will house approximately 1,980 students and when
+complete will include 343 for-sale homes for faculty and staff. Student apartments opened
+in August 2011, and a 20,000 square foot (1,850 m2) classroom and administrative building
+for the Los Rios Community College opened in the neighborhood center in January 2012.
+Completed features within West Village include a village square with a central green,
+approximately 45,000 square feet (4,181 m2) of retail/ofﬁce/commercial space around the
+green, and a student community center building with recreation and study amenities for
+students. Due to the depressed housing market the for-sale homes will be constructed
+more slowly than expected, with units built in small phases as homes are pre-purchased.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 1. West Village site plan. The east–west orientation of streets and buildings in West Village
+makes possible passive solar orientation of buildings. Source: Carmel Partners, UC Davis Ofﬁce of
+Campus Planning and Community Resources.
+
+Interface
+
+Technical Dimensions
+
+From the start, energy efﬁciency and passive solar design were primary goals of West
+Village. Following the nearby example of Village Homes, a well-known 1970s eco-
+development that emphasized energy efﬁciency (Corbett & Corbett, 2000), the designers
+created long east/west streets to maximize passive solar heating in winter and minimize
+unwanted heat gain in summer. This street orientation also maximizes opportunities for
+rooftop solar panels, which have since been incorporated into every West Village building
+to contribute to the net-zero-electricity goal, and it takes advantage of the cooling effect of
+southwest breezes from the Sacramento River Delta on summer evenings (Figure 1).
+The initial apartment buildings and village square are designed as a zero-net-energy
+community, producing as much on-site renewable electricity as they use over the course of
+a year. The key is energy efﬁciency: building designs at West Village reduce their energy
+use by 50-60% beyond the requirements of California’s already strict Title 24 energy codes.
+Photovoltaic panels on building rooftops and parking lot canopies as well as a planned
+waste-to-energy biodigester will meet remaining electricity needs. The biodigester,
+currently undergoing a feasibility study using a U.S. Department of Energy grant, would
+use raw food waste from the campus residence halls, manure from the campus dairy, and
+green waste as “feedstocks” to produce electricity. Future plans call for extending the zero-
+net-energy strategy to the for-sale homes and exploring additional sources of renewable
+energy.
+From the start, university planners designed West Village for very low motor vehicle use,
+relying on its location close to campus and downtown and the already well-developed
+network of bikeways in Davis (the city prides itself on being the “bicycle capital of the
+USA”). Off-street bike paths and a grade-separated bicycle bridge across a freeway connect
+West Village to campus and downtown. The university will not issue monthly parking
+passes to residents unless special access accommodations are necessary. The campus-
+operated bus system, Unitrans, runs regular routes to the West Village square, and all
+residences in West Village will be within a ﬁve-minute walk of bus stops. Students support
+the bus system with annual fees and ride “free” by showing their registration card as they
+board. In the future other residents will also be able to board free under ﬁnancial
+arrangements being worked out. The university hosts the Zipcar car-sharing service on
+campus, and it is likely that West Village will include shared vehicles through this
+company or a similar university car-share system. The university is currently exploring an
+electric car-sharing system that could signiﬁcantly reduce the transportation-generated
+greenhouse gases of the community.
+To recharge groundwater and reduce the potential for downstream ﬂooding, West
+Village planners used several strategies to retain storm water onsite. The location is
+essentially ﬂat, so designers were able to shape the topography to create drainage along
+perimeter greenbelts and interior “green streets” (with storm water draining to planted
+islands at the center of a boulevard). High points in each block allow surface drainage to a
+green belt or green street on either side; overﬂow moves to seasonal drainage ponds on the
+north edge of the project. The receiving ponds serve to retain all storm water on the site
+except in the most extreme ﬂood conditions, and provide a shared open space amenity
+between the new West Village and existing neighborhoods in the city of Davis. Onsite
+drainage strategies produced a net ﬁnancial saving to the project by eliminating the need
+for most underground piping of storm water.
+Unfortunately, the State Department of Conservation categorizes all land on the Davis
+campus as prime farmland, and as “greenﬁeld” development West Village displaces this
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+valuable resource. At the beginning of the planning process the university recognized that
+the loss of prime agricultural land can never truly be “mitigated”, but it took action to
+compensate for the loss by securing and preserving farmland in another strategic location
+in the region. The campus’s real-estate staff arranged to purchase options to agricultural
+land at a freeway interchange ﬁve miles west of the campus, between Davis and the
+growing city of Dixon to the southwest. Securing the options opened the door for
+collaboration among two cities (Davis and Dixon), two counties (Yolo and Solano), and the
+State of California to purchase the property, deed the development rights to a local land
+trust, preserve the land in perpetuity as a functioning agricultural buffer between the two
+cities, and sell the property back into agricultural production. Subsequent to this action
+several adjacent landowners have moved to place their land in similar trust.
+Plans called for West Village to fulﬁll the social goal of having members of the campus
+community live close to the university and participate more fully in the life of the
+university and town. The village square is home to all the highest activity uses in West
+Village and serves as a common social space and amenity for the West Village community
+and nearby Davis neighborhoods. The university catalyzed development of the village
+square early in the project by agreeing to lease back a signiﬁcant portion of the ﬁrst ﬂoor
+space around the village square, limiting the developer’s risk and allowing the university
+to draw on its existing retail, commercial and ofﬁce needs to populate the ﬁrst ﬂoor around
+the square.
+Following a limited-equity model, sales prices of for-sale housing at West Village will be
+below the private market and appreciation will be capped on an annual basis to keep the
+units affordable for future generations of faculty and staff. Given the depressed economy,
+buyer interest in these units is uncertain as faculty and staff can now ﬁnd relatively
+inexpensive units in other parts of Davis without provisions that restrict appreciation.
+However, in a stagnant or declining market, limited equity provisions may have
+advantages for buyers. Owners within a similar, much smaller housing project piloted by
+the university 15 years ago now see their homes appreciating at the capped rate annually
+while prices of homes in the private market are falling. Approximately 60% of West
+Village’s for-sale homes will also include second units to expand options for unique family
+needs or to provide rental income, further assisting with affordability.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Process of Implementation
+
+Although the need for additional housing had long been apparent to university
+administrators, in 1999 the citizens of Davis approved a ballot measure (“Measure J”)
+requiring voter approval before development of agricultural or open-space property at the
+urban edge. In light of this constraint on the prospects for additional private sector
+housing, the university decided to use its long range development plan (LRDP) process to
+test ideas for a substantial housing community on campus. The university engaged a
+planning consultant team to help produce this plan and conduct the public process. The
+consultant team included MIG, from Berkeley, California, a ﬁrm well known for actively
+engaging the public in planning, and McDonough Associates, led by Bill McDonough’s
+well-articulated vision for “ecologically effective” planning. This team spent much of the
+2000–2001 academic year analyzing the university’s growth needs and associated land-
+use requirements for facilities, infrastructure, open spaces, housing, and parking.
+Early in the planning process, McDonough gave a free community lecture in a local
+theatre titled, “What does good growth look like?” In a community where “growth” had
+such a negative connotation that it was termed “the G word”, McDonough painted a
+
+Interface
+
+picture of how urban growth could yield positive results for social and environmental
+systems. This “good growth” framework shared by McDonough had a strong inﬂuence on
+the university’s conceptual approach to what later became UC Davis West Village.
+The public portion of the process began in the spring of 2001. Though the city did not
+have approval authority over the campus plan, university leadership felt that an engaged
+public planning process was essential to gaining local understanding, if not support. With
+MIG’s help, the university began the process with a land-use game crafted to allow all
+attendees at public workshops to create their own long-range development plan for the
+university. Seven out of eight teams arrayed new housing growth on campus land as close
+as possible to the academic core of the campus, rather than placing new student and
+employee housing much further away in cities other than Davis.
+Much of the public process that followed the initial land-use game revolved around the
+size and extent of the planned community, which the university reduced in size twice in
+response to community concerns. Planning began with the concept that the neighborhood
+should include a village square as the social, commercial, and physical heart of the
+community, and that this center should be a shared amenity with other Davis
+neighborhoods. However, as the adjacent neighborhood groups sought greater insulation
+from the potential visual and trafﬁc impacts of the development, planners had to move the
+village square to the center of the site, farther away from existing housing. This design
+change was unfortunate, as it meant that this central gathering space would not be as
+easily accessible to existing city residents. In response to neighborhood desires, backed
+by the Davis City Council, the university also eliminated direct street access from
+the surrounding city neighborhoods, leaving only bicycle and emergency vehicle
+connections.
+Although residents in the two existing neighborhoods immediately north of the West
+Village site remained vocal in opposition, most participants within the public processes
+looked favorably on the idea that the university was planning to provide housing for its
+own growth. Throughout the remainder of the LRDP process the university developed
+two basic options, with multiple variations on each. The ﬁrst included a new campus
+mixed-use neighborhood, while the second portrayed the same university population and
+facilities growth without a new residential neighborhood, creating the need for new
+students, faculty and staff to commute from surrounding communities. This strategy was
+an attempt to promote a community dialogue about the social and environmental pros
+and cons of providing local housing.
+The University of California Regents approved the 2015 UC Davis Long Range
+Development Plan and its associated Environmental Impact Report in November of 2003
+(Table 1). As frequently happens with large development projects in California, which has
+a strong state environmental review law, a neighborhood group then ﬁled a lawsuit
+alleging inadequacies in the environmental analysis. The suit and subsequent appeal took
+about a year to resolve; both the lower court and appeals court sided with the university.
+This lawsuit delayed selection of a developer, and it could have delayed the project more
+seriously if the developer had already been chosen and then was unable to raise money
+because of the pending litigation.
+Given constraints on university funding in a time of statewide budget cutbacks and the
+demands for investment in teaching and research facilities, constructing West Village was
+not possible without private investment. The university did, however, own the land, and
+invested approximately $17 million bringing utilities to the border of the site. It then sought
+a private sector development partner able to ﬁnance the construction. University planners
+received 19 developer submittals in 2004, and chose as the developer the West Village
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+Table 1. UC Davis West Village timeline
+
+2000
+Planning initiated through the university’s LRDP process
+2001
+William McDonough provided “good growth” inspiration
+Workshops with Davis residents favor
+on-campus project
+2003
+UC Regents approved LRDP, Neighborhood Master Plan, and Environmental Impact Report
+Neighbors ﬁled suit
+2004
+Lawsuit decided in favor of the university
+2005
+Developer selected and WVCP established as a joint venture of Carmel Partners and Urban Villages
+2006
+University developed West Village Implementation Plan to provide more detailed design guidance
+2007
+UC Davis Energy Efﬁciency Center completed ﬁrst net-zero-energy study
+2008
+Ground lease negotiations completed between WVCP and UC Davis
+2009
+University awarded three state and federal grants for net-zero-energy planning and design
+Construction of community college center began
+2010
+Construction of residential buildings began
+2011
+Completion of initial phase, initial occupancy, and opening ceremony
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+LRDP, long range development plan; WVCP, West Village Community Partnership
+
+Figure 2. Aerial view of West Village under construction. West Village consists of 1,015 student
+housing units in three- and four-story apartment buildings and 475 faculty/staff housing units in
+townhouses and single family homes, grouped around a village square with commercial, social,
+recreational, and community college facilities. Source: Carmel Partners.
+
+Community Partnership, LLC, a partnership of Carmel Partners of San Francisco,
+California and Urban Villages of Denver, Colorado. These parties brought to the table
+extensive experience with New Urbanist-inspired inﬁll development and expertise
+managing student housing elsewhere in California. The developer agreed to invest
+approximately $280 million in community infrastructure, residential buildings, urban
+amenities and open spaces to complete the ﬁrst phase of the community. The university
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 3. West Village Square. West Village is oriented around a central square. Building roofs are
+covered with photovoltaic panels, and strategically placed shades prevent the sun from overheating
+buildings. Source: Photograph by Stephen M. Wheeler.
+
+retains ownership of all land, established the design framework within which development
+occurs, and receives a fair market return for long-term leases with the developer.
+In terms of ecological design, the University’s planning team followed McDonough’s
+lead in pursuing a vision of sustainability based on the three Es during its continued
+development of plans for West Village. Many of the features described earlier helped
+meet the environmental “E”. Equity beneﬁts primarily took the form of affordability for
+staff and faculty and greater convenience for all residents compared with living farther
+away. Inclusion of a community college providing relatively low-cost education to
+lower-income students and a potential entryway to a four-year university degree can
+also be considered an equity beneﬁt. Economic considerations revolved around ensuring
+the university—a public institution after all—a fair market rent for its land, ensuring the
+developer a reasonable proﬁt from its investment, and accessing several hundred
+million dollars worth of private investment and numerous jobs for the city and surroun-
+ding communities.
+Planners then added a fourth E to their sustainability model to reﬂect the project’s
+context—education. Constructing a new community on a university campus offers unique
+opportunities to promote ecological education and engage the teaching and research
+faculty in the conception, execution, and evaluation of the community. In particular,
+starting in 2006, planners involved the Graduate School of Management and UC Davis
+Energy Efﬁciency Center in developing an initial roadmap to net-zero energy. Faculty in
+the UC Davis-hosted California Lighting Technology and Western Cooling Efﬁciency
+Center have also contributed expertise to the project and served as judges at a technology
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 4. On-site drainage. Water from many public spaces at West Village drains ﬁrst into swales
+planted with native vegetation, and then into a larger constructed wetland. Source: Photograph by
+Stephen M. Wheeler.
+
+showcase where private sector companies were invited to share energy-efﬁciency
+products just arriving in the market. Faculty in the Department of Agricultural and
+Biological Engineering are included on grants assessing the viability of the waste-to-
+energy biodigester. The post-construction evaluation phase is likely to involve many
+additional faculty and students.
+The LRDP and a subsequent West Village Neighborhood Plan approved by the
+university Regents did not include a strategy for energy-efﬁcient buildings or zero-net
+energy. Shortly after the formation of the new UC Davis Energy Efﬁciency Center (EEC) in
+2006, with the developer team already selected, the university planning ofﬁce
+commissioned this organization to outline the technological and ﬁnancial innovations
+necessary to achieve zero-net energy at UC Davis West Village. Andy Hargadon, a
+professor in the Graduate School of Management and founding director of the EEC,
+assembled an advisory committee of energy professionals, utility representatives, and
+bankers, as well as a team of graduate students to develop “packages” of energy-efﬁciency
+measures and investments that could help the project increasingly approach zero-net
+energy. Through this process it became clear that the most cost-effective strategy was to
+work at a neighborhood-wide level to achieve economies of scale.
+Following the EEC report the developer teamed with Chevron Energy Solutions from San
+Francisco to further reﬁne proposals for a zero-net-energy community. The agreed-upon
+vision called for energy-efﬁciency measures to reduce the need for energy to the point where
+all supply could be generated on-site using renewable sources. The original concept
+envisioned a stand-alone community energy system capable of functioning independent of
+
+Interface
+
+the utility electrical grid, using a fuel cell and battery system for on-site storage of electricity.
+This model did not prove ﬁnancially feasible, and the ﬁnal proposal integrated renewable
+energy with the utility grid, using the grid as the “battery” that supplies power when
+production from on-site renewable sources is low, while the neighborhood’s photovoltaics
+contribute power to the grid at times when production is greater than needed.
+Based on the university’s goal of maintaining affordability and the developer’s drive for
+cost effectiveness, the shared objective was to accomplish zero-net energy with no
+increased cost to the future residents of UC Davis West Village. To help meet this goal the
+university submitted successful proposals for three grants to assist with the costs of
+planning and engineering the zero-net energy system at a community scale. These grants
+totaled $7.5 million from the California Energy Commission’s Renewable-Based Energy
+Secure Communities program, the U.S. Department of Energy, and the California Public
+Utilities Commission. Two of the grants provide funding for the university to issue
+recommendations on simplifying or altering existing state energy policy to facilitate the
+production of similar communities in the future.
+The developers broke ground on the Los Rios Community College center in West Village
+in 2009, and on the residential apartments in 2010. Construction proceeded rapidly, and in
+August 2011 the ﬁrst students moved in (Figures 2-4). Planning continued for later phases
+of the project, in particular to work out net-zero-energy provisions for the for-sale housing,
+and to analyze options for the large-scale biodigester in conjunction with relocation of a
+dairy on campus. The university will need to reach new agreements with the developer for
+these phases.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Political, Economic, and Community Context
+
+Development of West Village has taken place within a context of relatively progressive and
+environmentally oriented politics in the City of Davis and northern California generally, a
+strong economy and high housing prices followed by a prolonged economic slump, and a
+slow-growth local community environment. Each of these factors has had major
+inﬂuences on development of the project.
+The environmentally oriented politics of the city, state, and region helped create a context
+in which planners could start with a relatively strong vision of an environmentally
+sensitive neighborhood and then improve it over time. The City of Davis, for example, has a
+history of promoting bicycle and pedestrian transportation, energy-efﬁcient development,
+and compact urban form, and planners assumed from the start that such goals would
+underlie the project. The Village Homes neighborhood—after 35 years still the nation’s
+leading example of ecological suburban development—is less than a mile away from the
+West Village site. Principles such as passive solar design and on-site drainage pioneered at
+this well-known model seemed only natural for West Village as well. At a regional scale, the
+Sacramento Area Council of Governments spearheaded a regional visioning exercise
+known as the Blueprint process in the early 2000s that called for compact development
+within or contiguous to existing towns and cities. This vision also supported the emerging
+West Village plan. At a state level the 2006 passage of AB 32, the California Global Warming
+Solutions Act, established a statewide planning initiative to reduce greenhouse gas
+emissions (State of California, 2011). This and related initiatives, such as the 2008 SB 375
+legislation requiring regional plans for reduced motor vehicle-related emissions, created a
+context which likewise encouraged highly energy-efﬁcient development.
+Economic factors, especially the extraordinary rise in housing prices in the 1990s and
+early 2000s, provided much of the impetus for the West Village project in the ﬁrst place.
+
+Interface
+
+University administrators perceived a strong need for affordable housing for faculty, staff,
+and students, and as noted above, wished that housing to be located close to campus to
+reduce commuting. The housing market slump beginning in the late 2000s then changed the
+project context, especially for the for-sale units, in ways that may affect future build-out.
+Lastly, the slow-growth community context with the City of Davis stimulated initial
+project planning, since university planners thought it unlikely that private development
+would be able to provide sufﬁcient housing supply. Community desires also altered
+design details of West Village, for example to move development farther away from
+existing neighborhoods and to eliminate street connections. At the same time, the strongly
+pro-environment views of Davis residents encouraged planners to make the project highly
+green in order to gain community support.
+
+Surprises
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Although many elements of West Village evolved over its 11-year planning period, probably
+the biggest surprise for project planners was the crash of the housing market beginning in
+2008. Median home prices in nearby Sacramento County fell from $392,750 to $169,900
+between August 2005 and April 2011, a 57% decline (Brooks, 2011). Although prices in Davis
+declined less, about 21% between 2007 and 2011 (Zillow, 2011), this phenomenon meant that
+the market for the West Village for-sale housing became uncertain, and undercut the
+rationale for limited-equity housing. The developer has responded by planning to construct
+homes only when pre-sold, which is likely to slow future build-out of the neighborhood.
+Luckily, West Village’s initial phase of apartment housing rented up quickly in 2011,
+meaning that economic woes seem unlikely to hinder the rental portion of the project.
+Another unexpected but welcome occurrence was the evolution towards net-zero-
+electricity status. Although the university and later the developer team set out in the early
+2000s to incorporate best practices of town planning and environmental design, net-zero-
+energy considerations did not emerge until well after the original plan was approved in
+2003. The growth of the Energy Efﬁciency Center and related technical expertise on
+campus, the success of the planning grant proposals, and rising statewide interest in
+mitigating greenhouse gas emissions all played a role in helping the project evolve in this
+direction. Speciﬁc energy systems also changed as the project evolved. For example, all the
+solar panels were originally going to be aggregated into large-scale community solar
+farms to take advantage of economies of scale. However, regulatory incentives did not
+favor such centralized systems, and the plan was altered to include a combination of
+rooftop and parking lot photovoltaic panels totaling 4 MW.
+
+Analysis
+
+One main factor that helped this project come to fruition, as with so many other innovative
+neighborhood developments in the past, was the presence of a powerful project sponsor.
+UC Davis is a very large institution, owns the land, provided a built-in market for the
+units, mobilized extensive staff time to plan the project, and, as a state agency, is exempt
+from the need for local planning approval. Although the university is not ﬁnancing the
+development of the site itself, following the New Urbanist tradition, it established very
+clear development guidelines through the LRDP, Neighborhood Master Plan, and West
+Village Implementation Plan. The university also mobilized expertise to help develop the
+net-zero-energy plan, and was well-positioned to secure the state and federal planning
+grants that assisted in implementing this strategy.
+
+Interface
+
+Still, even a large institution such as UC Davis could not have pursued this development
+independently, and a second main factor behind the successful construction of this
+ecological district was the establishment of effective and creative partnerships. The West
+Village Community Partnership was perhaps the central player, but the success of the
+West Village Energy Initiative rested on additional partnerships with the UC Davis Energy
+Efﬁciency Center and the participants in their original zero-net-energy study, as well as the
+California Energy Commission, the California Public Utilities Commission, the US
+Department of Energy, and Paciﬁc Gas & Electric. Also crucial to various aspects of the
+project were a number of formal and informal working relationships between UC Davis,
+the UC Ofﬁce of the President, the Los Rios Community College District, city staff, elected
+ofﬁcials, neighbors, and centers on campus, in addition to the Energy Efﬁciency Center
+such as the Institute for Transportation Studies, the Water Energy Efﬁciency Center, the
+California Lighting Technology Center, and the Western Cooling Efﬁciency Center.
+Effective coordination between this large constellation of players was crucial.
+The public/private nature of the West Village project provided leverage in a number of
+ways. As a state agency the University was able to create entitlements for development,
+removing an enormous hurdle for the private developer. It also provided the land (at a fair
+market lease) and was able to obtain energy planning grants, which were only available to
+public entities. For its part, the developer was able to secure ﬁnancing for the project,
+which the university would not have done, as the ﬁrst call on its capital funds is for
+academic buildings and support facilities. The developer also took advantage of tax
+credits and incentives only available to the private sector for implementing the energy
+plan, and brought ﬁnancial analysis and construction experience to the energy efﬁciency
+and renewable power investments. The project provides beneﬁts to both public and
+private parties, positioning the developer as a sustainability leader in the marketplace,
+and enhancing the University’s role as a sustainability leader within academia.
+The decision to create a district-scale development afforded planners opportunities to
+pursue a systems approach to multiple aspects of the community, including social
+structure, transportation, open space, landscape, water use, and energy. This approach
+enabled cost-effective zero-net-energy strategies that would not have been possible had
+development proceeded within a building-by-building framework, and allowed planners
+to produce a truly comprehensive energy package. The diverse mix of elements within the
+project also enabled it to survive and move forward in difﬁcult economic times. When
+demand for faculty and staff housing fell due to a weak housing market, the developer
+was able to take advantage of strong demand for student housing to proceed with the ﬁrst
+phase. Having the community college in the mix also enabled construction to move
+forward, since that institution possessed a voter-approved bond for its facilities.
+Ironically, green design rating systems were of limited help in the planning of West
+Village. The pilot program for the U.S. Green Building Council’s LEED-ND rating system
+only opened in 2007, well after the project was underway, and the American Society of
+Landscape Architects and other groups did not release their Sustainable Sites rating
+system guidelines until 2009. University planners consulted the LEED-ND draft as an
+informative checklist for the potential scope of sustainability measures. However, actual
+certiﬁcation would have been difﬁcult as one of the LEED-ND prerequisites is to avoid
+agricultural land with prime soils. Project planners did deliver on a successful initiative to
+create an agricultural buffer in trust at a location near a freeway interchange about ﬁve
+miles away, thus offsetting the project’s use of farmland, but this ad-hoc arrangement
+might not have qualiﬁed for an exemption under LEED-ND guidelines.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+Conclusions
+
+UC Davis West Village is well-positioned to become the USA’s leading example of
+ecological neighborhood development. Its low-energy design, bicycle transportation
+emphasis, relatively high residential density, on-site drainage, community-oriented
+facilities, and affordable housing components embody many goals of sustainable
+development. The project shows that district-scale net-zero-energy development is indeed
+possible in the USA, although it helps to have a strong institutional sponsor and a
+progressive planning environment.
+The project’s actual performance on most dimensions will not be known for several
+years. Research is needed to document actual energy consumption and motor vehicle
+usage by inhabitants, energy performance of buildings and components, drainage and
+habitat function of West Village landscapes, and the extent to which residents and visitors
+are satisﬁed with the project design. UC Davis faculty and research scientists are already
+planning to conduct such research, and so a comprehensive evaluation should be possible
+in a few years’ time.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+References
+
+Brooks, M. (2011) Local Home Prices Continue to Fall, Sacramento Bee, 11 May, 1A.
+Corbett, J. & Corbett, M. (2000) Designing Sustainable Communities: Learning from Village Homes (Washington, DC,
+Island Press).
+State of California (2011) History of California’s Involvement in Air Pollution and Global Climate Change.
+California Climate Change Portal. Available at: http://climatechange.ca.gov/background/history.html
+(accessed 15 September 2011).
+Zillow (2011) Davis Home Prices and Home Values. Zillow Home Value Index. Available at: http://www.zillow.
+com/local-info/CA-Davis-home-value/r_51659/ (accessed 30 October, 2011).
+
+The Aldo Leopold Legacy Center:
+Expanding the Deﬁnition of
+“Community” in Carbon Management
+
+MICHAEL UTZINGER1 & STEVE SWENSON2
+
+1School of Architecture and Urban Planning, University of Wisconsin-Milwaukee; 2The Aldo Leopold
+Foundation (ALF), USA
+
+ABSTRACT
+This paper describes the development of a carbon neutral building integrated with
+environmental and land-use management practices for the Aldo Leopold Foundation near Baraboo,
+Wisconsin. A collaborative effort between the foundation staff and the building design team resulted
+in an innovative net zero energy and carbon neutral facility for a not-for-proﬁt organization
+
+Correspondence Address: Michael Utzinger, School of Architecture and Urban Planning, University of Wisconsin-
+Milwaukee, P.O. Box 413, Milwaukee, Wisconsin, 53201. Email: utzinger@uwm.edu.
+
+Interface
+
+dedicated to advancing the understanding, stewardship and restoration of land health based on the
+principles of Aldo Leopold. In addition to describing the energy performance of the facility, the paper
+describes the methodology for calculating the carbon emissions balance for the building,
+organization, and managed forest.
+
+Keywords: Aldo Leopold; biotic community; carbon neutral; net zero energy
+
+Introduction
+
+This paper presents a case study of the planning, design and construction of a net zero
+energy, carbon neutral building and landscape for the Aldo Leopold Foundation near
+Baraboo, Wisconsin. One of the unique features of this project was a collaborative decision
+by foundation staff and the design team to connect ecological forest management with the
+design, construction and operation of a new building. In addition, the programming of
+building energy demand and carbon emission goals between the foundation and design
+team resulted in a project with a higher level of performance than the majority of buildings
+in the USA, setting a precedent for future attempts to reduce carbon dioxide emissions
+from the built environment.
+Aldo Leopold (1886–1948) spent his adult life researching and revealing the
+relationship between humans and nature. In the mid 1930s, he started the world’s ﬁrst
+academic department of Game Management (eventually Wildlife Ecology) at the
+University of Wisconsin. Around the same time, he purchased an abandoned farm along
+the Wisconsin River where he and his family renovated a chicken coop into a retreat called
+the Shack, now a National Historic Landmark in the USA.
+At the Shack, the family observed nature and restored health to the land by planting
+acres of prairie and roughly 48,000 pine trees (referred to here as Leopold Pines). Leopold
+chronicled his observations in A Sand County Almanac (1949, p. 224), which he concluded
+with an essay entitled The Land Ethic that states: “A thing is right when it tends to preserve
+the integrity, stability and beauty of the biotic community. It is wrong when it tends
+otherwise.” Today we typically deﬁne sustainability in anthropomorphic terms, the most
+quoted example is “development that meets the needs of the present without
+compromising the ability of future generations to meet their own needs” (Brundtland,
+1987, opening lines of Chapter 2). Aldo Leopold gave a more encompassing ethical
+statement of sustainability relative to all life on earth.
+After Leopold’s death in 1948, his wife Estella and their ﬁve children continued to
+manage the Leopold Pines along the Wisconsin River. In 1982, the Leopold children formed
+the Aldo Leopold Foundation to further the idea of a land ethic. The Aldo Leopold
+Foundation assists in coordinated management of thousands of hectares of their own and
+partnering natural areas. Despite the complexity of land types, and differences in values
+among partners, clearly deﬁned goals and measures of success have proven possible within
+this landscape. Usually taking the form of an adaptive management cycle, new data informs
+old, and efforts reach ever closer to meaningful ecological health and integrity.
+By the mid 1990s, 60 years after planting the pines, the Leopold Pines needed thinning to
+maintain health. At the same time, the Foundation had outgrown its ofﬁce space, a rented
+house in Baraboo, Wisconsin. The Foundation Board and staff decided to build a new
+facility as a demonstration of Leopold’s land ethic. The foundation decided that a carbon
+neutral building, a new concept at the time of a structure that would not result in net carbon
+emissions to the atmosphere, would align with Leopold’s land ethic. Carbon neutrality was
+therefore the primary requirement for the new Aldo Leopold Foundation headquarters.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+A harvest in the Leopold Pines stand could both maintain the health of the stand and be
+available for the building structure. Health and longevity of the remaining Leopold Pines
+was paramount; the harvest focused on poorer quality trees. In addition to the pine stands,
+the foundation owned a stand of mixed hardwoods. In the absence of active management,
+this stand would eventually lose its oak component and capability with the management
+of surrounding plant communities and larger conservation directives. Harvested maple,
+cherry, aspen and some black oak reasserted oak dominance and the potential for oak
+regeneration in the understory. This harvest also yielded material for the new
+headquarters. The sustainable harvest of the 3.64-hectare Leopold pine forest and 8.09-
+hectare oak forest was certiﬁed under Forest Stewardship Council (FSC) guidelines. After
+the harvest was complete, the foundation hired a commissioning agent, an architect and a
+construction manager, all with experience in the design and construction of green and
+LEED certiﬁed buildings.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Initial Resource Programming and Environmental Goals Meeting
+
+In December of 2004, the Foundation staff and Board of Directors met with the
+commissioning agent, the construction manager, architect and the architect’s ecological
+consultant to determine environmental goals for the building design. As part of this
+process, the team considered LEED Certiﬁcation from the U.S. Green Building Council
+(USGBC).
+LEED, which is an acronym for Leadership in Energy and Environmental Design,
+provides a list of energy and environmental prerequisites and goals grouped into six
+areas: sustainable sites, water efﬁciency, energy and atmosphere, materials and resources,
+indoor environmental quality and innovation and design process. The total number of
+credits a project receives determines the certiﬁcation level of the building, the highest level
+being platinum.
+While carbon neutrality was the ultimate goal for the facility, the foundation board and
+design team also set LEED platinum as a design goal for the building. The LEED protocol
+did not provide guidance for achieving carbon neutrality or for being a net zero building.
+Therefore, the ﬁrst task of the team was to deﬁne the meaning of these two concepts.
+First, fossil fuels would not be used in building operations. Electricity and wood would
+be the only two energy sources permitted for use in the building. Wood was available from
+the managed forest stands; photovoltaic panels on site would generate electricity. To be
+carbon neutral, the building would need to be at least net zero in its energy use. Net zero
+was deﬁned as generating as much renewable energy on site in a year as the energy
+consumed in the building during the year. Energy used by staff to commute to the
+building would also be included in carbon emissions accounting.
+Carbon sequestered each year in the managed forests would be considered in carbon
+accounting for the foundation operations. Carbon emissions occurring during building
+construction fell outside the boundary of carbon analysis as information on embodied
+energy and carbon emissions for equipment and manufactured building products was not
+readily available. However, quantities of material going into the building would be
+documented to allow a partial evaluation of carbon emissions due to construction. This
+boundary for counting carbon ﬂows was later expanded to include air travel by the staff
+for foundation business, waste disposal and energy consumed by foundation equipment
+(tractors, trucks, etc.) With a boundary for carbon emissions calculation and a working
+deﬁnition of a net zero building, energy utilization intensity (EUI) goals and renewable
+energy generation goals could be established.
+
+Interface
+
+The typical approach to high performance building design is to consider renewable
+energy systems after designing an energy-efﬁcient building. The design team developed a
+different approach, one that is applicable to net zero buildings and net zero communities.
+An EUI goal for the building was set allowing an estimate of the projected annual energy
+use. EUI is deﬁned as the annual building energy consumption per unit building ﬂoor
+area. Measured values of EUI can be used to compare performance of different buildings
+or, as in this case, to determine an EUI goal for the building. The projected annual energy
+use is estimated as the product of the proposed building ﬂoor area and the EUI goal. The
+size of solar photovoltaic array required to meet the projected energy demand with
+renewable energy can then be estimated.
+At a schematic design meeting the ecological consultant presented measured EUI values
+for nine high performance buildings (presented here in Table 1 along with the EUI average
+for all ofﬁce buildings in the USA). The EUI values for the high performance buildings
+ranged from 18% to 53% of the average EUI for ofﬁce buildings in the USA. Two of the
+buildings discussed, the Schlitz Audubon Nature Center and Urban Ecology Center, were
+designed by Kubala Washatko, the architects chosen to design the Aldo Leopold Legacy
+Center. The foundation board and design team discussed all nine buildings, including
+their design and their heating, ventilating and air-conditioning (HVAC) systems, and
+decided on an EUI goal for the Aldo Leopold Legacy Center of 53.6 kWh/m2 per year,
+roughly equal to the highest performing building reviewed at the meeting. The proposed
+building area was 929 m2. The estimated annual energy use is the product of the EUI goal
+and building area, therefore the goal for renewable energy production was roughly
+50,000 kWh per year.
+Solar photovoltaic systems in Wisconsin typically produce between 1,200 and
+1,300 kWh per year per rated kWpeak DC of the photovoltaic array. A photovoltaic array
+rated at 40 kWpeak DC was established as the solar photovoltaic array size required to
+provide 50,000 kWh per year and balance the projected energy demand. By the end of the
+schematic design meeting the Aldo Leopold Foundation Board and staff along with the
+design team had deﬁned the boundaries of carbon emissions accounting, set a goal of a net
+zero building, set an EUI goal and estimated the size of the photovoltaic array required to
+meet the net zero building goal.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Net Zero Building Design
+
+Every occupied space in the building is daylit and naturally ventilated (Figure 1). The
+building enclosure insulation levels are twice the local building code requirements. More
+
+Table 1. Measured EUI values for nine high performance buildings in the USA
+
+Building
+Annual EUI
+
+Woods Hole Research Center (http://www.whrc.org/)
+51.7 kWh/m2
+
+Zion NP Visitor’s Center (Torcellini et al., 2004)
+85.2 kWh/m2
+
+NREL Thermal Test Facility (Torcellini et al., 2004)
+89.9 kWh/m2
+
+Lewis Center Oberlin College (Torcellini et al., 2004)
+94.0 kWh/m2
+
+Schlitz Audubon Nature Center (source: utility bills)
+94.2 kWh/m2
+
+Cambria Ofﬁce Building (Torcellini et al., 2004)
+116.4 kWh/m2
+
+Big Horn Building Materials (Torcellini et al., 2004)
+124.9 kWh/m2
+
+Chesapeake Bay Foundation (Torcellini et al., 2004)
+126.8 kWh/m2
+
+Urban Ecology Center (source: utility bills)
+156.6 kWh/m2
+
+U.S. ofﬁce building (http://buildingsdatabook.eren.doe.gov/)
+293.3 kWh/m2
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 1. Aldo Leopold Legacy Center Facility Plan Scale 1:1000. Source: Michael Utzinger.
+
+uniquely, thermal zoning is employed. Thermal zoning means building spaces are
+grouped according to common occupancy schedule and thermal comfort requirements.
+For example, the seed hall, used for classes and prairie plant seed sorting from spring
+through fall, was constructed as a separate building without a mechanical heating,
+ventilating and air-conditioning (HVAC) system.
+The facility is occupied ﬁve days per week during winter and six days per week the
+remainder of the year. Ground source heat pumps provide hot and chilled water for the air
+handling unit and radiant ﬂoor slabs. The radiant slabs provide thermal comfort. Air is not
+recirculated, mechanical ventilation provides only outdoor required air. The supply air is
+tempered by passage through earth tubes before entering the building. Air is exhausted
+directly from spaces, reducing total fan power. Utzinger and Bradley (2009) provide a
+detailed description of the HVAC system and the integration of simulation modeling with
+the design process.
+The south facade of the Aldo Leopold Legacy Center is illustrated in Figure 2. The
+39.4 kWpeak DC photovoltaic array covers most of the south-facing roof. The image is a
+
+Figure 2. Aldo Leopold Legacy Center south facade. Source: Michael Utzinger.
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 3. Aldo Leopold Legacy Center ofﬁce space looking west. Source: Michael Utzinger.
+
+montage of two photographs shot at 7:53 a.m. solar time on May 25. Sun angles are near
+the summer solstice in the image. Shading of the south fac¸ade and most of the conference
+wing glazing is evident. When glazing is properly shaded during summer, natural
+ventilation can be employed as a ventilation strategy.
+The interior ofﬁce space of the building is illustrated in Figure 3. The heavy timber
+columns and beams as well as the peeled log rafters are pine harvested from the Leopold
+Pines. Wood for the interior and exterior wall surfaces, ceiling surfaces, trim, doors and
+built in furnishings was also harvested from forest stands managed by the foundation. In
+the image, the lights are off and the space is fully daylit. Windows along the south side of
+the open ofﬁce and transom windows above the staff ofﬁces are operable, allowing cross-
+ﬂow ventilation when the building is in natural ventilation mode.
+The building was occupied in May of 2007. Documents for LEED Platinum certiﬁcation
+were submitted in August of 2007. The building was certiﬁed at the Platinum level
+achieving 62 points, the most ever received for LEED certiﬁcation up to that time. The
+single Innovation and Design point received for net-zero energy and carbon neutral
+emissions represented the ﬁrst time the USGBC recognized a building for carbon neutral
+operation.
+
+Building Energy Performance
+
+The building uses two energy sources: electricity and wood. The 39.4 kWpeak DC
+photovoltaic system installed on the building and the local power grid provide electricity
+to the building. Two meters were installed, one to measure electricity produced on site in
+excess of building demand and distributed to the grid and one to measure electricity from
+the grid consumed in the building.
+
+Interface
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Figure 4. Simulated and measured net monthly electrical energy ﬂow. Source: Michael Utzinger.
+
+Deﬁning electricity ﬂowing from the building to the grid to be positive, and electricity
+ﬂowing from the grid into the building to be negative, the net monthly ﬂow of electricity is
+illustrated in Figure 4. The graph includes the simulation-modeled electrical energy ﬂow
+and net measured electrical energy ﬂow for the ﬁrst three years of occupancy. During
+summer, when day length is longer, and solar radiation is higher, net electricity ﬂow is
+from the building to the grid. During winter, when these conditions are reversed, the grid
+provides electricity to the building. The simulated annual net energy ﬂow is 5.4 kWh/m2
+
+ﬂowing to the grid, better than net zero.
+For the years 2008 through 2010, the net energy ﬂow was 222.3 kWh/m2,
+211.8 kWh/m2 and 217.0 kWh/m2 respectively, falling short of the net zero energy
+goal. There are a number of factors that led to the actual performance being less than the
+design projection. Measured plug loads were greater than estimated. Snow covering the
+PV array in winter reduced renewable energy production; annual snowfall totals during
+the past four winters have exceeded average values.
+Wood was used to provide spot heating in the ofﬁces, lobby and seed hall and to bring
+temperatures in the meeting room up from 148C to 208C when the meeting room was used.
+Three half-cord wood storage bins were placed outside the building. After each heating
+season, the volume removed for combustion in stoves was measured. The ﬁrst winter
+slightly more than 2 cords of wood were combusted to provide supplementary heat. An
+energy audit revealed a problem with the stove in the conference wing. The stove was
+replaced after the ﬁrst winter and the new equipment has performed much better. Wood
+consumption in the past two winters has averaged half a cord of wood per year, equivalent
+to an EUI of 3.34 kWh/m2 per year.
+
+Interface
+
+Carbon Balance
+
+The design team developed a carbon dioxide emissions accounting structure based on the
+set of Greenhouse Gas Protocols developed by the World Resources Institute (Greenhalgh,
+et al., 2007). These protocols call for establishing organizational and project boundaries for
+carbon dioxide emissions analysis as well as providing techniques for measuring and
+estimating carbon dioxide emissions, offsets and carbon sequestering. In the protocol,
+greenhouse gas emissions are divided into three categories:
+
+. Scope 1: Direct—Combustion (stationary combustion devices, organization owned
+vehicles, etc.),
+. Scope 2: Indirect—Electricity (grid purchased electricity, site generated electricity),
+. Scope 3: Indirect—Organization Activities (employee commuting to work, building
+construction, employee business travel, manufacturing processes, etc.). Organizations
+may also manage land as a carbon sink (i.e. managed forestry).
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+The Greenhouse Gas Protocols require Scope 1 and Scope 2 carbon dioxide emissions be
+considered in all organizational carbon dioxide emissions accounting. Scope 3 accounting
+is optional, at the discretion of the organization.
+The organizational boundary for carbon emissions analysis is the Aldo Leopold
+Foundation. The project boundary for carbon emissions analysis is the new Aldo Leopold
+Legacy Center, its site, all organizational activities originating on the site, and the
+managed forest stands that provided materials for the building. Not included are
+emissions from a house owned by the Foundation and all other forest and prairie lands
+owned by the foundation. Building construction was not included within the project
+accounting structure.
+Carbon dioxide emissions within the project boundaries are presented in Table 2. Scope
+1 carbon dioxide emissions include all combustion emissions with the project boundaries.
+For the Aldo Leopold Foundation, this includes emissions from the wood burning stoves
+
+Table 2. Aldo Leopold Foundation carbon emissions accounting: First year.
+
+Total emissions
+Emissions per GMA
+
+Level 1 emissions: Combustion on site
+Wood-burning stoves – 0.54 t biomass
+0.80 t CO2
+0.70 kg CO2/m2
+
+Gas powered equipment—7,950 L
+19.44 t CO2
+16.98 kg CO2/m2
+
+Total level 1 emissions
+20.24 t CO2
+17.68 kg CO2/m2
+
+Level 2 emissions: Electricity
+Purchased—45,320 kWh
+33.76 t CO2
+29.49 kg CO2/m2
+
+Solar to Grid—25,183 kWh
+210.70 t CO2
+29.34 kg CO2/m2
+
+Purchased emissions credit: 33,400 kWh
+210.55 t CO2
+29.22 kg CO2/m2
+
+Total level 2 emissions
+12.52 t CO2
+10.93 kg CO2/m2
+
+Level 3 emissions: Organizational activities
+Employee commuting—2,044 L
+5.00 t CO2
+4.37 kg CO2/m2
+
+Business air travel—46,670 km
+5.78 t CO2
+5.05 kg CO2/m2
+
+Solid waste removal—2.36 t biomass
+3.46 t CO2
+3.02 kg CO2/m2
+
+Total level 3 emissions
+14.24 t CO2
+12.44 kg CO2/m2
+
+Total emissions levels 1, 2 & 3
+46.99 t CO2
+41.05 kg CO2/m2
+
+Annual carbon sequestration in the forest
+Pine forest—3.64 hectares
+224.04 t CO2
+221.00 kg CO2/m2
+
+Oak forest—8.09 hectares
+286.07 t CO2
+275.18 kg CO2/m2
+
+Total carbon sequestration in forest
+2110.10 t CO2
+296.18 kg CO2/m2
+
+Net carbon balance
+263.11 t CO2
+255.13 kg CO2/m2
+
+Note: A negative net carbon balance indicates that the overall facility sequesters more carbon than is produced
+from all of the activities associated with the Foundation.
+
+Interface
+
+and emissions from gasoline consumed in organizational vehicles and equipment for land
+management activities. As mentioned above, approximately one half-cord of wood
+(540 kg) is consumed each winter generating 0.8 metric tonne of carbon dioxide emissions.
+In the ﬁrst year of operation, the foundation purchased 7,950 L of gasoline for
+organizational activities. Gasoline combustion generates 19.44 metric tonnes of carbon
+dioxide emissions per year for the organization. The total Scope 1 annual carbon dioxide
+emissions are 20.24 metric tonnes (17.68 kg CO2/m2 per year) with 96% of the emissions
+from fossil fuels and 4% from biofuels.
+Scope 2 carbon dioxide emissions are due to electricity consumption within the project
+boundary. The average annual electric purchase from the grid for the ﬁrst three years of
+operation is 45,320 kWh generating 33.76 metric tonnes of carbon dioxide emissions. The
+simulation model used by the design team estimated a smaller annual electric grid
+purchase, 33,000 kWh per year.
+A decision was made during design that the electric energy ﬂow from the grid
+represented carbon emissions to be accounted for in the organizational carbon balance.
+The local electric co-op serving the building did not have a Green Power Purchase
+program. In addition, the electric utility neither generated nor purchased electricity from
+renewable energy. To offset carbon emissions due to electricity from the grid, the
+foundation did purchase an annual carbon dioxide emissions credit of 210.55 metric
+tonnes avoided carbon dioxide emissions per year based on 33,400 kWh of electricity
+generated by a Colorado-based wind farm. The solar photovoltaic system annually
+generates an average 25,183 kWh of excess electricity sold to the utility during the day,
+primarily during summer. However, that electricity does not offset carbon dioxide
+emissions in the grid at the same rate that they are produced. The team assumed that the
+offset was the same percentage as the wind farm credit, 0.57 kWh of grid electricity offset
+per kWh of solar electricity sold to the grid. Using electric power grid emissions factors
+reported by Deru and Torcellini (2007), the total offset of carbon emissions due to solar
+electricity sold to the grid was calculated to be 210.70 metric tonnes of carbon dioxide
+emissions per year.
+Scope 3 carbon dioxide emissions are due to organizational activities. While not
+required for greenhouse gas emissions accounting, three organizational activities are
+monitored by the Aldo Leopold Foundation: employee commuting, air travel and solid
+waste removal. Commuting activities were determined by employee interviews and
+estimated at 2,044 L of gasoline per year, resulting in 5 metric tonnes of carbon dioxide
+emissions per year. Air travel in the ﬁrst year of occupancy was estimated at 46,700 km.
+Assuming an efﬁciency of 25 passenger km of air travel/L of jet fuel, the emissions due to
+air travel are 5.78 metric tonnes (MacKay, 2008). Solid waste is assumed to be primarily
+biomass (paper and food scraps) with 2.36 metric tonnes removed per year (6.46 kg per
+day) resulting in 3.46 metric tonnes of carbon dioxide emissions annually. The total Scope
+3 emissions are 14.34 metric tonnes of carbon dioxide (12.44 kg CO2/m2 per year) with 76%
+of the emissions from fossil fuels and 24% from biofuels.
+The annual carbon dioxide emissions for the Aldo Leopold Foundation due to building
+occupancy and organizational activities is 46.99 metric tonnes (41.05 kg CO2/m2 per year).
+46.3% of those emissions are due to building operations and employee commuting, the
+remainder is air travel and gasoline consumed in vehicles and equipment as part of land
+management activities.
+Finally, the Leopold pines (3.64 hectares) and oak forest stand (8.09 hectares) are being
+monitored to determine whether growth rates (carbon sequestering) improved after the
+harvest. While direct measurements of growth rates have not yet been made, the annual
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+sequestration rate has been estimated from published productivity data for temperate and
+boreal forests.
+Harte (1988) gives average net primary productivity rates of 0.36 kg carbon per m2 per
+year for boreal forests and 0.56 kg carbon per m2 per year for temperate forests. One kg of
+carbon sequestered in a forest stand per year results in the removal of 3.67 kg of carbon
+dioxide from the atmosphere. Assuming the two forest stands managed for materials for
+the building have a net productivity equal to at least 50% of the published average
+productivity values, the Pine stand will remove 24.04 metric tonnes of carbon dioxide to
+sequester 6.56 metric tonnes of carbon in the biomass per year. The oak stand will remove
+86.07 metric tonnes of carbon dioxide to sequester 22.66 metric tonnes of carbon in the
+biomass per year. Thus, the managed forests result in removal of 110.1 metric tonnes of
+carbon dioxide from the atmosphere per year, which more than offsets the 46.99 metric
+tonnes of carbon dioxide emissions emitted by the organization. While the building fell
+short of achieving net zero based on energy balance, better than carbon neutrality was
+achieved for the Foundation’s activities.
+Comparing required solar photovoltaic area and forest sequestration area against the
+building area is instructive. The building occupancy results in a net carbon dioxide
+emission of 21.76 metric tonnes at the average sequestration rate of 9.39 metric tonnes of
+carbon dioxide removed per hectare per year, 2.32 hectares would be required to balance
+the building’s emissions. In other words, the building requires 20.25 m2 of healthy forest
+per m2 of building to achieve carbon neutral operation. In contrast, 0.26 m2 of photovoltaic
+panel per m2 of ﬂoor area are nearly enough for net zero operation. Therefore, balancing
+emissions with managed forests requires much larger areas of forest relative to the
+building size.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Conclusion
+
+At one level, this case study of the Aldo Leopold Legacy Center provides us with an
+applied ecological ﬁeld study. Ecology embraces the study of species populations, ﬂows of
+materials and energy, interrelationships among species, spatial and temporal scales of life,
+stability, mutation and evolution. Accordingly, this paper presents ﬂows of materials and
+energy of the Aldo Leopold Legacy Center as a function of a unitized spatial variable,
+building ﬂoor area. This information will provide future planning and design teams with
+the ability to estimate achievable EUI goals, and to determine strategies to produce
+renewable energy or to sequester carbon through land management. While the case
+presented is at the scale of a building, the approach would also be applicable to
+communities or for the establishment of building codes and policies.
+As an interpretation of Aldo Leopold’s land ethic, this project demonstrates that when
+planners and designers consider a facility as part of a larger ecological community, net
+carbon dioxide emissions from the building operation and organization activities can be
+offset by carbon sequestration in managed forest stands. While the building did not
+achieve its net zero energy goal, the net consumption of 17 kWh per m2 per is only 5.8% of
+the average U.S. ofﬁce building and 14.8% of the energy required if the building were
+merely code compliant. Taken together, these two results demonstrate the real possibility
+of having better than carbon neutral operation of the built environment, opening up new
+opportunities for design and policies to slow the advance of climate change.
+
+Interface
+
+References
+
+Brundtland, G.H. (1987) Report of the World Commission on Environment and Development: Our Common Future–
+Chapter 2. Available at www.un-documents.net/ocf-02.htm
+Deru, M. & Torcellini, P. (2007) Source Energy and Emissions Factors for Energy Use in Buildings. Technical Report
+NREL/TP-550-38617. National Renewable Energy Laboratory. Available at http://www.nrel.gov/docs/-
+fy07osti/38617.pdf
+Greenhalgh, S., Broekhoff, D., Daviet, F., Ranganathan, J., Acharya, M., Corbier, L., Oren, K., and Sundin, H. (2007)
+The Greenhouse Gas Protocol for Project Accounting. Available at http://www.ghgprotocol.org/ﬁles/ghgp/
+ghg_project_protocol.pdf
+Greenhalgh, S., et al. (2007) The Greenhouse Gas Protocol for Project Accounting (World Resources Institute).
+Available at www.ghgprotocol.org/
+Harte, J. (1988) Consider a Spherical Cow: A Course in Environmental Problem Solving (Mill Valley, CA, University
+Science Books).
+Leopold, A. (1949) A Sand County Almanac (New York, Oxford University Press).
+MacKay, D. (2008) Sustainable energy—Without the hot air., Available at www.withouthotair.com
+Torcellini, P.A., Deru, M., Grifﬁth, B., Long, N., Pless, S., Judkoff, R., and Crawley, D. (2004) Lessons learned from
+ﬁeld evaluation of six high-performance buildings. NREL/CP-550-36290. Available at http://www.nrel.gov/-
+docs/fy04osti/36290.pdf
+Utzinger, D.M. & Bradley, D.E. (2009) Integrating energy simulation into the design process of high-performance
+buildings: A case study of the Aldo Leopold Legacy Center. Paper presented at the International Building
+Performance Simulation Association: Building Simulation, Glasgow, 27–30 July. Available at: http://www.
+ibpsa.org/m_bs2009.asp, pp. 1214–1221.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Low carbon developments as
+laboratories of innovative
+planning tools
+
+IGNACIO BISBAL GRANDAL
+
+Escuela Tecnica Superior de Arquitectura y Geodesia, Universidad de Alcala´, Spain
+
+The debate around the role of urbanism to reach more sustainable cities constitutes a great
+opportunity to rethink many of the practices and tools that urban planning develops
+nowadays. Faced with pessimistic positions that claim the obsolescence of many urban
+design techniques, there are some determined proposals committed to creating new ways
+of connecting urban planning and civil society by changing these old devices and creating
+new ones. This hopeful vision of the role of urban planning demands examples where new
+management and design procedures can be veriﬁed. These examples could provide
+answers to urban development amidst changing economic circumstances and social
+initiatives of different natures.
+Urban planners, sociologists and architects such as Peter Hall, Franc¸ois Ascher or Rem
+Koolhaas have pointed out the need for a change in urban planning policies and
+
+Correspondence Address: Ignacio Bisbal, School of Architecture, Universidad Europea de Madrid, Villaviciosa Campus,
+C/Tajo, s/n Urb. El Bosque, Villaviciosa de Odo´n, 28670 Madrid. Spain, Email: i.bisbal@yahoo.es
+
+Interface
+
+methodologies in order to adapt them to new development paradigms in urban areas.
+Likewise, these examples of low carbon neighborhoods constitute good laboratories to
+research new ﬁelds such as bottom-up management, integral design of closed-loop urban
+energy systems, energy savings monitoring systems, new partnering solutions between
+stakeholders, participative processes and renovation techniques, among others.
+The four articles in this Interface symposium represent the urban planning concern with
+the development of new tools capable of building communities where social cohesion,
+environmental sustainability and participative management are a must.
+It is possible to study different attitudes reﬂected in the cases that have been presented
+here. They can be summarized as a call to rethink urban planning as an integrative,
+interdisciplinary, adaptive and participative tool, which can constitute a useful instrument
+in achieving low carbon neighborhoods.
+Firstly, some of these cases insist on the need to develop technical tools to enable energy-
+efﬁcient design from a thermal point of view and an adequate monitoring of its energy
+performance after the building’s start-up. In this sense, it is worth highlighting the article
+by Michael Utzinger and Steve Swenson about the Aldo Leopold Legacy Center, where the
+different design and resource management tools make it possible to go beyond
+administrative requirements, reaching extraordinary ratings and showing new research
+lines to improve energy balance through renewable resources and energy sources.
+Another interesting approach is that of integrating buildings’ energy performance into a
+widerrangeof measuresorientedtowardsclosingthemetaboliccycleofurbanareasinorder
+to minimize the consumption of natural resources (land, water, building materials, petrol,
+etc.). These include recovering them when possible, maximizing energy performance,
+restricting mobility (especially private transport), promoting public transport services and
+minimizing waste emissions (from gases like CO2or NOx to solid waste or sewage). Many of
+these questions entail a close dialogue between environmental policies and urban design.
+Jo Williams’s article makes a comparative study of Vauban (Freiburg, Germany) and
+Hammarby Sjostad (Stockholm, Sweden) neighborhoods, showing different proposals
+oriented towards achieving low carbon communities. In both cases, energy efﬁciency is
+conceived as a goal integrated in a broader spectrum of measures to accomplish carbon
+reductions. However, the success of this objective is subjected to the different attitudes of
+neighbors and authorities. In this way, Hammarby’s proposal is a top-down model where,
+according to Williams, the planning system’s role was “regulatory, facilitative and strategic”
+and was focused on a closed-loop energy system where residents had a passive consumer
+role as it was centered on producers’ coordination. Nevertheless, “optimal solutions for the
+provision of energy, water, waste and transport infrastructure to new development sites
+have been considered during the planning process.” On the other hand, Vauban’s urban
+planning system gathers a tool-set of participative dynamics in a bottom-up process,
+conceived to facilitate proactive attitudes amongst inhabitants. In the ﬁrst example, the
+neighbors’ social lifestyle does not facilitate this kind of orientation. It is only when
+population involvement isclear andthere is previous energy awareness,asin Vauban’scase,
+that planning can play an important role in designing formulas for proactive communities.
+New possibilities in planning processes related to the search for a progressive planning
+environment and alternative partnering solutions between stakeholders are analyzed
+by Stephen M. Wheeler and Robert B. Segar in West Village (Davis, California, USA).
+This partnering solution involves promoters, inhabitants, constructors, technical
+consultants and others under the leadership of the University of California. In the case
+of Hammarby, this partnership includes close collaboration between the municipally
+owned utilities (energy, water and waste) and the urban planning department. Both
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+processes demand strong leadership able to organize the effective participation of
+stakeholders through discussion forums and representative bodies. In the West Village
+example, one of the most important tools of this planning system was a long range
+development plan, a process to test ideas for a substantial housing community on campus.
+The planning system was conceived ﬂexibly enough to adapt to changing circumstances
+in the socioeconomic environment, most relevantly including alterations in the real estate
+market, constraints on funding, delays, incorporation of energy-efﬁcient buildings and
+zero net energy strategies, regulatory changes and neighbors’ demands.
+Finally, the article written by Carley Friesen, Bjo¨rn Malbert and Henrik Nolmark about
+the Broga˚rden (Stockholm, Sweden) case study reveals a very important issue related to
+eco-urbanism proposals that are not focused on new developments but on the renovation
+of postwar residential districts. These areas were built to meet a massive housing demand
+and currently require a critical reevaluation to update their operating capacity. Holistic
+planning and a pragmatic process were designed in this case. Initial experiences were
+used to try different techniques and evaluate the quality of the passive house renovation.
+In addition, this process was highly participative as different solutions based on residents’
+opinion were tested on a prototype. The whole renovation process was highly concerned
+with questions such as those regarding residents’ quality of life during renovation.
+Even though some important environmental questions such as land consumption have
+not been raised in depth, many of these examples deal with this issue. Clearly, renovation
+in urban areas like Broga˚rden is the best way to reduce land consumption, but different
+strategies that have been developed in other cases are very interesting. In this way, West
+Village’s move to compensate for the loss of prime agricultural land in the new
+development by securing and preserving farmland in another strategic location in the
+region represents a partial solution to agricultural land reduction on the Davis campus.
+This means of compensating for environmental impact by transferring it to other land is
+also adopted by the Aldo Leopold Legacy Center, which takes into account managed
+forests in order to achieve zero net emissions.
+In conclusion, these four articles provide a broad perspective about low carbon
+neighborhoods that simultaneously comprises a series of methodologies and innovative
+resources. These constitute a useful reﬂection about the adaption of urban planning to
+community requirements and demands. Moreover, they demonstrate the capacity of
+planners to deal with urban complexity and develop adaptive tools under changing
+circumstances.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Integrated planning for ecological urban
+regeneration
+
+CARLOS VERDAGUER
+
+Escuela Te´cnica superiar de Arquitectura de Madrid, Spain
+
+Considering that the vast majority of housing stock existing in 2011 will be used to satisfy
+residential needs in the year 2020 and beyond, ecological urban regeneration appears
+
+Correspondence Address: Carlos Verdaguer, Escuela Te´cnica Superior de Arquitectura de Madrid, Avenida de Juan de
+Herrera 4, 28040 Madrid, Spain. Email: cverdaguer@gea21.com
+
+Interface
+
+clearly as the key issue in relation to global urban sustainability for the most part of this
+century. Thus, if the 1992 Rio Summit identiﬁed the urban environment as the main arena
+where the global environmental crisis should be fought, 20 years later we must emphasize
+that it is mainly to the real cities and territories around us now where we should address
+our attention.
+On the other hand, the actual crisis of representative democracy, as well as the growing
+awareness attained during the last decades about the real complexity involved in the
+process of decision-making in general and especially in relation with the construction of
+the city, brings forward the idea of governance as another relevant issue to consider
+unavoidably when we consider the future of urban planning.
+Both issues are somewhat present now in almost every reﬂection or proposal on
+progress about urban sustainability, but the debate remains open on both fronts: the
+usefulness of model ecological cities or eco-cities conceived ex novo, as opposed to ad hoc
+regeneration strategies on one hand, and the superior efﬁciency of a top-down approach
+led by experts in ecological planning, as opposed to a complex bottom-up approach
+driven by communities on the other. Naturally, everyday practice shows that there is not
+really such a clear opposition or gap between the extremes considered for the two issues,
+but it is important to set practical and theoretical priorities clearly, especially in a moment
+such as now, of scarcity of ﬁnancial resources.
+It might be useful to use this conceptual framework to analyze the projects of ecological
+urban planning presented in the four articles published in this issue, as it permits us to set
+a sort of hierarchy or ranking among them according to their relation to the two relevant
+issues considered. Naturally, this simple exercise is not intended as a statement about the
+intrinsic quality of the projects themselves, neither about the coherence between their aims
+and their results in terms of energy efﬁciency and low carbon emissions, but rather about
+their relevance and potential of replicability in global terms.
+The proposed ranking would go as follows.
+In ﬁrst position, we would place one of the two low carbon neighbourhoods, Vauban, in
+Freiburg, Germany, reviewed by Jo Williams in her article, as it reunites several features of
+signiﬁcance in global terms: it is developed on a brownﬁeld site by a dense middle-sized city,
+it combines rehabilitation and change of use of existing buildings with construction of new
+ones on recycled public land, and it has been developed with a heavy involvement of the
+community and a decided bottom-up approach with innovative management and ﬁnancial
+procedures. In fact, the case of Vauban is considered generally an unavoidable reference for
+eco-urbanism in the European context, and several other projects on similar grounds have
+been developed there rather successfully, for instance the French Quarter and the Loretto
+area in Tu¨bingen, Germany, or the eco-neighbourhood Trinitat Nova in Barcelona, Spain.
+The case study of Broga˚rden in Alingsa˚s, Sweden, as analyzed by Carly Friesen with
+Bjo¨rn Malbert and Heinrik Nolmark, would share ﬁrst position or a close second position in
+this informal ranking. Its main interest lies in dealing with the renovation of an existing
+development of social housing built within an intensive program of construction known as
+the Million Programme in the period 1960–1975. Considering that the bulk of existing social
+housing stock in the European urban peripheries belongs to this period, any experiment
+addressing energy saving through renovation to passive standards of this type of urban
+pattern is of crucial importance, furthermore, when it deals synergistically and with a
+community-driven approach, with a variety of problems, especially the upgrading of the
+usually shapeless open space between blocks. In contrast with Vauban, in this Swedish
+operation the residents were not involved from the beginning, although their participation
+was then fully incorporated. In this instance, we can also ﬁnd other regeneration projects of
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+similar approach and scale, among them the successful regeneration of La Mina
+neighbourhood in Barcelona, but none of them so ambitious in terms of energy savings.
+The third and fourth positions of this ranking would be occupied respectively by another
+Swedish case, the low carbon development of Hammarby Sjo¨stad in Stockholm, also
+presented by Jo Williams, and West Village, in Davis, California, USA, analysed by Stephen
+M. Wheeler and Robert B. Segar. The ﬁrst of these two cases is unquestionably relevant for its
+large scale (20,000 residents in 9,000 units) and its commitment to energy saving, as well as
+for the high quality of urban space attained, but the fact of being mainly a new building
+development on municipality owned greenﬁelds and its rather top-down approach reduces
+its potential for replicability and exemplarity in relation to the two issues considered.
+With respect to the California project, it is a highly interesting experiment in net zero
+building with a deliberately synergic approach and a wide scope, including crucial aspects
+such as sustainable mobility and mix of uses, but its relatively small scale and its speciﬁc
+character as a university neighbourhood debilitate its potential for replicability. In
+addition, the polemical occupation of prime agricultural land for the project, although
+interestingly off-set through the creation of an agricultural buffer nearby, is somewhat
+risky as a planning tool when considered from a general point of view.
+The remaining project, and the last one in our ranking, is the Aldo Leopold Legacy
+Center, in Wisconsin, USA, presented in this issue by Michael Utzinger. Consisting of a
+very rigorous and coherent exercise in energy-saving and bioclimatic design, it is
+especially interesting for its attention to the life cycle and energy content of materials,
+components, and processes beyond the usual net-zero building concept, but its unique
+character and small scale place it off the general framework of comparison set here.
+Apart from the ranking here presented in relation to urban regeneration and citizen
+participation, each one of the projects analyzed has speciﬁc aspects of relevance in the face
+of global urban sustainability, but maybe the most important conclusion is that, within this
+heterogeneity and diversity, many common features emerge from the whole in a
+converging vision: the need of an integrated and dynamic approach to urban planning
+based on the partnership between all the stakeholders involved; the necessity of widening
+the scope of the energy-saving solutions in order to identify synergies in other spheres
+beyond the technical one; and the importance of increasing the environmental awareness
+of the population, experts and decision-makers included, to facilitate and expand the
+potential of an urban planning that can be truly eco-logical.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Behind the Green Curtain: Shifting Goals
+and Shifting Roles
+
+LARISSA LARSEN
+
+University of Michigan, USA
+
+When innovative projects are completed, it is easy to assume that each project represents the
+culmination of a smooth process with clear goals, cooperative partners, and enthusiastic
+
+Correspondence Address: Larissa Larsen, A. Alfred Taubman College of Architecture and Urban Planning, University of
+Michigan, 2000 Bonisteel Boulevard, Ann Arbor, MI 48109-2069, USA. Email: larissal@umich.edu
+
+Interface
+
+community support. These four case studies help us peer behind the curtain of green
+design, and they provide us with insight and encouragement to embrace the ups and downs
+that real projects inevitably bring. These case studies reinforce some of the known
+challenges of green development. Green development projects are generally longer, due to
+the extended planning processes necessary for innovation at the systems level. The funding
+strategies for green development tend to be more complex and the ﬁnancial viability of on-
+site, clean energy production is still largely dependent on public subsidies. But these case
+studies also convey the increasing sophistication in our aspirations and accounting. I have
+selected two issues to highlight in my commentary. The ﬁrst issue is how our green
+development goals are shifting upward in their aspirations from zero-net energy to carbon
+neutrality. Secondly, despite our increasing technical sophistication, community members
+continue to play important roles in the advancement of green development projects. Three
+of these case studies illustrate different approaches to public engagement.
+As our knowledge of development’s impact on the environment increases, our ability to
+identify and calculate the impact of related environmental problems expands. This
+increased knowledge has shifted our notions of what can be accomplished through green
+design. Early green development projects highlighted consumption and prioritized on-site
+energy conservation. More recent green development projects have incorporated energy
+production as a key component of their design. The best of these developments have sought
+zero-net energy balances, thus equalizing energy consumption through on-site energy
+production. Some of the latest green development projects up the ante from aspirations of
+zero-net-energy to carbon neutrality. In the comparison of the Vauban neighborhood project
+in Freiburg, Germany with the Hammarby Sjostad neighborhood project in Stockholm,
+Sweden, the author concisely deﬁnes the four elements of low carbon development. Low
+carbon development seeks carbon reductions through higher building energy standards,
+efﬁcient energy systems, the generation of low carbon energy, and strategies to decrease the
+reliance on single-occupancy vehicles. While the explicit goal of the West Village in Davis,
+California, was to be a zero-net-energy neighborhood, their inclusion of alternative
+transportation, clean, on-site low carbon energy, and off-site land preservation also address
+green development’s third wave of carbon neutrality.
+The Aldo Leopold Legacy Center, outside Baraboo Wisconsin, aspires to be both carbon
+neutral and zero-net-energy. While the Aldo Leopold Legacy Center has not achieved a
+net-zero energy status, it has expanded its carbon accounting to include the relevant
+behavior of its employees. Carbon neutrality requires that the center’s forested property
+sequester sufﬁcient carbon to compensate for the employees’ car travel to the site and their
+work-related air travel. The careful documentation of the carbon calculations helps us
+understand the magnitude of forested area required to sequester carbon and the challenge
+of including human behavior in our performance assessments.
+Public engagement was explicitly addressed in three of the four case studies. In
+the comparison of the Vauban neighborhood project in Freiburg, Germany with the
+Hammarby Sjostad neighborhood project in Stockholm, Sweden, the author contrasts
+the public engagement strategies used in the two communities. The author notes that the
+high degree of engagement in Freiburg motivated participants to understand how their
+behaviors contributed to the community’s carbon footprint and was an important
+educational opportunity that may motivate change. Public engagement in the Stockholm
+development was much less. This author believes this decreased the community education
+component and reduced the public’s support for the innovative project. However, the
+author notes that engagement processes must be tailored for different communities, and
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+high involvement strategies demand considerable inputs. Interestingly, in the West Village
+case in Davis, California, its “greenness” helped decrease public opposition.
+The Alingsas, Sweden, case described how a modest renovation targeted to improve
+energy efﬁciency and increase resident accessibility in an existing apartment complex
+evolved into an extensive renovation. While the authors rightly encourage the recognition
+of renovation and passive strategies in green development practice, this case is notable for
+its sensitivity to an existing community. The design team recognized the strength of the
+residents’ relationships and their concern for the preservation of their community. The
+design team stressed regular communication with the residents throughout the process,
+including the creation of a newsletter. Residents were interviewed to determine how the
+units and buildings could be retroﬁtted to permit aging in place and better serve their
+evolving needs. A model unit was created so that residents could see the proposed changes
+in place and specify desired ﬁnish materials and colors for their units. Sustainability in this
+case meant the consideration of how to sustain and respect an existing social fabric in
+addition to making structural updates and increasing energy efﬁciency.
+These case studies are valuable contributions to research and practice because they
+illustrate how green development accounting practices are evolving with our
+environmental concerns, and they help us to remember the importance of people in
+these processes.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Creating Post-Carbon Communities: The
+Return of the Public Sector
+
+ROBERT F. YOUNG
+
+University of Oregon, USA
+
+The four articles presented in this issue of Planning Theory & Practice consider case studies
+centered on low or zero carbon emission development. These studies are important
+explorations of the transition to a net zero carbon emission society. The articles situate
+planning among efforts to redevelop society in a manner that interrupts human-driven
+climate change.
+Planning will be critical in making this transition both because of its general role in
+guiding social investment and because of the speciﬁc nature of the effort requiring, as Jo
+Williams notes, a detailed knowledge of local context including “physical form, resource
+availability, culture, social capital, institutions, political and economic systems” (p. 127).
+As planners and developers step away from a reliance on fossil energy sources that
+overpower local differences, a more acute understanding of the particularities of place
+become critical to the post-carbon planning process.
+A central issue presented by these case studies is the essential role of the public sector in
+driving real change toward achieving a low or zero carbon emission future. This in turn
+
+Correspondence Address: Robert F. Young, University of Oregon, Department of Planning, Public Policy and Management,
+119 Hendricks Hall, 1209 University of Oregon, Eugene, OR 97403-1209, USA. Email: ryoung@uoregon.edu
+
+Interface
+
+raises a second issue, namely the degree to which the private sector can present itself as
+the primary means toward achieving such a society.
+
+Essential Role of the Public Sector
+
+The majority of the case studies placed the public or non-proﬁt sector in a dominant role,
+driving the planning process and setting the development agenda. In each of these
+scenarios the private sector was subordinated to the mandates and authority of the public
+sector. The public sector (and in the case of the Leopold Center, a non-proﬁt organization)
+held ownership of the land and placed a premium on the development as a means to
+educate private sector contractors and the public toward low-carbon outcomes. To achieve
+this, each case eventually included public input as an important part of the process.
+In Davis, California, Vaubaun in Germany, Alingsashem, Sweden, and the Leopold
+Center in Wisconsin, a broad range of residents, community members and organizations
+as well as contractors and consultants were invited to contribute their perspectives,
+inﬂuence the development process and learn from its outcomes. The exception to this
+framework was Hammarby Sjostad, Sweden. In Hammarby Sjostad planning played a
+less dominant role, taking the often traditional position of facilitator and convener of the
+process, subordinate to private sector control of the agenda’s content. The site, originally
+under public ownership, was sold off to the private sector following a change in political
+leadership. In addition, public input was limited to developers, utilities and the
+municipality.
+Results from the ﬁrst four of these processes were impressive. The Leopold Center,
+although initially unable to attain its net-zero goals, consumes on a per-square-foot
+average only 5.8% of the energy required to drive a standard U.S. ofﬁce building. In
+Vaubaun, citizen’s average carbon emissions are 1/17th of those in the surrounding area.
+Efforts in Alingsashem, Sweden harnessed low-tech passive house strategies resulting in
+considerable energy savings and established a collaborative planning process that will be
+applied to the renovation of the one million residential units constructed during Sweden’s
+Million Programme. Lastly, the University of California’s West Village project developed
+an holistic approach to ecological development that, similar to that pioneered by Vaubaun,
+included active transportation, water quality, affordable housing and higher residential
+densities to augment renewable energy and low-energy use building designs.
+Results from Hammarby Sjostad, Sweden were less impressive. The “Stockholm
+Process” approach created in developing this community limited input to “producers”,
+i.e. the municipality, developers and utilities. Consumers were not included because
+apparently the producers assumed, as does Williams, that “it is an enormous leap for
+the disengaged, passive and environmentally unaware individuals (probably constituting
+the majority of citizens living in many European cities) to become active energy citizens”
+(p. 133).
+Given this bias, no capacity was built toward creating such “energy citizens” in
+Hammarby Sjostad. This, combined with the voluntary and short-term proﬁt focus of
+design and technology selection driven by the developers, ensured that “the higher energy
+standards set for the buildings weren’t achieved” (p. 135). Per capita carbon emissions in
+Hammarby Sjostad remained at about 75% of the standard. In addition, participating
+producers did not show subsequent initiative in adopting low-carbon technologies or
+developing low-energy communities.
+In order to avoid severe global climate change, signiﬁcant carbon emissions reductions
+from human-driven development will be necessary. The above case studies underscore the
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Interface
+
+suggestion that public sector planning will need to be at heart of achieving that goal.
+Furthermore, they suggest that the private sector will need to be a subordinate part in this
+process.
+In each of the four successful efforts, the public (or in one case, non-proﬁt) sector took a
+long-term, multi-level approach that eventually centered itself on a democratic,
+participatory process. These elements allowed local knowledge to be harnessed which
+increased on-site compatibility and efﬁciency. In addition, the emphasis on participation
+insured that the groundwork for active energy citizenship was established. In combination
+these factors opened the path toward impressive reductions in carbon emissions and a
+more holistic, long-term approach to ecological community design.
+
+Questioning the Role of the Private Sector
+
+These results when compared to the modest gains realized in Hammarby Sjostad where
+public planning, landownership and participation were subordinated to the private sector
+raises the question of the degree to which the private sector can present itself as the
+primary means toward achieving a zero-carbon emissions society. At the 1992 Earth
+Summit in Rio de Janeiro, the World Business Council for Sustainable Development
+declared that the private sector alone had the capital, speed, efﬁciency and ﬂexibility to
+deliver an ecologically secure planet (Schmidheiny, 1992). Since then, this idea of the
+centrality of the private sector has dominated the discourse.
+The results of these few case studies question this assumption. Their combination of
+public land ownership, public investment, democratic process, long-term objectives and
+follow-up evaluation suggest a framework outside standard market relations. While the
+private sector had a role in each effort, its subordination to the public and non-proﬁt
+sector’s broader scope of priorities and participation offers an alternate approach to
+achieve a post-carbon world.
+
+Downloaded by [92.21.192.133] at 03:00 07 November 2014
+
+Reference
+
+Schmidheiny, S. (1992) Changing Course: a Global Business Perspective on Development and the Environment
+(Cambridge, MA, MIT Press).

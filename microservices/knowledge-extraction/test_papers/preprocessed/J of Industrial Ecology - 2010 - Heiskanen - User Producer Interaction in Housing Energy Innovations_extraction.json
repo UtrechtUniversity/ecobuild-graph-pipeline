@@ -1,0 +1,243 @@
+{
+  "entities": [
+    {
+      "name": {
+        "value": "Motiva",
+        "context": "state-owned company",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "country": {
+        "value": "Finland",
+        "context": "promoting energy efﬁciency and renewable energy",
+        "context_verified": true,
+        "context_match_score": 0.957
+      },
+      "city": {
+        "value": "N/A",
+        "context": "N/A",
+        "context_verified": false,
+        "context_match_score": 0.667
+      },
+      "street": {
+        "value": "N/A",
+        "context": "N/A",
+        "context_verified": false,
+        "context_match_score": 0.667
+      },
+      "year_of_construction": {
+        "value": 1999,
+        "context": "launched a project to mainstream and “normal-ize” the concept of low-energy housing",
+        "context_verified": true,
+        "context_match_score": 0.94
+      }
+    },
+    {
+      "name": {
+        "value": "prefabricated detached home",
+        "context": "technology procurement competition and labeling system",
+        "context_verified": true,
+        "context_match_score": 0.889
+      },
+      "country": {
+        "value": "Finland",
+        "context": "N/A",
+        "context_verified": false,
+        "context_match_score": 0.667
+      },
+      "city": {
+        "value": "N/A",
+        "context": "N/A",
+        "context_verified": false,
+        "context_match_score": 0.667
+      },
+      "street": {
+        "value": "N/A",
+        "context": "N/A",
+        "context_verified": false,
+        "context_match_score": 0.667
+      },
+      "year_of_construction": {
+        "value": 1999,
+        "context": "targeted at the producers and users of prefabricated detached homes",
+        "context_verified": true,
+        "context_match_score": 0.881
+      }
+    }
+  ],
+  "design_strategies": [
+    {
+      "name": "Green wall system",
+      "confidence": 1.0,
+      "anchor_text": "A key aspect is a systems view of designing a house.",
+      "context": "…l.\n[2007]).\nLow-energy housing as conceptualized in the\nproject refers to a set of technologies, includ-\ning increased thermal insulation, low-energy win-\ndows, reduced air leakages, recovery of heat from\nexhaust air, extraction of energy with heat pumps,\npassive solar energy, and building orientation. A\nkey aspect is a systems view of designing a house.\nDesign is based on a thorough understanding,\ncontrol, and utilization of the energy ﬂows within\na building.\nThe MotiVoittaja project sought to promote\nthe diffusion of the low-energy concept through a\ntechnology procurement competition. Technol-\nogy procurement is an instrument for stimulating…",
+      "anchor_verified": true,
+      "anchor_match_score": 0.904
+    },
+    {
+      "name": "Compact construction",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Cross ventilation",
+      "confidence": 0.8,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Green corridors",
+      "confidence": 0.6,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Green façade",
+      "confidence": 0.7,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Intensive green roof",
+      "confidence": 0.9,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Integration of thermal mass",
+      "confidence": 0.8,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Low albedo materials",
+      "confidence": 0.5,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Orientation sound barriers",
+      "confidence": 0.6,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Permeable paving system",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Photovoltaic cells integration",
+      "confidence": 0.7,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Rainwater harvesting systems",
+      "confidence": 0.8,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Revegetation",
+      "confidence": 0.6,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Solar thermal collectors",
+      "confidence": 0.9,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Structural bracing strategies",
+      "confidence": 0.8,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Thermal energy storage system",
+      "confidence": 0.7,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Use of locally sourced materials",
+      "confidence": 0.5,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Use of recycled materials",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    }
+  ],
+  "ecosystem_services": [
+    {
+      "name": "Primary production",
+      "category": "Provisioning",
+      "confidence": 0.9,
+      "anchor_text": "The planet's food chain is based on photosynthesis",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.54
+    },
+    {
+      "name": "Regulation of air quality",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.8,
+      "anchor_text": "The presence of plants reduces the concentration of harmful gases",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.554
+    },
+    {
+      "name": "Soil formation",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.7,
+      "anchor_text": "The paper discusses the importance of soil in ecosystem functioning",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.552
+    }
+  ]
+}

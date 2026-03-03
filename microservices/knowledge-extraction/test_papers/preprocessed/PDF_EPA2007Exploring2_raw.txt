@@ -1,0 +1,1959 @@
+Exploring the role of materials in policy change:
+innovation in low energy housing in the UK
+
+Heather Lovell
+
+School of Geosciences
+University of Edinburgh
+Drummond Street
+Edinburgh, UK
+EH8 9XP
+
+This is the author’s final draft as submitted for publication. The final version was
+published in Environment and Planning A by Pion (2007)
+
+Cite As: Lovell, H 2007, 'Exploring the role of materials in policy change: innovation in
+low energy housing in the UK' Environment and Planning A, vol 39, pp. 2500-2517.
+
+DOI: 10.1068/a38408
+
+Made available online through Edinburgh Research Explorer
+
+Exploring the role of materials in policy change: innovation in
+
+low energy housing in the UK
+
+Abstract
+
+There remains uncertainty in models of the policy process about how and
+
+when radical change takes place.  Most policy authors focus on explaining
+
+incremental change, and yet in practice a pattern of change described as
+
+punctuated equilibrium has been observed, with periods of stability
+
+interspersed with periods of rapid, abrupt change.  It is argued here that the
+
+influence of materials and technologies - the substance of policy - must be
+
+incorporated into models of the policy process in order to help further our
+
+understanding of radical change.  Concepts from science and technology
+
+studies concerning the inseparability of social and technical spheres are used
+
+to explore how people and materials interact to create opportunities for
+
+radical change. These ideas are particularly relevant to policy sectors
+
+comprising durable, capital-intensive infrastructure, such as housing.
+
+Drawing on examples from the UK housing sector, ideas about policy
+
+networks and large technical systems are synthesised to develop a m ore
+
+holistic, interdisciplinary account of policy change.
+
+Key words
+
+Policy change; innovation; large technical systems; policy networks; science
+
+and technology studies (STS).
+
+Introduction
+
+The paper applies ideas from science and technology studies (STS) to
+
+models of the policy process, thereby revealing how materials and
+
+technologies influence policy making.  Policy models are shown to be very
+
+one-sided, focusing entirely on hum an actors, and thereby ignoring the
+
+important influence of the non-human materials and technologies that policy
+
+is about.   Thinking holistically about the combined influence of material
+
+infrastructure and human actors yields a more satisfactory account of how
+
+new policy ideas and innovations diffuse and become popular.  Both the
+
+policy and STS literatures are large, and the discussion is therefore
+
+restricted to sub-sets of these literatures.  From the policy literature, policy
+
+network models are concentrated upon.  Although there are considerable
+
+differences between these models, they all endeavour to explain policy
+
+change by considering how and why policy actors coalesce into groups
+
+(Haas, 1992; Hajer and Wagenaar, 2003; Marsh and Rhodes, 1992b;
+
+Sabatier and Jenkins Smith, 1993).  From the STS literature, the main body
+
+of work examined concerns large technical systems, the central idea of
+
+which is the inseparability of social and technical elements of infrastructure
+
+systems such as electricity, telecommunications and transport (Berkhout,
+
+2002; Graham and Marvin, 2001; Hughes, 1983; Hughes, 1987; Rip and
+
+Kemp, 1998; Rohracher, 2001; Unruh, 2002; Weber, 2003).1  Similarly to
+
+policy network models, large technical system theory focuses on the nature
+
+1 A range of terminology is used by STS authors to describe socio-technical systems (see
+Hughes, 1987; Kemp, 1994; Rip and Kemp, 1998; Weber, 2003; Wiskerke, 2003).  Large
+technical systems are a particular type of socio-technical system, distinguished by the
+durability and geographical-reach of their material infrastructure.
+
+
+of relationships within socio-technical systems, and how change takes place.
+
+Reviews of these literatures can be found elsewhere (for large technical
+
+systems see Coutard, 1999; Graham and Marvin, 2001; and for policy
+
+network models see Radaelli, 1995; Smith, 1997). It is not my intention to
+
+discuss in general terms the relative advantages and disadvantages of these
+
+literatures; instead I consider what these concepts offer in terms of
+
+understanding radical change.
+
+The main idea of policy network models is that groups of (human) policy
+
+actors work together to influence the pace and direction of policy change.
+
+The models vary, however, in terms of what factor defines network
+
+relations:  discourse, beliefs, expertise, and resources are all suggested to be
+
+the ‘glue’ linking individuals into policy networks (Haas, 1992; Hajer,
+
+1995; Marsh and Rhodes, 1992b; Sabatier and Jenkins Smith, 1993).  There
+
+are differences too in how policy change is theorised, but a common feature
+
+is a focus on explaining stability.  Radical change is rare, and is catalysed by
+
+changes in factors external to the policy network, such as shifts in economic
+
+cycles, and new political parties coming into power (Marsh and Rhodes,
+
+1992b; Sabatier and Jenkins Smith, 1993).  This feature of the models has
+
+been criticised, however, because the drivers for fundamental policy change
+
+are effectively located outside of the models (Smith, 1997).  Empirical
+
+studies have found elements of policy network models to be accurate, but
+
+the general conclusion, as one might expect, is that in reality the policy
+
+process is more complex (Jordan and Greenaway, 1998; Marsh and Rhodes,
+
+
+1992b; Richardson, 2000; Sabatier and Jenkins Smith, 1993).  In particular,
+
+policy authors have struggled to explain the existence of periods of radical
+
+change (Jordan and Greenaway, 1998; Richardson, 2000; Smith, 2002).
+
+Historical accounts reveal sudden shifts in policy sectors, which do not fit
+
+well with network model ideas about stable policy networks leading to
+
+incremental change (Baumgartner and Jones, 1993; Davis, Dempster et al.,
+
+1966; Jordan and Greenaway, 1998; Marsh and Rhodes, 1992a; True, Jones
+
+et al., 1999).  T he concept of punctuated equilibrium has been used to
+
+describe this uneven pattern of policy change (John, 2003; True, Jones et al.,
+
+1999). However, the explanations proposed for punctuated equilibrium are
+
+rather opaque, and remain entirely human-focused.  It is suggested that there
+
+is a fundamental, systematic oversight in the policy models, namely that the
+
+influence of the material substance of policy has been ignored.
+
+Theories about innovation and change within the STS literature are based on
+
+the notion of periods of stability interrupted by periods of rapid change (see
+
+for example Freeman, 1994; Nelson and Winter, 1982; Phillimore, 2001;
+
+Schumpeter, 1961 f or longstanding debates about economic and
+
+technological cycles).   Large technical systems are conceived of as having a
+
+punctuated evolutionary pattern of growth, with stable periods of
+
+‘momentum’ interrupted periodically by the emergence of system-wide
+
+critical problems that can only be solved by radical innovations (Hughes,
+
+1987).  The main difference between STS theories and policy models is the
+
+integral role of materials in the process of change. The use of the term
+
+
+‘materials’ here refers to technologies and other physical infrastructure,
+
+essentially the non-human elements of policy. In large technical systems the
+
+problems that catalyse radical change, and the system response, are socio-
+
+technical: it is not just society that constructs problems and proposes
+
+solutions, materials themselves play an integral role – they decay, they
+
+break down, they act in unforeseen ways – and it is this agency which needs
+
+more recognition within policy network models.
+
+A problem both literatures share is an overly simplistic distinction between
+
+radical and incremental change.2  The pioneering STS author Thomas
+
+Hughes defines radical innovations as those which do not  fit with the
+
+existing large technical system (Hughes, 1983), whereas policy authors
+
+define radical and incremental change less precisely (see for example Jordan
+
+and Greenaway, 1998; Kingdon, 1995).  In both literatures, however, radical
+
+change is seen as catalysed by factors external to the policy sector or large
+
+technical system (Hughes, 1987; Marsh and Rhodes, 1992a; Sabatier and
+
+Jenkins Smith, 1993).  But few innovations (whether technical or policy-
+
+related) are truly radical, because they tend to build on existing ideas and
+
+technologies (Graham and Marvin, 2001; Kemp, 1994).  The clear
+
+separation in the literature between radical and incremental change stems
+
+from a bias towards historical case studies, particularly by STS authors (see
+
+for example Griset, 1999; see for example Hughes, 1983; Tarr, 1999), which
+
+tend to ignore unsuccessful innovations, thereby oversimplifying the process
+
+2 For simplicity, the terms ‘innovation’ and ‘change’ are used in this context to refer to
+either policies or technologies (though it is recognised that in the two literatures their use is
+generally limited to one or the other meaning, not both).
+
+
+of change (Pinch and Bijker, 1984).  R esearch into historical and
+
+contemporary examples of radical change in the UK housing sector
+
+illustrates how in practice the distinction between incremental and radical
+
+innovation is arbitrary: there is a continuum of change (Lovell, 2005).
+
+Furthermore, the role of discourse in framing innovations as either radical or
+
+incremental is shown to be important.  It is not suggested, however, that the
+
+distinction between radical and incremental change is disregarded, as it
+
+provides a useful framework for examining change, but rather that the
+
+tensions in distinguishing between these two types of innovation need to be
+
+explicitly acknowledged.
+
+A number of examples of how materials have agency in the policy process
+
+are discussed below, drawing on e xamples of change in the UK housing
+
+sector.  The housing sector has many of the attributes of a large technical
+
+system including a durable, ubiquitous infrastructure, a well developed
+
+social and institutional framework, and a widespread acceptance of housing
+
+technologies (Coutard, 1999; Graham and Marvin, 2001; Hughes, 1987).
+
+Where housing differs from most other large technical systems is in its long
+
+history and diverse modes of production (see Malpass and Murie, 1999 for a
+
+history of UK housing).  Housing has additional complexity too in that each
+
+household is in itself a type of socio-technical system, comprising a
+
+complex assemblage of humans, materials, and technologies.  The paper
+
+adopts a broad approach to examining the materiality of housing,
+
+considering the role of individual housing technologies as well as single
+
+
+dwellings and housing developments.  Two case studies of housing
+
+innovation are focused upon:  firstly, contemporary change in response to
+
+environmental problems, in particular climate change, and, secondly, the
+
+historical and contemporary use of factory-based housing technologies.  The
+
+discussion illustrates the ways in which the substance of housing - bricks,
+
+insulation, energy technologies etc. - influence the policy process.  It is
+
+firstly considered how materials help explain policy stability, drawing on
+
+research about the UK energy building regulations.  New radical ideas and
+
+technologies are constantly being experimented with, and maintaining
+
+policy stability is thus an active process. It is only in exceptional
+
+circumstances that radical innovations succeed and become popular.  These
+
+specific conditions conducive to policy change are then explored through a
+
+wide-ranging discussion of post-war housing, contemporary plans for new
+
+housebuilding, and the role of low energy housing demonstration projects.
+
+Change is shown to be a complex socio-technical process. In conclusion,
+
+reflections are made on the value of synthesising models of policy and
+
+technology change.
+
+The paper is based on the findings of a three-year ESRC-funded doctoral
+
+research project examining innovation in low energy housing in the UK.  A
+
+mixture of techniques was used for the research including semi-structured
+
+interviews, focus groups, documentary analysis, attendance at key policy
+
+meetings and conferences, technical tours of low energy housing
+
+developments, and two large-scale surveys.  In total, approximately seventy-
+
+
+five interviews were conducted, and over thirty policy meetings and
+
+conferences attended.
+
+The influence of materials on policy stability
+
+Policy network models reflect their origins in the wider policy literature,
+
+where there is a strong tradition of theorising incremental change, such as
+
+Lindblom’s ideas about policy making by ‘muddling through’ (Ham and
+
+Hall, 1993; Lindblom, 1959).  The idea is that networks of actors operating
+
+in a policy sector or sub-sector coalesce according to their beliefs, ideas,
+
+professional expertise and resources, and that policy shifts are slow because
+
+of their existence.  Thus there is a strong element of path dependency in
+
+policy making.  There are notable differences, however, between the policy
+
+models regarding the origins of network stability.  F or example, in the
+
+advocacy coalition framework it is because beliefs filter out incompatible
+
+new ideas (Sabatier, 1998; Sabatier and Jenkins Smith, 1993), whereas in
+
+the policy network analysis model more structural explanations are
+
+proposed, associated with the power and resources held by close-knit policy
+
+communities (Marsh and Rhodes, 1992b; Smith, 1997).  The crucial
+
+difference between policy networks and large technical systems is that in
+
+large technical systems non-human materials are conceived of as
+
+influencing change. Hence it is not just the social infrastructure but also the
+
+technical components of policy sectors that affect the pace and pattern of
+
+change:  habits, expertise and institutions develop over time based on the
+
+
+technologies and materials that comprise each sector. Ranmert (1997: 186),
+
+for example, describes the automobile transport system as follows:
+
+“the techno-structure of automobile traffic is a striking example of
+
+stability… [the] close coupling of things, people, and signs and its
+
+continuous production by routines are the social base of… technological
+
+momentum...”
+
+The implication for decision makers is that the risks of trying anything new
+
+are high.  E ven if the status quo i s not perfect, until ‘critical problems’
+
+emerge (Hughes, 1987), it is rational to stick with existing technologies and
+
+materials that have proven operational effectiveness.  I n this way the
+
+existing material infrastructure has considerable influence on contemporary
+
+policy making.   Historical infrastructure decisions can ‘lock in’ certain
+
+technologies (Arthur, 1989), making change increasingly difficult; a
+
+situation described variously as path dependency or momentum (Hughes,
+
+1983; Unruh, 2002; Walker, 2000; Weber, 2003).  However, momentum is
+
+not a passive state: new ideas and technologies are being aired all the time,
+
+and so there is constant effort involved in reproducing existing large
+
+technical systems, despite the impression of stability, as Graham and
+
+Marvin conclude:
+
+"Infrastructure networks, are, in short, precarious achievements."
+
+(Graham and Marvin, 2001: 182).
+
+
+Crucially, with large technical systems there is a r ecord of historical
+
+experiments embedded in the physical infrastructure.  T he infrastructure
+
+thereby serves as an important reminder of the large number of historical
+
+radical innovations that failed to diffuse more widely, remaining as discrete
+
+‘innovation niches’ (Hughes, 1987; Rip and Kemp, 1998; Smith, 1997;
+
+Weber, 2003).  T hese ideas are especially relevant to policy sectors
+
+comprising a durable, geographically-widespread, capital and technology
+
+intensive material infrastructure, such as housing.
+
+In general terms the UK housing infrastructure has remained largely stable
+
+over the last century: the sector appears to have considerable momentum,
+
+dominated by incremental innovations (see Ball, 1999; Barlow and Bhatti,
+
+1997; Barlow and King, 1992; Hooper and Nicol, 2000). Approximately
+
+eighty-five percent of new homes in the UK are built with masonry
+
+materials (NHBC, 2003), and construction methods and materials have
+
+changed little during the twentieth century (Ball, 1999; Barker, 2003;
+
+Barlow, 1999; Egan, 1998).  D espite Government attempts to encourage
+
+innovation in housebuilding, most notably through the Rethinking
+
+Construction programme (Egan, 1998; The Housing Forum, 2003), UK
+
+housebuilders have tended to introduce
+changes cautiously and
+
+incrementally (Barker, 2003; Barlow, 2000).  However, it is also the case
+
+that numerous radical new construction materials and technologies have
+
+been experimented with during the twentieth century, and many of these
+
+different types of housing still exist.  For instance, it is estimated that in the
+
+
+UK approximately one million prefabricated homes remain from the post
+
+world war periods (Ross, 2002).  The first Garden Cities built in the early
+
+twentieth century and 1950s modernist high-rise estates also remain as part
+
+of the UK’s housing stock: both were once promoted as radical new ideas
+
+for urban areas (Hall, 1988; Jones, 2005; Malpass and Murie, 1999).  But
+
+these radical types of housing did not diffuse to become the norm.  The
+
+reasons for this are complex, and are discussed in detail elsewhere (see Ball,
+
+1999; Barlow and King, 1992; Gann, 2000; Guy, 1999), but it is suggested
+
+that conceptualising the inertia of the UK housing sector requires thinking
+
+holistically about the institutional and material infrastructure of the housing
+
+sector.
+
+Climate change and the energy building regulations
+
+The response of the UK housing sector to the problem of climate change
+
+provides a contemporary illustration of momentum or policy stability.
+
+During the 1990s climate change became a significant environmental policy
+
+issue in the UK. Through the international Kyoto Protocol the UK
+
+Government is committed to reducing greenhouse gas emissions by twelve
+
+and a half percent by the year 2010, and it also has a long-term goal to lower
+
+carbon emissions by sixty percent by 2050 (DETR, 2000; DTI, 2003a).
+
+Dwellings account for a third of the UK’s final energy consumption, and the
+
+Government is relying on the residential sector to achieve a quarter of the
+
+necessary greenhouse gas emission reductions by 2010 (DTI, 2003a).  But
+
+to date there has not been widespread radical change in the housing sector in
+
+
+response to this important problem (Hertin, Berkhout et al., 2003), and the
+
+Government has recently admitted it will not meet its ambition of reducing
+
+carbon dioxide emissions by twenty percent from 1990 levels by the year
+
+2010 (DEFRA, 2005).  A fundamental difficulty of developing an adequate
+
+response to mitigate climate change in UK housing arises from the material
+
+presence of the existing housing stock, comprising nearly twenty six million
+
+homes (ODPM, 2004a), the large majority of which are energy inefficient
+
+(Boardman, Darby et al., 2005).  Approximately forty percent of the existing
+
+housing in the UK was built before 1945 (ODPM, 2001), and new housing
+
+accounts for less than one percent of the total housing stock in any one year
+
+(Barker, 2003).  T he existing housing strongly frames the policy debate
+
+about residential climate change measures, tending to direct innovation at
+
+new build housing, where change is easier to effect (see for example BRE,
+
+2001; BRECSU, 1996; Ekins, 2002; London Borough of Enfield, 2003; Pett
+
+and Ramsay, 2003).
+
+However, there has been comparatively little progress in developing
+
+solutions to climate change with new housing.  O ne important way of
+
+ensuring that new housing is low energy is through increasing the stringency
+
+of the UK energy building regulations.  T he 2003 Energy White Paper
+
+included provisions to bring forward the next upgrade of the energy building
+
+regulations from the year 2008 to 2005, mainly because of climate change
+
+(DTI, 2003a; King, 2004 pers.comm.).  Thus far the dominant organisations
+
+within the housing sector have effectively withstood major changes to the
+
+
+building regulations.  T he lack of progress to date with changing these
+
+regulations illustrates the agency of materials, or the non-human elements of
+
+housing policy.   T he energy component of the UK building regulations,
+
+known as Part L, outline standards for the energy performance of buildings
+
+(ODPM, 2004c).  A current concern of the house building industry is that
+
+with a significant increase in the energy efficiency requirements of Part L, it
+
+will no longer be commercially feasible to continue to use masonry
+
+construction methods, and alternative methods of house building will have
+
+to be considered (Barlow, 1999; Crewe, 2002, pers.comm.; Innes, 2003,
+
+pers.comm.; Traditional Housing Bureau, 2005).  In effect it would become
+
+less profitable to use masonry construction in comparison to other
+
+techniques, such as steel and timber frame building, because of the extra
+
+cost and technical difficulty of installing additional thermal insulation
+
+within walls (BRE, 1999; King, 2004, pe rs.comm.). Thus there is the
+
+likelihood that an increase in the stringency of Part L regulations might
+
+necessitate radical innovation in construction materials and methods.  But
+
+the process for upgrading the building regulations has historically favoured
+
+incremental innovation in existing masonry house building technologies and
+
+processes.  A  Government guidance document outlines the rationale for
+
+changes to the building regulations as follows:
+
+“Government requires that the measures are proportionate with other
+
+legislation bearing on the construction industry, and should allow sufficient
+
+
+design flexibility and avoid undue technical risk.” (ODPM, 2003c: 5,
+
+emphasis added).
+
+Thus the basis for changes to the building regulations is conservative, in the
+
+sense that precedence is given to technologies within the existing socio-
+
+technical system.  Avoiding technical risk is evidently much easier with
+
+masonry technologies, which have been used for decades.  In negotiations
+
+about the year 2002 amendments to Part L (DTLR, 2002), several
+
+interviewees indicated that initial proposals for a stringent upgrade in the
+
+energy performance of dwellings were dropped because of pressure from
+
+the house building industry, as one interviewee explains:
+
+“… the [part L] building regulation changes were watered down by the
+
+brick and block industry, through their lobbying, [their] vested interests, a
+
+wasted opportunity...”
+
+(Interview, manager at an environmental charity, August 2002).
+
+Although Government officials deny such a straightforward account (King,
+
+2004 pers. comm.), it is clear that there was some retreat from the original
+
+ambitious changes proposed (see ODPM, 2000); illustrating how the
+
+making of energy building regulations is fundamentally a political process
+
+(Raman and Shove, 2000).  The extract below is from an interview with a
+
+manager of a Government organisation trying to promote innovation in the
+
+UK housing sector, including environmental innovations and factory-based
+
+
+housing production.  He too alludes to the financial and political power of
+
+the house building industry relative to Government:
+
+“If you imposed…[regulations] that every house must be built using
+
+[factory] manufacture… What that means is everyone involved in
+
+manufacturing sand, cement blocks, bricks…their business has just gone…
+
+It wouldn’t be that extreme, but it is those sort of political concerns… that is
+
+why it takes the Government so long to change building regulations….”
+
+(Interview, head of millennium communities, English Partnerships, May
+
+2003).
+
+His comments illustrate how what may appear at first to be purely technical
+
+decisions about energy use in buildings, are in fact highly politicised. A
+
+further illustration of the political nature of building regulation changes is
+
+given by the manager of a small private house building company that has
+
+produced innovative low energy housing, who describes his frosty reception
+
+at a house building conference where he made a presentation about positive
+
+aspects of future upgrades to Part L:
+
+“The discussion was about building regulations, about moving [energy]
+
+building regulations forward.  And the last thing that they wanted [you] as a
+
+developer or a housebuilder to say was that any proposals being discussed at
+
+these sorts of conferences are feasible – you try to hold the whole thing
+
+
+back.” (Interview, chief executive of a small private sector housebuilder,
+
+August 2002).
+
+He reveals how housing producers are united to a high degree in opposing
+
+changes to regulations, and have mobilised their resources to prevent Part L
+
+from effecting more radical innovations.   T
+his would typically be
+
+conceived of by policy authors as straightforward lobbying from powerful
+
+actors who obviously have a strong interest in defending the viability of
+
+their business (Grant, 2000, 2004; Ham and Hall, 1993).  It is argued here
+
+that a more holistic, socio-technical explanation of the situation is required,
+
+which allows for some agency on the part of housing materials.  In other
+
+words, the substance of housing policy – housing materials and technologies
+
+– play a role in determining the actions and attitudes of those involved in
+
+policy change.  Fundamental, radical changes in how new housing is built
+
+and planned have not been required from the previous rounds of changes to
+
+Part L:  housebuilders have been able to continue to use their standard house
+
+types or plans, which are crucial to their business (see Nicol and Hooper,
+
+1999).  In this way the technology and materials of dwellings have acted as
+
+a ‘script’ (Akrich, 1992), placing boundaries on t he acceptable limits of
+
+policy initiatives and strongly favouring policies aimed at incremental
+
+innovations, hence allowing the existing socio-technical system to continue
+
+with minimum disruption. Thus, despite the emergence of a radical climate
+
+change policy discourse in the UK (see Grubb, 2002; Gupta and van der
+
+
+Grijp, 1999; Ott, 2001), the energy building regulations have thus far
+
+changed little.
+
+A key part of the strategy of the housing industry has involved using
+
+discourse to frame elements of the existing socio-technical system as
+
+inevitable, or unquestionable.  In particular, masonry housing has been
+
+presented as ‘traditional’, thereby creating a powerful story-line (after Hajer,
+
+1995) about the financial and technical reliability of masonry homes.
+
+Discursive strategies are currently given insufficient attention by STS
+
+authors, who, in concentrating on t he relationship between humans and
+
+technologies, rather overlook relations between human actors.  Ideas from
+
+the policy literature about discourse coalitions and the discursive framing of
+
+policy problems and solutions (see Dryzek, 1997; Hajer, 1995; Rein and
+
+Schon, 1993) highlight the important ways in which discourse can be used
+
+in policy change. A UK lobby organisation called the Traditional Housing
+
+Bureau was established in the 1980s to secure the interests of the masonry
+
+house building industry, promoting masonry housing as good quality and
+
+durable (see the Traditional Housing Bureau, 2005).  The strength of this
+
+‘traditional housing’ story-line in part stems from the perceived failure of
+
+‘non-traditional’ prefabricated housing techniques used episodically in the
+
+UK throughout the twentieth century, discussed in later sections of the
+
+paper.  As Ross comments in his historical review of UK house building
+
+methods and materials:
+
+
+"… the phrase 'traditional construction' is now widely used to describe brick
+
+and block [masonry]… construction whose supporters would have us
+
+believe that [it] is by far the best and most reliable way of building houses.
+
+The term also implies that non-traditional forms of construction were an
+
+attempt to displace it from an established position. An objective review of
+
+construction practice over the last century would paint a somewhat different
+
+picture."
+
+(Ross, 2002: 15, emphasis added).
+
+Ross thereby hints at the degree of continual innovation and flux in the
+
+housing sector, thus prompting masonry housebuilders to use a r ange of
+
+strategies to promote their dominance, which is nevertheless constantly
+
+under threat (Ball, 1999; Barlow, 1999; Hooper and Nicol, 2000).
+
+The influence of materials on policy change
+
+So far the discussion has concentrated on t he influence of materials on
+
+policy stability; it is now considered how materials can also act in ways to
+
+promote change.  The material substance of policy is important in two ways:
+
+firstly, characteristics of the existing material infrastructure affect the timing
+
+of radical change, and, secondly, the material presence of radical new ideas
+
+and technologies can help catalyse change.
+
+
+The timing of radical change
+
+It is discussed above how radical innovations are constantly emerging, and
+
+yet rarely become widespread.  A crucial question is therefore under what
+
+conditions radical innovations are likely to become established.  If the role
+
+of the material substance of policy is considered it becomes apparent how
+
+periodically the physical infrastructure offers opportunities for change. One
+
+reason why radical ideas are sometimes successful is therefore simply good
+
+timing.  D irecting attention at only social and institutional factors – as
+
+policy models do – thereby misses an important determinant of radical
+
+change.  It is not that policy authors have discounted the issue of timing.
+
+Kingdon, for example, discusses the importance of timing and luck in his
+
+ideas about streams of policies, problems and politics converging to produce
+
+policy change (Kingdon, 1995).  But what is missing from his otherwise
+
+convincing account of the messiness of policy making is the influence of
+
+existing materials - the built environment - on the policy process.
+
+A dramatic, unusual illustration of how radical change can be catalysed by
+
+material infrastructure is the effect of war on UK housing policy.  In the
+
+aftermath of the Second World War there was a period of rapid change in
+
+the housing sector with the introduction of prefabricated housing
+
+techniques, and the construction of modernist city tower blocks (Hall, 1988;
+
+Jones, 2005; Malpass and Murie, 1999).  This was only possible because
+
+much of the existing infrastructure in cities, which had previously placed a
+
+
+constraint on hous ing policy, was removed.  T hus Malpass describes one
+
+positive outcome of the two world wars on UK housing policy as follows:
+
+"...[the wars] are generally interpreted as giving housing policy a great
+
+boost, breaking down barriers that had previously seemed insurmountable."
+
+(Malpass, 2000: 20).
+
+But caution is needed in interpreting the wars as external factors driving
+
+radical change in the housing sector.  The situation is more complex: post
+
+war changes were driven by a mix of issues internal and external to the
+
+housing sector, including the technology becoming available to build
+
+factory-based high-rise housing and the existence of a surplus of steel and
+
+aluminium production after the wars, as well as a shift in ideology amongst
+
+housing professionals characterised by a strong desire for innovation and
+
+change (Hall, 1988; Ross, 2002).  Furthermore, a large amount of housing
+
+underwent planned demolition during the interwar periods; it was not just
+
+that it was destroyed by warfare.  In the 1950s a m ajor slum clearance
+
+programme was launched by the Government (Hall, 1988), and between
+
+fifty and seventy thousand homes were demolished each year between the
+
+late 1950s and early 1970s (Fawcett, 2002: 6).
+
+Similar opportunities for radical change may arise through contemporary
+
+Government plans for demolition and major new housebuilding under the
+
+Sustainable Communities Plan (ODPM, 2003d). Two hundred thousand
+
+
+new homes are to be built in south-east England by the year 2016, above
+
+those already planned, with the majority in the Thames Gateway area (ibid.
+
+2003d), and thousands of homes will be demolished in low housing demand
+
+areas in the north of England (Hansard, 2005).  T he Sustainable
+
+Communities Plan thus offers a significant opportunity for change, whereby
+
+radical housing innovations could be introduced and experimented with
+
+cost-effectively, benefiting from economies of scale and Government
+
+support. Discussion is underway, for example, about how innovations could
+
+be used in the new housing to minimise its environmental impact, and to
+
+encourage the uptake of new housebuilding methods (Bioregional, 2005;
+
+DTI, ODPM et al., 2003; James and Desai, 2003; ODPM, 2003b; POST,
+
+2003).  D iscursive strategies have been important in promoting these
+
+innovations. For example, the UK Government has attempted to
+
+discursively reframe factory-based housebuilding technologies in order to
+
+promote their adoption in new housebuilding areas, particularly the Thames
+
+Gateway, claiming:
+
+"Modern methods of construction have an increasing role to play in
+
+achieving a step change in the construction industry to produce the quantity
+
+and also the quality of housing we need."
+
+(ODPM, 2003b: 10, emphasis added).
+
+Government has promoted the term ‘modern methods of construction’ to
+
+replace the more familiar ‘prefabrication’ (see Hansard, 2003; ODPM,
+
+
+2003b; The Housing Corporation, 2003).   Factory-based housing
+
+construction was a radical new idea for housebuilding in the post war
+
+periods in the UK, and is now being promoted again as a new, modern
+
+solution to contemporary policy problems, most notably a shortage of
+
+affordable housing in the south-east of England (ODPM, 2003b).  It
+
+illustrates the point raised previously about how radical ideas have their
+
+origins in existing ideas and technologies (Kemp, 1994).  In total, about one
+
+million prefabricated homes were built in the UK in the mid-twentieth
+
+century (Ross, 2002).  However, problems arose over the quality of building
+
+materials and poor workmanship, as well as issues about housing design and
+
+aesthetics, which resulted in negative attitudes towards factory-based
+
+housing technologies.  This was particularly the case for the high-rise pre-
+
+cast concrete apartment blocks popular during the 1950s and 1960s (see
+
+Ross, 2002).  Further, a ‘World in Action’ documentary programme
+
+broadcast in the early 1980s did much damage to the reputation of timber
+
+frame prefabrication technologies, raising concerns about the water
+
+tightness and robustness of timber frame construction (ibid. 2002).  A key
+
+element of the Government’s current strategy to promote use of factory
+
+housing has therefore been to change the discourse about factory-based
+
+housing technologies, essentially to avoid use of ‘prefabrication’.  T he
+
+Government’s discursive strategy has involved stressing the quality of
+
+modern methods of construction, as an (implicit) contrast to historical
+
+prefabricated housing, as well as to contemporary masonry methods
+
+(Gorgolewski, Milner et al., 2001; Hansard, 2003; ODPM, 2003b; The
+
+
+Housing Forum, 2001).  Many of the prefabricated houses built in post war
+
+periods in the UK were designed to be temporary.  In contrast, modern
+
+methods of construction are presented as high quality, durable, modern
+
+housing, complete with features such as integrated plumbing and internet
+
+access (see for example Corus Construction Centre, The Steel Construction
+
+Institute et al., 2003; The Housing Forum, 2001).
+
+As the UK housing sector illustrates, considering changes to the material
+
+infrastructure as well as social issues helps highlight the existence of key
+
+windows for change when new infrastructure is required.  B ijker and
+
+Bijsterveld allude to this in their socio-technical analysis of housing design
+
+in the Netherlands:
+
+"… to say that [housing] technology is socially constructed is not to say that
+
+all technical artefacts are always malleable. Technology can be very
+
+obdurate after closure and stabilization processes have occurred.”
+
+(Bijker and Bijsterveld, 2000: 507).
+
+In other words, once a technology has been physically constructed and
+
+translated from an idea into reality then the chance of radical innovation is
+
+much diminished. In the case of the Sustainable Communities Plan, there is
+
+a currently a window of opportunity for radical innovation because a large
+
+amount of new housing is to be constructed.  T hus certain radical
+
+technologies, such as modern methods of construction, are being actively
+
+
+framed as solutions to the specific policy problems the Sustainable
+
+Communities Plan aims to address, including providing affordable housing
+
+and increasing the speed of housebuilding (ODPM, 2003b, 2003d).
+
+The role of demonstration projects
+
+Creating change also depends upon the characteristics of new innovations.
+
+This is to state the obvious; it is  suggested more precisely that the
+
+translation of new ideas into physical entities helps promote and stabilise the
+
+idea, thus making widespread adoption more likely.  It has been proposed
+
+by Rip and Kemp (1998), amongst others, that radical innovations tend to
+
+emerge at first within ‘innovation niches’, defined as relatively protected
+
+learning spaces for new technologies, comprising either a single experiment
+
+or project, or a cl uster of several experiments (see Rip and Kemp, 1998;
+
+Schot, Hoogma et al., 1994; Szejnwald Brown, Vergragt et al., 2003;
+
+Weber, 2003).  The idea of innovation niches builds on the important work
+
+of other STS authors, such as Shapin and Schaffer, who have examined the
+
+societal shaping of scientific experiments, highlighting how experiments are
+
+used by advocates to generate facts (Shapin and Schaffer, 1985).  It is
+
+suggested here, drawing on e vidence from UK low energy housing
+
+developments, that the material presence of innovation niches can similarly
+
+be critical in winning the cognitive struggle about new ideas.   One problem
+
+with gaining initial support for an idea can be the difficulty of promoting it
+
+and generating positive publicity.  But by translating an idea into a material
+
+form – whether it be constructing a building or demonstrating a new
+
+
+renewable energy technology – the idea is given some permanence.
+
+Material objects thereby play an important role in adding stability to
+
+emerging human-technology relations, as Law explains:
+
+"… some materials are more durable than others and so maintain their
+
+relational patterns for longer... when we embody [relations] in inanimate
+
+materials such as texts and buildings - they may last longer… Consequently,
+
+a relatively stable network is one embodied in and performed by a range of
+
+durable materials."
+
+(Law, 1992: 5).
+
+The idea builds on e xisting policy theories about change.  P unctuated
+
+equilibrium theory emphasises the importance of a s uccessful image in
+
+catapulting an issue onto the policy agenda, and thereby catalysing a period
+
+of rapid policy change whereby existing policy networks become
+
+destabilised (John, 2003; True, Jones et al., 1999).  A small number of
+
+policy authors have also considered the impact of seeing new policy ideas
+
+and innovations in practice (see Guy, 2002; Guy and Osborn, 2001; Owens
+
+and Rayner, 1999).  Maarten Hajer, for example, discusses the key role of
+
+policy actors’ excursions to certain sites of interest, in particular when
+
+visiting forests in Scandinavia damaged by acid rain:
+
+"A striking finding… concerned the role of meetings and excursions in the
+
+process of persuasion... these practices... can… be identified as an essential
+
+
+moment in the process of proliferation and utilization of knowledge, and…
+
+policy change...”
+
+(Hajer, 1995: 271).
+
+Thus actually seeing the damaged trees helped catalyse shifts in policy.
+
+What is important to stress here is how the radical innovations themselves
+
+have agency:  they encourage publicity, and thereby help disseminate new
+
+ideas.  In turn, this helps establish credibility for the (human) actors
+
+promoting them.  In other words, the innovation niche acts as literally
+
+material proof that the idea works, and thereby reduces risk for others
+
+wishing to implement similar innovations.
+
+A small number of UK low energy housing innovation niches, or
+
+demonstration projects, have generated huge amounts of publicity, acquiring
+
+almost a celebrity status. These include the low energy housing
+
+developments of BedZed and Hockerton, which have had extensive
+
+coverage in specialist and general media (see Figure One and Table One
+
+below).  Note that these developments have been classified as ‘intermediary
+
+developments’ or ‘stepping stone niches’ (Smith, 2004).  Indeed, there is
+
+some ambiguity in the STS literature about the distinction between
+
+demonstration projects, innovation niches and more mainstream transitional
+
+niches; an issue that is beyond the scope of this paper (see Geels, 2004; Rip
+
+and Kemp, 1998; Smith, 2004 f or further discussion).  H ere it is
+
+concentrated on how  these housing developments may act in ways to
+
+
+promote wider low energy housing innovation through their material
+
+presence.
+
+WRITTEN MEDIA
+NUMBER OF
+ARTICLES
+
+NUMBER OF
+PHOTOS
+
+Local newspapers
+National newspapers
+Technical press
+Magazines
+Books/leaflets
+International
+
+Sub-total
+
+
+BROADCAST MEDIA
+NUMBER OF
+ARTICLES
+
+MINUTES OF
+TRANSMISSION
+
+Local TV
+Local Radio
+National TV
+National Radio
+Videos
+
+Sub-total
+
+
+
+Table 1: Media coverage of Hockerton, January 1995 - November 2004
+
+(Source–http://www.hockerton.demon.co.uk/media/summary.html, accessed
+May 2004, with further update from Hockerton in November 2004 (White,
+2004, pers.comm).
+
+The Beddington Zero Energy Development, or ‘BedZed’, is a low energy
+
+development in south London; the outcome of a joint initiative between the
+
+architect Bill Dunster, the Peabody Trust (a Registered Social Landlord),
+
+and the environmental consultancy BioRegional Development Group
+
+(BedZed, 2001; BRECSU, 2002; Lowenstein, 2001; The Housing
+
+Corporation, 2004).  It comprises eighty-two homes; nearly half of which
+
+have been sold on the private market, and the remainder are social housing.
+
+BedZed comprises a number of environmental innovations including an on-
+
+
+site combined heat and power plant, an electric car pool, rainwater tanks,
+
+and sedum grass roofs (BRECSU, 2002).  Hockerton is an earth-sheltered
+
+housing development near Newark in the East Midlands.  The five terraced
+
+homes have no need for central heating: large conservatories collect heat
+
+from the sun, and the walls are very well-insulated. Electricity is provided
+
+by photovoltaic panels and a wind turbine, and all wastewater is treated on-
+
+site in a reed bed (BRECSU, 2000; Hockerton Housing Project, 2003).
+
+BedZed and Hockerton have acted as a focal point for policy makers,
+
+uniting otherwise disparate actors, and thereby creating further opportunities
+
+for innovation. They represent an important discursive story-line and thus
+
+are a “prime vehicle of change" (Hajer, 1995: 63).  The material existence
+
+of the low energy housing is a critical reason why policy-makers wish to be
+
+associated with it, because it is proof that the ideas and technologies
+
+embedded within the dwellings work, thereby giving instant credibility to
+
+what otherwise may be dismissed as rhetoric.  Table Two gives examples of
+
+UK policy documents citing BedZed.  N otably, the policy documents
+
+neglect to mention how BedZed emerged in the absence of significant direct
+
+Government support.  The Government has nevertheless attempted to
+
+associate itself with BedZed by frequent visits, including the launch of new
+
+policies. For example, Patricia Hewitt, the Secretary for Trade and Industry,
+
+used it as a location to announce a new government solar power initiative
+
+(DTI, 2002).  Similarly, the Liberal Democrat party leader recently visited
+
+because he “was making an environment announcement later that day and
+
+
+wanted a photo to go with any publicity” (BioRegional Communications
+
+Officer, 2004, pers.comm.)
+
+POLICY DOCUMENT
+REFERENCE TO BEDZED
+Speech by Energy Minister Brian
+Wilson, Feb 2002
+(DTI, 2003b).
+
+“Demonstrations such as the developments
+.. at BedZed …prove that the technologies
+are available to deliver practical systems.”
+
+Royal Commission on Environmental
+Pollution 22nd Report: “Energy – Our
+Changing Climate”
+
+Has a case study box devoted to BedZed
+and describes it as:  “the most ambitious
+low energy housing development in the UK
+to date..” (RCEP, 2000: 105).
+
+Government Energy Efficiency Best
+Practice Programme – General
+Information Report no. 89
+
+“…BedZed represent[s] state-of-the-art for
+sustainable housing in the UK.” (BRECSU,
+2002: 3).
+
+UK 2003: the Official Yearbook of the
+United Kingdom of Great Britain and
+Northern Ireland (The Stationery
+Office, 2003).
+
+Double page picture spread (pp.298-299).
+
+Environment Agency report – ‘Our
+Urban Future’ September 2002
+(www.environment-agency.gov.uk)
+
+BedZed is cited as an example of a solution
+to climate change.
+
+The Housing Corporation (2004).
+It is used as a model case study for
+Registered Social Landlords  “… to show
+how sustainable development can be
+achieved.”
+
+Table 2: Examples of UK policy documents citing BedZed
+
+Findings from Government reports into a number of high profile low energy
+
+housing innovation niches, including Hockerton and BedZed (BRECSU,
+
+1996, 2000, 2002)  have also informed discussions about changes to the
+
+energy building regulations (ODPM, 2000; 2003a; 2004b).  In addition, new
+
+policies have been forthcoming at a local level, based on the experience of
+
+BedZed and Hockerton. Sutton Borough Council, where BedZed is located,
+
+
+set an important new precedent in planning procedure by awarding the
+
+development contract to the BedZed team, despite not being the highest
+
+bidder (BRECSU, 2002).  Experience with BedZed has subsequently helped
+
+inform the Unitary Development Plan produced by Merton Borough
+
+Council – the neighbouring local authority – which now requires new
+
+developments over a certain size to source ten percent of their energy from
+
+renewable resources (Forum for the Future, 2004).  T he authors of the
+
+Government-commissioned
+report
+about
+BedZed
+stress
+how
+the
+
+development represents:
+
+"… a powerful argument for the feasibility of a zero-carbon target for all
+
+new build."
+
+(BRECSU, 2002: 11).
+
+Moreover, a range of organisations has associated themselves with these
+
+low energy housing developments in order to gain credibility, not just
+
+Government.  F or example, the sustainable housing policy officer at an
+
+NGO involved in sustainable housing describes how they have used the
+
+BedZed low energy development to influence key decision makers:
+
+“I think [exemplar projects] are invaluable for showing people what might
+
+be done. It is really great when we want to talk to people about sustainable
+
+housing - important people - we take them to BedZed… and to actually see
+
+
+it in action I think is very inspiring, rather than just talking about what it
+
+might look like.”
+
+(Interview, sustainable homes co-ordinator at a national environmental
+
+NGO, May 2003, emphasis added).
+
+The material existence of low energy housing has thus been vital in
+
+convincing others of its commercial and technical feasibility.  Indeed, it is
+
+because low energy housing niches comprise unfamiliar, radical innovations
+
+that demonstrating they work becomes so critical to any strategy aimed at
+
+encouraging further change.
+
+Summary and Conclusions
+
+It is has been argued here that consideration of the role of materials and
+
+technologies in maintaining stability and catalysing change helps clarify
+
+aspects of the policy process, particularly for sectors comprising durable
+
+material infrastructure, such as housing.  T he traditional focus of policy
+
+authors on di scourse, beliefs, knowledge and resources has deflected
+
+attention away from the importance influence of the substance of policy.
+
+STS authors conceive of change as being influenced both by humans and
+
+non-humans, and thus have something new to offer policy models.  In turn,
+
+ideas from the policy literature also have value for models of socio-technical
+
+change, most notably how discourse can be used to catalyse change and
+
+maintain momentum.
+
+
+By considering the influence of materials in the policy process, a more
+
+holistic, satisfactory account of change thus emerges which brings together
+
+similar concepts from the policy and STS literatures about a punctuated
+
+equilibrium pattern of change (Freeman, 1994; Hughes, 1987; John, 2003;
+
+True, Jones et al., 1999).  Materials confer stability on the policy process:
+
+their physical existence acts to narrow the framing of policy debate.  But it
+
+is also true that new innovations benefit from the relative stability afforded
+
+to them by being built or manufactured: the translation of ideas into durable
+
+materials assists with promotion, and helps gain credibility for the idea and
+
+for those involved, thereby lowering risk for others.  Criticism of punctuated
+
+equilibrium theory as being descriptive rather than explanatory has been
+
+addressed by revealing the important role of humans and non-humans in
+
+simultaneously creating opportunities for change and withstanding it. The
+
+examples drawn upon from the UK housing sector serve to illustrate a
+
+number of aspects of the dynamic relationship between policy stability and
+
+change, in particular revealing the intimate relationship between the social
+
+and technical aspects of housing.
+
+Acknowledgements
+
+I would like to thank the UK Economic and Social Research Council
+
+(ESRC) for funding the research on which the paper is based (PhD grant no.
+
+R422000134546 and Postdoctoral Fellowship grant no. R150554).  I would
+
+also like to thank Professor Susan Smith for her helpful comments on early
+
+drafts of the paper.
+
+
+Bibliography
+
+Akrich M, 1992, "The De-Scription of Technical Objects", in Shaping
+technology/Building society:  studies in sociotechnical change. Eds W E
+Bijker, J Law (MIT Press, Cambridge, Mass.) pp 205-224
+
+Arthur W B, 1989, "Competing Technologies, Increasing Returns, and
+Lock-In by Historical Events" The Economic Journal 99 116-131
+
+Ball M, 1999, "Chasing a Snail: Innovation and Housebuilding Firms'
+Strategies" Housing Studies 14 9-22
+
+Barker K, 2003 Review of Housing Supply - Securing our Future Housing
+Needs. Interim Report - Analysis (HMSO, London)
+
+Barlow J, 1999, "From Craft Production to Mass Customisation: Innovation
+Requirements for the United Kingdom Housebuilding Industry" Housing
+Studies 14 23-42
+
+Barlow J, 2000 Private Sector Housebuilding: Structure and Strategies into
+the 21st Century (Council of Mortgage Lenders, London)
+
+Barlow J, Bhatti M, 1997, "Environmental Performance as a Competitive
+Strategy?  British Speculative House Builders in the 1990s" Planning
+Practice & Research 12 33-44
+
+Barlow J, King A, 1992, "The state, the market, and competitive strategy:
+the housebuilding industry in the United Kingdom, France, and Sweden"
+Environment and Planning A 24 381-400
+
+Baumgartner F R, Jones B D, 1993 Agendas and Instability in American
+Politics (University of Chicago, Chicago)
+
+BedZed, 2001, "About BedZed - what is BedZed?"
+http://www.bedzed.org.uk/about.htm
+
+Berkhout F, 2002, "Technological regimes, path dependency and the
+environment" Global Environmental Change 12 1-4
+
+
+Bijker W E, Bijsterveld K, 2000, "Women Walking through Plans:
+Technology, Democracy, and Gender Identity" Technology and Culture 41
+485-515
+
+Bioregional, 2005, "Zero waste and Zero carbon community: vision for
+Thames Gateway", www.bioregional.com
+
+BioRegional Communications Officer, 2004 Email correspondence: Jennie
+Organ, Communications Officer - BioRegional Development Group 25th
+October 2004
+
+Boardman B, Darby S, Killip G, Hinnells M, Jardine C, Palmer J, Sinden G,
+2005 40% House (Environmental Change Institute, University of Oxford)
+
+BRE, 1999 Review of Part L of the Building Regulations: technical
+implications of increased thermal insulation (Building Research
+Establishment, Glasgow)
+
+BRE, 2001, "EcoHomes - The Environmental Rating for Homes",
+www.bre.co.uk/ecohomes
+
+BRECSU, 1996 General Information Report 53: Building a sustainable
+future - homes for an autonomous community (BRE, Watford)
+
+BRECSU, 2000 New Practice Profile 119: The Hockerton Housing Project
+- design lessons for developers and clients (BRE, Watford)
+
+BRECSU, 2002 General Information Report 89: BedZED - Beddington
+Zero Energy Development, Sutton (BRE, Watford)
+
+Corus Construction Centre, The Steel Construction Institute, British
+Constructional Steelwork Association, 2003 Achieving Sustainable
+Construction: Guidance for clients and their professional advisors)
+
+Coutard O, Eds 1999, The Governance of Large Technical Systems
+(Routledge, London)
+
+Crewe D, 2002 Interview - Director of the Housing Forum 19th June 2002
+
+
+Davis O A, Dempster M A H, Wildavsky A, 1966, "A Theory of the Budget
+Process" American Political Science Review 60 529-547
+
+DEFRA, 2005, "DEFRA Press Release - UK Climate Change Programme
+Review: Consultation Launch",
+http://www.defra.gov.uk/news/2004/041208b.htm
+
+DETR, 2000 Climate Change:  the UK Programme (HMSO, London)
+
+Dryzek J, 1997 The politics of the Earth: environmental discourses (Oxford
+University Press, Oxford)
+
+DTI, 2002, "First stage of major PV Demonstration Programme launched"
+New Review Issue May 2002, page 1
+
+DTI, 2003a Energy White Paper 'Our Energy Future - creating a low
+carbon economy' (HMSO, London)
+
+DTI, 2003b, "Press release: Construction Industry must Build a Greener
+Future", http://www.gnn.gov.uk/. (ref P/2003/244)
+
+DTI, ODPM, DEFRA, 2003 Better Buildings Summit Issues Paper (HMSO,
+London)
+
+DTLR, 2002 Approved Document L1 - The Building Regulations 2000
+(Conservation of fuel and power in dwellings) (HMSO, London)
+
+Egan J, 1998 Rethinking Construction: the report of the Construction Task
+Force (HMSO, London)
+
+Ekins P, 2002 Social Housing and Sustainability (Forum for the Future and
+The Housing Corporation, London)
+
+Fawcett T, 2002, "Creative destruction? The role of increased demolition in
+creating a more sustainable UK housing stock." paper presented at the
+Creating Sustainable Urban Environments, The Fifth Symposium of the
+International Urban Planning and Environment Association, Oxford.
+
+
+Forum for the Future, 2004, "Merton Borough Council - a radical planning
+decision to promote renewable energy",
+http://www.regionalfutures.org.uk/newsdigest/mertonboroughcouncil_page2
+181.aspx
+
+Freeman C, 1994, "The Greening of Technology" Futures 26 1019-1022
+
+Gann D, 2000 Building Innovation: complex constructs in a changing world
+(Thomas Telford Ltd, London)
+
+Geels F W, 2004 Technological Transitions and System Innovations: a co-
+evolutionary and socio-technical analysis (Edward Elgar, Cheltenham, UK)
+
+Gorgolewski M, Milner M, Ross K, 2001 Off-site produced housing: a
+briefing guide for Housing Associations (TRADA, BRE, The Steel
+Construction Institute, DTI, London)
+
+Graham S, Marvin S, 2001 Splintering urbanism:  networked
+infrastructures, technological mobilities and the urban condition
+(Routledge, London)
+
+Grant W, 2000 Pressure groups and British politics (Macmillan,
+Basingstoke)
+
+Grant W, 2004, "Pressure politics: the changing world of pressure groups."
+Parliamentary Affairs 57 408-419
+
+Griset P, 1999, "Technical systems and strategy: intercontinental
+telecommunications in the first quarter of the twentieth century", in The
+Governance of Large Technical Systems. Eds O Coutard (Routledge,
+London & New York) pp 58-72
+
+Grubb M J, 2002, "Britannia waives the rules: The United Kingdom, the
+European Union and climate change" New Economy 9 139-142
+
+Gupta J, van der Grijp N, 1999, "Leadership in the climate change regime:
+the European Union in the looking glass" International Journal of
+Sustainable Development 2 303-322
+
+
+Guy S, 1999, "Evil Developers and Green Fairies", in Environmental
+Futures. Eds N B Fairweather, S Elworthy, M Stroh, P H G Stephens
+(Macmillan Press Ltd., Basingstoke) pp 199-215
+
+Guy S, 2002, "Developing interests: environmental innovation and the
+social organisation of the property business", in Development and
+Developers: perspectives on property. Eds S Guy, J Henneberry (Blackwell
+Science Ltd, Oxford) pp 247-266
+
+Guy S, Osborn S, 2001, "Contesting Environmental Design:  the Hybrid
+Green Building", in Infrastructure in transition:  urban networks, buildings,
+plans. Eds S Guy, S Marvin, T Moss (Earthscan, London) pp 87-102
+
+Haas P, 1992, "Introduction: epistemic communities and international policy
+co-ordination" International Organisation 46 1-35
+
+Hajer M A, 1995 The politics of environmental discourse:  ecological
+modernisation and the policy process (Clarendon Press, Oxford)
+
+Hajer M A, Wagenaar H, Eds 2003, Deliberative Policy Analysis:
+Understanding Governance in the Network Society (Cambridge University
+Press, Cambridge)
+
+Hall P, 1988 Cities of Tomorrow (Blackwell Publishers Ltd, Oxford)
+
+Ham C, Hall M, 1993 The Policy Process in the Modern Capitalist State
+(Harvester Wheatsheaf, Hemel Hempstead)
+
+Hansard, 2003 Written Answers for 16 July 2003 - Homes (Modern
+Construction) (HMSO, London)
+
+Hansard, 2005, "House of Lords Parliamentary Questions - Housing Market
+Renewal Pathfinder, 7th June 2005", http://www.parliament.the-stationery-
+office.co.uk/pa/ld199900/ldhansrd/pdvn/lds05/text/50607w02.htm
+
+Hertin J, Berkhout F, Gann D, Barlow J, 2003, "Climate change and the UK
+house building sector: perceptions, impacts and adaptive capacity" Building
+Research and Information 31 278-290
+
+
+Hockerton Housing Project, 2003 Hockerton Housing Development -
+Technical Tour 20th March 2003
+
+Hooper A, Nicol C, 2000, "Design practice and volume production in
+speculative housebuilding" Construction Management and Economics 18
+295-310
+
+Hughes T P, 1983 Networks of Power:  Electrification in Western Society
+1880-1930 (The John Hopkins University Press, Maryland)
+
+Hughes T P, 1987, "The Evolution of Large Technological Systems", in The
+Social Construction of Technological Systems:  New Directions in the
+Sociology and History of Technology. Eds W E Bijker, T P Hughes, T J
+Pinch (MIT Press, Cambridge) pp 51-82
+
+Innes D, 2003 Interview - Head of Millennium Communities, English
+Partnerships 14th May 2003
+
+James N, Desai P, 2003 One planet living in the Thames Gateway (WWF-
+UK
+BioRegional Development Group, London)
+
+John P, 2003, "Is There Life After Policy Streams, Advocacy Coalitions,
+and Punctuations: Using Evolutionary Theory to Explain Policy Change?"
+Policy Studies Journal 31 481-498(18)
+
+Jones P, 2005, "The suburban high flat in the post-war reconstruction of
+Birmingham, 1945-71" Urban History (in press)
+
+Jordan A, Greenaway J, 1998, "Shifting agendas, changing regulatory
+structures and the 'new' politics of environmental pollution: British coastal
+water policy, 1955-1995" Public Administration 76 669-694
+
+Kemp R, 1994, "Technology and the Transition to Environmental
+Sustainability" Futures 26 1023-1046
+
+King T, 2004 Interview - ODPM Principal Building Engineer, Building
+Division February 27th 2004
+
+
+Kingdon J W, 1995 Agendas, alternatives and public policies (Harper
+Collins College Publishers, New York)
+
+Law J, 1992, "Notes on the Theory of the Actor Network:  Ordering,
+Strategy and Heterogeneity" Systems Practice 54 379-393
+
+Lindblom C E, 1959, "The Science of 'Muddling Through'" Public
+Administration Review 14 79-88
+
+London Borough of Enfield, 2003 A snapshot of current planning policy
+and practice on sustainable design and construction in London Boroughs
+(London Borough of Enfield
+London Environment Coordinators Forum, London)
+
+Lovell H, 2005 The governance of emerging socio-technical systems: the
+case of low energy housing in the UK unpublished PhD thesis, Department
+of Geography, Cambridge University, Cambridge
+
+Lowenstein O, 2001, "From BedZed to eternity" Building for a Future Issue
+Winter 2001-2002, page 16-21
+
+Malpass P, 2000 Housing associations and housing policy: an historical
+perspective (Macmillan, Basingstoke)
+
+Malpass P, Murie A, 1999 Housing policy and practice (Macmillan,
+Basingstoke)
+
+Marsh D, Rhodes R A W, 1992a, "Policy Communities and Issue Networks:
+Beyond Typology", in Policy Networks in British Government. Eds D
+Marsh, R A W Rhodes (Clarendon Press, Oxford) pp 249-268
+
+Marsh D, Rhodes R A W, Eds 1992b, Policy Networks in British
+Government (Clarendon Press, Oxford)
+
+Nelson R, Winter S G, 1982 An Evolutionary Theory of Economic Change
+(Harvard University Press, Cambridge)
+
+NHBC, 2003 New House Building Statistics - Quarter 3 (National House
+Building Council (NHBC), Amersham, Bucks)
+
+
+Nicol C, Hooper A, 1999, "Contemporary Change and the Housebuilding
+Industry:  Concentration and Standardisation in Production" Housing
+Studies 14 57-76
+
+ODPM, 2000, "Current thinking on possible future amendments of energy
+efficiency provisions",
+http://www.odpm.gov.uk/stellent/groups/odpm_buildreg/documents/page/od
+pm_breg_600333.hcsp
+
+ODPM, 2001 English House Condition Survey 2001:  Key Facts (HMSO,
+London)
+
+ODPM, 2003a, "Industry Advisory Group (Working Party 4) Low and Zero
+Carbon Energy Systems Meeting Minutes - 16th October 2003",
+www.odpm.gov.uk
+
+ODPM, 2003b Planning for Sustainable Communities in the South East -
+Government response (HMSO, London)
+
+ODPM, 2003c Possible Future Performance Standards for Part L (HMSO,
+London)
+
+ODPM, 2003d Sustainable Communities: building for the future (HMSO,
+London)
+
+ODPM, 2004a, "Housing Statistics 2004", www.odpm.gov.uk
+
+ODPM, 2004b, "Proposals for amending Part L and implementing the EU
+Buildings Energy Directive",
+http://www.odpm.gov.uk/stellent/groups/odpm_buildreg/documents/
+
+ODPM, 2004c Proposals for amending Part L of the Building Regulations
+and Implementing the Energy Performance of Buildings Directive (HMSO,
+London)
+
+Ott H, 2001, "Climate change: an important foreign policy issue"
+International Affairs 77 277-296
+
+
+Owens S, Rayner T, 1999, "When knowledge matters: the role and influence
+of the Royal Commission on Environmental Pollution" Journal of
+Environmental Policy and Planning 1 7-24
+
+Pett J, Ramsay L, 2003 Routes to Sustainability - The Handbook
+(Association for the Conservation of Energy, Practical Environment, the
+Housing Corporation, London)
+
+Phillimore J, 2001, "Schumpeter, Schumacher and the Greening of
+Technology" Technology Analysis and Strategic Management 13
+
+Pinch T J, Bijker W E, 1984, "The Social Construction of Facts and
+Artefacts: or How the Sociology of Science and the Sociology of
+Technology might Benefit Each Other" Social Studies of Science 14 399-
+
+POST, 2003 POSTnote - Modern Methods of House Building
+(Parliamentary Office of Science and Technology, London)
+
+Radaelli C, 1995, "The role of knowledge in the policy process" Journal of
+European Public Policy 2 159-183
+
+Raman S, Shove E, 2000, "The business of building regulation", in The
+Business of Greening. Eds S Fineman (Routledge, London) pp 134-150
+
+Ranmert W, 1997, "New rules of sociological method: rethinking
+technology studies" British Journal of Sociology 48 171-191
+
+RCEP, 2000 Energy - The Changing Climate, 22nd Report (HMSO,
+London)
+
+Rein M, Schon D, 1993, "Reframing Policy Discourse", in The
+Argumentative Turn in Policy Analysis and Planning. Eds F Fischer, J
+Forester (UCL Press Ltd, London) pp 145-166
+
+Richardson J, 2000, "Government, interest groups and policy change"
+Political Studies 48 1006-1025
+
+
+Rip A, Kemp R, 1998, "Technological Change", in Human Choices and
+Climate Change Volume 2 - Resources and Technology. Eds S Rayner, E
+Malone (Battelle Press, Columbus Ohio) pp 327-399
+
+Rohracher H, 2001, "Managing the Technological Transition to Sustainable
+Construction of Buildings: a socio-technical perspective" Technology
+Analysis and Strategic Management 13 137-150
+
+Ross K, 2002 Non-traditional housing in the UK - a brief review (Building
+Research Establishment (BRE) for the Council of Mortgage Lenders,
+London)
+
+Sabatier P A, 1998, "The advocacy coalition framework: revisions and
+relevance for Europe" Journal of European Public Policy 5 98-130
+
+Sabatier P A, Jenkins Smith H C, Eds 1993, Policy change and learning: an
+advocacy coalition approach (Westview Press, Boulder)
+
+Schot J W, Hoogma R, Elzen B, 1994, "Strategies for Shifting
+Technological Systems: the case of the automobile system" Futures 26
+1060-1076
+
+Schumpeter J A, 1961 The Theory of Economic Development (Oxford
+University Press, Oxford)
+
+Shapin S, Schaffer S, 1985 Leviathan and the Air Pump: Hobbes, Boyle and
+the Experimental Life (Princeton University Press, Princeton)
+
+Smith A, 1997, "Policy networks and advocacy coalitions:  explaining
+policy change and stability in United Kingdom industrial pollution policy?"
+Environment and Planning C 18 95-114
+
+Smith A, 2002, "Transforming Technological Regimes for Sustainable
+Development: a role for Alternative Technology niches?"
+http://www.sussex.ac.uk/spru
+
+Smith A, 2004, "Governance lessons from green niches: the case of eco-
+housing", paper presented at the ESRC Sustainable Technologies
+Programme workshop on Governance, Technology and Sustainability, Open
+University, Milton Keynes.
+
+
+Szejnwald Brown H, Vergragt P, Green K, Berchicci L, 2003, "Learning for
+sustainability transition through bounded socio-technical experiments in
+personal mobility" Technology Analysis & Strategic Management 15 291-
+
+Tarr J A, 1999, "Transforming an energy system:  the evolution of the
+manufactured gas industry and the transition to natural gas in the United
+States (1807-1954)", in The Governance of Large Technical Systems. Eds O
+Coutard (Routledge, London) pp 19-37
+
+The Housing Corporation, 2003 Capital Funding Guide - The Challenge
+Fund (The Housing Corporation, London)
+
+The Housing Corporation, 2004, "BedZed case study for Housing
+Associations", http://www.housingcorp.gov.uk/resources/sustain.htm#tools
+
+The Housing Forum, 2001 Homing in on excellence: a commentary on the
+use of offsite fabrication methods for the United Kingdom house building
+industry (The Housing Forum, London)
+
+The Housing Forum, 2003, "The Housing Forum - About us",
+www.thehousingforum.org
+
+The Stationery Office, 2003 The official yearbook of the United Kingdom of
+Great Britain and Northern Ireland. (HMSO, London)
+
+Traditional Housing Bureau, 2005, "The Traditional Housing Bureau - Who
+we are", http://www.housebuilder.org.uk/who-are-we.html
+
+True J, Jones B D, Baumgartner F R, 1999, "Punctuated-Equilibrium
+Theory:  Explaining Stability and Change in American Policy making", in
+Theories of the Policy Process. Eds P A Sabatier (Westview Press, Boulder)
+pp 97-115
+
+Unruh G C, 2002, "Escaping carbon lock-in" Energy Policy 30 317-326
+
+Walker W, 2000, "Entrapment in large technology systems: institutional
+commitment and power relations" Research Policy 29 833-846
+
+
+Weber K M, 2003, "Transforming Large Socio-technical Systems towards
+Sustainability: on the Role of Users and Future Visions for the Uptake of
+City Logistics and Combined Heat and Power Generation" Innovation: the
+European Journal of Social Science Research 16 155-175
+
+White N, 2004 Email correspondence - Nick White, Manager at Hockerton
+Housing Project 1st November 2004
+
+Wiskerke J S C, 2003, "On promising niches and constraining
+sociotechnical regimes: the case of Dutch wheat and bread" Environment
+and Planning A 35 429-448

@@ -1,0 +1,973 @@
+Journal of Cleaner Production 257 (2020) 120497
+
+Contents lists available at ScienceDirect
+
+Journal of Cleaner Production
+
+journal homepage: www.elsevier.com/locate/jclepro
+
+Exploring a strategy for tall ofﬁce buildings based on thermal energy
+consumption from industrialized perspective: An empirical study in
+China
+
+Jin Wei a, Yue-Jun Zhang b, c, *
+
+a School of Architecture, South China University of Technology, Guangzhou, 510640, PR China
+b Business School, Hunan University, Changsha, 410082, PR China
+c Center for Resource and Environmental Management, Hunan University, Changsha, 410082, PR China
+
+a r t i c l e i n f o
+
+a b s t r a c t
+
+Article history:
+Received 2 October 2019
+Received in revised form
+17 January 2020
+Accepted 8 February 2020
+Available online 11 February 2020
+
+Faced with urban high-density environment, current energy-saving measures are focused on climatic
+design and technical improvement, which might not align well with China’s national policies on
+extending the longevity of high-rise buildings to realize life cycle sustainability. Therefore, this paper
+explores energy-efﬁcient strategies for tall ofﬁce buildings in response to the time-varying operational
+parameters to realize spatial malleability from industrialized perspective. The results from a case study
+show that, ﬁrst, the model of ofﬁce þ multi-courtyards has positive impact on climatic adaptation, in
+terms of ventilation, air temperature, thermal radiation environment, and effectiveness of thermal en-
+ergy conservation. Second, the average energy efﬁciency rate of the model of ofﬁce þ multi-courtyards is
+from 12.8% to 4.7% with the interior space coverage of 20%e80%. Third, when the interior space coverage
+ranges from 50% to 60%, the average energy efﬁciency rate appears substantial ﬂuctuation from 10.3% to
+6.5% and appears the change point when the interior space coverage is 58%.
+© 2020 Elsevier Ltd. All rights reserved.
+
+Handling Editor: Panos Seferlis
+
+Keywords:
+Climatic adaptation
+Tall ofﬁce buildings
+Thermal energy consumption
+Energy-efﬁcient strategy
+Building industrialization
+National energy conservation policy
+
+Wang and Wei, 2016). It can be found that China’s cities are forming
+high-density environment, and tall buildings play an increasingly
+important role due to the limited land-use. Thus, a signiﬁcant
+change in urban energy consumption structure is that energy
+consumption of industrial sector is decreasing but that of building
+sector is increasing (Yu et al., 2016).
+Over the past ten years, China’s National Building Energy Con-
+servation Policy and National Energy Revolution Strategy are being
+constantly adjusted to adapt to rapid urban development and in-
+dustrial structure transformation, and the energy resource collab-
+oration (Wang et al., 2015; Zhang and Da, 2015). For instance,
+Chinese government upgraded green building action plan into
+national strategy.2 Besides, China is promoting building industri-
+alization and pre-fabricated construction from the governmental
+level. For example, some opinions on further strengthening the
+management of urban construction by the State Council mention
+that building industrialization will take up a relative signiﬁcant
+* Corresponding author. Business School, Hunan University, Changsha, 410082,
+PR China.
+E-mail address: zyjmis@126.com (Y.-J. Zhang).
+1 The 2nd International summit of super high-rise building industry, 27e28 Sep
+2018. http://www.sohu.com/a/256775485_481845.
+
+1. Introduction
+
+The built environment is a signiﬁcant component of world en-
+ergy consumption and carbon emissions (Chen et al., 2008; Mi
+et al., 2018). The urban sprawl, to which global warming is
+strictly related, has caused a series of environmental hazards that
+are well-known but difﬁcult to tackle: the Urban Heat Island effect
+(UHI) is one of them (Yang et al., 2011; Susca et al., 2011). According
+to the statistics, China’s average urbanization rate is close to 60%,
+while the urbanization rate of the ﬁrst-tier cities has exceeded
+85%.1 Besides, 87% of skyscrapers at the world level appear in China,
+making it become the developing centers of urban high-rise and
+high-density areas and bringing strong negative impact of energy
+consumption and carbon emissions (Mi et al., 2015; Tan et al., 2016;
+
+2 Green Building Action Plan, 1 Jan 2013. http://www.gov.cn/zhengce/content/
+2013-01/06/content_4572.htm?&from¼androidqq.
+
+https://doi.org/10.1016/j.jclepro.2020.120497
+0959-6526/© 2020 Elsevier Ltd. All rights reserved.
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+effective way of optimizing spatial utilization. Besides, Perini et al.
+(2017) evaluate the cooling potential of a vegetated vertical
+greening system by ﬁeld measurement on south-oriented green
+façade of a tall ofﬁce building in the hot summer Mediterranean
+climate in Italy.
+It is thus clear that the measures taken on tall buildings’ thermal
+energy consumption in various countries are often through space
+adjustment (interior space and outdoor public space), architectural
+forms optimization, courtyards implantation, and greenery systems
+regulation. However, these methods could improve the energy ef-
+ﬁciency through “repair” for buildings, but not fundamentally meet
+occupants’ demand on spatial malleability with extending the
+longevity of high-rise buildings from the industrialized perspective.
+In addition, China has a vast expanse of land with complicated
+topographies and different types of climate, therefore the charac-
+teristics of energy consumption of tall ofﬁce buildings in different
+regions are diverse. Facing intensive urban environment, the
+impact of factors, such as function sustainability, health perception
+and natural environment contact, on energy efﬁciency and thermal
+performance of high-rise buildings are inevitably needed to be
+considered.
+Based on China’s national policy on promoting building indus-
+trialization, building separation system is considered as a funda-
+mental condition. This includes constant system (support structure,
+public facilities tube well, vertical transportation) and variable
+system (building envelope, domestic facilities), which provides the
+possibility to realize the adjustable and variable interior space with
+free layout on “secondary ground” (Habraken, 2003). Speciﬁcally,
+the long-term effect and the complexity of building separation
+system as a technical and structural support makes adjustable
+space modules and different space coverage in freestyle layout on
+“secondary ground”. On the one hand, the service life prolongs
+because of the separation of building components with permanent
+system and the ones that need to be updated frequently. This is an
+effective response to the changes of built environmental conditions,
+and the progress in the aspects of sustainability and adaptation. On
+the other hand, “secondary ground” is like vacant lot owed by users,
+in which the joint change of interior partition walls and exterior
+enclosures improves the spatial variability, which allows the
+physical artefact a level of malleability in response to changing
+operational parameters over time (Schmidt et al., 2010). In this way,
+the designers, builders and manufacturers only provide sugges-
+tions and choices according to users’ needs. This change also echoes
+with the target of industrial construction with the characteristics of
+longevity and low-carbon footprint (Buyle et al., 2013; Li and
+Colombier, 2009). As for variable layout for building carbon emis-
+sions, Klemecic et al. (2012) use double-bottom-line to evaluate the
+relationship between carbon footprint and building longevity,
+including long-term re-use value, to analyze the targeted tall
+building in Chicago, from the perspective of macro-economics. The
+results suggest that open ﬂoor plans and ﬂexible space, within
+limits, can change over time and longer building durations.
+As for the type of traditional ofﬁce þ courtyard space, it can be
+classiﬁed as attached, semi-enveloped, integrated, linear, and
+fusion (free layout), as illustrated in Table 1. The joint courtyard-
+ofﬁce space is also considered as a ﬂexible and expandable space
+at the intersection of the functional modules of high-rise buildings,
+which provides the possibility of functional transformation and
+expansion for various parts of a building (Wan and Yik, 2004).
+Hertzberger (2005) proposes the Polysemic Space that corresponds
+to “ﬂexibility”. Thus, the spatial characteristics have the adaptive
+capacity to transform according to the required function. Addi-
+tionally, Kurokawa (2000) puts forward the “Intermediary Space
+theory”, which holds that space with intermediary characteristics
+can still integrate the opposite objects in a dynamic system. Thus,
+
+share, i.e., 20% and 50% of the new buildings in 2020 and 2025,
+respectively, while only 5% now.3 This is the developing trend on
+policy targeting building industrialization. Under the reduction of
+energy demand and mitigation of environmental impacts, elec-
+tricity efﬁciency improvement plans have been instigated by Chi-
+nese
+government.
+Fig.
+shows
+China’s
+building
+energy
+consumption and annual growth rate of carbon emissions during
+2000e2016. As can be seen, the annual growth rate of energy
+consumption dropped signiﬁcantly from 11.71% to 5.20% through
+the 10th (2000e2005) to 11th (2006e2010) Five-Year Plan periods;
+then, it was gradually ﬂat during the 12th (2011e2015) Five-Year
+Plan period.4 The synergistic development of tall buildings is also
+accelerating the urban high-density built environments. How to
+match with the overall roadmap of China’s energy revolution and
+green building development in a real sustainable mode from design
+to operation stage also needs further investigation.
+In fact, technical system innovation and use of new technologies
+are effective ways to improve energy efﬁciency, such as tempera-
+ture and humidity separation system, large direct variable fre-
+quency centrifugal refrigeration machine, and smart building
+envelope (Li et al., 2015). However, in terms of the ways regulating
+tall buildings thermal energy consumption and alleviating the
+pressures from urban high-density environment, existing research
+concentrates mainly on two aspects, i.e., climatic design and layout
+adjustment. For example, Gan et al. (2019) propose a customized
+program to identify the energy-efﬁcient layout plan design for
+high-rise residential groups in Hong Kong’s high-density housing
+environment. This optimization approach is served as a decision
+support tool for minimizing thermal energy consumption. Xue et al.
+(2016) validate the relationship between green features and health
+perceptions in the workplace environment. The empirical results
+indicate that better energy efﬁciency appears in complex building
+morphology with courtyards in Singapore. Jaberansari and Elkadi
+(2016) ﬁnd that central and west-oriented atria contribute to
+lowering the thermal load, so as to decrease energy consumption
+under maintaining comfort levels in semi-arid climate conditions.
+Korolija et al. (2013) develop parameterized models to assess of-
+ﬁces’ energy performance and carbon emissions in UK. This is an
+
+Fig. 1. China’s annual growth rate of building energy consumption and carbon
+emissions.
+
+3 The Outline of Modernization Development of Construction Industry, 1 Jan
+2016. https://www.cbi360.net/hyjd/20180413/126036.html.
+4 Report of China’s Building Energy Consumption, 1 Nov 2018. http://www.cabee.
+org/site/content/22960.html.
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Table 1
+Traditional categories of ofﬁce þ courtyard space.
+
+Type
+Attached
+Semi- envelope
+Integrated
+Linear
+Fusion
+
+Type diagram
+Note
+core cube
+courtyard
+functional space
+
+conditioning, making it signiﬁcantly outweigh the impact of the
+other systems, like lighting (Wan et al., 2012).
+With an intention to promote industrial construction and vari-
+able layout plan, a tall ofﬁce building in Nanning city has vertical
+courtyard system with different layouts, as seen in Fig. 2. The three
+typical ofﬁce layouts are selected to compare the thermal perfor-
+mance and thermal energy consumption between traditional ones
+(ofﬁce þ single courtyard) and fusion one (ofﬁce þ multi-court-
+yards), ranging from linear (1st ﬂoor), integrated (3rd ﬂoor) to
+fusion one (7th ﬂoor) as shown in Fig. 3.
+
+considering the occupants’ constantly changing needs, the building
+separation system has been extensively explored with the promo-
+tion of industrial construction, especially in residential sector.
+However, its magnitude, policy’s relevance, level of industrializa-
+tion and autonomous proposition on the layout of “secondary
+ground” remain the core of the controversy.
+Unlike previous measures to response for the environmental
+difﬁculties, in this paper, the perspectives of stakeholders (like
+government, users, designers, managers, builders, and manufac-
+turers) on the thermal energy challenge for built environment are
+taken into consideration to be consistent with the developing
+orientation on national green building policy. To sum up, previous
+studies on the strategies in response to the pressure from urban
+high-rise and high-density environment mainly focus on climatic
+design and technical improvement, as well as regulating thermal
+energy consumption and electricity use. They also investigate the
+origin of “separation system” and the feasibility regarding on
+ﬂexible space modules on “secondary ground” under the technical
+promotion of industrial construction.
+The contribution in this paper can be summarized into three as-
+pects:ﬁrst,thispaper investigates a strategy forresponding to China’s
+national energy-saving policy on building construction. Consider-
+ation on the impact of construction method on carbon emissions and
+users’ needs on layout plan, it is of practical signiﬁcance to propose an
+energy-efﬁcient strategy for regulating built environments. Second,
+considering the impact of the ofﬁce þ courtyard space with free
+layout on thermal performance and effectiveness of thermal energy
+conservation, this paper not only estimates the ofﬁce þ multi-court-
+yards space with free layout is more suitable and better climate
+adaptation, compared with the traditional ofﬁce þ courtyard (linear
+and integrated), but also evaluates its effectiveness of energy con-
+servation, compared with reference one through numerical simula-
+tion. Finally, besides estimating the relationship between the layout
+and thermal energy consumption using quantitative analysis, this
+paper also establishes a customized program to explore the spatial
+design and energy-efﬁcient layout. As a decision support tool for
+satisfying users’ requirements, it contributes to a sustainable con-
+struction environment.
+The remainder of this paper is organized as follows. Section 2
+introduces data descriptions and research methods. Section 3
+presents empirical results and discussions. Finally, Section 4 con-
+cludes the paper and puts forward some suggestions for the future.
+
+2.1.2. Measurement instrumentation and parameters
+The measurements are taken in dates with typical weather (high
+temperatures and high humidity) of Nanning City in hot summer.
+This paper describes the process of measurement and the data
+extracted from the experiment. The measurement is set on
+different ofﬁce þ courtyard space of a tall ofﬁce building. Besides,
+the weather condition of the lasting 8 days during the test is shown
+in Fig. 4.
+The previous day of the ﬁrst measurement was a sunny summer
+day. During the measurement, day 1, day 2, day 5, day 8 are sunny,
+and the value of the total horizontal solar radiation exceeds 400 W/
+㎡from 12:00 to 14:00; day 3 is cloudy; day 6, and day 7 are
+overcast with short rain. Therefore, day 1 and day 2 (sunny), day 3
+(cloudy), day 6 and day 7 (overcast) can be taken as effective data.
+During the experiment, daily highest and lowest air temperature is
+35 C and 19 C in sunny days, respectively. The peak of air tem-
+perature appears at around 13:00 to 15:00 and the minimum value
+appears at around 5:00 to 7:00. Moreover, the relative humidity of
+the air decreases proportionally with the increase air temperature,
+and the numerical ﬂuctuation ranges from 45% to 103%. If there is
+no thermal regulation in a hot-humid climate zone in summer,
+people may feel very stuffy (Aktacir et al., 2010).
+The following parameters for each measurement point are
+measured at the height of 1.2 m above the ground: air temperature,
+relative humidity, black bulb temperature, air velocity and surface
+temperature as shown in Table 2. The sensors are mounted on a
+three-legged stand as shown in Fig. 3. Surface temperatures around
+the measurement points are observed using an infrared camera. A
+thermal index, Globe Temperature, is measured by standard globe
+temperature probe (Taleghani et al., 2013). Table 2 brieﬂy describes
+the instruments used in the measurement. These instruments are
+calibrated in the laboratory. One measurement for a point is carried
+out at 1-h interval and ﬁnishes in 15 min. Lastly, a Hobo weather
+station is set up to collect the meteorological parameters which
+include the outdoor air temperature, relative humidity and solar
+radiation during the test.
+
+2. Methods
+
+2.1. Description of ﬁeld measurement
+
+2.1.1. Measurement location, objects and methods
+In fact, several tall ofﬁce buildings in China have actually
+adopted the layout plan with joint ofﬁce-courtyard. Moreover, with
+the Chinese government championing more industrial construction
+ways to promote cooperation with users at the design stage, the
+urban “secondary ground” in China seems encouraging. In most
+cases, the layout design in sub-tropical and tropical high-density
+cities like Guangzhou, Shenzhen, Nanning, or Hong Kong should
+emphasize thermal energy consumption from the cooling load,
+because the hot and humid weather will increase the need for air-
+
+2.2. Description of numerical simulation
+
+2.2.1. Complementary illustrative simulation
+In this section, some complementary illustrative simulations,
+such as the cooling load and energy efﬁciency rate on free layout,
+are calculated in EnergyPlus (a model-based design tool, which
+could reproduce the spatial forms and constructed surface material
+in detail). After 3D modeling, the cooling load of ofﬁce þ multi-
+courtyards (7th ﬂoor) and the reference one without courtyard are
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Fig. 2. Distribution and type of tested ofﬁce þ courtyard space.
+
+Fig. 3. View measurement locations and parameters.
+
+Fig. 4. Outdoor temperature, humidity and total horizontal solar radiation recorded during the test.
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Table 2
+Description of measurement parameters and sensors.
+
+Measurement parameter
+Sensor type
+Accuracy
+Frequency
+
+Air temperature
+HOBO temperature data logger
+±0.5 C
+5 min
+Relative humidity
+HOBO humidity data logger
+3.0%
+5 min
+Air velocity
+Hot-wire anemometer
+±0.1 m/s
+15 min
+Globe temperature
+Standard globe temperature probe
+±0.15 C
+20 min
+Surface temperature
+Infrared camera
+±0.2 C
+e
+
+3D modeling in Sketchup. Then, the 3D model is imported to
+EnergyPlus, where the information and parameters of the models
+can be edited. Meanwhile, the coordinate information of the rooms
+with free layout is generated in Matlab, and also imported to
+EnergyPlus. Besides, in order to calculate all the possible layouts
+under different interior space coverage through a programming
+language, two limitations must be satisﬁed. First, the divided and
+adjustable rooms cannot be out of the layer boundaries. Second, the
+rooms cannot overlap, and a certain pedestrian passage among
+them. After satisfying constrains, rooms are controlled by co-
+ordinates, and change randomly. Thus the process can generate any
+mode of free layout theoretically. The constraints are shown in Eqs.
+(1)e(9), and the algorithm schema is shown in Fig. 6.
+
+compared. Then, both models with the same interior space area,
+parameters of enclosure structure and heat exchange data are set
+and developed in EnergyPlus. The cooling load is calculated from
+May to September, and the results of energy efﬁciency rate evaluate
+the climatic adaptation of the mode of ofﬁce þ multi-courtyards
+space.
+
+2.2.2. Description of implementation schema of energy
+consumption simulation
+The previous ﬁeld measurement and numerical simulation
+focus on estimating the climatic adaptation of the mode of
+ofﬁce þ multi-courtyards from the perspective of cooling effect and
+energy efﬁciency. This is a necessary step for evaluating the climatic
+adaptation of the layout. Besides, it needs to further discuss the
+strategy for extending the spatial service life. The simulation
+mentioned above cannot be served as a reference for users’ when
+they participate in the process of industrial construction e, because
+in this simulation, the spatial, structural, and service strategies
+cannot change operational parameters over time, to improve the
+spatial malleability. Thus, an EnergyPlus model predictive control
+(MPC) system is developed by using Matlab. The system can be
+applied for predicting and calculating the energy varying in in-
+dustrial construction. To predict the energy efﬁciency with time-
+varying operational parameters, the model predictive control sys-
+tem has been further developed. Numerous studies have estab-
+lished
+through
+numerical
+simulation
+to
+demonstrate
+MPC’s
+effectiveness in predicting energy consumption (Zhao et al., 2014;
+Tam et al., 2018; Sayadi et al., 2018). However, most of the studies
+focus on active HVAC systems, such as variable air volume (VAV)
+and radiant heating systems (Henze et al., 2008). In order to apply
+the system in the ﬁeld of spatial malleability, the following study
+develops a control scheme using the mode of ofﬁce þ multi-
+courtyards as a test-bed to predict its energy performance based on
+the time-varying parameters to meet users’ continuous changing
+requirements of space.
+The control system is established in the Matlab environment
+and connected with the EnergyPlus by writing and reading the text
+ﬁle. Thus the EnergyPlus model is directly co-simulated and opti-
+mized with the control law in the Matlab environment. This pro-
+gram meets the requirement of predicting and reﬂecting the
+change of energy consumption by controlling the operational pa-
+rameters of the space and layout varied by users’ needs over time.
+As output of the simulation, the continuously changed layouts
+and usage space coverage can be visualized on the 2D models under
+the control of parameters (see the right corner of Fig. 5). Besides,
+the energy consumption and energy efﬁciency rate corresponding
+to the continuously changed layouts can be predicted and calcu-
+lated dynamically over time.
+The above-mentioned tall ofﬁce building is used as the building
+model for numerical simulation study. The interior space coverage
+of “secondary ground” is assumed to be 20%, 30%, 40%, 50%, 60%,
+70%, and 80%, respectively. Here, the interior space coverage is
+deﬁned to be percentage of the ﬂoor’s area which is taken by ofﬁce
+room. Schematic description of a case is illustrated in Fig. 5.
+The simulation object and the reference one are abstracted and
+
+1 þ a
+2  x1  N  3a
+2  2
+(1)
+
+1 þ a
+2  y1  N  3a
+2  2
+(2)
+
+1 þ a
+2  x2  N  3a
+2  2
+(3)
+
+y1 þ a þ 1  y2  N  a
+2  1
+(4)
+
+x1 þ a þ 1  x4  N  a
+2  1
+(5)
+
+1 þ a
+2  y4  N  3a
+2  2
+(6)
+
+x2 þ a þ 1  x3  N  a
+2  1
+(7)
+
+y4 þ a þ 1  y3  N  a
+2  1
+(8)
+
+x1 þ a þ 1  x3 or y1 þ a þ 1  y3
+(9)
+
+3. Empirical results and analyses
+
+3.1. Measurement results and discussions
+
+3.1.1. Wind velocity results
+
+Fig. 7 shows the wind velocities measured in the daytime period
+from 12:00 to 16:00 on day 1. Compared to Fig. 7(b), similar results
+can be found in Fig. 7(a) and (c), and the trends of outdoor and
+indoor wind velocity with time-variation of Point 1-S and Point 7-S
+are approximately the same, with slight differences between them.
+However, the differences of wind speed between outdoor and in-
+door of the Point 3-S in integrated layout on 3rd ﬂoor, by contrast,
+are larger than that of the other two.
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Fig. 5. Description of implementation schema of simulation.
+
+3.1.2. Air temperature results
+Temperature of all Points (1-S, 3-S and 7-S) and outdoor air
+temperature are demonstrated in Fig. 8, and the measurement is set
+lasting 8 days under different climate conditions. The results show
+that the highest air temperatures (peak values) obtained from Point
+1-S are 30.3 C (sunny) and 28.6 C (cloudy) and the peak values
+from Point 7-S are 28.7 C (sunny) and 27.8 C (cloudy) whereas
+outdoor air temperatures are 33 C and 30.8 C in the sunny and
+cloudy conditions, respectively. Compared to Point 1-S, similar air
+temperatures are obtained at Point 3-S, and the highest value is
+30.3 C (28.3 C) during the daytime of a typical sunny (cloudy) day
+in summer.
+The effect of the ofﬁce þ courtyard layout on ventilation and air
+temperature reduction is remarkable. In the case studies of the
+fusion (free layout), integrated and linear courtyards, more than
+4.3 C (3.0 C), 2.7 C(2.2 C) and 2.7 C(2.5 C) can be obtained
+under sunny (cloudy) sky conditions, respectively. In other words,
+compared to outdoor air temperature, obvious characteristics of
+insulation and temperature reduction are achieved from the mode
+of the ofﬁce þ multi-courtyards.
+
+3.1.3. Air temperature and globe temperature results
+The measured results of the relationship between globe tem-
+peratures and air temperatures are shown in Fig. 9, of which the
+horizontal axis and vertical axis represent air temperatures and
+globe temperatures, respectively, and 45 C diagonal line repre-
+sents isothermal temperatures. The comparison of the thermal
+
+Fig. 6. Algorithm schema.
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Fig. 7. Measurement results of wind velocity in the daytime period.
+
+Fig. 8. Measurement results of air temperatures during 8 consecutive days of testing.
+
+implies a worse thermal environment. The reason for this can be
+explained that the greater inﬂuence of thermal radiation from the
+surrounding environment. In contrary, the thermal environment is
+relatively better when the difference is smaller (Walikewitz et al.,
+2015). Compared to Point 7-S, the thermal environment of Point 1-
+S and Point 3-S are further affected by thermal radiation of sur-
+rounding environments. Most globe temperatures of Point 7-S are
+lower than air temperatures during nighttime, which means the
+heat dissipation effect of Point 7-S is much better than that of Point
+1-S and Point 3-S during nighttime. Furthermore, in the range of
+high temperatures, the globe temperatures of Point 7-S have larger
+ﬂuctuation than those of the other two. The main reason for this
+result is that ofﬁce þ multi-courtyards space with free layout are
+good for natural ventilation.
+To sum up, with the promotion of industrial construction on tall
+buildings, the mode of ofﬁce þ multi-courtyards with free layout on
+
+radiation environment can be done by comparing the differences
+between globe temperatures and air temperatures simultaneously.
+As seen from Fig. 9, the globe temperatures at Point 1-S
+(Fig. 9(a)) and Point 3-S (Fig. 9(b)) during the test for the ﬁrst
+sunny day are all higher than the air temperatures, whereas most
+globe temperatures with solar radiation of measured Point 7-S
+(Fig. 9(c)) are higher than air temperatures during the daytime.
+Further observation on the measurement data reveal that most
+globe temperatures without solar radiation of measured Point 7-S
+are lower than air temperatures during nighttime.
+It can be concluded that the climatic adaptation of the
+ofﬁce þ multi-courtyards mode might be better for hot-humid
+climate condition. To be further explained, temperature differ-
+ences between globe temperature and air temperature evaluate the
+impact of surrounding thermal radiation on vertical courtyard.
+Speciﬁcally, when the difference is positive, the increased difference
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Fig. 9. Scatter diagram of measurement results of globe temperatures e air temperatures.
+
+Besides, a large difference of average energy efﬁciency rate reaches
+8.1% between interior space coverage of 20% and 80%, as shown in
+Table 3.
+It is noteworthy that a sharp decline from 10.3% to 6.5% appears
+from the coverage of 50%e60%, the difference reaching 3.8%. Be-
+sides, the energy efﬁciency rate in each group (same interior space
+coverage) has an overall upward trend from May to September.
+Moreover, in each interior space coverage group, the general trend
+is that the energy efﬁciency rate has a slight ﬂuctuation from May
+to August. Then, the energy efﬁciency rate increases dramatically,
+reaching its maximum in September. Additionally, the highest en-
+ergy efﬁciency rate of cooling load appears from the interior space
+coverage of 20% in September, reaching 16.8%, and the lowest one
+appears from the interior space coverage of 80% in May, reaching
+only 2.3%.
+The variation of the sun elevation angle from May to September
+contributes to the ﬂuctuation of energy efﬁciency rate to a great
+extent. The higher the sun elevation angle is, the smaller the energy
+efﬁciency rate is. The reason is that both of the ofﬁce þ multi-
+courtyards with free layout and the reference one receive relatively
+less solar radiation, when the sun elevation angle is too high.
+Conversely, the energy conservation effectiveness of the courtyard-
+style ofﬁce plan is much better than that of the reference one,
+because the courtyard space contributes to less solar radiation
+reception, when the sun elevation angle is small. The comparison
+indicates that the energy efﬁciency rate is relatively stable from
+May to August, as the little change of the sun elevation angle. With
+the increasing shrink of the sun elevation angle from August to
+September, the energy efﬁciency rate has an obvious increase.
+
+“secondary ground” has been conﬁrmed more suitable and energy-
+efﬁcient in hot-humid climate area. As the users’ participation in
+the process of industrial construction, the evaluation and predic-
+tion on the variation of energy consumption with the time-varying
+layouts, interior space coverage and occupancy behaviors, can be
+considered as a reference for users. To establish the selection ref-
+erences of free layout plan for the occupants, this paper provides a
+numerical simulation method to evaluate and predict energy con-
+sumption with different usage space coverage and layout as the
+design basis.
+
+3.2. Measurement results and discussions
+
+3.2.1. Cooling load simulation
+Based on the previous ﬁeld measured data, it needs further
+study on the cooling load between the ofﬁce þ multi-courtyards
+and the ofﬁce without courtyard in hot summer. The changes of
+cooling load of the two objects from May to September and energy
+efﬁciency rate are shown in Fig. 10.
+As seen in Fig. 10, energy consumption of ofﬁce þ multi-court-
+yards and reference one (without courtyard) from cooling load
+increases gradually from May to July, but both of them keep the
+downward trend in later August and September. Compared to
+reference layout, the energy efﬁciency rate of ofﬁce þ multi-
+courtyards layout is higher in May and September, but the differ-
+ence is relative smaller from June to August. It is worth noting that
+the inﬂection point appears in August because of the decreased
+angle of the sun.
+Compared to traditional ofﬁce layout plan without courtyard,
+the energy consumption from cooling load of ofﬁce þ multi-
+courtyards one has relatively remarkable decrease. The energy ef-
+ﬁciency rate ranges from 9.6% to 12.4% from May to September.
+Combing the results on cooling effectiveness from ﬁeld measure-
+ment with the effectiveness of energy conservation, the climatic
+adaptation of the mode of ofﬁce þ multi-courtyards in tall ofﬁce
+buildings has been further conﬁrmed.
+Based on the constraints and methods mentioned above, the
+estimated results can be obtained for the dynamic conditional
+correlation between positions with different coverage rate and
+energy efﬁciency rate, as follows.
+
+3.2.3. Weighting of passage distances
+It can be seen from Fig. 12 that the passage among the rooms
+contributes greatly to the energy efﬁciency rate when the interior
+space coverage is from 50% to 60%, and an inﬂection point appears.
+The reason is that the pedestrian passage is set as 1 m. When the
+interior space coverage is less than 50%, the impact of the pedes-
+trian on the space among the rooms is small, and the decline rate of
+weight slows down. However, when the interior space coverage is
+more than 50%, the impact of the pedestrian passage on the space
+among the rooms is dramatically increasing, which leads to the
+reduction of the range for functional rooms.
+
+3.2.2. Energy efﬁciency rate
+
+Fig. 12 shows the weight of pedestrian passage (1 m) occupying
+the space among rooms. As seen, the weight decreases slowly with
+the area increasing. As seen from the weight data: the result in-
+dicates that when x ¼ 0.58 (i.e., interior space coverage ¼ 58%), the
+impact of weight of pedestrian passage (1 m) on the space among
+rooms reaches the peak. This is the reason for the large ﬂuctuation
+on energy efﬁciency rate when the interior space coverage ranges
+from 50% to 60%.
+
+Fig. 11 presents the range of energy efﬁciency rate from the
+cooling load during May to September (with an interior space
+coverage of 20%, 30%, 40%, 50%, 60%, 70%, and 80%, respectively). As
+can be seen from the ﬁgure, the average energy efﬁciency rate of
+each group has downward trend with the increase of interior space
+coverage (from 20% to 80%). Speciﬁcally, the highest average energy
+efﬁciency rate is 12.8%, when the interior space coverage is 20%.
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Fig. 10. Energy consumption and energy efﬁciency rate between actual fusion layout and reference one.
+
+Fig. 11. Energy efﬁciency rate from May to September.
+
+buildings. By comparison, this paper explores the positive impact of
+the mode of ofﬁce þ multi-courtyards on cooling effect and energy
+conservation, in terms of ventilation, air temperature, thermal ra-
+diation environment and energy efﬁciency rate. The results conﬁrm
+the positive impact of the mode with ofﬁce þ multi-courtyards on
+climatic adaptation under hot-humid weather conditions. Besides,
+based on the regulation of energy consumption, further work on
+spatial malleability strategy has been done from the industrialized
+perspective. This paper explores the feasibility of “secondary
+ground”, in which the spatial variation realizes on the basis of
+structural separation system. The results of energy efﬁciency rate in
+different interior space coverage show that “secondary ground” is
+not only a strategy for lowing energy consumption of tall ofﬁce
+buildings, but also a way to realize spatial malleability with users’
+time-varying needs.
+
+Table 3
+Maximum/Minimum/Average value different interior space coverage (I.S.C.) of en-
+ergy efﬁciency rate (E.E.R.).
+
+E.E.R.
+I.S.C.
+
+20%
+30%
+40%
+50%
+60%
+70%
+80%
+
+Max
+16.8%
+16.4%
+15.1%
+14.1%
+9.7%
+8.9%
+6.7%
+Min
+9.5%
+9.6%
+8.1%
+7.1%
+3.0%
+3.2%
+2.3%
+Average
+12.8%
+12.4%
+11.6%
+10.3%
+6.5%
+2.3%
+4.7%
+
+Some previous studies ﬁnd the strategies in alleviating stress
+and promoting restoration in tall ofﬁce buildings under high-rise
+and high-density environment. Their results indicate the beneﬁts
+of integration between workplace and nature, from the ﬁelds of
+health promotion and energy conservation (Yeang, 2011; Xue et al.,
+2016). For instance, Xue et al. (2016) suggest that spatial percep-
+tions should be taken into key consideration in restricted condi-
+tions with high-density environment, and the conﬁguration of
+courtyards are needed to be integrated into the mixed tall ofﬁce
+
+4. Conclusions and policy implications
+
+By exploring an energy-efﬁcient strategy in responding to
+China’s high-density built environment and the continuously space
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Fig. 12. The analysis of weighting of passage distances.
+
+integration of resources and opinions on earlier stage from the
+perspective of relevant parties, so as to provide an impetus for
+large-scale promotion of building industrialization.
+Second, when preserving continuously increases in the con-
+struction of tall buildings, the related operating efﬁciency policies
+formulated by the government can be inclined to developed re-
+gions with high-density environments, where buildings and sur-
+roundings interact closely.
+Finally, when policies are made to cut energy intensity and
+carbon emission intensity of ofﬁce buildings in the near future,
+China needs to focus on the industrial structure transformation,
+and the collaborative layout of cities and energy.
+It should be noted that there is also some further work to do on
+the topic in this paper. For example, the energy-efﬁcient-based
+model may be used to further predict and evaluate dynamic
+changing energy interaction in different external environments,
+under different climatic conditions and with different spatial layout
+modes. In addition, the ﬁndings and strategies presented in this
+article were valid in China context, which could be further explored
+in future study on an Asian or global scale.
+
+changing over time from industrialized perspective, this paper
+evaluates the impact of different ofﬁce layout modes on building’s
+thermal performance. Also, it proposes a simulation program based
+on predicting the building energy consumption from the perspec-
+tive of time-based design to realize the sustainable malleability for
+structure, space and building system. Some conclusions are soundly
+drawn as follows:
+
+(1) Vertical courtyard system plays a positive role in tall ofﬁce
+buildings’ thermal environment in hot-humid climate con-
+ditions. This result indicates that the cooling effect of the
+ofﬁce þ multi-courtyards mode is mainly from the adjust-
+ment of ventilation, air temperature and thermal radiation
+environment. Meanwhile, the free layout has positive impact
+on the effectiveness of thermal energy conservation.
+(2) Overall, “secondary ground” with spatial variation has sig-
+niﬁcant effects on energy conservation, and the average en-
+ergy efﬁciency rate is from 12.8% to 4.7% with the interior
+space coverage of 20%e80%.
+(3) The average energy efﬁciency rate has substantial reduction
+from 10.3% to 6.5%, when the range of interior space coverage
+is from 50% to 60%. Meanwhile, the change point appears
+when the interior space coverage is 58%, and then, the
+decline of energy efﬁciency rate slows down.
+
+Declaration of competing interest
+
+The authors declare that they have no known competing
+ﬁnancial interests or personal relationships that could have
+appeared to inﬂuence the work reported in this paper.
+
+The conclusions above have rich implications in practice. In
+particular, the strategy proposed in this paper following the na-
+tional policies may present directional guidance in cooperation and
+negotiation among different buildings’ stakeholders through a
+time-space-sustainable way to realize optimization in building
+industrialization with carbon footprint reduction. Overall, based on
+the conclusions above, this paper puts forward some suggestions
+for related stakeholders.
+First, policy makers are expected to pay high attention to the
+
+CRediT authorship contribution statement
+
+Jin Wei: Conceptualization, Methodology, Software, Data cura-
+tion, Writing - original draft. Yue-Jun Zhang: Writing - original
+draft, Visualization, Investigation, Supervision, Validation, Writing -
+review & editing.
+
+J. Wei, Y.-J. Zhang / Journal of Cleaner Production 257 (2020) 120497
+
+Mi, Z., Zheng, J., Meng, J., Shan, Y., Zheng, H., Ou, J., Guan, D., Wei, Y.M., 2018. China’s
+energy consumption in the new normal. Earth’s Fut. 6, 1007e1016.
+Mi, Z.F., Pan, S.Y., Yu, H., Wei, Y.M., 2015. Potential impacts of industrial structure on
+energy consumption and CO2 emission: a case study of Beijing. J. Clean. Prod.
+103, 455e462.
+Perini, K., Bazzocchi, F., Croci, L., Magliocco, A., Cattaneo, E., 2017. The use of vertical
+greening systems to reduce the energy demand for air conditioning. Field
+monitoring in Mediterranean climate. Energy Build. 143, 35e42.
+Sayadi,
+Saeed,
+Tsatsaronis,
+George,
+Morosuk,
+Tatiana,
+Baranski,
+Marc,
+Sangi, Roozbeh, Müllerb, Dirk, 2018. Exergy-based control strategies for the
+efﬁcient operation of building energy systems. J. Clean. Prod. 241 (in press).
+Schmidt III, R., Eguchi, T., Austin, S., Gibb, A., 2010. What is the meaning of adapt-
+ability in the building industry?. In: The 16th International Conference
+O&SB2010 “Open and Sustainable Building”. Bilbao, Spain, pp. 17e19 (May).
+Susca, T., Gafﬁn, S.R., Dell’Osso, G.R., 2011. Positive effects of vegetation: urban heat
+island and green roofs. Environ. Pollut. 159, 2119e2126.
+Taleghani, M., Tenpierik, M., Kurvers, S., Van Den Dobbelsteen, A., 2013. A review
+into thermal comfort in buildings. Renew. Sustain. Energy Rev. 26, 201e215.
+Tam, W.Y.V., Le, K.N., Tran, C.N.N., Wang, J.Y., 2018. A review on contemporary
+computational programs for Building’s life-cycle energy consumption and
+greenhouse-gas emissions assessment: an empirical study in Australia. J. Clean.
+Prod. 172, 4220e4230.
+Tan, Y., Xu, H., Zhang, X., 2016. Sustainable urbanization in China: a comprehensive
+literature review. Cities 55, 82e93.
+Walikewitz, N., J€anicke, B., Langner, M., Meier, F., Endlicher, W., 2015. The difference
+between the mean radiant temperature and the air temperature within indoor
+environments: a case study during summer conditions. Build. Environ. 84,
+151e161.
+Wan, K.K.W., Li, D.H.W., Pan, W., Lam, J.C., 2012. Impact of climate change on
+building energy use in different climate zones and mitigation and adaptation
+implications. Appl. Energy 97, 274e282.
+Wan, K.S.Y., Yik, F.W.H., 2004. Building design and energy end-use characteristics of
+high-rise residential buildings in Hong Kong. Appl. Energy 78, 19e36.
+Wang, K., Wei, Y.M., 2016. Sources of energy productivity change in China during
+1997-2012: a decomposition analysis based on the Luenberger productivity
+indicator. Energy Econ. 54, 50e59.
+Wang, Q., Su, B., Sun, J., Zhou, P., Zhou, D., 2015. Measurement and decomposition of
+energy-saving and emissions reduction performance in Chinese cities. Appl.
+Energy 151, 85e92.
+Xue, F., Gou, Z., Lau, S.S.Y., 2016. Human factors in green ofﬁce building design: the
+impact of workplace green features on health perceptions in high-rise high-
+density Asian cities. Sustainability 8 (11), 1095.
+Yang, F., Lau, S.S.Y., Qian, F., 2011. Thermal comfort effects of urban design strategies
+in high-rise urban environments in a sub-tropical climate. Architect. Sci. Rev.
+54, 285e304.
+Yeang, K., 2011. Eco Skyscrapers, ﬁrst ed., vol. 2. Images Publishing, Mulgrave,
+Australia.
+Yu, S., Agbemabiese, L., Zhang, J., 2016. Estimating the carbon abatement potential
+of economic sectors in China. Appl. Energy 165, 107e118.
+Zhang, Y.J., Da, Y.B., 2015. The decomposition of energy-related carbon emission and
+its decoupling with economic growth in China. Renew. Sustain. Energy Rev. 41,
+1255e1266.
+Zhao, J., Lastemas, B., Lam, K.P., Yun, R., Loftness, V., 2014. Occupant behavior and
+schedule modeling for building energy simulation through ofﬁce appliance
+power consumption data mining. Energy Build. 82, 341e355.
+
+Acknowledgments
+
+We gratefully acknowledge the ﬁnancial support from the Na-
+tional
+Natural
+Science
+Foundation
+of
+China
+(nos.
+71774051,
+51678243), National Key Research and Development Program of
+China (nos. 2017YFC0702309), National Program for Support of
+Top-notch Young Professionals (no. W02070325), Changjiang
+Scholars Program of the Ministry of Education of China (no.
+Q2016154), and Hunan Youth Talent Program. Jin Wei also would
+like to thank Mr. Xiaojian Duan for his help in coupling of Ener-
+gyplus and Matlab.
+
+References
+
+Aktacir, M.A., Büyükalaca, O., Yılmaz, T., 2010. A case study for inﬂuence of building
+thermal insulation on cooling load and air-conditioning system in the hot and
+humid regions. Appl. Energy 87, 599e607.
+Buyle, M., Braet, J., Audenaert, A., 2013. Life cycle assessment in the construction
+sector: a review. Renew. Sustain. Energy Rev. 26, 379e388.
+Chen, H., Jia, B., Lau, S.S.Y., 2008. Sustainable urban form for Chinese compact cities:
+challenges of a rapid urbanized economy. Habitat Int. 32, 28e40.
+Gan, V.J.L., Wong, H.K., Tse, K.T., Cheng, J.C.P., Lo, I.M.C., Chan, C.M., 2019. Simula-
+tion-based evolutionary optimization for energy-efﬁcient layout plan design of
+high-rise residential buildings. J. Clean. Prod. 231, 1375e1388.
+Habraken, N.J., 2003. Open Building as a condition for industrial construction. In:
+ISARC2003: the Future Site: Proceedings of the 20th International Symposium
+on Automation and Robotics in Construction. Eindhoven, Germany, pp. 21e24
+(Sept).
+Henze, G.P., Felsmann, C., Kalz, D.E., Herkel, S., 2008. Primary energy and comfort
+performance of ventilation assisted thermo-active building systems in conti-
+nental climates. Energy Build. 40, 99e111.
+Hertzberger, H., 2005. Space and Learning: Lessons in Architecture 3. 010 Publishers
+Press, Rotterdam.
+Jaberansari, M., Elkadi, H.A., 2016. Inﬂuence of different atria types on energy ef-
+ﬁciency and thermal comfort of square plan high-rise buildings in semi-arid
+climate. In: International Conference on Energy, Environment, and Economics.
+Edinburgh, United Kingdom, pp. 16e18 (Aug).
+Klemencic, R., Davies, D., Johansson, O., Beaman, D., 2012. Embodied Carbon and the
+case for longevity. In: 9th CTBUH World Congress. Shanghai, China, pp. 19e21
+(Sept).
+Korolija, I., Marjanovic-Halburd, L., Zhang, Y., Hanby, V.I., 2013. UK ofﬁce buildings
+archetypal model as methodological approach in development of regression
+models for predicting building energy consumption from heating and cooling
+demands. Energy Build. 60, 152e162.
+Kurokawa, K., 2000. Architect and Associates: Selected and Current Works. Images
+Publishing Press, Melbourne.
+Li, J., Colombier, M., 2009. Managing carbon emissions in China through building
+energy efﬁciency. Renew. Sustain. Energy Rev. 90, 2436e2447.
+Li, Z., Xu, X., Deng, S., Pan, D., 2015. A novel neural network aided fuzzy logic
+controller for a variable speed (VS) direct expansion (DX) air conditioning (A/C)
+system. Appl. Therm. Eng. 78, 9e23.

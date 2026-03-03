@@ -1,0 +1,982 @@
+The governance of innovation in socio-technical
+systems: the difficulties of strategic niche
+management in practice
+
+Heather Lovell
+
+School of Geosciences
+University of Edinburgh
+Drummond Street
+Edinburgh, UK
+EH8 9XP
+
+This is the author’s final draft as submitted for publication. The final version was
+published in Science and Public Policy by Oxford University Press (2007)
+
+Cite As: Lovell, H 2007, 'The governance of innovation in socio-technical systems: the
+difficulties of strategic niche management in practice' Science and Public Policy, vol 34,
+pp. 35-44.
+
+DOI: 10.3152/030234207X190540
+
+Made available online through Edinburgh Research Explorer
+
+The governance of innovation in socio-technical systems: the difficulties of
+
+strategic niche management in practice
+
+Heather Lovell
+
+Abstract
+
+Strategic niche management concerns how governments can foster the introduction of new
+technologies, initially through establishing experiments within protected niches.  The
+development of UK low energy housing illustrates some limitations of this model of
+technology change.  Low energy housing niches built during the 1990s have not been driven
+by government policy, but rather have been initiated by entrepreneurial individuals working
+outside of government.  However, the government has recently become interested in low
+energy housing niches because of growing concerns about climate change.  Several policies
+and initiatives drawing on the niches have emerged but they do not amount to a coherent
+niche strategy.
+
+Keywords
+
+Strategic niche management; low energy housing; climate change; socio-technical system
+change.
+
+Introduction
+
+With the rise of environmental problems the focus of technology policy debate has shifted to
+consider how governments can catalyse fundamental system-wide change so whole sectors
+become more environmentally sustainable (Kemp 1994; Berkhout 2002; Smith 2003).   In
+other words, there has been a shift away from a focus on encouraging discrete clean
+technologies to how to create opportunities for green socio-technical systems. Strategic niche
+management is one of the models proposed to illustrate how governments can achieve
+significant, widespread technology change within well-established socio-technical systems
+(Kemp 1994; Schot, Hoogma et al. 1994; Kemp, Schot et al. 1998; Rip and Kemp 1998;
+Smith 2003; Weber 2003).   It is based on the observation that new radical ideas and
+technologies tend to develop initially on a small-scale within protected niches and then
+gradually disseminate.  In essence, strategic niche management concerns how governments
+can help initiate experiments within protected small-scale niches and then encourage these
+innovations to spread through the introduction of new supportive policies and regulations
+(Rip and Kemp 1998).
+
+However, the case of low energy housing in the UK highlights some limitations of the
+managed, staged model of technology change implicit within strategic niche management.
+Low energy housing niches in the UK have largely been developed by entrepreneurial
+individuals with strong green values working in non-governmental organisations (Lovell
+2004; 2005).  In other words, the niches are not the product of a coherent strategy by the
+government for achieving environmental sustainability in the housing sector.  Nevertheless,
+there is an emerging interest within government in low energy housing niches, driven largely
+by the problem of climate change.  Dwellings account for a third of the UK’s final energy
+
+
+consumption, and the UK government is relying on the residential sector to achieve a quarter
+of the necessary Kyoto Protocol greenhouse gas emission reductions by 2010 (DTI 2003b).
+Many of the experimental low energy housing niches developed in the UK during the 1990s
+require only a small fraction of the energy of conventional homes.  This has been achieved
+through a mix of passive low energy design, a well-insulated energy efficient building
+structure, and the use of renewable energy technologies (BRECSU 1996; Olivier and
+Willoughby 1996; BRECSU 2003).  Since the turn of the century the government has made
+several new commitments to mitigate climate change (see for example Beckett 2003; Blair
+2003; DTI 2003b; UK Government 2005), not least the ambitious long-term goal of a sixty
+percent reduction in carbon emissions by 2050 (DTI 2003b).  Government involvement in
+low energy housing niches has taken the form of trying to associate itself with certain high-
+profile niches, as well as the development of new policies and programmes aimed at creating
+more niches, and ‘mainstreaming’ lessons from existing ones.  Thus a series of niche-based
+policies and initiatives have emerged within government, but the situation is much more
+chaotic, piecemeal and political than the model of strategic niche management currently
+proposed (see Kemp, Schot et al. 1998; Weber 2003; Wiskerke 2003).
+
+The paper aims to explore some of the tensions with the concept of strategic niche
+management, drawing on research on low energy housing niches within the UK.  It is based
+on the findings of a three-year doctoral research project examining the production and
+consumption of low energy housing. Semi-structured interviews have been conducted with
+over seventy experts involved in low energy housing from a range of housing tenures (social,
+private and self build), non-governmental organisations and government. Detailed qualitative
+case studies of a number of low energy housing developments were also conducted in order
+to explore in-depth questions regarding why low energy housing has been built.
+
+The paper is structured as follows.  First, theories about socio-technical system change and
+strategic niche management are discussed. Second, UK low energy housing niches are
+introduced and the relationship between the government and these existing niches is
+explored.  In the third section of the paper the relationship between UK low energy housing
+policies and niches is discussed.  Government has tried to disseminate or ‘mainstream’
+innovations used in existing low energy housing niches to the wider housing sector, and
+funding has also been directed at creating new low energy housing niches.  But it is argued
+that caution is needed before interpreting these actions as evidence of a coherent niche
+strategy.  Government interest in niches has in large part been driven by the limitations
+imposed on it by the privatisation and liberalisation of the housing and energy sectors in the
+UK, thus making it difficult to effect radical system-wide change.  In conclusion, suggestions
+are made about how to broaden the idea of strategic niche management to incorporate some
+of the critical issues raised by the case of low energy housing, such as greater consideration
+of the complex politics of technology change.
+
+Socio-technical systems and strategic niche management
+
+Socio-technical systems such as energy and housing1 are slow to change (Hughes 1983; Rip
+and Kemp 1998; Geels 2004).  This is because such systems, or regimes, comprise “… [a]
+
+1 It is suggested that the UK housing sector is a type of socio-technical system. It comprises a ubiquitous durable
+material infrastructure comprising standardised technologies, and has a well-established set of social institutions
+governing the system including surveyors, planners, and housebuilders. Housing thus displays similar features
+to other socio-technical systems described in the literature including energy, water, transport and
+telecommunications (Hughes 1983; Davies 1996; Chatzis 1999; Tarr 1999; Weber 2003).
+
+
+rule-set or grammar… embedded in institutions and infrastructures." (Rip and Kemp 1998:
+338).  Well-established, durable institutions and infrastructures favour stability, and thus
+there is a tendency for socio-technical systems to alter mainly through incremental or
+conservative innovations, a characteristic variously described as: ‘momentum’ (Hughes 1983;
+Davies 1996), ‘path dependency’ (Phillimore 2001), ‘technological lock-in’ (Schot, Hoogma
+et al. 1994; Unruh 2002), ‘entrapment’ (Walker 2000), ‘continuity’ (Dosi 1982), and the
+favouring of ‘drop in’ innovations (Kemp 1994).  The difficulty for governments in trying to
+effect socio-technical system change, therefore, is in overcoming system momentum.
+Strategic niche management provides a framework for how governments can help new
+radical innovations develop and expand from a base of protected experiments, or innovation
+niches (Kemp 1994; Schot, Hoogma et al. 1994; Schot and Rip 1996; Kemp, Schot et al.
+1998).  Strategic niche management is thus defined as:
+
+“… the orchestration of the development and introduction of new technologies through
+setting up a series of experimental settings (niches) in which actors learn about… design, user
+needs, [and] cultural and political acceptability…”
+(Schot 1992: 261).
+
+The need for a staged approach to niche management is stressed, including a long-term
+strategy about how innovations will diffuse from the niche to the wider socio-technical
+system (Schot, Hoogma et al. 1994).  Although it is acknowledged that niches will fail if it is
+only government taking responsibility for them (ibid. 1994) and that a multi-actor approach is
+required (Rip and Kemp 1998),  government is still seen as the main actor involved in the
+management of niches.  In general terms the role of government in strategically managing
+socio-technical change is portrayed as largely unproblematic and apolitical (see for example
+Kemp 1994; Rip and Kemp 1998; Weber 2003; Wiskerke 2003).   It is a normative,
+prescriptive approach, and it is perhaps no coincidence that few examples of strategic niche
+management are discussed in the literature, as in practice such well-planned, long-term
+management is rare.  For instance, one case study - the role of the Californian Government in
+promoting electric vehicles - has been examined by a number of authors (see Kemp 1994;
+Schot, Hoogma et al. 1994; Schot and Rip 1996; Rip and Kemp 1998).  Further, it is assumed
+that governments are able to make strategic decisions about system change; that they have the
+power and political will to do so (Schot, Hoogma et al. 1994).  Smith (2003) rightly questions
+this assumption, suggesting that because governments tend to be deeply embedded within
+socio-technical systems they face difficulties in bringing about radical changes, and policies
+are therefore typically aimed at encouraging incremental or conservative innovations.  The
+findings from research into low energy housing in the UK similarly highlight the ad hoc,
+unstrategic and political nature of socio-technical change in practice.
+
+UK low energy housing niches
+
+A number of low energy housing demonstration projects, or innovation niches, have been
+built in the UK since the 1970s.  As mentioned, they have emerged largely without
+government involvement.  As such, they are not the product of strategic niche management,
+but the niches have subsequently influenced government policy, and the UK government has
+tried to associate itself with them. In other words, despite the government not being involved
+in the conception and initial development of these low energy housing niches, a number of
+them are now intimately bound up with low energy and sustainable housing policy and
+politics in the UK.  It is therefore instructive to discuss these niches with reference to the idea
+of strategic niche management.
+
+
+CHARACTERISTC
+THE VALES’S
+AUTONOMOUS HOUSE
+
+HOCKERTON
+HOUSING PROJECT
+
+BEDZED
+
+No. of dwellings
+Date completed
+1993
+1998
+2000
+Type of building
+material
+
+Timber frame & masonry
+Concrete, earth
+
+Masonry
+
+sheltered
+
+c.2,100
+
+c.4,000
+
+c.7,000
+
+Energy
+consumption
+(kWh/household/
+year)
+
+Project initiators
+Robert & Brenda Vale
+
+Nick Martin
+
+Bill Dunster
+
+(Architect)
+Housing tenure
+Self-build (later private
+
+(Architects)
+
+(Builder)
+
+Self build
+(leasehold)
+
+Private and social
+
+sale)
+
+Energy self-sufficient;
+Photovoltaic (PV) panels;
+Solar hot water;
+No central heating;
+Electricity grid
+connected;
+Passive solar
+conservatory;
+Low energy electrical
+appliances and light
+bulbs (CFLs).
+
+No central heating;
+Small wind turbine;
+Photovoltaic (PV)
+panels; Heat pump
+for hot water; Earth-
+sheltered; passive
+solar design; 300mm
+polystyrene wall
+insulation; low E
+window glazing;
+Low energy
+electrical appliances
+and CFLs.
+
+Passive solar design;
+no central heating;
+energy-efficient
+appliances; on-site
+combined heat and
+power station using
+local wood chips;
+300mm wall
+insulation; low E
+window glazing; heat
+exchangers and
+passive ventilation.
+
+Low energy
+features
+
+References
+(BRECSU 1996; White
+2002)
+
+(BRECSU 2000;
+Vale 2001; White
+2002; Hockerton
+Housing Project
+2003a)
+
+(BRECSU 2002)
+
+*estimated from an average annual energy bill at Millennium Green of £400 (Nash 2004
+pers.comm.).  UK average consumption for home built to the 1995 building regulations is
+16,300kwH/household/a (BRECSU 1996).
+
+Table One - Features of high-profile UK low energy housing niches
+
+Sustainable housing activists first appeared in the early 1970s in the UK (The Ecologist 1972;
+Bhatti, Brooke et al. 1994; Barton 1998; Smith, Whitelegg et al. 1998; Chappells and Shove
+2000), concurrent with an increased public awareness of environmental issues, and an
+upsurge in radical deep green environmentalism (Sandbach 1980; Weale 1992; Porter and
+Brown 1996; Dryzek 1997). Examples of environmentally sustainable housing developments
+from this period include the Centre for Alternative Technology in Wales and the Findhorn
+Ecovillage in Scotland (Centre for Alternative Technology 1995; Findhorn Ecovillage 2003).
+More recent low energy housing developments built during the 1990s are typically more
+socially mainstream and technology focused (Chappells and Shove 2000).  Examples include
+the Hockerton Housing Project and the Vales’s Autonomous House, both near Newark in the
+
+
+East Midlands, and the BedZed development in south London.  In these low energy housing
+developments dramatic decreases in energy consumption have been achieved, and a number
+of new technologies and construction methods have been experimented with (see Table One).
+
+A common feature of the low energy housing niches is that they have been driven by
+entrepreneurial individuals and organisations, typically with strong green values (Vale and
+Vale 2000; Lowenstein 2001b; Vale 2001; Minton 2002).  As mentioned, government has not
+been a key player within any of the project teams.  BedZed, for example, is the outcome of a
+joint initiative between the architect Bill Dunster, the Peabody Trust (a Registered Social
+Landlord), and the environmental consultancy BioRegional Development Group (BRECSU
+2002).  Similarly, the Vales’s built their Autonomous House in the absence of any significant
+public funding (Vale and Vale 2000).  Thus the construction of low energy housing in the UK
+has been characterised by the development of discrete low energy housing projects, in most
+cases not explicitly driven by government policy (Olivier and Willoughby 1996; Pearson
+1999; see Lowenstein 2001b; Vale 2001; Synge 2002).  In other words, much of the low
+energy housing that exists in the UK has not been required by national regulations,2 but rather
+the dwellings have been built as ‘one-off’ experimental projects, typically involving an
+entrepreneurial individual.
+
+But it would be an oversimplification to characterise the government as wholly without
+influence.  Government bodies have contributed grant funding in some instances, and in other
+cases local government has been supportive.  For example, in the Newark and Sherwood
+District Council area, where Hockerton and the Vales’s Autonomous House are located, there
+is an enthusiastic energy manager within the local authority who has supported and
+encouraged the low energy housing developments through making connections between key
+people and helping to develop local low energy policies (Energy Saving Trust 2004; Lovell
+2005).   Further, Sutton Borough Local Council, where BedZed is situated, has a strong
+environmental policy, and crucially was willing to set a precedent in selling the building land
+to the BedZed team despite them not bidding the highest price, because of the extra
+environmental and social benefits BedZed would bring (BRECSU 2002).
+
+A recent trend has been for national government to try to associate itself with high-profile
+low energy housing niches such as the Hockerton and BedZed housing developments.
+BedZed, for example, has been presented as a case study in several government reports, and
+new low energy government policies and programmes have been launched there (BRECSU
+2002; DTI 2002; DTI, ODPM et al. 2003; The Stationery Office 2003; Watts 2003; The
+Housing Corporation 2004).  In this way certain low energy housing niches have become a
+key part of government discourse about sustainable and low energy housing (Lovell 2004).
+For example, the authors of a government-commissioned report about BedZed stress how the
+development represents:
+
+"… a powerful argument for the feasibility of a zero-carbon target for all new build."
+(BRECSU 2002: 11).
+
+There are a number of reasons why the UK government has adopted the approach of
+associating itself with existing low energy housing niches. In particular, a relatively radical
+policy discourse has emerged from within government about climate change. Climate change
+
+2 With the exception of the UK social housing sector where higher environmental sustainability regulations are
+in place for all new publicly funded social housing (see The Housing Corporation 2003).
+
+
+is now viewed as the most critical environmental issue facing the country (see for example
+Beckett 2003).  In the 2003 Energy White Paper the government first committed to a long-
+term goal of a sixty percent reduction in carbon emissions by the year 2050 (DTI 2003b). The
+government has also taken an international lead on the issue of climate change: it has been a
+strong proponent of the Kyoto Protocol, and has attempted to influence other countries, most
+notably the United States, to take similar action (Blair 2005; UK Government 2005).  But it
+has been criticised for engaging in rhetoric about climate change, and failing to take
+appropriate action (RCEP 2000; Sustainable Development Commission 2003; House of
+Lords Science and Technology Committee 2005).  Although UK greenhouse gas emissions
+have fallen overall by fourteen percent since 1990, energy consumption continues to rise, and
+in 2003 carbon dioxide emissions also rose for the first time since 1990 by two percent
+(DEFRA 2004).   The government has recently admitted it will not meet its goal of reducing
+carbon dioxide emissions by twenty percent from 1990 levels by the year 2010 (DEFRA
+2006).  What is therefore particularly attractive about existing low energy housing niches is
+that they provide examples of ‘ready-made’ solutions to climate change that help the
+government to communicate its aims, and that it can use to show that progress is happening
+(Lovell 2004).   In other words, the low energy housing niches lend credibility to the
+government’s radical climate change discourse. Thus, for instance, in a government-
+sponsored case study of the successful energy policies and programmes within the Newark
+and Sherwood District Council, one of the lessons learnt is that:
+
+“exemplar projects bring to life the reality far greater than shelves of strategies.”
+(Energy Saving Trust 2004: 10).
+
+Interestingly, the niches have been used most commonly not for the purpose of conveying
+technical information about low energy housing, but rather to demonstrate its social and
+political feasibility.  For example, in a government report examining four low energy housing
+niches, it is explained in the introduction how:
+
+"These case studies demonstrate the successful integration of renewable energy into new
+housing projects... [they] should offer reassurance and inspiration to building designers,
+consultants and anyone involved in the specification and design of dwellings."
+(BRECSU 2003: 1, emphasis added).
+
+Thus although the report is ostensibly technical – it was written and produced by a UK
+building industry consultancy the Building Research Establishment – it lacks detailed
+analysis of the performance of the housing developments, including information about any
+problems with the housing. One or two contentious issues are raised, such as contractors
+lacking confidence and experience in installing renewable energy technologies (BRECSU
+2003: 5), but nothing substantial. The overall tone equates to that of a marketing brochure:
+the existing housing developments are being promoted as best practice case studies to
+building industry professionals to encourage them to take similar action.
+
+Low energy housing niches and UK government policy
+
+In this section it is discussed how the UK government has used low energy housing niches to
+help develop new policies aimed at ‘mainstreaming’ low energy housing.  The situation
+therefore bears some parallels with the concept of strategic niche management.  But caution
+is needed in interpreting the government’s actions as part of a coherent niche management
+strategy:  its interest in niches has been largely driven by political necessity, and learning
+
+
+from niches has been messy and partial.  It is suggested that the planned, goal-orientated
+model of strategic niche management tends to distract attention from the diversity of ways
+that niches might emerge and be used by governments.
+
+As discussed, the UK government has associated itself with existing niches, but it has also
+developed a number of grant programmes aimed at creating new low energy housing niches
+(see Table Two).  Further, some of the social and technical innovations demonstrated within
+existing niches have been incorporated into new government policies and regulations, thus
+indicating some upscaling or dissemination of ideas from niches.  A number of ideas and
+technologies from low energy housing niches have disseminated into new government
+climate change policies and programmes aimed at the residential sector.   The Government
+commissioned detailed reports to assess Hockerton, the Vales’s Autonomous House, and
+BedZed (BRECSU 1996; BRECSU 2000; BRECSU 2002).  Findings from these reports
+have, for instance, informed discussions about changes to the energy building regulations (see
+ODPM 2000; 2003; 2004).  New policies have also been forthcoming at a local level, based
+on the experience of certain low energy housing niches. Newark and Sherwood District
+Council developed Supplementary Planning Guidance on wind energy in direct response to
+problems at Hockerton regarding the installation of a wind turbine (Hockerton Housing
+Project 2003b).  In addition, experience with the BedZed low energy housing development
+has subsequently helped inform the Unitary Development Plan produced by Merton Borough
+Council – the neighbouring local authority – which now requires new developments over a
+certain size to source ten percent of their energy from renewable resources (Forum for the
+Future 2004).  A policy discourse has emerged in the UK low energy and environmentally
+sustainable housing sector about ‘mainstreaming’ ideas from existing niches into wider
+housing policies and practice (see for example Clark 2000; Lowenstein 2001a; TCPA and
+WWF 2003).  In effect the term ‘mainstreaming’ has been adopted to describe the process of
+translating radical innovations that have been experimented with in niches into policies aimed
+at encouraging more conservative, incremental change. Mainstreaming low energy housing is
+viewed as positive by a range of government actors, for example those promoting
+sustainability in social housing:
+
+“Well our main objective really now is to try and mainstream sustainable housing within the
+social housing sector…”
+(Interview, Project manager at a Government-sponsored organisation promoting
+environmental sustainability in social housing, July 2002).
+
+An important national government sustainable and low energy housing policy is the
+EcoHomes environmental rating scheme, in operation since the year 2000 (ENDS 2000).
+Points are awarded to new housing developments across a range of sustainability issues, from
+individual building characteristics such as energy efficiency, to development-scale features
+including local transport links and biodiversity (BRE 2001).  To date, approximately one
+hundred developments in the UK have an EcoHomes award, amounting to some three and a
+half thousand dwellings (ENDS 2003).  Since April 2003, it has become mandatory for
+Registered Social Landlords in England and Wales to obtain an EcoHomes ‘Pass’ rating for
+new publicly-funded developments (The Housing Corporation 2003).  In addition, some
+public sector bodies in the UK have used EcoHomes as a way of ensuring a minimum
+standard of environmental sustainability for new developments on land they own. Most
+notably English Partnerships, the English regeneration agency, requires an EcoHomes ‘Very
+Good’ rating (ENDS 2003).  What is notable about EcoHomes is how it involves a staged
+approach to achieving a more environmentally sustainable housing sector in the UK:  there
+
+
+are four levels of award, ranging from pass to excellent.  The emphasis of EcoHomes is hence
+on a gradual transition to the high standard already obtained by niche developments.
+EcoHomes thus fits with a key principle of strategic niche management regarding the
+managed dissemination and translation of innovations from niches to the mainstream (Kemp
+1994; Rip and Kemp 1998).  For example, the Head of Sustainability at the Housing
+Corporation (the social housing regulator in England and Wales), explains why they decided
+to select EcoHomes as the rating scheme for Registered Social Landlords, describing it as
+way of gradually obtaining the kind of standard achieved by BedZed:
+
+“EcoHomes is reviewed every couple of years to improve its standard, so it’s a process
+of continuous improvement. Now if we suddenly said to everyone you’ve got to build to
+the BedZed standard, the industry would go haywire because they would have no idea
+how to do it…. Our way…it will give the social housing industry time to influence their
+suppliers and their contacts to build to that [BedZed] standard.”
+(Interview, Sustainability Manager at the Housing Corporation, May 2003, emphasis
+added).
+
+As well as drawing lessons from existing niches, the government has also provided funding
+for the development of new innovation niches, typically through competition for grants
+supporting low energy projects (see Table Two).  The government’s new Low Carbon
+Buildings Programme, for example, aims to “demonstrate on a wider scale emerging micro
+generation technologies…” and “to raise awareness by linking demonstration projects to a
+wider programme of activities…” (Low Carbon Buildings Programme 2006).  Eighty million
+pounds is available for the programme, with funding streams directed at individual
+householders and community groups, as well as public buildings and businesses (ibid. 2006).
+
+Name of grant/programme
+Date
+Details
+Community Renewables
+Initiative
+
+Local communities bid for funding for renewable
+energy projects. Funding from DTI.
+(see The Countryside Agency 2004)
+Clear Skies
+2003-
+2005
+
+2002-
+present
+day
+
+Capital grants for household and community
+renewable projects
+(see BRE 2003)
+Solar PV Programme
+2002-
+2005
+
+£20 million budget was available. Stream one of
+funding designed for home owners and small
+businesses, Stream Two for community bids (and
+large public buildings, businesses etc.)
+(see DTI 2003a)
+Community Energy
+Programme (CHP)
+
+For combined heat and power and district heating
+technologies only.
+(see Energy Saving Trust and The Carbon Trust
+2001)
+
+Scottish Community and
+Householder Renewables
+Initiative (SCHRI).
+
+2002-
+2007
+
+Offers funding to householders and community
+groups for installing renewable energy
+technologies in Scotland.
+(see Energy Saving Trust 2006)
+DTI's Low Carbon
+Buildings Programme
+
+2002-
+present
+day
+
+2006
+Designed to replace Clear Skies and the PV
+demonstration programme.  Minimum energy
+
+
+(LCBP).
+efficiency measures must be undertaken in order
+to qualify for a renewable energy grant – aims at
+a more holistic low energy approach than
+previous government programmes.
+(see Low Carbon Buildings Programme 2006)
+
+Millennium Communities
+Programme
+
+Seven communities are being developed as
+examples of housing best practice – including
+environmental sustainability, e.g. the Greenwich
+Millennium Village.
+(see English Partnerships 2003).
+
+Table Two – UK government grants and programmes promoting the development of
+new low energy housing niches
+
+However, despite the indications that government is engaging with the idea of niches in a
+more strategic way, albeit rather belatedly, key aspects of the government’s approach raise
+question whether these shifts can be conceptualised as part of a well-planned strategy.  The
+situation is more chaotic and political than it first appears, driven in large part by the limits
+set on government by privatisation of the housing and energy sectors.  The UK government’s
+policy-making capacity has been significantly eroded through the gradual privatisation and
+liberalisation of the energy and housing sectors since the 1980s (Whitehead 1993; Ernst
+1994; Flavin and Lenssen 1994; Webb 2001).  It increasingly lacks the necessary resources
+and political power to implement sector-wide policies designed to achieve radical change in
+response to problems such as climate change, and niches are seen as a relatively
+uncontroversial and more productive way of introducing new technologies.  Niches are
+therefore likely to become an increasingly important element of policy making in the housing
+and energy sectors in the future, simply because government’s capacity to effect macro-level
+system change has been eroded.  However, this trend is not a shift towards strategic niche
+management, in the sense that it is not part of a conscious, well-planned strategy by
+government.  It is more accurately viewed as a type of policy approach that is available to
+government from a much narrower range of governance options post-privatisation.  For
+example, Unruh’s (2002) research on climate change mitigation leads him to conclude that
+niches might appeal to governments more for political than technical reasons, as he explains:
+
+1997-
+present
+day
+
+"For policy makers constrained by [technological] lock-in, but still seeking to provide
+incentives for carbon saving alternatives, niches become an attractive policy target."
+(Unruh 2002: 322).
+
+Thus, according to Unruh, change can be achieved more easily within niches without
+threatening existing interests.  Privatisation also means that agreement is needed from a range
+of actors in order successfully to proceed with policy change (Berkhout 2002), and, as
+Winner makes clear, such a situation is rare in contemporary socio-technical systems:
+
+"In the complex, large scale systems that characterise our time, it is seldom the case that
+any single individual or group has access to a technological process along the whole of
+its conception, operation, and result.”
+(Winner 1977: 228).
+
+
+Privatisation has thus had the effect of dispersing power from government.  In so doing, it
+creates difficulties for the governance of radical technology change within socio-technical
+systems because there is no single actor with the resources to manage long-term fundamental
+change. In effect, with privatisation government is more deeply embedded within existing
+socio-technical systems, and it therefore becomes more difficult for policy makers to
+visualise and effect change; their policy capacity is reduced.  Thus, for instance, recent
+government policies designed to ‘mainstream’ environmentally sustainable and low energy
+housing have been criticised for being weak, in particular the changes to the energy building
+regulations in England and Wales (Part L) and the EcoHomes sustainability rating scheme.
+Part L of the building regulations covers heating and energy use in the home. New more
+stringent regulations came into force on the 6th April 2006, which the government claims will
+yield reductions in carbon emissions of twenty percent compared with a dwelling built to the
+2002 standards (ODPM 2005b; ODPM 2005a).  But the government has been criticised for
+not following through on certain promises made with regard to increasing the stringency of
+Part L.  For example, experts have suggested that the regulations were toned down because of
+heavy lobbying from the construction industry (Renew On-line 2006).  It does appear that
+certain key measures were dropped at the last minute, including those relating to
+improvement of the existing housing stock (RICS 2006).  Other concerns have been raised
+about the lack of a long term framework for change over next fifteen years, and the lack of
+enforcement of Part L (House of Lords Science and Technology Committee 2005).
+
+The EcoHomes rating scheme for housing, discussed above, has also been criticised on the
+grounds that it does not go far enough in encouraging the development of environmentally
+sustainable housing.  For example, it has been suggested that it offers too much flexibility
+and that minimum standards are needed for certain key areas such as water and energy
+efficiency (Sustainable Development Commission 2006: 4).  Other criticisms include that
+post-construction reviews are rare, raising concerns about non-compliance, and that the way
+EcoHomes points are awarded is inconsistent, for example no points are awarded for building
+with high thermal mass (Priaulx 2004).
+
+Another issue that indicates that the government’s interest in low energy housing niches
+might be somewhat superficial is the lack of a process for objective, independent learning
+from niches. As discussed previously, existing low energy housing niches have been
+portrayed in a very positive light in government reports, with little technical analysis.  Indeed,
+there is little sense from an analysis of government policy discourse about low energy
+housing that the niches are primarily seen as technical experiments (Lovell 2004).  Thus,
+although it is acknowledged in the literature on strategic niche management that niches are
+for social as well as technical learning, in these instances any technical learning has been
+eclipsed by the political promotion of the niches as examples for others to follow.  For
+example, in a government-commissioned report on the BedZed housing development in south
+London (BRECSU 2002) there is no discussion of any problems that have troubled the
+development, such as its high financial cost (Clark and Smit 2004), technical problems with
+the on-site combined heat and power plant, or residents placing blinds over their passive solar
+conservatory windows (Bioregional 2003).  Rather, the development is rather uncritically
+applauded as representing:
+
+“… state-of-the-art for sustainable housing in the UK"
+(BRECSU 2002: 3).
+
+
+A government-commissioned report into the Hockerton Housing Project in the East Midlands
+similarly offers a positive summary of the development’s features and performance
+(BRECSU 2000). Although some problems with the development are mentioned, such as
+condensation and damp in one house because the resident failed to use the ventilation system
+properly, and relatively low winter temperatures inside the homes (BRECSU 2000: 8), there
+is little sense that an independent, robust analysis has been conducted.
+
+Summary and Conclusions
+
+In summary, low energy housing niches in the UK have belatedly drawn the attention of
+government, and a series of niche-based policies and initiatives have emerged.  Most of the
+existing low energy housing niches have been initiated and developed by non-governmental
+actors including architects, community groups and businesses.  Government has been keen to
+associate itself with these existing niches in order to gain credibility for its climate change
+policies:  the niches prove that action is being taken.  A number of grant programmes has also
+been devised aimed at encouraging the development of new niches.  Further, ideas and
+innovations from niches have been taken into account in the development of new government
+policies such as the Part L energy building regulations and the EcoHomes environmental
+rating scheme.  However, it is argued that these actions do not amount to a co-ordinated and
+coherent niche management strategy on the part of government.  It is suggested rather that
+niches are an attractive policy target compared with the political and organisational
+difficulties of implementing sector-wide change in the privatised housing and energy sectors.
+
+In light of these findings, it is argued that the concept of strategic niche management needs to
+be broadened to take account of some of the issues raised.  First, it is suggested that the
+literature on strategic niche management needs to pay more regard to the messiness of socio-
+technical system change.  The case of low energy housing in the UK highlights some of the
+generic difficulties of governments being involved in niches in a well-planned, rational and
+ordered way.  In practice the neat, staged model of strategic niche management has few real
+world examples that bear relation to it, and serves as a distraction from analysis of the variety
+of ways in which niches originate and are used by governments.  Second, and relatedly, the
+politics of socio-technical system change need to be considered in more depth. There are
+reasons why policies to encourage niches might appeal to governments more than sector-wide
+regulatory changes, in particular because niches are less likely to threaten powerful interests
+embedded within the existing socio-technical system.  Third, greater allowance needs to be
+made for non-governmental actors taking a lead role with regard to niche management at
+different stages of technology change.  In the case of low energy housing, social and
+commercial organisations have been active in terms of the initial development of low energy
+housing experiments, rather than government. The model of strategic niche management
+could be further developed along interesting lines by concentrating more on the interplay
+between a wide range of different types of organisation in the process of governing socio-
+technical change, thereby acknowledging the often complex and diverse origins of niches.
+
+
+References
+
+Barton, H. 1998. Eco-neighbourhoods:  a review of projects. Local Environment 3(2), 159-177.
+
+Beckett, M. 2003. Secretary of State for the Environment - Speech to the Environment Agency National
+Conference. Available at <www.defra.gov.uk/corporate/ministers/speeches/mb031028.htm>, last accessed 28th
+October 2003.
+
+Berkhout, F. 2002. Technological regimes, path dependency and the environment. Global Environmental
+Change 12(1), 1-4.
+
+Bhatti, M., J. Brooke, et al. 1994. Housing and the New Environmental Agenda:  an Introduction. In Housing
+and the environment:  an Introduction. eds. M. Bhatti, J. Brooke and M. Gibson. Southampton: Chartered
+Institute of Housing.
+
+Bioregional 2003. Technical Tour of BedZed Housing Development. H.Lovell. Sutton, South London.
+
+Blair, T. 2003. 'Concerted international effort' necessary to fight climate change: 10 Downing Street - Prime
+Minister's speech on release of Energy White Paper. Available at <www.number-10.gov.uk>, last accessed 9th
+May 2003.
+
+Blair, T. 2005. Speech to the Confederation of British Industry Conference - 29th November 2005: 10 Downing
+Street. Available at <http://www.number-10.gov.uk/output/Page8606.asp>, last accessed 3rd March 2006.
+
+BRE 2001. EcoHomes - The Environmental Rating for Homes: Building Research Establishment. Available at
+<www.bre.co.uk/ecohomes>, last accessed 17th January 2003.
+
+BRE 2003. Clear Skies - Renewable Energy Grants: Building Research Establishment (BRE), Department for
+Trade and Industry (DTI). Available at <www.clear-skies.org>, last accessed 21st May 2003.
+
+BRECSU 1996. General Information Report 53: Building a sustainable future - homes for an autonomous
+community. Watford: Building Research Establishment (BRE), UK.
+
+BRECSU 2000. New Practice Profile 119: The Hockerton Housing Project - design lessons for developers and
+clients. Watford, UK: Building Research Establishment (BRE).
+
+BRECSU 2002. General Information Report 89: BedZED - Beddington Zero Energy Development, Sutton.
+Watford, UK: Building Research Establishment (BRE).
+
+BRECSU 2003. Renewable energy in housing - case studies. Watford, UK: Building Research Establishment
+(BRE).
+
+Centre for Alternative Technology 1995. Crazy Idealists? The CAT story. Machynlleth: The Centre for
+Alternative Technology.
+
+Chappells, H. and E. Shove 2000. Sustainable Homes and Integration. In Domestic Consumption Utility
+Services and the Environment (DOMUS). eds. H. Chappells, M. Klintman, A.-L. Lindenet al, pp.105-128.
+Wageningen: Universities of Lancaster, Wageningen and Lund.
+
+Chatzis, K. 1999. Designing and operating storm water drain systems: empirical findings and conceptual
+developments. In The Governance of Large Technical Systems. eds. O. Coutard, pp.73-90. London & New
+York: Routledge.
+
+Clark, M. 2000. Mainstreaming environmental innovation. Town & Country Planning July/August 2000, 218-
+221.
+
+Clark, P. and J. Smit 2004. Dream Over. Building(10), 1-3.
+
+
+Davies, A. 1996. Innovation in Large Technical Systems:  The Case of Telecommunications. Industrial and
+Corporate Change 5(4), 1143-1180.
+
+DEFRA 2004. Press release: Climate change emission statistics: Department for Environment, Food and Rural
+Affairs. Available at <www.defra.gov.uk/news/latest/2004/emissionsstats_250304.htm>, last accessed 25th
+March 2004.
+
+DEFRA 2006. Climate Change: the UK Programme 2006. London: Department for the Environment, Food and
+Rural Affairs (DEFRA), HMSO.
+
+Dosi, G. 1982. Technological paradigms and technological trajectories: a suggested interpretation of the
+determinants and direction of technical change. Research Policy 11, 147-162.
+
+Dryzek, J. 1997. The politics of the Earth: environmental discourses. Oxford: Oxford University Press.
+
+DTI 2002. First stage of major PV Demonstration Programme launched. New Review 52, 1.
+
+DTI 2003a. DTI Major Photovoltaics (PV) Demonstration Programme: Department for Trade and Industry.
+Available at <www.est.co.uk/solar>, last accessed 26th March 2003.
+
+DTI 2003b. Energy White Paper 'Our Energy Future - creating a low carbon economy'. London: HMSO.
+
+DTI, ODPM, et al. 2003. Better Buildings Summit Issues Paper. London: HMSO.
+
+ENDS 2000. BRE revamps environmental rating scheme for housing. (Issue no.303), 8.
+
+ENDS 2003. Demand grows for sustainable homes. (Issue no.343), 31-32.
+
+Energy Saving Trust 2004. Newark and Sherwood District Council case study: a guide for local authorities.
+London: Energy Saving Trust for the Energy Efficiency Best Practice in Housing Programme.
+
+Energy Saving Trust 2006. Scottish Community and Householder Renewables Initiative: Energy Saving Trust,
+The Scottish Executive. Available at
+<http://portal.est.org.uk/uploads/documents/myhome/guidancenotes_jan05.pdf>, last accessed 14th April 2006.
+
+Energy Saving Trust and The Carbon Trust 2001. Community Energy Programme: DEFRA. Available at
+<www.communityenergy.org.uk>, last accessed 11th November 2003.
+
+English Partnerships 2003. Millennium Communities Programme: English Partnerships. Available at
+<www.englishpartnerships.gov.uk>, last accessed 21st May 2003.
+
+Ernst, J. 1994. Whose Utility?  The social impact of public utility privitisation and regulation in Britain.
+Birmingham: Open University Press.
+
+Findhorn Ecovillage 2003. Findhorn - an Introduction. Available at <http://www.ecovillagefindhorn.com/.>,
+last accessed 23rd April 2003.
+
+Flavin, C. and N. Lenssen 1994. Reshaping the electric power industry. Energy Policy 22(12), 1029-1044.
+
+Forum for the Future 2004. Merton Borough Council - a radical planning decision to promote renewable
+energy: Regional Futures. Available at
+<http://www.regionalfutures.org.uk/newsdigest/mertonboroughcouncil_page2181.aspx>, last accessed 24th
+August 2004.
+
+Geels, F. W. 2004. Technological Transitions and System Innovations: a co-evolutionary and socio-technical
+analysis. Cheltenham, UK: Edward Elgar.
+
+Hockerton Housing Project 2003a. Hockerton Media Coverage: Hockerton Housing Project. Available at
+<http://www.hockerton.demon.co.uk/media/index.html>, last accessed 23rd April 2003.
+
+
+Hockerton Housing Project 2003b. Wind Turbine Special News Story: Hockerton Housing Project. Available at
+<www.hockerton.demon.co.uk/news/windturbine.html>, last accessed 19th March 2003.
+
+House of Lords Science and Technology Committee 2005. Energy Efficiency Report: House of Lords Science
+and Technology Committee. Available at
+<http://www.publications.parliament.uk/pa/ld200506/ldselect/ldsctech/21/21i.pdf>, last accessed
+
+Hughes, T. P. 1983. Networks of Power:  Electrification in Western Society 1880-1930. Maryland: The John
+Hopkins University Press.
+
+Kemp, R. 1994. Technology and the Transition to Environmental Sustainability. Futures 26(10), 1023-1046.
+
+Kemp, R., J. W. Schot, et al. 1998. Regime shifts to sustainability through processes of niche formation: the
+approach of Strategic Niche Management. Technology Analysis and Strategic Management 10(2), 175-195.
+
+Lovell, H. 2004. Framing sustainable housing as a solution to climate change. Journal of Environmental Policy
+and Planning 6(1), 35-56.
+
+Lovell, H. 2005. The governance of emerging socio-technical systems: the case of low energy housing in the
+UK. Department of Geography. Cambridge: Cambridge University.
+
+Low Carbon Buildings Programme 2006. DTI Low Carbon Buildings Programme - Frequently asked questions:
+Energy Saving Trust. Available at <http://www.est.org.uk/housingbuildings/funding/lowcarbonbuildings/faq/>,
+last accessed 22nd April 2006.
+
+Lowenstein, O. 2001a. From BedZed to eternity. Building for a Future 11(3), 16-21.
+
+Lowenstein, O. 2001b. Zero energy homes come to the United Kingdom. Building for a Future 11(3), 8-14.
+
+Minton, A. 2002. Eco experiments. Estates Gazette, 62-63.
+
+Nash, T. 2004. Email correspondence - Managing Director of Gusto Construction. H.Lovell. Newark.
+
+ODPM 2000. Current thinking on possible future amendments of energy efficiency provisions: Office of the
+Deputy Prime Minister. Available at
+<http://www.odpm.gov.uk/stellent/groups/odpm_buildreg/documents/page/odpm_breg_600333.hcsp>, last
+accessed 23rd February 2005.
+
+ODPM 2003. Industry Advisory Group (Working Party 4) Low and Zero Carbon Energy Systems Meeting
+Minutes - 16th October 2003: Office of the Deputy Prime Minister. Available at <www.odpm.gov.uk>, last
+accessed 25th April 2004.
+
+ODPM 2004. Proposals for amending Part L and implementing the EU Buildings Energy Directive: Office of
+the Deputy Prime Minister. Available at
+<http://www.odpm.gov.uk/stellent/groups/odpm_buildreg/documents/>, last accessed 2nd December 2004.
+
+ODPM 2005a. Draft Approved Document: Part L - L1A Work in new dwellings (2006 edition): Office of the
+Deputy Prime Minister. Available at
+<http://www.odpm.gov.uk/stellent/groups/odpm_buildreg/documents/page/odpm_breg_040280.pdf>, last
+accessed 6th October 2005.
+
+ODPM 2005b. Press Release: Revised Building Regulations to tackle Climate Change: Office of the Deputy
+Prime Minister (ODPM). Available at <http://www.odpm.gov.uk/pns/displaypn.cgi?pn_id=2005_0191>, last
+accessed 13 September 2005.
+
+Olivier, D. and J. Willoughby 1996. General Information Report no.38: Review of ultra-low-energy homes - a
+series of United Kingdom and overseas profiles. Watford: Building Research Establishment.
+
+Pearson, A. 1999. Green fingers. Building(22 October 1999), 30-31.
+
+
+Phillimore, J. 2001. Schumpeter, Schumacher and the Greening of Technology. Technology Analysis and
+Strategic Management 13(1).
+
+Porter, G. and J. W. Brown 1996. Global Environmental Politics. Boulder: Westview Press Inc.
+
+Priaulx, M. 2004. EcoHomes. Building for a Future Spring 2004, 3-5.
+
+RCEP 2000. Energy - The Changing Climate, 22nd Report. London: HMSO.
+
+Renew On-line 2006. Energy efficiency: mixed reviews: Renew On-line (extracts from NATTA's journal Renew
+Issue 159 Jan-Feb 2006). Available at <http://eeru.open.ac.uk/natta/renewonline/rol59/9.htm>, last accessed
+14th April 2006.
+
+RICS 2006. To Part L and back: Royal Institute of Chartered Surveyors (RICS). Available at
+<http://www.rics.org/Property/biz_part_l_0406.htm>, last accessed 6th April 2006.
+
+Rip, A. and R. Kemp 1998. Technological Change. In Human Choices and Climate Change Volume 2 -
+Resources and Technology. eds. S. Rayner and E. Malone, pp.327-399. Columbus Ohio: Battelle Press.
+
+Sandbach, F. 1980. Environment, Ideology and Policy. Oxford: Basil Blackwell.
+
+Schot, J. W. 1992. Constructive Technology Assessment and Technology Dynamics: the case of clean
+technology. Science, Technology and Human Values 17(1), 36-56.
+
+Schot, J. W., R. Hoogma, et al. 1994. Strategies for Shifting Technological Systems: the case of the automobile
+system. Futures 26(10), 1060-1076.
+
+Schot, J. W. and A. Rip 1996. The Past and Future of Constructive Technology Assessment. Technological
+Forecasting and Social Change 54(2/3), 251-268.
+
+Smith, A. 2003. Transforming Technological Regimes for Sustainable Development: a role for Alternative
+Technology niches? Science and Public Policy 30(2), 127-135.
+
+Smith, M., J. Whitelegg, et al. 1998. Greening the Built Environment. London: Earthscan.
+
+Sustainable Development Commission 2003. Policy audit of United Kingdom Climate Change Policies and
+Programmes. London: The Edinburgh Centre for Carbon Management Ltd.
+
+Sustainable Development Commission 2006. The Response of the Sustainable Development Commission to the
+Code for Sustainable Homes: The UK Sustainable Development Commission. Available at <http://www.sd-
+commission.org.uk/publications/downloads/CSH-Response-060306.pdf>, last accessed 6th March 2006.
+
+Synge, D. 2002. Welcome to the green living machine. The Financial Times, 6.
+
+Tarr, J. A. 1999. Transforming an energy system:  the evolution of the manufactured gas industry and the
+transition to natural gas in the United States (1807-1954). In The Governance of Large Technical Systems. eds.
+O. Coutard, pp.19-37. London: Routledge.
+
+TCPA and WWF 2003. Building sustainably: how to plan and construct new housing for the 21st Century.
+London: Town and Country Planning Association (TCPA) & World Wide Fund for Nature (WWF).
+
+The Countryside Agency 2004. The Community Renewables Initiative: The Countryside Agency. Available at
+<http://www.countryside.gov.uk/NewEnterprise/Economies/CRI.asp>, last accessed 1st January 2005.
+
+The Ecologist 1972. Blueprint for Survival. London: The Ecologist Magazine.
+
+The Housing Corporation 2003. Sustainable Development Strategy. London: The Housing Corporation.
+
+
+The Housing Corporation 2004. BedZed case study for Housing Associations. Available at
+<http://www.housingcorp.gov.uk/resources/sustain.htm#tools>, last accessed 22nd October 2004.
+
+The Stationery Office 2003. The official yearbook of the United Kingdom of Great Britain and Northern
+Ireland. London: HMSO.
+
+UK Government 2005. G8 Gleneagles 2005: Policy issues - climate change: UK Government - Secretary of
+State for Foreign and Commonwealth Affairs. Available at <http://www.g8.gov.uk>, last accessed 29th January
+2005.
+
+Unruh, G. C. 2002. Escaping carbon lock-in. Energy Policy 30(4), 317-326.
+
+Vale, B. and R. Vale 2000. The New Autonomous House. London: Thames & Hudson.
+
+Vale, R. 2001. Hockerton Housing Project - Case Study 7.7b. Canberra: Australian Greenhouse Office, Institute
+for Sustainable Futures.
+
+Walker, W. 2000. Entrapment in large technology systems: institutional commitment and power relations.
+Research Policy 29(7), 833-846.
+
+Watts, C. 2003. Housing for the Future. The Source Public Management Journal 13th July 2002, 1-2.
+
+Weale, A. 1992. The new politics of pollution. Manchester and New York: Manchester University Press.
+
+Webb, S. 2001. Transforming Homes or Privatizing Social Housing? Public Money and Management October-
+December, 6-7.
+
+Weber, K. M. 2003. Transforming Large Socio-technical Systems towards Sustainability: on the Role of Users
+and Future Visions for the Uptake of City Logistics and Combined Heat and Power Generation. Innovation: the
+European Journal of Social Science Research 16(2), 155-175.
+
+White, N. 2002. Sustainable Housing Schemes in the United Kingdom. Hockerton: Hockerton Housing Project.
+
+Whitehead, C. M. E. 1993. Privatizing Housing: An assessment of United Kingdom Experience. Housing Policy
+Debate 4(1), 101-139.
+
+Winner, L. 1977. Autonomous Technology: technics-out-of-control as a theme in political thought. Cambridge:
+MIT Press.
+
+Wiskerke, J. S. C. 2003. On promising niches and constraining sociotechnical regimes: the case of Dutch wheat
+and bread. Environment and Planning A 35, 429-448.

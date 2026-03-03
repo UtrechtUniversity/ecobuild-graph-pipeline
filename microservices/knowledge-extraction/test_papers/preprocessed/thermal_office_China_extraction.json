@@ -1,0 +1,92 @@
+{
+  "entities": [
+    {
+      "name": {
+        "value": "Tall Office Building",
+        "context": "a tall office building in Nanning city with a vertical courtyard system",
+        "context_verified": true,
+        "context_match_score": 0.831
+      },
+      "country": {
+        "value": "China",
+        "context": "China's energy revolution and green building development",
+        "context_verified": true,
+        "context_match_score": 0.893
+      },
+      "city": {
+        "value": "Nanning",
+        "context": "Nanning city has vertical courtyard system with different layouts",
+        "context_verified": true,
+        "context_match_score": 0.954
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      }
+    }
+  ],
+  "design_strategies": [
+    {
+      "name": "Vertical Courtyard System",
+      "confidence": 1.0,
+      "anchor_text": "The three typical ofﬁce layouts are selected to compare the thermal perfor-",
+      "context": "…nditioning, making it signiﬁcantly outweigh the impact of the\nother systems, like lighting (Wan et al., 2012).\nWith an intention to promote industrial construction and vari-\nable layout plan, a tall ofﬁce building in Nanning city has vertical\ncourtyard system with different layouts, as seen in Fig. 2. The three\ntypical ofﬁce layouts are selected to compare the thermal perfor-\nmance and thermal energy consumption between traditional ones\n(ofﬁce þ single courtyard) and fusion one (ofﬁce þ multi-court-\nyards), ranging from linear (1st ﬂoor), integrated (3rd ﬂoor) to\nfusion one (7th ﬂoor) as shown in Fig. 3.\n\nconsidering the occupants’ constantly changing needs, the buil…",
+      "anchor_verified": true,
+      "anchor_match_score": 0.947
+    },
+    {
+      "name": "Fusion Layout",
+      "confidence": 1.0,
+      "anchor_text": "as shown in Fig. 3.",
+      "context": "…in Fig. 2. The three\ntypical ofﬁce layouts are selected to compare the thermal perfor-\nmance and thermal energy consumption between traditional ones\n(ofﬁce þ single courtyard) and fusion one (ofﬁce þ multi-court-\nyards), ranging from linear (1st ﬂoor), integrated (3rd ﬂoor) to\nfusion one (7th ﬂoor) as shown in Fig. 3.\n\nconsidering the occupants’ constantly changing needs, the building\nseparation system has been extensively explored with the promo-\ntion of industrial construction, especially in residential sector.\nHowever, its magnitude, policy’s relevance, level of industrializa-\ntion and autonomous proposition…",
+      "anchor_verified": true,
+      "anchor_match_score": 1.0
+    }
+  ],
+  "ecosystem_services": [
+    {
+      "name": "Regulation of air quality",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.8,
+      "anchor_text": "regulate concentrations of gases in the Earth's atmosphere",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.552
+    },
+    {
+      "name": "Habitat",
+      "category": "Provisioning",
+      "confidence": 1.0,
+      "anchor_text": "shelter and protection of organisms",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.571
+    },
+    {
+      "name": "Regulation of temperature",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.7,
+      "anchor_text": "cooling or heating of short-term and long-term ambient atmospheric conditions",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.506
+    },
+    {
+      "name": "Soil formation",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.5,
+      "anchor_text": "formation and retention of soil associated with ensuring ongoing soil fertility",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.519
+    }
+  ]
+}

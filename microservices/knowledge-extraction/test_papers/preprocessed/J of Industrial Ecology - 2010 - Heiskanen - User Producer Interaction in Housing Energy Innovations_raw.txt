@@ -1,0 +1,1273 @@
+R E S E A R C H A N D A N A LYS I S
+User−Producer Interaction in
+Housing Energy Innovations
+
+Energy Innovation as a Communication
+Challenge
+
+Eva Heiskanen and Raimo Lovio
+
+Keywords:
+
+Summary
+
+detached houses
+energy efﬁciency
+industrial ecology
+innovation management
+sustainable consumption and
+production (SCP)
+user participation
+
+Von Hippel and colleagues have highlighted the crucial role of
+users in innovation in different industries and types of prod-
+ucts. They describe the innovation process in terms of the
+distinct domains of knowledge that producers and users pos-
+sess. Producers have knowledge about technical solutions and
+users about their needs, the context of use, and their own
+capabilities as users. Both sets of knowledge are characterized
+by “stickiness”: They move relatively freely within their own
+domain but are difﬁcult to transfer outside of it.
+In the case of radical innovations for sustainable consump-
+tion, the problem of “sticky information” is compounded. Both
+producers and consumers need to reach out of their conven-
+tional competencies and search for new solutions. “Societal
+actors,” such as government bodies or environmental experts,
+can show the way to such solutions, but this new knowledge
+needs to be integrated with the “sticky” knowledge about
+everyday practices in production and consumption.
+In the present article we attempt to conceptualize the role
+and interaction of user and producer knowledge with the
+knowledge of environmental experts in housing energy inno-
+vations. We do so by applying the user−producer interaction
+framework to a case study on the introduction of low-energy
+housing concepts in Finland. On the basis of this analysis, we
+draw conclusions on the potential and limitations of today’s
+practices in the ﬁeld. For example, we suggest that user in-
+volvement can help to enhance the acceptance of low-energy
+solutions but that the methods for involving users need to be
+adapted to the particular circumstances in each industry.
+
+Address correspondence to:
+Professor Eva Heiskanen
+National Consumer Research Centre
+P.O. Box 5, 00531 Helsinki, Finland
+eva.heiskanen@ncrc.ﬁ
+www.energychange.info
+
+c⃝2010 by Yale University
+DOI: 10.1111/j.1530-9290.2009.00196.x
+
+Volume 14, Number 1
+
+www.blackwellpublishing.com/jie
+Journal of Industrial Ecology
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+If one believes the Finnish commentators
+cited above, the core of the problem is a com-
+munication gap. It seems plausible to argue that
+the current markets do not transfer the neces-
+sary information about workable solutions, even
+though both construction companies and resi-
+dents, if they knew more, would be motivated to
+do something about energy efﬁciency.
+We do not argue that the problem is simply
+a matter of communication breakdown. Energy
+prices have not always encouraged companies or
+consumers to actively search for the most energy-
+efﬁcient solutions. There has also not been sufﬁ-
+cient political will to apply the full scale of regu-
+lative measures to adopt stricter building or urban
+planning codes. Nonetheless, we argue that the
+communication gap is also a reality, and it would
+exist even if prices and legislation more force-
+fully steered the parties involved toward greater
+energy efﬁciency.
+In recent years, the main driver for introduc-
+ing low-energy buildings in Finland has been so-
+ciety, not users or producers of houses. Various
+governmental bodies, such as public research in-
+stitutes and energy advisors, have tried to ﬁll the
+communication gap by information-based volun-
+tary measures. The idea of using mainly volun-
+tary measures has been based on the argument
+that there are still so many competing low-energy
+housing concepts that it is better that produc-
+ers and users of houses—and not the regulator—
+decide which technological solutions are intro-
+duced in the market.
+In the remainder of this article, we outline
+the communication problem ﬁrst on a general
+level. Then we make an in-depth exploration of
+the communication gap by analyzing the evo-
+lution and experiences of a Finnish program to
+promote low-energy housing. Finally, we suggest
+some solutions to address the communication
+challenges.
+
+Introduction: Why Is There No
+Progress in Energy Efﬁciency
+Even Though the Technology Is
+Within Reach?
+
+According to the European Commission (EC)
+Green Paper on Energy Efﬁciency (EC 2006), the
+buildings sector accounts for 40% of Europe’s en-
+ergy requirements. Researchers have argued that
+more than one-ﬁfth of the present energy con-
+sumption could be saved by 2010 if more am-
+bitious standards were applied to new buildings
+and to existing ones being refurbished. Energy
+costs are also becoming increasingly signiﬁcant
+for households, especially in cold climates, as the
+prices of electricity and oil are rising.
+This is the situation in Finland as well: “There
+are market-ready technologies in Finland that
+could cut the energy bills in buildings by 20%
+by 2015,” said Senior Researcher Pekka Huovila
+at the publication event for Energy Use, published
+by VTT Technical Research Centre of Finland
+last May (P¨oys¨a 2007).
+Energy conservation is possible and neces-
+sary, but why is so little actually happening? A
+well-known columnist (Merikallio 2007, 34) for
+Suomen Kuvalehti, a popular Finnish weekly mag-
+azine, complained about the situation in a column
+titled “Who Will Cure My Oil Addiction?”:
+
+Every time I hear a rumble from the boiler
+room, I get annoyed. I am burning some more
+oil again, and contributing some more to cli-
+mate change. . . . The small everyday deci-
+sions are easy: you can leave the car at home,
+turn out the lights and recycle everything that
+you possibly can. But when it is time to over-
+haul your heating system in an old house, you
+step into the “twilight zone.” The Internet
+abounds with geothermal heat pumps, pellets,
+district heat, air heat pumps, solar panels, oil-
+solar combinations. Every salesman says their
+offer is fantastic, but no one tells you what the
+pitfalls are. . . . Even making a bid for tenders
+is so complicated that you give up. . . . And
+all the heating systems are either expensive or
+extremely expensive. When will they ﬁnally
+set up a proper advisory system? Couldn’t an
+energy expert come to your home with all the
+meters and calculators and tell you what the
+best heating system is for you? I promise to
+offer them coffee and cake!
+
+The Problem of “Sticky
+Information”
+
+Energy means different things to different
+people. Studies have found that people do
+not know much about household energy use
+(Eurobarometer 2006). Although such ﬁndings
+suggest that more public education is necessary,
+
+Journal of Industrial Ecology
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+The problem of sticky information is further
+complicated in the case of societal innovations,
+such as energy efﬁciency (Kivisaari et al. 2004).
+Here, societal actors, such as public energy agen-
+cies, have their own perspective on the innova-
+tion, which differs from the perspectives of the
+users and producers. The societal actor thus must
+try to communicate with both producers and users
+to promote its own knowledge and understand
+the requirements and competencies of the mar-
+ket actors (see ﬁgure 1b).
+Designers and societal actors do have certain
+representations of users in mind when construct-
+ing products, yet they usually fail to anticipate
+the practices of usage that eventually develop as
+the products are used and integrated into daily
+life (Akrich 1995). Moreover, when technolo-
+gies are in use, they are often misused or used
+in ways that are different than was anticipated
+(Rohracher 2003, 2005). A frequently proposed
+solution to this problem is intensiﬁed interaction
+between the world of designers and the world of
+users. This can consist of designer participation
+in the user context, user participation in design,
+or user innovation.
+
+they can also be criticized for exhibiting a “deﬁcit
+model” (Irwin and Wynne 1996) of lay knowl-
+edge concerning energy. Researchers often as-
+sume that because laypeople do not have the
+same kind of knowledge as experts do, they know
+nothing. Other authors consider the problem of
+energy knowledge from the opposite perspective
+(Guy and Shove 1998; Shove 1998). Experts sim-
+ply frame energy use in different terms—often
+ones that are distant from ordinary households’
+concerns. They fail to understand why house-
+holds behave “irrationally” because they fail to
+grasp the logic of energy use (e.g., Parnell and
+Popovic-Larsen 2005).
+The exchange of energy-efﬁciency knowledge
+among experts and laypeople reﬂects a fundamen-
+tal problem in product innovation. Von Hippel
+(1994, 1998) has termed this a problem of “sticky
+information”: Information about users’ needs and
+manufacturers’ capabilities is highly contextual,
+tacit, and difﬁcult to transfer from one site to an-
+other (Von Hippel 2005). This problem slows
+down the product innovation process—many
+rounds of information exchange are needed to
+establish facts and clarify perspectives (ﬁgure 1a).
+
+A
+
+producer
+user
+
+B
+
+production
+capabilities
+
+usability
+utility
+
+producer
+user
+
+acceptability
+adaptability
+
+business
+models
+
+usability, utility
+
+Figure 1 The problem of (a) sticky
+information in user−producer
+interaction and the particular
+problems in (b) societal innovations.
+Source: Von Hippel 1998 (ﬁgure 1a);
+Kivisaari et al. 2004 (ﬁgure 1b).
+
+production capabilities
+
+acceptability, adaptability
+
+business models
+
+societal needs
+and requirements
+societal needs
+and requirements
+
+societal
+actor
+
+Heiskanen and Lovio, User−Producer Interaction in Housing Energy Innovations
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+totally new for the market (user-speciﬁc innova-
+tion). Companies may help their customers to
+make such innovations by equipping them with
+“toolkits” for user innovation (Von Hippel and
+Katz 2002), and they may later market these kinds
+of user innovations to their future customers as
+new, ready-made options for similar situations. In
+the second type of user innovation a user invents
+a new general solution that can be used in various
+applications (general user innovation).
+
+Designer Participation in the User
+Context
+
+One of the ways designers can improve their
+user representations is to make more detailed
+studies of usage practices, such as via ﬁeld stud-
+ies or detailed analyses of the historical devel-
+opment of usage patterns. A number of design
+tools have also been developed on the basis of
+ethnographic or ﬁeld observations (e.g., Leonard
+1995). We are not aware of direct applications
+of ethnography-based design tools in the ﬁeld of
+sustainable innovation. But, for example, Chap-
+pels and Shove (2005) have made extensive use
+of ﬁeld research to investigate and problematize
+the concept of “thermal comfort,” and Quitzau
+and Røpke (2008) have analyzed the drivers of
+resource-consuming bathroom practices.
+
+The MotiVoittaja Project:
+Mainstreaming Low-Energy
+Housing
+
+As a case study on the role of user knowl-
+edge in the introduction of energy innovations,
+we consider a recent Finnish project aimed at
+promoting low-energy housing. In 1999, Mo-
+tiva, a state-owned company responsible for pro-
+moting energy efﬁciency and renewable energy,
+launched a project to mainstream and “normal-
+ize” the concept of low-energy housing through
+a technology procurement competition and la-
+beling system (called MotiVoittaja) targeted at
+the producers and users of prefabricated de-
+tached homes (more details are found in the
+work by Halme et al. [2005] and Heiskanen et al.
+[2007]).
+Low-energy housing as conceptualized in the
+project refers to a set of technologies, includ-
+ing increased thermal insulation, low-energy win-
+dows, reduced air leakages, recovery of heat from
+exhaust air, extraction of energy with heat pumps,
+passive solar energy, and building orientation. A
+key aspect is a systems view of designing a house.
+Design is based on a thorough understanding,
+control, and utilization of the energy ﬂows within
+a building.
+The MotiVoittaja project sought to promote
+the diffusion of the low-energy concept through a
+technology procurement competition. Technol-
+ogy procurement is an instrument for stimulating
+innovation through a targeted acquisition pro-
+cess. An inﬂuential buyer or group of buyers for-
+mulates the requirements, and market transfor-
+mation is further inﬂuenced by support activities.
+In the MotiVoittaja project, the award was de-
+signed to function as a label of endorsement,
+allowing prospective users to identify certiﬁed
+
+User Participation
+
+Another potential solution is to involve users
+in the design process to gain their comments
+about designers’ ideas. For example, Rohracher’s
+(2003) group interviews of the prospective users
+of smart-home technologies and balanced ven-
+tilation systems revealed many doubts that users
+had about how these technologies would ﬁt into
+their everyday life (see also Spaargaren et al.
+2006).
+
+User Innovation
+
+Users’ own inventions and innovations can
+be a direct source of commercial products. Von
+Hippel and colleagues (Von Hippel 2005; Jeppe-
+sen and Molin 2003) have found that, at least in
+some product groups, a large proportion of users
+invent and customize their own products. For ex-
+ample, user innovation has traditionally had a
+signiﬁcant role in alternative energy technology
+(Jamison 2001). As contemporary examples, Or-
+netzeder and Rohracher (2006) have analyzed
+two Austrian cases of user innovation in solar
+collectors and wood chip boilers. For our pur-
+pose, it is reasonable to make a distinction be-
+tween two types of user innovation. The ﬁrst type
+includes those cases in which a user customizes
+the product according to his or her needs and
+local requirements without inventing anything
+
+Journal of Industrial Ecology
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+User Representation and
+Participation in the Project
+
+low-energy houses. Moreover, Motiva assembled
+an initial buyer group of prospective users willing
+to make a commitment to purchase a MotiVoit-
+taja house.
+The competition was launched and adminis-
+tered by Motiva Ltd. The other key partner was
+the Finnish national technical research institute,
+VTT, which had been intensively involved in de-
+veloping low-energy housing technology with an
+emphasis on user beneﬁts. Motiva and VTT also
+tried to take into account the users’ expectations
+on the basis of previous experiences of problems
+in adopting low-energy housing. Few users are in-
+terested in experimenting with new technologies
+when building their ﬁrst (and often ﬁnal) home—
+hence, a third-party label of endorsement might
+increase users’ conﬁdence. The underlying belief
+was that users are increasingly buyers of ready-
+made products. The product should be easy to
+identify and purchase, and it should convey other
+than energy- and environment-related beneﬁts,
+such as comfort and healthy living (Halme et al.
+2005).
+The initial response by manufacturers to
+the
+competition
+was
+positive;
+there
+were
+20 entries into the competition. Eight of the
+entries were awarded with the MotiVoittaja la-
+bel, and 2 were awarded retrospectively. The en-
+ergy consumption of the awarded designs ranged
+from 60 to 130 kilowatt hours per square me-
+ter (kWh/m2) and was at least 35% less than
+average. Another criteria for the awards was rea-
+sonable construction costs, which turned out to
+be close to average construction costs at the
+time.
+The market response, however, did not meet
+expectations. Only 4 of the 10 companies
+awarded the label actually offered their winning
+design for sale, and just 3 were still offering a
+MotiVoittaja house in 2006. The housing man-
+ufacturers were somewhat disappointed with the
+sales performance: They had expected a more en-
+thusiastic market response and more deals with
+the initial buyer group. The project largely failed
+to promote commercial models marketed specif-
+ically as low-energy housing and to establish a
+widely acknowledged set of criteria for this type
+of housing. Yet the project was fairly successful in
+raising debate and promoting general awareness
+of low-energy housing.
+
+Manufacturers of prefabricated houses were se-
+lected as the target group because of their growing
+market share. According to the current estimate,
+their share of the detached house market in Fin-
+land was about 66% in 2005, compared to 44% in
+1995 (PTT 2009). In 2003, there were about 40
+producers on the market, producing about 10,000
+houses annually. The industry was fragmented
+among a great many small players, with annual
+turnovers ranging from less than 2 million to 46
+million euros1 (PTT 2003).
+The most popular method for setting up a pre-
+fabricated house is for users to do part of the
+work themselves or have it done by contractors,
+but turnkey constructions are also gaining pop-
+ularity (Halme et al. 2005). In the ﬁrst case we
+call users homebuilders, and in the second case
+we call them buyers of houses. We assume that
+homebuilders are interested in customizing their
+house, and by doing so and maybe also doing
+part of the work themselves, they may make user-
+speciﬁc or more general user innovations. Buyers
+are expected to be satisﬁed with the producers’
+solutions, but they also can be innovative by be-
+ing ready to accept solutions that are new to the
+market.
+Typically, when a detached house is built, the
+problem of sticky information is based on a num-
+ber of factors, which all are related to the fact that
+a detached house is a complex product, more or
+less customized according to users’ needs and lo-
+cal requirements, and is often made by a project-
+based ﬁrm with many subcontractors. Gann and
+Salter (2000) and Taylor and Levitt (2005) ar-
+gue that in these circumstances communication
+problems are typical and innovations are difﬁcult
+to achieve. The large number of actors (producer,
+subcontractors, user, and local regulator) as such
+contributes to high stickiness, because there is
+huge need for communication and trust among
+different actors. The homebuilders’ eagerness to
+customize their house and ﬁnd new personal el-
+ements is often greater than their actual capa-
+bilities when they start their ﬁrst home-building
+processes. In addition, the manufacturers of pre-
+fabricated houses are not oriented to collect in-
+formation on customers’ various needs.
+
+Heiskanen and Lovio, User−Producer Interaction in Housing Energy Innovations
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+The MotiVoittaja project tried to address the
+above issues of high stickiness mainly by orga-
+nizing the project in such a way that users were
+present at various stages of the project to a greater
+extent than in the ordinary case. The forms and
+intensity of user participation are described brieﬂy
+in the following sections.
+
+Assembling the Initial Purchaser Group
+
+Gaining market commitment from initial pur-
+chasers is an important part of technology pro-
+curement projects. In this case, purchasers were
+private consumers, so assembling the group was
+difﬁcult. Finally, a buyer group of 40 families
+was gathered. Yet the buyers turned out to be
+quite reluctant to make binding contracts with
+the manufacturers. Some were not satisﬁed with
+the standard awarded models and requested so
+many modiﬁcations that the houses no longer
+met the energy-efﬁciency criteria. The most im-
+portant initial buyers were purchasers of Hous-
+ing Fair houses. Three awarded models were con-
+structed for the Housing Fair and sold before the
+fair. The families who moved into these houses
+became the most important showcases for the
+MotiVoittaja concept.
+
+Planning, Setting Criteria, and Selecting
+the Winning Entries
+
+The planning, criteria-setting, and selection
+of winning entries were done by experts: the
+project managers, the expert evaluators, and the
+jury involved in the competition. There were,
+however, two user representatives in the jury.
+In particular, the jury member from the Na-
+tional Association for Detached Housing Con-
+struction represented the homebuilder’s perspec-
+tive in the project. Moreover, the project man-
+agers and the jury made an effort to address some
+of the users’ (perceived) concerns related to low-
+energy housing—namely costs, convenience, and
+indoor air quality.
+
+Informal Communications
+
+In the formal communications, the media cov-
+erage was quite favorable. The unofﬁcial commu-
+nication that was ongoing on Internet discussion
+forums revealed a more mixed reception. Opin-
+ions diverged on what low-energy housing means,
+and much debate took place about real-life heat-
+ing costs. One recurring topic was whether to in-
+vest in geothermal heat pumps or increased insu-
+lation. This discussion implies that the “systemic
+design” idea was not adopted by all users. There
+was also some competition between contrasting
+concepts of ecological housing: one based on tra-
+ditional construction methods and natural mate-
+rials, and the other a “modern” concept involv-
+ing well-sealed structures and highly controlled
+air and energy ﬂows.
+
+Formal Communications
+
+Most of the communication on the project fol-
+lowed a top-down model. Communications were
+directed at the trade and daily press and other
+media. The project received extensive media cov-
+erage and favorable press. The project managers
+themselves, however, were of the opinion that
+more efforts should have been made in commu-
+nications after the competition.
+Nonetheless, one important communication
+success was achieved through participation in the
+Finnish nationwide Housing Fair events. These
+annual events create a new model housing de-
+velopment each year in a different location and
+illustrate novel technologies through demonstra-
+tion constructions. After the event, the houses
+are sold to “typical” families, and the fairgrounds
+are turned into a residential area. MotiVoittaja
+was presented as a concept at the 2001 event,
+and demonstration houses were built for the 2002
+event.
+
+Market
+
+By stimulating a market for “mainstream” low-
+energy housing, the project attempted to align
+itself with the (perceived) interests of ordinary
+users, especially the growing group of middle-
+class buyers who rely on ready-made market of-
+ferings. Yet users are a varied group. They typi-
+cally consider a number of heating and construc-
+tion options and balance a range of requirements.
+Prefabricated houses are also not an ordinary
+
+Journal of Industrial Ecology
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+small market
+launch via initial
+buyer group
+
+producer
+user
+
+competencies of
+different companies
+concerns about indoor climate,
+comfort and convenience
+
+Figure 2 Successful aspects of the
+communication among societal actor,
+users, and producers in the
+MotiVoittaja project.
+
+importance of energy
+efficiency for the future
+some awareness of low-
+energy houses
+
+societal
+actor
+
+number of these companies became convinced of
+the future importance of energy conservation in
+housing, which is reﬂected in the number of en-
+tries in the competition.
+Yet the MotiVoittaja project failed to address
+several communication issues (see ﬁgure 3), in
+particular vis-`a-vis users. It was not capable of
+convincing the users of the urgency of energy
+conservation. At the time of the competition,
+signs of this urgency were not commonly visi-
+ble. Since the competition, the price of energy
+has steadily risen. More stringent requirements
+have been placed on energy efﬁciency in build-
+ings. These developments were on the horizon
+at the time of the competition, but the project
+was not able to communicate them convincingly.
+Moreover, the project failed to dispel the confu-
+sion surrounding low-energy housing.
+The project also failed to address some key
+features of the user context that would have been
+important for the project design. These include
+the diversity of the user base, users’ desire to par-
+ticipate and “be in the know,” and their desire
+to tailor solutions and to customize their house.
+Thus, the group of homebuilders, in relation to
+the group of homebuyers (buyers of turn-key so-
+lutions), proved to be larger than was expected.
+
+industrial product. They are sold in small quanti-
+ties, and even “standard” models are often mod-
+iﬁed extensively. This is problematic when one
+considers energy efﬁciency from a systemic design
+perspective: Modiﬁcations should not interfere
+with the planned and controlled energy ﬂows.
+A survey conducted half a year after the com-
+petition (Mikkola and Riihim¨aki 2002) revealed
+that interest in energy conservation and ecolog-
+ical solutions is growing among users. Users felt,
+however, that there is not much reliable informa-
+tion on the topic, and they were confused by the
+different concepts. Less than half believed that
+one can halve a building’s energy demand with
+small additional construction investments.
+
+Successful and Unsuccessful
+Aspects of the Project
+
+In terms of successes, the MotiVoittaja project
+surmounted some communication challenges vis-
+`a-vis users and producers (see ﬁgure 2). It man-
+aged to raise general user awareness of energy con-
+servation. It also addressed some user issues, such
+as comfort, convenience, and indoor air quality.
+But the project seems to have been more success-
+ful in communicating with the producers. A large
+
+lack of trust
+
+producer
+user
+
+desire to participate/control
+
+Figure 3 Unsuccessful aspects of
+the communication among societal
+actor, users, and producers in the
+MotiVoittaja project. LEH =
+low-energy housing.
+
+desire to customize houses
+
+heterogeneity of users
+
+failure to communicate design-based LEH concept
+
+societal
+actor
+
+failure to dispel uncertainty
+
+failure to communicate urgency of
+energy conservation
+
+Heiskanen and Lovio, User−Producer Interaction in Housing Energy Innovations
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+helped the project managers ﬁnd ways to commu-
+nicate the urgency of energy conservation.
+User innovation implies a deeper and more fun-
+damental participation by users. Innovative users
+actually come up with solutions that may later be
+integrated into commercial-scale designs. User
+innovations are not uncommon in low-energy
+housing; in fact, many early models were built
+by individual lead users for themselves (see also
+Lovell 2007). Such concepts are quite varie-
+gated, ranging from high-tech solutions with a
+high input by contractors to quite low-tech self-
+construction solutions. They are usually closely
+tailored to individual users’ needs (Daniels 2007).
+The notion of user innovation, especially a
+general type of user innovation, is partly contra-
+dictory to the vision of the MotiVoittaja project,
+which aimed to go beyond individual custom-
+tailored solutions and to move low-energy hous-
+ing into the mainstream market. We agree that
+it is not obvious that even the best users’ self-
+designs or user-speciﬁc innovations are readily
+transferable to the mainstream market. Never-
+theless, homebuilders accumulate a lot of use-
+ful experience during their homebuilding project,
+and the Internet discussion sites show that these
+homebuilders are willing to share their knowl-
+edge and ideas with others. The Internet might
+also offer a solution for systematic pooling of user
+knowledge. For example, Halme and colleagues
+(2005) suggested that the MotiVoittaja project
+might have considered an “open design platform”
+rather than encouraging each manufacturer to
+come up with its own competition entry. Alter-
+natively, the project could have encouraged man-
+ufacturers to equip homebuilders with appropri-
+ate tool kits for user-speciﬁc innovations that do
+not change the core structure of the house as a
+low-energy solution.
+We also argue that engaging user-speciﬁc in-
+novation most likely also would have helped the
+project to communicate the rationale underlying
+low-energy housing. There are two reasons for
+this: A closer contact with users helps produc-
+ers to understand users’ communication needs,
+but it can also help producers to access peer-to-
+peer communication networks, which are highly
+effective communication channels. Projects that
+aim to promote energy efﬁciency (or other so-
+cietal goals) can beneﬁt from the use of such
+
+There is also a communication issue between
+users and producers, which neither the MotiVoit-
+taja project nor the producers have managed to
+resolve: users’ lack of trust in the information pro-
+vided by prefabricated housing manufacturers.
+
+Approaches to Intensifying
+Knowledge Exchange Among
+Users and Experts
+
+We have seen in the previous case that Mo-
+tiVoittaja experienced some of the classical prob-
+lems in engaging users (Rohracher 2003): The
+user representations were too inﬂexible and failed
+to anticipate unexpected ways of using the prod-
+uct (i.e., tailoring the prefabricated house). Next
+we consider whether more interaction among
+users, producers, and societal actors might have
+helped to avoid some of the failures. We revisit
+the three categories of user involvement pre-
+sented earlier and consider the contribution that
+they could have made to the project.
+Designer participation in the user context refers
+to close interpretive research of the user context
+by the designers. In the MotiVoittaja project, it
+seems that a better knowledge of the user context
+mostly likely would have helped the project to
+better address usability, utility, acceptance, and
+user context issues. In fact, the designers of the
+project were, to some extent, aware of the diver-
+sity of the user base and the complexity of the
+homebuilding process. More systematic ﬁeld ob-
+servations might have reinforced the role of this
+knowledge in the design of the project. Akrich
+(1995) has identiﬁed this problem: Even when
+useful experiential knowledge or market research
+is available, designers’ user representations tend
+to converge around predeﬁned project targets.
+User participation in design refers to the direct
+involvement of users in the design of the de-
+velopment and promotion of the innovation. In
+the MotiVoittaja project, such approaches (e.g.,
+user groups, focus groups) might have revealed, in
+particular, the reservations that users had vis-`a-
+vis their role. Issues that might have come to the
+surface include the lack of trust in prefabricated
+housing manufacturers’ claims and the users’ de-
+sire to customize their home. Moreover, a closer
+understanding of how users understand energy use
+and the concept of ecological housing could have
+
+Journal of Industrial Ecology
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+may be one of the elements in success-
+fully promoting low-energy housing. Thus,
+the notion of user-inclusive innovation
+communities (Von Hippel 2005; Heiska-
+nen et al. forthcoming) could provide
+some useful insights for energy-efﬁcient
+housing design. As practical projects are
+implemented, they provide experiences
+that are useful for others and thus pro-
+mote learning. For example, today, Mo-
+tiva organizes such information exchange
+through the Energy Efﬁcient Home Web
+site (www.energiatehokaskoti.ﬁ/ﬁ/), which
+monitors the progress and experiences
+of a number of individual construction
+projects.
+3. The kind of knowledge needed for dif-
+ferent types of products varies. For de-
+tached houses, local knowledge plays an
+important part. Unlike many other indus-
+trial products, users do have a relatively
+large role in specifying the product, and,
+thus, promoters of low-energy housing can-
+not merely focus their efforts on produc-
+ers. Prefabricated houses are not conven-
+tional mass-produced products but rather
+are mass-customized according to users’
+needs and the local construction context
+(e.g., energy sources available). Design so-
+lutions need to consider these character-
+istics, and therefore there is a need to
+ﬁnd solutions that can accommodate a
+lot of customization without compromis-
+ing energy-efﬁciency features. Demanding
+and motivated customers and innovative
+construction companies must collaborate
+to ﬁnd a sufﬁciently broad range of good
+solutions. Public sector organizations and
+knowledge brokers can facilitate the dif-
+fusion of these solutions so that a larger
+number of residents and constructors can
+get started. In addition, manufacturers can
+develop tool kits for their homebuilders so
+they can contribute to low-energy hous-
+ing innovation and customization through
+user-speciﬁc innovations.
+4. Knowledge is not neutral. The user in-
+volvement literature has not paid much
+attention to issues of power, interests,
+and trust (Hyysalo & Lehenkari 2002;
+
+existing networks by ﬁnding grassroots promoters
+and “multipliers” (e.g., Brohmann et al. 2007).
+Our case also highlights the issue of trust. The
+users’ lack of trust in the producers’ communi-
+cations was one of the problems not fully solved
+in the MotiVoittaja case. Perhaps users would
+be more willing to engage in experimentation
+with low-energy housing if they could be directly
+served by a neutral, impartial third party (i.e.,
+an intermediary organization). Motiva is an in-
+termediary organization, but it operates on the
+national level and provides general information.
+Local intermediaries that provide tailored advice
+and contract solutions might serve the users’ in-
+terests better.
+
+Conclusions
+
+The MotiVoittaja project was quite ambitious
+and user friendly when compared with many
+other energy-efﬁciency projects (see, e.g., Vreuls
+2006). Yet we have seen that even this state-of-
+the art project most likely could have been im-
+proved had users been involved more intensively
+and had the project also made use of user partic-
+ipation in communication about the project.
+
+1. Methods for user participation need to
+be adapted to the needs of speciﬁc user−
+producer (and societal actor) constella-
+tions. The problem of sticky information
+varies between industries (see, e.g., Ogawa
+1998; Gann and Salter 2000; Aoyama &
+Izushi 2008). The example of homebuild-
+ing is a special case: Homebuilders have a
+strong involvement in their homebuilding
+projects, and they have a lot of ideas about
+their needs and expectations for their new
+home. Nonetheless, most homebuilders
+are ﬁrst-time users, with little knowledge
+of the homebuilding process.
+2. Knowledge and experience are differen-
+tially distributed within the user commu-
+nity (Von Hippel 2005). Homebuilders
+acquire a lot of information as they go
+through the homebuilding process. Expe-
+rienced users are thus much more knowl-
+edgeable than novice users. Even today,
+users share much of their accumulated
+knowledge with each other, and promot-
+ing such peer-to-peer knowledge sharing
+
+Heiskanen and Lovio, User−Producer Interaction in Housing Energy Innovations
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+for both companies and residents who are
+comparing the different solutions. For ex-
+ample, if urban planners simply required
+the use of geothermal heat pumps in an
+area that is well suited for them, this re-
+quirement would be useful information
+rather than unnecessary meddling with the
+market. In Finland, the Ministry of Envi-
+ronment has started implementing the En-
+ergy Performance of Buildings Directive by
+revising energy standards, with the target
+of improving the energy efﬁciency of new
+buildings by 30% to 40% as of 2010. Reg-
+ulators should take into account the com-
+munication aspect when drawing up the
+new energy standards.
+
+Ivory 2004); researchers often implicitly
+assume that information asymmetries and
+conﬂicts of interest are solved by im-
+proved communications. They do not usu-
+ally explicitly address the fact that differ-
+ent parties may not want to reveal all the
+information they have or may not be will-
+ing to take at face value the information
+they receive. Thus, more attention should
+be devoted to ﬁnding ways of organizing
+user−producer−societal actor interactions
+that serve to align the long-term interests
+of different parties. In this effort, differ-
+ent kinds of intermediaries and knowledge
+brokers can have a crucial role.
+5. Different types of knowledge are not
+easy to integrate, even though integra-
+tion is crucial for innovation. For exam-
+ple, Collins and Evans (2004) have started
+to categorize the different types of ex-
+pertise involved in the societal applica-
+tion of scientiﬁc knowledge. This is im-
+portant for understanding how various par-
+ties can contribute to the development of
+new knowledge and new solutions. The au-
+thors have identiﬁed the important role of
+“interactional expertise,” a form of exper-
+tise that relates to translating knowledge
+between technical and everyday forms of
+understanding. People who are simultane-
+ously users and producers of new knowl-
+edge have been found to be very im-
+portant for the development of innova-
+tions that combine scientiﬁc knowledge
+with users’ requirements (Carolan 2006);
+hence, there seems to be a need to ﬁnd such
+“knowledge brokers” for low-energy solu-
+tions. Carolan’s (2006) example of such a
+knowledge broker is a practicing organic
+farmer who also does agricultural research.
+In the ﬁeld of low-energy housing, knowl-
+edge brokers include, for example, self-
+builders who are energy researchers (see,
+e.g., Daniels 2008).
+6. Regulatory instruments provide informa-
+tion, too. Stricter building codes not only
+create a market for energy efﬁciency,
+they also solve some of the communica-
+tion problems. Building codes and recom-
+mended solutions can reduce uncertainty
+
+All in all, we argue that the communication
+gap between producers and users can, by and
+large, be ﬁlled by the introduction of new commu-
+nication skills and methods, as indicated above.
+Improved communication may be the best way to
+produce novel innovations in the housing sector.
+There is an urgent need, however, to improve
+the energy efﬁciency in housing during the com-
+ing decade. If a communication-based voluntary
+strategy is not strong enough, there obviously is a
+good reason to move toward more stringent direct
+regulation.
+
+Acknowledgements
+
+The research on which this article is based
+received funding from the following sources:
+the European Commission’s Seventh Frame-
+work Programme (Contract 213217), the Euro-
+pean Commission’s Sixth Framework Programme
+(Contract 518351), and the Academy of Finland
+(Contract 127288).
+
+Notes
+
+1. The average exchange rate for 2003 was US$1.13
+per euro.
+
+References
+
+Akrich, M. 1995. User representations: Practices,
+methods and sociology. In Managing technology
+in society: The approach of constructive technology
+assessment, edited by A. Rip et al. London: Pinter.
+
+Journal of Industrial Ecology
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+Aoyama,
+Y.
+and
+H.
+Izushi.
+2008.
+User-led
+in-
+novation and the video game industry. Paper
+presented
+at
+the
+IRP
+Conference,
+22–
+May,
+London.
+DIME
+Working
+Paper.
+www.dime-eu.org/ﬁles/active/0/AoyamaIzushiPAPER.pdf.
+Accessed 15 July 2009.
+Brohmann, B., U. Fritsche, and K. H¨unecke. 2007.
+Case study: Social marketing campaigns for
+energy efﬁciency. In Factors inﬂuencing the societal
+acceptance of new energy technologies: Meta-analysis
+of recent European projects, edited by E. Heiskanen
+et al. WP 2 report of the Create Acceptance
+Project (FP6-2004-Energy-3, SUSTDEV-1.2.8).
+www.createacceptance.net/ﬁleadmin/create-
+acceptance/user/docs/CASE_1.pdf. Accessed 15
+July 2009.
+Carolan, M.
+2006. Sustainable agriculture, science
+and the co-production of ‘expert’ knowledge: The
+value of interactional expertise. Local Environ-
+ment 11(4): 421–431.
+Chappels, H. and E. Shove. 2005. Debating the future
+of comfort: Environmental sustainability, energy
+consumption and the indoor environment. Build-
+ing Research and Information 33(1): 32–40.
+Collins, H. and R. Evans. 2007. Rethinking expertise.
+Chicago: The University of Chicago Press.
+Daniels, A. 2007. Life and living in low energy houses.
+Working papers 102/2007. Helsinki, Finland: Na-
+tional Consumer Research Centre.
+Daniels, A. 2007. Life and living in low energy houses.
+Helsinki: National Consumer Research Centre,
+Working papers 102/2007.
+EC (European Commission). 2006. A European strat-
+egy for sustainable, competitive and secure energy.
+Commission Green Paper of 8 March 2006.
+(COM2006 105). Brussels, Belgium: Commission
+of the European Communities.
+Eurobarometer. 2006. Attitudes towards energy: Special
+Eurobarometer 247, European Commission. Brus-
+sels, Belgium: Commission of the European Com-
+munities.
+Gann, D. M. and A. J. Salter. 2000. Innovation in
+project-based, service-enhanced ﬁrms: The con-
+struction of complex products and systems. Re-
+search Policy 29(7/8): 955–972.
+Guy, S. and E. Shove. 2000. The Sociology of energy,
+buildings and the environment: Constructing knowl-
+edge, designing practice. Oxford: Taylor & Francis
+Ltd.
+Guy, S. and E. Shove. 2007. The sociology of energy,
+buildings and the environment: Constructing knowl-
+edge, designing practice. London: Taylor & Francis.
+Halme, M., J. Nieminen, E. Nyk¨anen, L. Sarvaranta,
+and A. Savonen. 2005. Business for sustainability:
+
+Drivers for energy-efﬁcient housing. VTT Research
+Notes 2310. Espoo, Finland: VTT Technical Re-
+search Centre.
+Heiskanen, E., M. Hodson, R. Raven, Y. Feenstra,
+A. Alcantud, D. Bauknecht, B. Brohmann, et
+al. 2007. Factors inﬂuencing the societal accep-
+tance of new energy technologies: Meta-analysis
+of recent European projects. WP 2 report of the
+Create Acceptance Project (FP6-2004-Energy-3,
+SUSTDEV-1.2.8).
+www.createacceptance.net/
+ﬁleadmin/create-acceptance/user/docs/E07058.
+pdf. Accessed 15 July 15 2009.
+Heiskanen, E., S. Hyysalo, T. Kotro, and P. Repo.
+Forthcoming. Constructing innovative users and
+user-inclusive innovation communities. Technol-
+ogy Analysis & Strategic Management.
+Hyysalo, S. and J. Lehenkari. 2002. Contextualizing
+power in collaborative design. In Pdc 2002 Par-
+ticipatory Design Conference, edited by T. Binder
+et al. Malm¨o, Sweden: Computer Professionals for
+Social Responsibility.
+Irwin, A. and B. Wynne. 1996. Misunderstanding sci-
+ence? The public reconstruction of science and tech-
+nology. Cambridge, UK: Cambridge University
+Press.
+Ivory, C. 2004. Client, user and architect interactions
+in construction: Implications for analysing inno-
+vative outcomes from user-producer interactions
+in projects. Technology Analysis and Strategic Man-
+agement 16(4): 495–508.
+Jamison, A. 2001. The making of green knowledge: Envi-
+ronmental politics and cultural transformation. Cam-
+bridge, UK: Cambridge University Press.
+Jeppesen, L. B. and M. J. Molin. 2003. Consumers as co-
+developers: Learning and innovation outside the
+ﬁrm. Technology Analysis and Strategic Management
+15(3): 363–383.
+Kivisaari S., R. Lovio, and E. V¨ayrynen. 2004. Man-
+aging experiments for transition. In System inno-
+vation and the transition to sustainability: Theory,
+evidence and policy, edited by B. Elzen et al. Chel-
+tenham, UK: Edward Elgar.
+Leonard, D. 1995. Wellsprings of knowledge: Building
+and sustaining the sources of innovation. Cambridge,
+MA: Harvard Business School Press.
+Lovell, H. 2007. The governance of innovation in
+socio-technical systems: The difﬁculties of strate-
+gic niche management in practice. Science and
+Public Policy 34(1): 35–44.
+Merikallio, K. 2007. Kuka auttaa irti ¨oljyst¨a? [Who
+will cure my oil addiction?] Suomen Kuvalehti,
+12 October, 3.
+Mikkola, K. and M. Riihim¨aki. 2002. Omakoti-
+rakentajien
+valmius
+ymp¨arist¨oyst¨av¨allisiin
+
+Heiskanen and Lovio, User−Producer Interaction in Housing Energy Innovations
+
+15309290, 2010, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00196.x by Utrecht University, Wiley Online Library on [02/03/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+R E S E A R C H A N D A N A LYS I S
+
+rakentamistapoihin [Propensity of homebuilders
+to adopt environmentally-friendly construction
+modes]. VTT Research Notes 2170. Espoo,
+Finland: VTT Technical Research Centre.
+Ogawa, S. 1998. Does sticky information affect
+the locus of innovation? Evidence from the
+Japanese convenience-store industry. Research
+Policy 26(7/8): 777–790.
+Ornetzeder, M. and H. Rohracher. 2006. User-led in-
+novations and participation processes: Lessons
+from sustainable energy technologies. Energy Pol-
+icy 34(2): 138–150.
+Parnell, R. and O. Popovic-Larsen. 2005. Informing
+the development of domestic energy efﬁciency
+initiatives:
+An
+everyday
+household-centred
+framework. Environment and Behaviour 37(6):
+787–807.
+P¨oys¨a, J. 2007. Rakennusten energiasuunnittelijoista
+kova pula [Serious deﬁciencies in the number of
+energy engineers in the housing industry]. Tekni-
+ikka & Talous, 29 May, 3.
+PTT
+2003−2009.
+Pientalobarometri
+[Small
+house
+barometer]. Market survey published by Pientalo-
+teollisuus ry (Small House Industry Association).
+www.pientaloteollisuus.ﬁ/?pageid=4. Accessed 15
+July 2009.
+Quitzau, M.-B. and I. Røpke. 2008. The construction
+of normal expectations: Consumption drivers for
+the Danish bathroom boom. Journal of Industrial
+Ecology 12(2): 186–206.
+Rohracher, H. 2003. The role of users in the social
+shaping of environmental technologies. Innova-
+tion 16(2): 177–196.
+Rohracher, H. 2005. From passive consumers to ac-
+tive participants: The diverse roles of users in
+innovation processes. In User involvement in in-
+novation processes: Strategies and limitations from a
+socio-technical perspective, edited by H. Rohracher.
+Munich, Germany: Proﬁl-Verlag.
+Shove, E. 1998. Gaps, barriers and conceptual
+
+chasms: Theories of technology transfer and en-
+ergy in buildings. Energy Policy 26(15): 1105–
+1112.
+Spaargaren, G., S. Martens, and T.A.M. Beckers. 2006.
+Sustainable technologies and everyday life. In
+User behaviour and technology development, edited
+by P.-P. Verbeek and A. Slob. Dordrecht, the
+Netherlands: Springer.
+Taylor, J. E. and R. E. Levitt. 2005. Inter-organizational
+knowledge ﬂow and innovation diffusion in
+project-based industries. In Proceedings of the
+38th Hawaii International Conference on System
+Sciences—2005. Washington, DC: IEEE Com-
+puter Society.
+Vreuls, H. 2006. Evaluating energy efﬁciency pol-
+icy measures & DSM programmes. In Country
+reports and case examples used for the evaluation
+guidebook, Vol. 2. IEA DSM. www.ieadsm.org/
+Publications.aspx?ID=18. Accessed 15 July 2009.
+Von Hippel, E. 1994. Sticky information and the locus
+of problem solving: Implications for innovation.
+Management Science 40(4): 429–439.
+Von Hippel, E. 1998. Economics of product devel-
+opment by users: The impact of “sticky” lo-
+cal information. Management Science 44(5): 629–
+644.
+Von Hippel, E. 2005. Democratizing innovation. Cam-
+bridge, MA: MIT Press.
+Von Hippel, E. and R. Katz. 2002. Shifting innovation
+to users via toolkits. Management Science 48(7):
+821–833.
+
+About the Authors
+
+Eva Heiskanen is a research professor at the
+National Consumer Research Centre in Helsinki,
+Finland. Raimo Lovio is a professor at the Depart-
+ment of Marketing and Management at Helsinki
+School of Economics in Helsinki, Finland.
+
+Journal of Industrial Ecology

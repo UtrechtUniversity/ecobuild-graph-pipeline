@@ -1,0 +1,1271 @@
+Case Study
+
+Response of Construction Clients to
+Low-Carbon Building Regulations
+
+Beliz Ozorhon1
+
+Abstract: Building regulations and governmental policies create pressure on the construction industry to minimize the environmental
+impacts that are caused by buildings. Achieving energy efficiency, and thereby low-carbon construction, is only possible by cooperation
+among the participants in the construction supply chain. Clients in particular have an important role in promoting environmental sus-
+tainability. In this paper, the carbon-reduction process is analyzed from a construction client’s perspective. A framework is developed to
+analyze the interrelated components of this process, including the drivers, initiatives, challenges, facilitators, solutions, and achievements.
+A qualitative case study methodology was employed to gain a better understanding of the project-based practices and corporate policies
+in achieving energy efficiency. The study presents the results of three award-winning construction projects from the U.K. in which
+innovations for improving environmental sustainability were based on the Code for Sustainable Homes. The study outlines the initiatives
+and strategies of clients for carbon reduction, obstacles faced by project teams, mechanisms that helped overcome the difficulties, and
+low-carbon solutions applied to design, construction, and operation in the selected cases. Effective leadership, corporate responsibility,
+a focus on end users, repeatable nature of projects, and integrated teams are found to be the main success factors. The findings of this
+study are expected to guide construction professionals in implementing innovative low-carbon practices in collaborative project envi-
+ronments. The proposed framework can be used to better understand the carbon-reduction process in other projects and other countries
+where different regulations and conditions prevail. DOI: 10.1061/(ASCE)CO.1943-7862.0000768. © 2013 American Society of Civil
+Engineers.
+
+CE Database subject headings: Construction management; Project management; Emissions; Sustainable development; Client
+relationships.
+
+Author keywords: Construction projects; Climate change; Carbon reduction; Clients; Building regulations; Sustainability; Organizational
+issues.
+
+Introduction
+
+the major drivers of innovative solutions in the construction sector
+(Brandon and Lu 2008). In addition to legislation and government-
+led policies and initiatives, Osmani and O’Reilly (2009) identified
+two other main drivers that can encourage construction organiza-
+tions to work toward low-carbon buildings. These are corporate
+social responsibility and client demands encouraging builders to
+integrate sustainability in their developments. The role of clients
+is particularly important. As Dewick and Miozzo (2002) suggest,
+“there has never been a more important time to understand the
+innovation process of sustainable technologies and encourage the
+implementation of energy-efficient technologies.”
+This paper presents the results of three case studies examining
+the role of building regulations and government policies in engag-
+ing construction clients in carbon-reduction initiatives and the
+role of clients in turn in promoting environmental sustainability. In
+this respect, three award-winning construction projects, completed
+in the northwest United Kingdom (U.K.), were selected as case
+studies. The first case concerns an urban regeneration project, the
+second one concerns an eco-friendly supermarket project, and the
+third one concerns the construction of eco-residences on a univer-
+sity campus. The paper discusses the building regulations and
+government policies involved and analyzes their impact, summa-
+rizes the key actions taken by the clients in promoting environmen-
+tal sustainability, explains the energy efficient solutions employed,
+discusses the challenges and supporting mechanisms throughout
+the process, and finally presents the achievements of the projects.
+The findings of this study are expected to help participants in the
+construction industry develop a better understanding of the factors
+contributing to success in the carbon-reduction process.
+
+With strong evidence of the impact of climate change on the planet
+emerging and with the built environment and construction activ-
+ities significantly contributing to waste, energy use, and greenhouse
+gas emissions [Dept. for Communities and Local Government
+(DCLG) 2007], environmental sustainability has become a major
+concern for the construction industry. As a response to climate
+change and its effects on the environment and energy consumption,
+academics, practitioners, and governmental bodies have been in-
+volved in many discussions and applications to create a low-carbon
+economy. A growing emphasis on corporate sustainability has
+caused governments, clients, and stakeholder groups to exert in-
+creasing pressure on the construction industry to become more
+accountable for its environmental impacts (Thorpe et al. 2008).
+Energy efficiency requires the development of innovative
+solutions, ranging from transforming design to improving quality
+and applying new processes, such as modern methods of construc-
+tion (DCLG 2008). Considering the increasing need for a sustain-
+able built environment, building regulations have been reported as
+
+1Assistant Professor, Dept. of Civil Engineering, Bogazici Univ.,
+34342 Istanbul, Turkey. E-mail: beliz.ozorhon@boun.edu.tr
+
+Note. This manuscript was submitted on December 2, 2012; approved
+on June 24, 2013; published online on July 22, 2013. Discussion period
+open until December 22, 2013; separate discussions must be submitted
+for individual papers. This paper is part of the Journal of Construction
+Engineering and Management, © ASCE, ISSN 0733-9364/A5013001
+(10)/$25.00.
+
+© ASCE
+A5013001-1
+J. Constr. Eng. Manage.
+
+Research Background
+
+sustainable buildings may become more important for companies
+when they have committed to corporate social responsibility.
+The delivery process for sustainable buildings is more complex
+than traditional construction (Lapinski et al. 2006; Korkmaz
+et al. 2010). Robichaud and Anantatmula (2011) mention the need
+for several modifications in traditional project management practi-
+ces to deliver innovative and green construction. Such projects
+require integration in the delivery process by an early involvement
+of the contractor and an owner commitment toward sustain-
+ability (Beheiry et al. 2006; Swarup et al. 2011; Robichaud and
+Anantatmula 2011; Mollaoglu-Korkmaz et al. 2013). Similarly,
+Hakkinen and Belloni (2011) argue that traditional contractual
+arrangements may cause mutual distrust and lack of communica-
+tion and thereby inhibit the identification and implementation of
+new products and processes. They further assert that these barriers
+to the adoption of innovation are particularly severe in the case of
+sustainable buildings that have high costs and high risks. Manage-
+ment of innovation is complicated by the discontinuous nature of
+project-based production in which, often, there are broken learning
+and feedback loops (Barlow 2000). As Blayse and Manley (2004)
+stated, “the one-off nature of most building projects limits the de-
+gree to which a given innovation will be applicable to other situa-
+tions, reducing the benefits of innovation and therefore incentives
+to innovate.” A study by Gann and Salter (2000) points out the need
+for a better conceptual understanding of innovation and new man-
+agement practices to link project and business processes. Business
+processes are ongoing and repetitive, whereas project processes
+have a tendency to be temporary and unique (Gann 1998; Brusoni
+et al. 1998). However, in the case of long-term relationships with
+clients, contractors secure repeat business and have the opportunity
+to apply the same or similar innovations in other projects as well.
+This motivates contractors to invest in new technologies and help
+them transfer their knowledge and experience in future projects.
+This research examines three projects in which innovative so-
+lutions are applied for carbon reduction by exploring the role of
+clients in cultivating these solutions.
+
+Construction affects carbon emission throughout the life cycle of
+a building, including the design, manufacture, construction, oper-
+ation, refurbishment, and disposal stages. Buildings contribute to
+approximately 40% of carbon emission in the world (Shorrock et al.
+2005). A similar figure is valid for the U.K. The final report of the
+Low Carbon Construction Innovation and Growth Team reported
+that domestic and nondomestic buildings are responsible for 27 and
+18% of the U.K.’s total emissions, respectively (Dept. for Business,
+Innovation and Skills 2010). The U.K. is among the countries
+highly committed to reducing carbon and other greenhouse gas
+emissions with a number of regulations and initiatives. Under the
+Climate Change Act of 2008, the U.K. is committed to reducing
+greenhouse gas emissions by 80% by 2050 (DCLG 2007). All
+new housing in the U.K. has been subject to carbon-reduction
+regulations since the implementation of Part L of the Building
+Regulations, which was first issued in 2002 and revised in 2006
+and 2010. Based on the Code for Sustainable Homes (CSH), the
+U.K. government has announced targets for all new housing to
+be zero carbon by 2016 and new commercial buildings by
+2019. The Building a Greener Future U.K. government policy
+in particular states that all new homes need to achieve a 25%
+improvement in energy/carbon performance by 2010, a 44% im-
+provement by 2013, and a zero-carbon target by 2016, with zero
+carbon being defined as one where the net carbon dioxide emis-
+sions resulting from all energy used in a building are zero or better
+(DCLG 2007).
+As Hakkinen and Belloni (2011) state, “there are different
+strategies to pursue (either with help of reducing consumption,
+improving efficiency or developing substitutive and less harmful
+solutions), but in all cases innovations are needed.” As a result,
+the carbon-reduction process in buildings involves successful inno-
+vation implementation. A number of studies investigated the con-
+ditions under which sustainable and zero-carbon buildings can be
+achieved through innovations. For example, Dewick and Miozzo
+(2004) analyzed the diffusion of sustainable technologies in the
+Scottish housing market. Osmani and O’Reilly (2009) explored
+the views of housebuilders in England on the drivers for and bar-
+riers to zero-carbon home building. In a similar study, Hakkinen
+and Belloni (2011) examined the barriers and drivers for sustain-
+able buildings in Finland and concluded that the demand and
+willingness of clients eventually determines the development of
+sustainable buildings. The more demanding and experienced the
+client, the more likely it is to stimulate innovation in projects it
+commissions (Barlow 2000). Clients that conduct internal research
+and development (R&D) or design projects themselves, have a
+history of innovation, or maintain long-term relationships with
+the same designers/contractors are found to be most likely to set
+the preconditions for innovative behavior on a project (Nam and
+Tatum 1997).
+In the Rethinking Construction report, Egan (1998) emphasized
+the importance of committed leadership, focus on the customer,
+integrated processes and teams, a quality-driven agenda, and com-
+mitment to people as the key drivers of excellence and innovation
+in construction. The literature on sustainable construction discusses
+many of these factors among the enablers of innovative solutions.
+For example, Tatum (1987), Barlow (2000), and Aronson et al.
+(2006) referred to leadership as one of the main enablers of
+innovation. Ozorhon et al. (2010) emphasized the importance of
+understanding customer requirements for successful adoption
+of construction innovations. Another issue is related to corporate
+social responsibility. As Hakkinen and Belloni (2011) state, retail-
+ers regard environmental responsibility as a competitive issue, and
+
+Research Methodology
+
+In this research, a qualitative case study methodology was adopted
+to gain a better understanding of project-based practices and
+corporate policies on achieving energy-efficient solutions. Case
+studies try to answer the how and why questions in a research study,
+allowing a more in-depth analysis (Yin 2003). Four quality mea-
+sures are required to successfully conduct case studies, as explained
+in Yin (2003): (1) construct validity (the quality of conceptualiza-
+tion or operationalization of the relevant concept), (2) internal
+validity (the causal relationships between variables and results),
+(3) external validity (the extent to which the finding can be gener-
+alized), and (4) reliability (repeatability with the same results).
+To improve the construct validity, both archival data and inter-
+view data are used in the analysis. A research framework was es-
+tablished based on the literature to satisfy the internal validity. To
+address the external validity, multiple case studies were performed,
+and these were selected among the award-winning projects. A case
+study database was constructed (including interview transcripts
+and all available documents) to allow replication of the study and
+ensure sufficient reliability. Steps of the case study approach are
+explained subsequently in detail.
+This paper is built upon the findings of earlier research con-
+ducted by Ozorhon et al. (2010), who investigated the construction
+innovation process at the project level. In this respect, the Centre for
+Construction Innovation (CCI) in northwestern U.K., the regional
+
+© ASCE
+A5013001-2
+J. Constr. Eng. Manage.
+
+partner of the Construction Excellence (CE), has been the research
+collaborator and has helped find some exemplary projects in terms
+of environmental sustainability. The CCI organizes the North West
+Regional Construction Awards every year to recognize projects that
+demonstrate best practice in the construction industry. The awards
+are given in various categories, including environmental sustain-
+ability, heritage, skills and education, local people, infrastructure,
+best practices, and client/contractor/project of the year. A total of 17
+awards have been given. Three outstanding projects were identified
+among the winners based on their carbon-reduction achievements.
+The first project (an urban regeneration scheme) and the second
+project (an eco-supermarket) received the best practice awards in
+their subregions, and the third project (eco-residences of a univer-
+sity) received the environmental sustainability award.
+Ozorhon et al. (2010) developed a framework to investigate the
+innovation process within a construction project setting based on
+several components including the drivers, inputs, barriers, enablers,
+innovative activities, and outputs. Based on this previous work, a
+similar framework (Fig. 1) was employed to investigate the carbon-
+reduction process in selected projects. The main components of
+the carbon-reduction process are (1) environmental sustainability
+driver, (2) client-led carbon-reduction initiatives, (3) challenges,
+(4) facilitators, (5) low-carbon solutions, and (6) project achieve-
+ments. In this process, the solutions are shaped based on the drivers,
+initiatives, challenges, and facilitators, and the solutions lead to the
+achievements.
+Semistructured interviews were conducted with the respondents
+to identify the roles of clients in environmental sustainability issues
+in selected cases. Based on the preceding framework, the following
+questions were discussed during the interviews:
+•
+What were the main reasons/drivers to improve environmental
+sustainability?
+•
+What was the role of the client in terms of initiating and leading
+the process?
+•
+What were the main challenges that the project team experi-
+enced during the process?
+•
+What helped overcome those challenges?
+•
+What were the main low-carbon solutions introduced within the
+project?
+•
+What were the main benefits that the project team achieved as a
+result of those solutions?
+The experiences in selected projects were explored through a
+series of half-day interviews with a number of participants from
+the client, contractor, and design organizations. In the first case
+of the urban regeneration project, the interviewees were a perfor-
+mance and quality manager from the client, a project manager from
+the contractor, and a business development manager from the con-
+tractor. In the second case of the eco-friendly supermarket, the in-
+terview participants were the property services director from the
+client, a civil engineer from the contractor, and the manager of
+
+the technology center that acted as a consultant. In the third case
+of the eco-residences, the interviewees were the director of the
+estates from the client, the product development manager from
+the residential developer, a civil engineer from the contractor,
+and the head of the design team from the architect. Participation
+of relevant parties in these project-based interviews was critical
+in terms of obtaining contradictory opinions or commonalities
+based on each stakeholder’s viewpoint. In this way, it was possible
+to examine and discuss the interaction of the actors involved in the
+projects. The CCI provided the application forms for the awards,
+which describe the details of each project. Some corporate docu-
+ments, including environmental policies, waste management plans,
+and environmental performance records, were shared by interview-
+ees. The tape-recorded interview data were transcribed and com-
+bined with other documents to capture the role of clients in the
+carbon-reduction process in each case.
+The case studies provide some key lessons on how to success-
+fully implement energy-efficient solutions as a response to environ-
+mental sustainability requirements in construction, and therefore
+the studies are expected to shed light on future projects and their
+corresponding participants. In addition, the themes that emerge
+based on the analysis of the cases suggest some mechanisms and
+strategies that might benefit the project stakeholders when adopting
+similar solutions. The cases are analyzed based on the six compo-
+nents of the framework presented in Fig. 1.
+
+Case I
+
+The regeneration project in Cheshire, U.K., was a unique 10-year
+partnering regeneration scheme that has delivered over 500 units of
+new housing as part of the vision for a sustainable future for the
+area. The client of the project is a housing association that owns
+and manages homes across the U.K.. The contractor, the architect,
+consultants, and the structural engineers were brought into the part-
+nership in late 2001 to undertake the housing regeneration phases.
+The regeneration partnership has used more than £44 million of
+funding to completely revitalize this estate, which was first built
+between 1968 and 1972. The master plan proposed a comprehen-
+sive program of over 50 individual projects from the redesign of
+infrastructure and transport to community facilities and modern
+mixed-tenure housing.
+
+Sustainability Driver
+
+The building regulations on social housing had a great impact on
+the processes and performance of this regeneration project. The
+U.K. government’s initiative to create sustainable homes is speci-
+fied in the CSH. This code requires that contractors use innovative
+products in their construction processes and deliver the specified
+sustainability performance levels. Funding conditions set by the
+Housing Corporation promoted the increased use of modern meth-
+ods of construction (MMC) in social housing, particularly off-site
+manufacturing (OSM), as a key potential method for promoting
+sustainability within the construction industry. This is also evi-
+denced in Osmani and O’Reilly’s (2009) study that found legisla-
+tion as the strongest driver of zero-carbon homes.
+
+Client-Led Carbon-Reduction Initiatives
+
+The partnership embraced the principles outlined in the Rethinking
+Construction report by Egan (1998). The report showed that radical
+changes in construction processes could deliver real cost savings
+(up to 30%), eliminate waste in the delivery process, encourage
+innovation, and allow participants to learn from experience
+Fig. 1. Research framework
+
+© ASCE
+A5013001-3
+J. Constr. Eng. Manage.
+
+(Egan 1998). Based on the Egan report, the client decided to em-
+ploy MMC and lean principles in this project for waste reduction
+and improvement of environmental sustainability.
+Based on client research dating back 10 years ago, timber
+frames were identified as delivering a number of advantages, such
+as the pace of construction, quality of units, decreased cost, en-
+hanced thermal performance, and less impact on the environment
+through lower carbon emissions. The client had identified lean
+construction as a potential innovation during its R&D on MMC
+and proposed to the contractor to invest jointly in lean construction
+consultancy.
+
+(Lu et al. 2007), whereby the supply chain members are formally
+brought together to help put solutions into practice.
+
+Low-Carbon Solutions
+
+The timber frame is a tried and tested structural system. It is the
+most environmentally friendly form of construction available that
+conforms to MMC and OSM principles. The Building Research
+Establishment (BRE) reported that modern timber frame construc-
+tion produces near zero carbon emissions (Reynolds and Enjily
+2005). Timber frames are also renowned for their excellence in
+energy-efficiency terms. As the structures are assembled from com-
+ponents made to manufacturing tolerances, the better fit achieved
+improves air tightness and, hence, positively affects energy effi-
+ciency. Closed timber frames were used as the structural elements
+of the superstructure in the project among the many forms to
+choose from, including advanced and closed panel, volumetric, and
+hybrid systems. The benefits of MMC were evidenced in many
+ways; not only was the site accident free, it was dryer and cleaner
+for the labor force to work in. There were also benefits for local
+residents too, with reduced levels of vehicle movement and noise.
+The team focused on identifying waste-causing activities; it stand-
+ardized the finishing processes and reduced wastage of materials on
+site as well as wasted operations.
+
+Challenges
+
+Based on more than 2 years of R&D work, cost, knowledge, and
+familiarity were identified as the main barriers to the adoption
+of MMC. MMC and lean construction involve totally different
+operations that initially threatened the entire industry. Not only did
+contractors face challenges in shifting to new processes but subcon-
+tractors had to follow at the same pace and adjust operations based
+on site conditions, which were not always favorable. Construction
+in this way was far ahead of normal schedules due to the unexpect-
+edly quick installations of the timber frames, and the construction
+team had difficulties in allocating a sufficient number of staff to
+continue with the finishings. It was initially difficult to control such
+a tight process, and the intensity of the workforce was a real issue.
+Another problem was related to the unavailability of advanced
+products and the reluctance of most suppliers to work on them
+due to the increased costs. Cost has been reported as one of the
+main barriers to low-carbon homes in other studies as well
+(e.g., Dewick and Miozzo 2004; Hakkinen and Belloni 2011).
+
+Project Achievements
+
+It was estimated that the use of MMC achieved waste reductions
+in excess of 50%. Noise levels were also 50% less than in a tradi-
+tional build. Using timber frames, the team achieved higher levels
+of environmental sustainability; it enhanced thermal performance
+(with lower U values) and decreased the impact on the environment
+through lower carbon emissions—a 6% reduction in waste to
+landfill and 74% increase in waste recycled against 10% targets.
+The project was awarded the Building Research Establishment
+Environmental Assessment Method (BREEAM) very good rating.
+BREEAM is an environmental assessment method and rating
+system for buildings and was launched in 1990 in the U.K. by
+the BRE.
+
+Facilitators
+
+The client determined to work with the contractor to eliminate the
+initial cost barriers of MMC in order to reap long-term savings and
+benefits. The key decision in this regard was to use a procurement
+approach that enabled early contractor involvement. This ensured
+that ideas could be tested for their buildability and building meth-
+ods developed that were appropriate for the design. The project
+team identified that the maximum benefits of MMC would only be
+achieved through the application of lean principles, on which they
+received consultancy. The trust and good communication created
+through partnering enabled the joint utilization of resources. The
+client and the contractor also managed to establish a partnership
+with a timber frame supplier that had invested in R&D on environ-
+mental sustainability and that could produce the required products.
+The Lean Construction report by Constructing Excellence (2004)
+in the U.K. also emphasized the role of integrated design-build
+arrangements, including partnering and supply chain management
+for increasing the effectiveness of the industry.
+One of the most important ingredients of any successful
+regeneration partnership is the involvement of the local community.
+Residents of the area have been heavily involved in the regenera-
+tion process. Project team members have had the opportunity to
+establish positive working relationships with the local community
+and better understand the needs and wants of the residents affected
+by the redevelopment. The client, architect, and contractor have
+also worked with local primary schools to involve children in the
+construction processes as part of their curriculum.
+Another factor that acted as a facilitator of sustainability in this
+case has been the attempts of the contractor. For example, the con-
+tractor collaborated with a university to set up Innovation Circles
+
+Case II
+
+The environmental format store was part of a major regeneration
+scheme within the Cheetham Hill area in northwestern U.K.
+It was special because it was the first repeatable format to be built
+for one of the major food retailers in the U.K., with the aim of
+becoming standard design for future stores. As the interviewees
+mentioned, the scheme is expected to reduce operational energy by
+70%, far in excess of the original 50% target. A mixture of new
+construction techniques was employed to deliver an environmen-
+tally friendly, energy-efficient, sustainable, innovative, integrated,
+and value-added project while achieving client satisfaction. The
+low-carbon solutions were selected through a number of design
+workshops and tests during the procurement stage of the project.
+
+Sustainability Driver
+
+This project is a very good example of a client-driven approach to
+energy efficiency. What makes the project even more special is that
+the client is a private investor. The client initiated the process
+by recognizing the importance of delivering high environmental
+performance. The first action of the client was to set an agenda
+to reduce carbon emissions throughout its operations. The major
+idea was to deliver an environmentally friendly format store that
+
+© ASCE
+A5013001-4
+J. Constr. Eng. Manage.
+
+Facilitators
+
+would meet the requirements of a BREEAM rating of very good.
+The CSH provided guidance for its green initiatives.
+The client put corporate responsibility and the impact of its
+buildings and operations on the environment at the top of
+its agenda. The client’s stated aim is to reduce emissions from its
+buildings by at least 50% by 2020. The client worked with a team
+of specialist consultants and started an organized plan. It also
+wanted to be a leader in its market by first reducing CO2 emissions
+in all of its operations and then sharing the acquired knowledge on
+innovation with other organizations (including competitors) and
+government to help stimulate a low-carbon economy. This would
+enhance the corporate image of the client and help it lead the
+market in green business. This environmental store was not the first
+attempt of the client; it had been building a series of environmental
+stores in every country it operates in since 2006. It has been testing
+new technologies, designs, and construction materials to save
+energy and reduce its carbon footprint. This store was important
+for the client since it would serve as the client’s new blueprint
+for future stores, the new blueprint being designed to work across
+all formats.
+
+Apart from the client’s commitment to carbon reduction, another
+key success factor was the collaborative partnership. The client had
+worked previously on developing and implementing green technol-
+ogies with its partners and supply chains. The client established a
+strategic alliance with its contractors in 1985. It has a total of nine
+contractors (including the contractor of the project under investiga-
+tion) working with them, all of which carry out R&D on their
+behalf. This decentralized research approach has brought the value
+chain mutual benefits. Teams having specific expertise have con-
+tinued to invest in developing new solutions for the client. The con-
+tinuous (repeatable) nature of the projects was the most significant
+factor that encouraged the alliance partners to innovate.
+As the interview participants noted, the concept development for
+an environmentally friendly format store started in 2001 and in-
+volved collaborative work among all project team members, includ-
+ing a representative from the client, engineer, architect, services
+consultant, and contractor. Their aim was to achieve a repeatable
+store design that could be built anywhere in the U.K. in a cost-
+effective manner. The contracting company started working with
+the client during the conceptual phase, 1 year prior to construction.
+Early contractor involvement is observed to be an important suc-
+cess factor in this respect.
+
+Client-Led Carbon-Reduction Initiatives
+
+Since the client wanted to play a leadership role in tackling climate
+change, it aimed at mobilizing collective action among customers,
+suppliers, and employees to help protect the environment and gen-
+erate a mass movement in green consumption. The climate change
+program the client introduced had three main parts: (1) leading by
+example (reducing its own direct carbon footprint), (2) working
+with its supply chains and partners to reduce emissions more
+broadly, and (3) leading a revolution in green business.
+Initiated with ambitious targets, the client’s attempts to reduce
+carbon were followed by extensive R&D work with an investment
+of £100 million. This fund was established in 2007 to develop
+sustainable technologies with the aim of carbon reduction in
+its stores, distribution centers, and supply chains worldwide. In
+2008, the client invested an additional amount of approximately
+£86 million in energy-saving and low-carbon technologies, includ-
+ing 47 combined heat and power (CHP) and combined cooling,
+heat, and power (CCHP) units and 27 wind turbines. The expected
+carbon emission saving of these technologies is approximately
+6,000 tons per annum.
+
+Low-Carbon Solutions
+
+The construction of the eco-store was based on a number of prin-
+ciples including using wood instead of metal; introducing more
+natural daylight into the store to use less electricity; achieving a
+more energy-efficient heating and air-conditioning system; using
+less energy and water; generating its own energy; rethinking refrig-
+eration, fixtures, and signage; and minimizing waste, all of which
+contributed significantly in reducing the store’s carbon footprint.
+The team worked on a number of energy-efficient and sustainable
+solutions, most of which were developed specifically for this
+project. The use of a hybrid timber-steel frame developed by a
+manufacturer with expertise in steel structures was a unique and
+innovative approach. The scheme is the first supermarket to run
+on vegetable oil via a CHP unit that provides the energy and heat
+requirement of the store. The scheme includes many other environ-
+mentally friendly innovations, such as a certified hybrid timber
+frame, a sustainable cladding system, a recycled and prefabricated
+walling system, a premanufactured polycarbonate roof light system
+a CHP unit, CO2 refrigeration, wind catchers, and CO2 sensors, all
+of which help to reduce energy usage. These are described in more
+detail in what follows:
+•
+Hybrid timber frame: one of the most important elements of the
+environmentally friendly design features is the innovative hy-
+brid timber-steel structure provided by the supplier. It combined
+the aesthetic and environmental benefits of timber with the
+economic benefits of steel that reduce carbon footprint without
+compromising quality.
+•
+Sustainable cladding system: the system was sourced from
+Lithuania and required a lot of detailing and planning to execute
+a very smooth installation without any problems. It was man-
+ufactured off site and offers an embedded/carbon energy saving
+of 8%, and the cladding is 100% recyclable.
+•
+TriArch walling solution: this system is a prefabricated walling
+system, which is made from recycled gypsum and timber board-
+ing. This product is 100% recyclable; there is no requirement
+for plastering because the system is prefinished and ready for
+either wall paper or paint finish, which ultimately results in
+no wastage.
+
+Challenges
+
+Throughout the project, each project member had his/her own
+concerns, contributions, and expectations. The client acted as
+the leader of the project at each stage. The architect had a specific
+interest in the external appearance and aesthetics of the building.
+The cost consultant worked on ensuring a cost-effective solution.
+The structural engineer and supplier worked together to develop
+a tailored timber frame. Finally, the contractor, being a strategic
+partner with the client, was concerned with achieving customer
+satisfaction.
+Products that would comply with the design objectives were
+scarce. During the product development stage, the project team
+searched the market for available products and spent considerable
+effort on converting these into a form ready for use in the new store.
+Although this led to a cost increase, it pushed other suppliers to
+work together in accommodating the changes. One of the chal-
+lenges in this process was that the team struggled to convince all
+suppliers to change their processes; however, helping a supplier to
+access a big market empowered them to allocate resources to tailor
+its products for future use.
+
+© ASCE
+A5013001-5
+J. Constr. Eng. Manage.
+
+•
+Roof lights: the premanufactured roof light system is comprised
+of polycarbonate, which contains a nanogel core preventing so-
+lar heat gain within the sales area of the store but allowing the
+transfer of daylight. This helps reduce lighting levels in the store
+by the introduction of natural daylight without the danger
+of solar heat gain. The digital addressable lighting initiative
+(DALI) lighting system was introduced to adjust the lighting
+levels within the store automatically within predetermined
+bands depending on the amount of natural daylight being trans-
+ferred across the sales area.
+•
+Combined heat and power (CHP) unit: the team worked on
+alternative energy sources on site such as wind, solar, bio-
+gas, CHP, and CCHP. This unit runs on CHP that provides heat
+and electricity to the store, with the use of vegetable oil as an
+environmentally friendly primary fuel source.
+•
+CO2 refrigeration: natural refrigerants improve energy effi-
+ciency in comparison to conventional systems and have a greater
+advantage for the majority of the year when ambient tempera-
+tures are below peak summer values. CO2 is a highly efficient
+refrigerant that improves the performance of heat exchangers
+and, hence, the temperatures of foodstuffs.
+•
+Wind catchers: these were installed to provide a vent for warm
+air buildup in the store. Fresh air is then sucked from the outside
+to provide a continuous circulation of fresh and cool air.
+•
+Mechanical systems: CO2 sensors were installed to allow
+the mechanical systems to ramp up or down depending on
+the occupancy levels within the store. This helps to reduce en-
+ergy usage.
+
+to Institutional Carbon Management Plans, and further, that, pur-
+suant to the Climate Change Act, the higher education sector is
+likely to be given a target for reducing carbon emissions by 80%
+by 2050 (HEFCE 2009).
+
+Client-Led Carbon-Reduction Initiatives
+
+The university hosts two environmental research centers aiming
+to develop environmental strategies and implement those strategies
+in an effective manner. The university has also commissioned a
+Sustainable Energy Infrastructure Study as part of its corporate
+objectives, which is set to inform the ongoing development of envi-
+ronmental policy. It tries to adopt the following main principles in
+its operations: reduction of greenhouse gas emissions; optimization
+of energy and water efficiency; reduction of waste, travel, and pol-
+lution; application of environmental best practice in construction
+projects; selection of supply chain members accordingly; efficiency
+in resource use, increase in recycling; implementation of an envi-
+ronmental management system (for ISO14001 certification); and
+collaboration with other universities to spread environmental
+awareness and support relevant research.
+The university established a partnership with a residential devel-
+oper experienced in the design, building, funding, management,
+and operation of residential student housing. The university played
+a key role in establishing another partnership aimed at helping
+departments across campus to promote and deliver environmental
+initiatives. It has helped increase recycling rates, reduce toxic
+waste, reduce energy consumption, and green the university’s sup-
+ply chain. In addition, it has generated jobs for students and raised
+the profile of environmental issues among students and staff. It has
+also aimed at involving end-users (students) in the process to under-
+stand their requirements better early in the design phase.
+
+Project Achievements
+
+The client’s commitment to environmental sustainability through a
+combination of new technology and good business resulted in dra-
+matic reductions in its carbon footprint. The eco-store’s carbon
+footprint is 70% less than an equivalent store built in 2006. This
+was achieved through the use of roof lights allowing more natural
+daylight into the store, saving on electricity (31%); CO2 refrigerant
+(20%); and a combined heat and power plant running on recycled
+vegetable oil (19%). The project was awarded the BREEAM very
+good rating with the energy consumption levels achieved.
+
+Challenges
+
+For the construction phase, panelized timber frames were used for
+sustainability purposes. However, timber frame construction was
+new to some members of the construction team. The inexperience
+and conservative behavior of the contractor were an obstacle in the
+innovation process. To overcome those issues, seminars and project
+meetings were held at an early stage to familiarize the contractor
+and supply chain partners with the process approach and construc-
+tion technology involved.
+
+Case III
+
+The eco-friendly accommodation on a university campus was the
+first replicable scalable model of its kind. It was designed to create
+a social space for students that would encourage good habits in
+terms of sustainable living. The university’s eco-residences were
+developed to address issues and problems identified from three
+previous phases of new-build residences at the university. The uni-
+versity also seeks to develop future estates on the basis of sustain-
+able principles.
+
+Facilitators
+
+With the end-user requirements being an important component of
+the scheme, engagement with students began at an early stage in the
+design process. This aspect was considerably strengthened by the
+measures in place to monitor and provide information on energy
+use as a means of directly involving students with the ongoing
+operation of the building. A competition was launched among the
+students to promote and incentivize reduced water, gas, and elec-
+tricity usage and reward the townhouses with the lowest resultant
+carbon footprint.
+The partnership with the residential developer collaborated
+with the architect that prepared a bespoke design adopting the
+sustainable-by-design concept by Friedman (2007), a Canadian
+academic and authority on the subject of affordable housing. The
+key features of the sustainable-by-design concept focused on a
+simple design delivering high energy efficiency and heat recovery.
+Since the architect was experienced in social housing and, thus, in
+low-carbon practices, his design principles were found appropriate
+for this project.
+
+Sustainability Driver
+
+The project was notable for the proactive role of the client, whose
+desire and commitment to sustainable practices was the main driver
+of carbon reduction. This drive was itself reinforced through energy
+performance regulation, such as the CSH and specific guidance
+by the Higher Education Funding Council for England (HEFCE).
+The CSH requires contractors to use innovative products in their
+construction processes to deliver specified sustainable performance
+levels. Similarly, HEFCE guidance on universities’ environmental
+performance provides an important benchmark. HEFCE has con-
+firmed that from 2011, all HEFCE capital funding would be subject
+
+© ASCE
+A5013001-6
+J. Constr. Eng. Manage.
+
+Project Achievements
+
+Low-Carbon Solutions
+
+The project team achieved both environmentally high-performing
+residences and affordable construction. The cost was decreased
+by 10% per student room in comparison to the previous phase.
+The rent charged to students was reduced by 15% against the rental
+charges in the previous phase. The annual CO2 emission per
+student was reduced by 20% against design criteria set by the
+Building Regulations. The CO2 emission is predicted to be
+963 kg CO2=annum=student compared to the design target of
+1,147 kg CO2=annum=student. Finally, gas consumption was re-
+duced by 5–10% per student room compared to the previous-phase
+residences. The project received a BREEAM rating of excellent for
+its high-quality example of good environmental design.
+A brief summary of the three cases based on the six components
+of the proposed framework can be found in Table 1.
+
+The eco-residences were designed and constructed to achieve lower
+CO2 emission rates than required by Building Regulations. The
+following list includes the details of low-carbon solutions in the
+eco-residence scheme:
+•
+Plan: the designs were based on the use of modular dimensions,
+which allow the use of building components to their manufac-
+tured sizes, such as plasterboard or ply sheets. This speeds up
+the construction process, because there is minimum require-
+ment for cutting and fitting of components, and significantly
+reduces waste.
+•
+Energy and resource efficiency: the design of the building, com-
+prising terraced units, has been very efficient in terms of site
+utilization (good floor-to-wall ratio), minimization of external
+surfaces (high levels of energy efficiency), and minimization
+of material use. Efficient use of electricity was designed in
+through maximum use of natural light, minimizing lighting re-
+quirements. Low-energy fluorescent light fittings were used
+throughout the buildings with passive infrared detectors in com-
+munal areas. Water use was minimized by low-flow-rate fittings
+and dual flush fittings on toilets.
+•
+Sustainable and renewable materials: the reduction of waste
+is central to the environmental sustainability concept, and the
+choice of construction materials is highly linked to carbon
+footprint reduction. The BRE’s Green Guide to Specification
+(Anderson et al. 2009), which is part of BREEAM, was used
+to inform the choice of materials, and benign natural materials
+were selected wherever possible to ensure a healthy internal en-
+vironment. By using timber sourced from sustainable, managed
+forests for the building’s superstructure, the carbon footprint
+was reduced by 30%. Timber frames were also manufactured
+off site to minimize waste. Recycled construction materials were
+used as much as possible in underlying hard-paved areas and
+floor-pads. Internal fittings such as showers, basins, and lava-
+tories were assembled off site as complete pods, improving con-
+struction speed and reducing construction impact further.
+•
+Heat recovery: a passive approach was used to create a very
+highly insulated, airtight building envelope that requires very
+little energy for space heating. The major energy load is hot
+water generation, which is supplemented by solar thermal
+panels. A heat recovery system, operating on the extract venti-
+lation serving the showers/bathrooms and providing warm air to
+the internal circulation areas, was installed. Each room was
+equipped with a small radiator, controlled by a thermostatic
+radiator valve and linked to a high-efficiency, gas-condensing
+boiler. Ventilation with heat recovery is primarily whole-house
+mechanical ventilation with heat recovery (reclaiming 70%).
+Trickle vents and windows that can be opened to provide addi-
+tional user controllable ventilation were installed. The kitchen
+cooker extractors switch on and off automatically.
+•
+Utility monitoring: the university recognizes the significant
+environmental impacts associated with its operations. It also re-
+cognizes its responsibility to address these through its environ-
+mental policy and environmental management system (EMS).
+The environmental impact of new or refurbished buildings is
+very carefully evaluated from conception through design and
+construction to operation. Each unit was fitted with a building
+management system (BMS) that constantly monitors and com-
+municates water, gas, and electricity use to enable students to
+monitor the carbon footprint for their rooms. It is notable that
+the BMS has raised the awareness of students in terms of
+sustainability and has become an integral component of their
+daily lives.
+
+Discussion
+
+Clients are themselves the end users, or they represent the end users
+in construction, so demand is shaped by clients; therefore, they play
+a significant role in driving sustainability. However, the ways in
+which public and private sector clients perceive environmentally
+conscious construction is not entirely the same. The main motiva-
+tion for the public sector is the environmental sustainability regu-
+lations, whereas it is a better corporate image that motivates the
+private sector. The success factors of the carbon-reduction process
+in three selected projects were quite similar and supportive of pre-
+vious research on sustainable buildings and innovation. Five main
+themes emerge based on the findings of this study. These are the
+client’s leadership style, client corporate responsibility, focus on
+end users, repeatability of projects, and integrated teams.
+1. Leadership: leadership has been referred to as one of the main
+enablers of innovation in the construction literature (Tatum
+1987; Ozorhon et al. 2010). All three of the cases emphasize
+the importance of key leadership of clients and their devotion
+to sustainability. In the first case of urban regeneration, the
+client introduced the ideas to improve environmental sustain-
+ability performance based on the CSH. Because the client was
+experienced in terms of MMC, it guided the project team
+through the use of collaborative partnering. The retail client,
+on the other hand, aimed at producing an eco-supermarket
+and wanted to play a leadership role in responding to climate
+change. In the third case, the university aimed at designing and
+constructing the first eco-friendly student accommodations in
+the U.K. and becoming an exemplar in this respect. Among the
+most important objectives of all clients in investing in carbon
+reduction was to serve as a user of best practices. They were
+also willing to share their experience and knowledge with
+other organizations to raise awareness about environmental
+sustainability. They managed to construct cost-effective build-
+ings and showed how a green agenda could be achieved suc-
+cessfully. Such clients made significant achievements with
+their teams and encourage other clients as well.
+2. Corporate responsibility: in line with the aforementioned lea-
+dership issue, all clients, especially the university and the retail
+client, put environmental and social corporate responsibility as
+their top priorities in their operations. First of all, they took
+legislation very seriously, including HEFCE guidelines in the
+third case and CSH in all three cases. Secondly they have their
+own environmental policies and waste management plans and
+were strongly committed to carbon reduction. All projects
+were awarded by BREEAM for their high environmental per-
+formance levels.
+
+© ASCE
+A5013001-7
+J. Constr. Eng. Manage.
+
+Code for Sustainable
+Homes
+R&D by client
+Unavailability of products
+Repeatability of project
+Low-energy and
+renewable technologies
+BREEAM very
+good rating
+Reluctance of suppliers
+Early contractor involvement
+Eco-residences
+Public HEFCE Guidance
+Environmental research centers
+of university
+Inexperience of contractor in timber
+frame construction
+Commitment to sustainability
+Sustainable-by-design
+concept
+20% reduction in
+carbon footprint
+Code for Sustainable
+Homes
+partnerships with project
+stakeholders
+Conservative behavior of contractor
+Student engagement
+Closed-panel timber
+frames
+BREEAM excellent
+rating
+Long-term partnering with
+residential developer
+
+3. Focus on end user: in all examples, the clients were driven to
+provide better services for their end users. In the regeneration
+project, the overall objective was to improve the quality of life
+in the region. By engaging the residents early in the design
+phase, the project team satisfied end-user needs and expecta-
+tions. The client in the second case is renowned for being
+a customer-oriented organization. This point is particularly
+significant because innovative solutions for carbon reduction
+cannot be implemented only to meet regulations. Building reg-
+ulations provide guidance and act as a driver of such solutions
+to a certain extent; however, this is not sufficient, especially in
+terms of private clients. If there is strong focus on end users
+and creating value for them, this drive will be critical for the
+success of the process. In the third case, the university’s initial
+objective was to create good habits among students. It engaged
+students in the project starting from the design phase; it highly
+valued student input and tried to create living spaces to satisfy
+the students. It also organized a carbon competition to enhance
+student contributions. This was also evidenced in Barrett’s
+(2007) work, which stated that project teams aiming at enga-
+ging end users from the early phases of projects designed for
+public use are more likely to achieve end-user satisfaction.
+4. Repeatability: another key point in all cases was that all the
+projects were designed as replicable projects. This brings
+an additional advantage in construction projects, when the
+project parties make sure that same design could be applied
+in subsequent projects. In the case of the urban regeneration,
+further phases will follow; therefore, the same principles will
+be applied in those phases. The eco-store was planned to be
+a blueprint for all future stores. Therefore, knowledge and
+experience gained throughout the project, starting from design
+through construction to operation, were critical. The repeata-
+ble nature of the project was also expected to increase the like-
+lihood of winning planning permission from environmentally
+conscious local authorities to build new sustainable stores in
+the future. In the third case, a similar situation was observed.
+The university aimed at creating the first replicable, scalable
+model of its kind. It will continue to develop future estates on
+the basis of sustainable principles and benefit from this pro-
+ject. Repeat business and integration of the experience gained
+on projects into business processes help companies become
+learning organizations, as observed in one of the case studies
+conducted in Miozzo and Dewick’s (2002) research.
+5. Integrated teams: integration along the supply chain has been
+one of the essential ingredients of the successful outcome in
+all three cases. In the first case, a regeneration partnership
+has been working together for 10 years in harmony, and this
+helped the partners build trust among each other and make
+joint investments in lean consultancy. Such a collaborative
+approach has been the most critical facilitator of the process.
+In the case of the second project, integration was observed
+even more widely. The strategic partnership between the client
+and the contractor created an environment conducive to testing
+innovative products for their buildability. Early contractor
+involvement was essential to ensure the success of proposed
+solutions. Increased integration and trust-based cooperation
+through early involvement of contractors are believed to help
+team members achieve efficient and value-adding solutions
+(Barlow et al. 1997; Briscoe et al. 2004; Swarup et al. 2011;
+Robichaud and Anantatmula 2011; Mollaoglu-Korkmaz et al.
+2013). The client’s approach to partnering with multiple con-
+tractors can also be regarded as an innovative approach. This
+also helped the partnering contractors become more competi-
+tive and at the same time share knowledge and innovations.
+
+Urban
+regeneration
+Public Code for Sustainable
+Homes
+R&D by client
+Inexperience of work force
+Partnering between client and
+contractor
+Closed-panel timber
+frames
+50% reduction in
+waste
+Funding conditions of
+Housing Corporation
+Joint lean construction
+consultancy
+Resistance from employees of
+contractors
+Supply chain partnership
+Waste reduction
+BREEAM very
+good rating
+Unavailability of products
+Community engagement
+Reluctance of suppliers
+Contractor’s initiatives
+(i.e., innovation circles)
+Eco-friendly
+supermarket
+Private Client’s drive to lead
+market in green
+consumption
+
+Climate change program
+Conflicting interests of project
+parties
+Strategic partnering between
+client and contractor
+Hybrid timber frames
+70% reduction in
+carbon footprint
+
+Case
+Client
+type
+Sustainability
+driver
+Client-led initiatives
+Challenges
+Facilitators
+Low-carbon
+solutions
+Key
+achievements
+
+Note: R&D = research and development; BREEAM = Building Research Establishment Environmental Assessment Method; HEFCE = Higher Education Funding Council for England.
+
+Table 1. Carbon Reduction Process in Selected Projects
+
+© ASCE
+A5013001-8
+J. Constr. Eng. Manage.
+
+countries, the applicability of the findings may vary. However, the
+same framework can be applied to investigate the carbon-reduction
+process in other contexts as well.
+
+All contractors were eager to work further with the client and
+benefit from their experience; therefore, each of them tried to
+continuously improve its operations. In the case of the third
+project, the university established a partnership with a residen-
+tial developer that was followed by the inclusion of students.
+Student engagement in the design phase helped the university
+create living spaces that would please students, and engage-
+ment in the operation phase helped with carbon reduction.
+All parties worked toward sustainable practices and were com-
+mitted to the carbon-reduction process.
+
+Acknowledgments
+
+The author would like to acknowledge the support of the Salford
+Centre for Research and Innovation and former colleagues
+Prof. Carl Abbott and Prof. Ghassan Aouad at the University of
+Salford. The author would also like to thank the industrial colla-
+borators who were involved in the case studies.
+
+Conclusions
+
+References
+
+This paper investigated the carbon-reduction process from a
+construction client’s perspective. In this context, a framework
+was developed to analyze six different components of this process,
+including the drivers, initiatives, challenges, facilitators, solutions,
+and achievements. A case study methodology was employed to
+understand the project-based innovative solutions and corporate
+strategies in three award-winning construction projects. The analy-
+sis of the cases based on the research framework indicated that
+(1) building regulations and client requirements were the major
+reasons to enhance the environmental performance levels in the
+projects, (2) clients invested in R&D jointly with their contractor
+partners to provide low carbon solutions, (3) resistance of team
+members and unavailability of products were major barriers to in-
+novation, (4) most challenges were overcome through partnering
+along the supply chain, (5) innovative designs and construction
+methods were used to improve sustainability, and (6) considerable
+energy efficiency was achieved.
+A better understanding of the factors determining the success of
+a carbon-reduction process and the role of clients in leading this
+process can be considered the main contribution of this study. Five
+main themes emerged based on the findings of those three cases.
+Firstly, all clients demonstrated effective leadership; they guided
+the project teams in adopting sustainability principles and energy-
+efficient solutions. In this respect, they had characteristics similar
+to those of leading-edge clients with high levels of technical com-
+petence along with challenging needs and extensive experience
+(Morrison et al. 2004). Secondly, the clients put social and envi-
+ronmental corporate responsibility at the top of their priority lists;
+they wanted to contribute to community life by enhancing the qual-
+ity of life and creating jobs and to decrease their environmental
+impact through their own environmental policies. Thirdly, they
+focused on the needs of their end users and concentrated on the
+value added by their projects. Fourthly, a major motivation of such
+a challenging process that involved innovative solutions was the
+repeatable nature of all the projects. This was critical in terms
+of ensuring the long-term benefits of the investments made and
+efforts expended. Finally, successful adoption of low-carbon solu-
+tions was achieved through integration along the supply chains.
+In all cases, partnering among the project participants helped them
+build a strong team culture.
+The benefits of sustainable practices were observed at the
+project level in terms of higher environmental performance, lower
+costs, and higher quality and at a broader level in terms of enhanc-
+ing the clients’ reputation. Due to the repeatable nature of the proj-
+ects, it is also possible to transfer knowledge gained to future
+projects. The findings of these case studies and analyses of addi-
+tional cases are also expected to provide guidance for analyzing
+client behavior in collaborative project environments.
+The cases reflect the experiences of contractors and clients
+based in the U.K. Depending on the regulations of different
+
+Anderson, J., Shiers, D., and Steele, K. (2009). Green guide to specifica-
+tion, 4th Ed., BRE Global, Garston, UK.
+Aronson, Z. H., Reilly, R. R., and Lynn, G. S. (2006). “The impact of leader
+personality on NPD teamwork and performance: The moderating role
+of uncertainty.” J. Eng. Technol. Manag., 23(3), 221–247.
+Barlow, J. (2000). “Innovation and learning in complex offshore construc-
+tion projects.” Res. Pol., 29(7–8), 973–989.
+Barlow, J., Cohen, M., Jashapara, A., and Simpson, Y. (1997). Towards
+positive partnering, Policy Press, Bristol, UK.
+Barrett, P. (2007). International examples of service-driven innovation in
+construction, National Endowment for Science, Technology and the
+Arts (NESTA)/UK Department for Business, Enterprise and Regulatory
+Reform (BERR), London.
+Beheiry, S. M. A., Chong, W. K., and Haas, C. T. (2006). “Examining the
+business impact of owner commitment to sustainability.” J. Constr. Eng.
+Manag., 132(4), 384–392.
+Blayse, A. M., and Manley, K. (2004). “Key influences on construction
+innovation.” Constr. Innovation, 4(3), 143–154.
+Brandon, P. S., and Lu, S. L. (2008). Clients driving innovation, Wiley-
+Blackwell, Chichester, UK.
+Briscoe, G. H., Dainty, A. R. J., Millett, S. J., and Neale, R. H. (2004).
+“Client led strategies for construction supply chain improvement.”
+Constr. Manage. Econ., 22(2), 193–201.
+Brusoni, S., Precipe, A., and Salter, A. (1998). Mapping and measuring
+innovation in project based firms. CoPS working paper, Centre for
+Research in Innovation Management Science and Technology Policy
+Research (CENTRIMrSPRU), Brighton, UK.
+Constructing Excellence. (2004). Lean Construction, 〈www.constructing
+excellence.org.uk/pdf/fact_sheet/lean.pdf〉(Oct. 9, 2011).
+Dept. for Business, Innovation, and Skills. (2010). Low carbon construc-
+tion innovation & growth team, Final report, London.
+Dept. for Communities, and Local Government (DCLG). (2007). Building
+a greener future: Policy statement, London.
+Dept. for Communities, and Local Government (DCLG). (2008). Definition
+of zero carbon homes and non-domestic buildings, London.
+Dewick, P., and Miozzo, M. (2002). “Sustainable technologies and the
+innovation—regulation paradox.” Futures, 34(9–10), 823–840.
+Dewick, P., and Miozzo, M. (2004). “Networks and innovation: Sustain-
+able technologies in Scottish social housing.” R&D Manag., 34(3),
+323–333.
+Egan, J. (1998). Rethinking construction: The report of the construction
+task force, Department of the Environment, Transport and the Regions
+(DETR), London.
+Friedman, A. (2007). Sustainable residential development: Planning and
+design for green neighborhoods, McGraw-Hill, New York.
+Gann, D. M. (1998). “New manufacturing for the 21st century.” Proc.,
+AEGIS Conf. on Generating New Wealth for Australia, Univ. of
+Western Sydney, Sydney, Australia.
+Gann, D. M., and Salter, A. (2000). “Innovation in project-based, service-
+enhanced firms: The construction of complex products and systems.”
+Res. Pol., 29(7–8), 955–972.
+Hakkinen, T., and Belloni, K. (2011). “Barriers and drivers for sustainable
+building.” Build. Res. Inform., 39(3), 239–255.
+
+© ASCE
+A5013001-9
+J. Constr. Eng. Manage.
+
+Osmani, M., and O’Reilly, A. (2009). “Feasibility of zero carbon homes
+in England by 2016: A house builder’s perspective.” Build. Environ.,
+44(9), 1917–1924.
+Ozorhon, B., Abbott, C., Aouad, G., and Powell, J. (2010). Innovation in
+construction: A project life-cycle approach, Univ. of Salford, Salford,
+UK.
+Reynolds, T., and Enjily, V. (2005). Timber frame buildings—A guide to
+the construction process, Building Research Establishment Press,
+Berkshire, UK.
+Robichaud, L. B., and Anantatmula, V. S. (2011). “Greening project man-
+agement practices for sustainable construction.” J. Manag. Eng., 27(1),
+48–57.
+Shorrock, L. D., Henderson, J., and Utley, J. I. (2005). Reducing carbon
+emissions from the UK housing stock, Report BR480, Building
+Research Establishment, Berkshire, UK.
+Swarup, L., Korkmaz, S., and Riley, D. (2011). “Project delivery metrics
+for sustainable, high-performance buildings.” J. Constr. Eng. Manag.,
+137(12), 1043–1051.
+Tatum, C. B. (1987). “Process of innovation in construction firm.”
+
+Higher Education Funding Council for England (HEFCE). (2009). Sustain-
+able development in higher education [Online] Higher Education
+Funding Council for England, UK, 〈http://www.hefce.ac.uk/pubs/
+hefce/2009/09_03/09_03.pdf〉(May 2, 2011).
+Korkmaz, S., Riley, D., and Horman, M. (2010). “Piloting evaluation
+metrics for sustainable, high performance building project delivery.”
+J. Constr. Eng. Manag., 136(8), 877–885.
+Lapinski, A. R., Horman, M. J., and Riley, D. R. (2006). “Lean processes
+for sustainable project delivery.” J. Constr. Eng. Manag., 132(10),
+1083–1091.
+Lu, S., Abbott, C., Jones, V., and Sexton, M. (2007). “The role of innova-
+tion circles in stimulating innovation in small construction firms.”
+Proc., 4th Int. SCRI Research Symp., Univ. of Salford, Salford, UK.
+Miozzo, M., and Dewick, P. (2002). “Building competitive advantage:
+Innovation and corporate governance in European construction.” Res.
+Pol., 31(6), 989–1008.
+Mollaoglu-Korkmaz, S., Swarup, L., and Riley, D. (2013). “Delivering
+sustainable, high-performance buildings: Influence of project delivery
+methods on integration and project outcomes.” J. Manag. Eng., 29(1),
+71–78.
+Morrison, P. D., Roberts, J. H., and Midgley, D. F. (2004). “The nature of
+lead users and measurement of leading edge status.” Res. Pol., 33(2),
+351–362.
+Nam, C. H., and Tatum, C. B. (1997). “Leaders and champions for con-
+struction innovation.” Constr. Manag. Econ., 15(3), 259–270.
+
+J. Constr. Eng. Manag., 113(4), 648–663.
+Thorpe,
+D.,
+Ryan,
+N.,
+and
+Charles,
+M.
+(2008).
+“Environmental
+sustainability—A driver for innovation in construction SMEs?” Proc.,
+3rd Int. Conf. of the CRC for Construction Innovation: Clients driving
+innovation: Benefiting from innovation, Queensland Univ. of Technol-
+ogy, Gold Coast, Australia.
+Yin, R. K. (2003). Case study research, 3rd Ed., Sage, London.
+
+© ASCE
+A5013001-10
+J. Constr. Eng. Manage.
+
+Copyright of Journal of Construction Engineering & Management is the property of American
+Society of Civil Engineers and its content may not be copied or emailed to multiple sites or
+posted to a listserv without the copyright holder's express written permission. However, users
+may print, download, or email articles for individual use.

@@ -1,0 +1,28 @@
+================================================================================
+EXTRACTION REPORT: 1-s2.0-S0959652612001436-main
+================================================================================
+
+### ENTITIES (BUILDINGS) ###
+
+Entity 1:
+  Name: Passive House
+    Context: "a type of highly energy-efﬁcient home"
+  Country: Belgium
+    Context: "region dominated by heating demand"
+  City: Flanders
+  Year Of Construction: 2003
+    Context: "initial innovation introduced"
+
+
+### DESIGN STRATEGIES ###
+  Anchor verification: 0/7 verified
+
+  No strategies with verified anchors.
+
+
+### ECOSYSTEM SERVICES ###
+  Anchor verification: 0/2 verified
+
+  No services with verified anchors.
+
+================================================================================

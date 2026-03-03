@@ -1,0 +1,219 @@
+{
+  "entities": [
+    {
+      "name": {
+        "value": "West Village",
+        "context": "First net zero energy community in the USA",
+        "context_verified": true,
+        "context_match_score": 0.929
+      },
+      "country": {
+        "value": "USA",
+        "context": "sunbelt cities of the USA",
+        "context_verified": true,
+        "context_match_score": 0.92
+      },
+      "city": {
+        "value": "Davis",
+        "context": "University of California at Davis",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": 2024,
+        "context": "Fully built-out",
+        "context_verified": true,
+        "context_match_score": 1.0
+      }
+    },
+    {
+      "name": {
+        "value": "Broga˚rden",
+        "context": "Case study of renovation to passive house standard",
+        "context_verified": false,
+        "context_match_score": 0.78
+      },
+      "country": {
+        "value": "Sweden",
+        "context": "Alingsa˚s, Sweden",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "city": {
+        "value": "Alingsa˚s",
+        "context": "Small city with 26,511 inhabitants",
+        "context_verified": false,
+        "context_match_score": 0.647
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": 1972,
+        "context": "Built between 1970-1972",
+        "context_verified": true,
+        "context_match_score": 0.957
+      }
+    },
+    {
+      "name": {
+        "value": "Hammarby Sjo¨stad",
+        "context": "Eco-community with significant reductions in carbon dioxide emissions",
+        "context_verified": false,
+        "context_match_score": 0.739
+      },
+      "country": {
+        "value": "Sweden",
+        "context": "Stockholm, Sweden",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "city": {
+        "value": "Stockholm",
+        "context": "Hammarby Sjo¨stad project",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": 2024,
+        "context": "Not specified",
+        "context_verified": false,
+        "context_match_score": 0.692
+      }
+    },
+    {
+      "name": {
+        "value": "Vauban",
+        "context": "Car-free suburb with significant reductions in carbon dioxide emissions",
+        "context_verified": false,
+        "context_match_score": 0.746
+      },
+      "country": {
+        "value": "Germany",
+        "context": "Freiburg, Germany",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "city": {
+        "value": "Freiburg",
+        "context": "Vauban car-free suburb",
+        "context_verified": false,
+        "context_match_score": 0.727
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": 2024,
+        "context": "Not specified",
+        "context_verified": false,
+        "context_match_score": 0.692
+      }
+    },
+    {
+      "name": {
+        "value": "Aldo Leopold Legacy Center",
+        "context": "Structure honoring the 'land ethic' and expanding carbon management policies",
+        "context_verified": false,
+        "context_match_score": 0.605
+      },
+      "country": {
+        "value": "USA",
+        "context": "Baraboo, Wisconsin",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "city": {
+        "value": "Baraboo",
+        "context": "Native prairies and woodlands",
+        "context_verified": false,
+        "context_match_score": 0.69
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": 2024,
+        "context": "Not specified",
+        "context_verified": false,
+        "context_match_score": 0.692
+      }
+    }
+  ],
+  "design_strategies": [
+    {
+      "name": "Renovation to passive house standard",
+      "confidence": 1.0,
+      "anchor_text": "renovate the houses to the passive house standard",
+      "context": "…rea, made the decision to renovate\nthe sixteen buildings comprising the Broga˚rden neighbourhood. For years there had been\nproblems with the brick facades crumbling due to freeze-thaw cycles and acid rain, and\ncomplaints about drafts and low indoor temperatures (Figure 1). They made the decision to\nrenovate the houses to the passive house standard, which suited the needs of the Broga˚rden\napartments perfectly; simple to construct when a fac¸ade renovation was needed anyway,\nand providing good indoor comfort for residents.\nThe solution was augmented with the inclusion of consultants interested in the social\nand environmental sustainability of…",
+      "anchor_verified": true,
+      "anchor_match_score": 1.0
+    },
+    {
+      "name": "Façade cladding",
+      "confidence": 0.8,
+      "anchor_text": "fac¸ade renovation was needed a",
+      "context": "…brick facades crumbling due to freeze-thaw cycles and acid rain, and\ncomplaints about drafts and low indoor temperatures (Figure 1). They made the decision to\nrenovate the houses to the passive house standard, which suited the needs of the Broga˚rden\napartments perfectly; simple to construct when a fac¸ade renovation was needed anyway,\nand providing good indoor comfort for residents.\nThe solution was augmented with the inclusion of consultants interested in the social\nand environmental sustainability of the area. Alingsa˚shem decided that increased\naccessibility and diversity would provide social and economic stability in t…",
+      "anchor_verified": true,
+      "anchor_match_score": 1.0
+    },
+    {
+      "name": "Compact construction",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    }
+  ],
+  "ecosystem_services": [
+    {
+      "name": "Primary production",
+      "category": "Provisioning",
+      "confidence": 0.9,
+      "anchor_text": "forms the basis of the planet's food chain",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.595
+    },
+    {
+      "name": "Regulation of air quality",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.8,
+      "anchor_text": "process of assimilating and transforming emissions or contributing chemicals",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.539
+    },
+    {
+      "name": "Soil formation",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.7,
+      "anchor_text": "formation and retention of soil associated with ensuring ongoing soil fertility",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.519
+    }
+  ]
+}

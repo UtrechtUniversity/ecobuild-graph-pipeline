@@ -147,7 +147,10 @@ class OllamaInterface:
                 json={
                     "model": self.model,
                     "prompt": prompt,
-                    "stream": False
+                    "stream": False,
+                    "options": {
+                        "temperature": 0.01,  # Low for factual extraction
+                       }
                 },
                 timeout=120
             )

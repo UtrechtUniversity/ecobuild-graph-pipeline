@@ -1,0 +1,1576 @@
+Sustainability 2015, 7, 8801-8822; doi:10.3390/su7078801
+
+sustainability
+
+OPEN ACCESS
+
+ISSN 2071-1050
+www.mdpi.com/journal/sustainability
+Article
+
+How to Succeed in Low-Energy Housing—Path Creation
+Analysis of Low-Energy Innovation Projects
+
+Pia Pässilä *, Lauri Pulkka and Seppo Junnila
+
+Department of Real Estate, Planning and Geoinformatics, Aalto University, PL 15800, 00076 Aalto,
+Finland; E-Mails: lauri.pulkka@aalto.fi (L.P.); seppo.junnila@aalto.fi (S.J.)
+
+* Author to whom correspondence should be addressed; E-Mail: pia.passila@aalto.fi;
+Tel.: +358-40-743-0624.
+
+Academic Editor: Marc A. Rosen
+
+Received: 22 April 2015 / Accepted: 29 June 2015 / Published: 7 July 2015
+
+Abstract: The low-energy and the nearly zero-energy buildings trend is calling for radical
+new innovations from the construction industry. This study uses path creation theory to examine
+two innovation concepts for low-energy housing in Northern Europe with contrasting
+outcomes—with one being an apparent market success and the other a disappointment. The
+results highlight two issues behind the success, one of a systemic nature and the other concerning
+innovation management. First, the development of energy efficiency regulations and the
+dominant technological trajectory regarding low-energy houses are interdependent. However, it
+seems that while supporting the trajectory of the innovation developed in the first case,
+regulators created virtually insurmountable cognitive and normative obstacles to finding
+alternative technological pathways. Second, the significance of proof of concepts for new
+innovations cannot be underestimated. The importance of a pilot project rests not only on
+showcasing and testing the technology, but also on its ability to increase political support,
+investments, and public awareness. The study implies that low-energy construction seems to
+be the next great challenge, one where genuine co-operation between the industry, public
+authorities and academia is a prerequisite for success.
+
+Keywords: policy; regulation; innovation; path creation; technology; energy efficient
+buildings; energy efficiency
+
+Sustainability 2015, 7
+8802
+
+1. Introduction
+
+The formulation of the EU’s climate and energy targets [1,2] has increased pressures to improve the
+energy efficiency of buildings. The Energy Performance of Buildings Directive of 2010 [3] and Energy
+Efficiency Directive of 2012 [4] both gave a clear message to the construction sector on which direction
+the innovation efforts should take. However, construction industry firms are in general less engaged in
+R&D and innovation and also receive less financial support to do so [5]. Achieving the needed energy
+efficiency innovations is thus a great challenge for the field.
+In the Finnish context, this challenge is further underlined by the velocity with which the introduction
+of energy efficiency measures for new buildings has been made. A bill on energy certificates for buildings
+was first introduced in 2008 [6] and was followed by demands for energy efficiency improvement. In
+2010 a requirement for 30% reduction in the energy needs of new buildings came into force [7]. From
+2012 onwards, further 20% restrictions on energy use were applied, when a net-energy consumption
+model taking into account the form of energy used for heating was also introduced [8]. In preceding
+years, energy efficiency of buildings had been an issue of marginal interest in the Finnish construction
+sector. Due to the mistakes made after the 70s oil crises when insulation had been increased without the
+proper management of ventilation issues, which caused moisture damages, energy efficiency measures
+were also prone to suspicion. This sparked newspaper headlines from both sides, the optimistic [9] and
+the pessimistic [10].
+Since then, the technological functionality of energy savings in buildings has been widely studied
+(e.g., [11–13]) and earlier studies on the general barriers and drivers in energy-efficient construction and
+green building have found that other elements than the technology itself affect the innovation processes.
+Regulation, the conservative nature of building industry and rising energy prices have been identified as
+common factors affecting these innovation processes [14,15]. The main barriers to highly energy-efficient
+building have been found to be investment costs, the nonexistence of energy efficiency as a variable in
+mortgage loans and in the calculations of real estate actors, the fear of moisture damage, credibility
+problems caused by the inexperience of actors and public tenders focusing only on price issues;
+important drivers have been found to be building codes, existence of frontrunner companies and
+construction of leading examples by public entities or companies [16–19]. Important success factors for
+highly-efficient housing innovations have also been multi-player enterprise collaboration and the existence
+of a Passive House concept [20].
+The focus of this research is to holistically examine two ambitious innovation projects on
+energy-efficient housing in the Finnish context. The first project aimed to create an energy-efficient
+apartment building concept. It was led by a construction company and supported by a professional
+research institute. The second project was led by a private foundation and supported by professionals
+and house manufacturing companies and had the goal of producing sustainable detached houses. The
+apartment building concept has already entered the market with great success; in fact, it has become the
+general benchmark for the construction of energy-efficient houses in Finland. Detached houses, on the
+other hand, have not yet achieved commercial success. Although both delivered an energy efficient house
+as a product innovation, only the former became a market success. To explain this outcome, we
+concentrate on the effects of institutional context and firm/organization-level co-operation in these
+projects. This analysis provides added knowledge on how the same barriers and drivers for innovation
+
+Sustainability 2015, 7
+8803
+
+can simultaneously hinder or advance the development of similar kinds of innovations. We also discuss
+the implications of these findings.
+The paper is structured as follows. In the next section, the research question and approach are
+explained and are followed by introduction of the theoretical background. The cases are described in the
+section that follows. The fourth section analyzes the path creation processes of both innovation projects
+and compares the two cases. Then the results of the study are summarized. In the discussion section, the
+implications of the study and future research needs are presented.
+
+2. Research Question and Approach
+
+This study is based on two case studies of innovation projects on energy-efficient housing which
+evolved in the same institutional context. They were both initiated before the energy efficiency legislation of
+2010 came into force and were faced with the same construction-industry-specific barriers. Both projects
+produced technically feasible, albeit different, concepts of energy-efficient houses with proven demand.
+However, one still lacks an important element for an innovation: market success. This raises the research
+question: why has only one of the projects achieved commercial success?
+To answer this question, we build on a case study approach which is appropriate for exploring
+the questions of “how” and “why” and focusing on a contemporary phenomenon within a real-life
+context [21]. In the analysis of the cases, first, a narrative analysis [22] was used. A storyline of the
+projects was written to help to identify main events and causalities leading to the stated outcomes. The
+case studies were then analyzed using the hybrid socio-economic theory of new path creation developed
+by Simmie [23] and Simmie et al. [24] which is based on the theories of path dependency and path
+creation. The framework was originally used to describe the path creation process of the wind power
+industry in Denmark. In this study, it is used to identify how similar industry environments and societal
+conditions affected the two different innovation paths, both of which aim to transform sustainable
+housing in Finland. The use of the framework is particularly appropriate given the fact that the innovation
+projects operated within the same context, thus sharing the initial conditions and landscape change
+outcome. It proved to be helpful in analyzing the innovation process paths and describing the circumstances
+that resulted in one path becoming a market success and the dominant practice in the industry while the
+other one has not yet commercialized. This study thus helps to understand the techno-economic and
+political factors that led to one project having a much greater impact on how the energy-efficient housing
+path has evolved in Finland. The framework is discussed in more detail in the next section.
+The results are presented in two phases. First, both cases are analyzed independently of one another
+using the hybrid socio-economic theory of new path creation as a theoretical framework. Based on these
+analyses, case-specific conclusions are drawn and emerging patterns recorded. Second, a cross-case
+analysis is conducted by comparing the prevailing patterns. Finally, the implications of the overall study
+are presented.
+
+3. Theoretical Framework
+
+This article is profoundly interested in successful innovations in the construction sector. It builds on
+the literature on construction innovation while borrowing concepts of path dependency and path creation
+from the sociology of technology.
+
+Sustainability 2015, 7
+8804
+
+Winch [25] has argued that the innovation implementation models developed elsewhere do not necessarily
+apply for the construction sector and that comparing its innovation rate directly to other manufacturing
+industries is unfair [26]. The construction industry has been described as a “complex system industry” [25],
+“product system” [27,28] or “loosely coupled system” [29]. These descriptions emphasize the interactions
+between different actors in the innovation processes. It is thus related to the actor-system-network
+approach [30]. The actors can be outside the original industry, and can include the regulatory framework,
+supply network, project-based firms, users and technical support infrastructure [31].
+The complex system model of construction innovation described by Winch [25] further recognizes
+the sector-specific actors and divides them into innovation superstructure and innovation infrastructure.
+The former includes the clients, regulators and professional institutions and the latter trade contractors,
+specialist consultants and component suppliers. These are tied together by a system integrator, which can be
+for example the principal contractor. This approach draws attention to both the institutional context as
+well as the firm level. Winch [25] notes that since construction is a project-based industry, there are two
+important elements concerning innovation: the adoption/implementation dynamics and problem
+solving/learning dynamics. By this he means that firms are either adopting new ideas from the
+surrounding environment and implementing them in projects or that problems caused by pressures from
+the environment and solved in projects result in new ideas that are then learnt by the firms. Innovations
+are thus born through this interaction between the environment, projects and firms.
+To understand better the trajectories of construction innovation, and to bind these
+environment-project-firm interactions to a timescale, we draw on the sociology of technology and
+especially on the concepts of path dependency and path creation. Path dependence basically means that
+previous choices matter: investments and decisions made in the past define what is feasible today [32].
+It has been used to explain how the pre-existing conditions that restrict the available choices for
+action challenge the creation and establishment of new innovations [32]. In path dependency literature,
+the creation of new technological pathways is thought to happen through random events or actions [24].
+These discontinuous innovations originate outside existing industries and challenge the industry
+incumbents [33,34]. The concept of path dependency has been challenged by the concept of path
+creation [35]. An alternative theory to path dependence, path creation focuses more on actors and their
+interactions [24]. It is described as a process by which actors are able to deviate from existing paths and
+disconnect themselves from prescribed social rules and taken-for-granted technological artifacts [36,37].
+Since creating something new usually requires experimentation and thus being inefficient at first, it
+presumes the ability to seek future gains. The key to successful path creation lies in the ability (1) to
+perceive and create opportunities outside the box, (2) to mobilize other people and (3) to encounter
+apathy and resistance with persistency and flexibility. In addition, it usually takes time [36]. Nevertheless,
+path dependency and path creation can also be viewed as competing forces when trying to understand the
+evolution of technologies or industries [32]. Thus, an analysis of how new technological pathways are
+created needs to take into account both perspectives [24].
+A practical analysis model for these two forces is the hybrid socio-economic theory of path creation
+by Simmie [23] and Simmie et al. [24] (see Table 1). It divides the path creation process into five
+segments: the initial conditions, the path creation process, the path establishment process, the main barriers
+to the path creation, and the landscape outcome of the process. The initial conditions are the existing
+path-dependent technological trajectories from which the new paths need to deviate. The path creation
+
+Sustainability 2015, 7
+8805
+
+process consists of creating the actual invention or novelty. In the path establishment phase, this
+invention is turned into an innovation. The barriers to path creation can consist of economic, cognitive,
+institutional, and socio-political factors. Depending on the path creation forces and barriers, the
+landscape change outcome can either be a change or continuation along an existing path.
+Hybrid socio-economic theory is used in this article as an analytical tool to identify the elements
+affecting the innovation process of the two cases studied. The hybrid socio-economic theory of path
+creation was chosen because it is compatible with many other theories of innovation, but it also has some
+distinct advantages compared to relevant alternatives. The cases could be analyzed through the lens of
+Roger’s diffusion theory, which seeks to explain how, why, and at what rate new ideas and technology
+spread and is best known from its s-curve model of innovation adoption [38]. This approach would,
+however, emphasize the adoption of innovation by users too much. Path creation can also be viewed as
+a part of transition theories [39,40]. However, many popular transition theories, such as strategic niche
+management [41,42], highlight the purposefulness of landscape change through individual innovation
+processes. Hybrid socio-economic theory is good for the purpose of examining two innovation processes
+that illustrate the ongoing transition in low-energy housing, but without assuming that the projects had
+any intention to be part of said transition.
+
+Table 1. The five segments of hybrid socio-economic theory of new path creation, adapted
+from Simmie et al. [24].
+
+Initial
+Conditions
+Path Creation
+Processes
+New Path Establishment
+Processes
+Barriers to New
+Path Creation
+Landscape
+Change Outcome
+
+Process outcome
+of either creation
+of a new industrial
+pathway,
+de-locking of the
+existing one or
+failure of the new
+innovation path
+
+Economic,
+cognitive,
+institutional, and/or
+socio-political
+factors that hinder
+the success of the
+innovation
+
+Previously
+formed, existing
+path-dependent
+technological
+development
+trajectories.
+
+The innovation phase
+where the invention is
+taken into practice by the
+niche agents
+
+The creation of
+a new invention
+
+4. Case Studies
+
+Both cases represent ambitious innovation projects by the Finnish housing industry. They took place
+during the same time period and both steered the housing industry in a more sustainable direction. Despite
+these similarities, important differences exists. These are described in greater detail below along with
+the data.
+
+4.1. Case MeraReponen
+
+The first case is a project with the aim of constructing an energy-efficient apartment building.
+It is named after the leading actor in the project, the Reponen Construction Company. Our study of the
+MeraReponen case is based on data collected for a thesis project on the development of energy-efficient
+housing in Finland, which was conducted during 2009–2010. Further update information on the project
+has been received from the meeting with a representative of the leading firm in three meetings in 2012
+
+Sustainability 2015, 7
+8806
+
+and 2013. The main data are based on interviews and written materials, such as project presentation
+documents and newspaper articles. A detailed data description is provided in Table A1 in the appendix.
+The interviews were semi-structured and the question themes included how the company/organization
+of the interviewee got involved in the project and why, the role of the firm/organization, the main
+challenges and drivers in the project, and how the co-operation between the project partners went.
+The background for the project was conducted by the VTT Technical Research Centre. This professional
+research institute developed energy efficiency techniques in different projects during the 1980s and 90s.
+Over the years, the models developed became less complicated and more efficient and economical. The
+VTT enlisted construction companies as partners throughout this phase, but most products were one-time
+test houses.
+The actual project was initiated after the Reponen Company became interested in the work done
+by the VTT. In 2001, the goal of developing energy-efficient housing was made a part of the Reponen
+Company’s business plan. In its vision, the company aimed to gain a competitive edge as a forerunner
+in energy-efficient housing. The initial vision was met with skeptical comments from other construction
+industry actors, who did not see energy efficiency as a great opportunity. Some were also doubtful of
+the technical functionality of the houses. The project partners were found with the help of the VTT. The
+partners and their roles are described in Table A2 in the Appendix. The project received financial help
+from the Housing Finance and Development Centre of Finland (ARA) and Tekes, the Finnish Funding
+Agency for Innovation (a publicly funded expert organization for financing research, development, and
+innovation in Finland).
+The concept was first tested on in a single apartment built in 2005 in Leppävaara, Finland. The single
+apartment test was carefully reported and analyzed by the VTT and the results were made known in
+2006. The heating costs were cut by 70% compared to a standard apartment, but the building costs were
+only 1.7% higher than average [43]. The first house was built for the Finnish Youth Housing Association
+(NAL) and located in Heinola; it was completed in 2009. Since then, as much as 80% of homes
+constructed by the Reponen Company have been energy-efficient houses with different modifications.
+The project partners were also able to create production lines for the needed energy-efficient elements and
+products. The concept is still working well and further development has been carried out to employ it in
+apartment buildings made from wooden material.
+
+4.2. Case K3 Houses
+
+The K3 Houses initiative attempted to produce detached houses that were environmentally, socially,
+and economically sustainable. In fact, the three K’s are the Finnish words for “beautiful”, “sustainable”,
+and “affordable”. The case study of K3 Houses initiative was first presented at the CIB International
+Conference on Construction in a Changing World 2014 [44]. The case study data consists of interviews
+and written documents, which are described in more detail in the Appendix (Table A3). The interviews
+were semi-structured. The question themes included how the company/organization of the interviewee
+got involved in the project and why, the role of the firm/organization, the main challenges and drivers
+in the project, and how the co-operation between the project partners went.
+The initial idea for the project came about as the result of a discussion between a consultant living
+in the Billnäs area (a district in the Finnish municipality of Raasepori), the real estate manager of the
+
+Sustainability 2015, 7
+8807
+
+Billnäs-based Fiskars Corporation, and the Secretary General of the Finnish Cultural Foundation in 2007.
+The project was driven by the values of sustainability and aesthetics and of combining the two without
+compromising the affordability of the houses. It arose especially as a result of a lack of innovativeness
+in the housing industry and an observed lack of co-operation between architects and house manufacturers.
+The project was led by the Finnish Cultural Foundation. It was also the main financer for the project
+(providing approx. 400,000 Euros). An atypical innovator in the construction industry, the Finnish Cultural
+Foundation is a non-governmental organization and its primary task is to award grants. The project was
+coordinated by a steering group consisting of the employees and board members of the Foundation, the
+real estate manager of Fiskars, the project manager consultant, an architect, and the former communications
+manager of a construction industry association. The steering group was important in the first stages of
+the project. Later, the project management duties were taken over by an employee of the Foundation.
+The project consisted of two phases. First, proposals were requested from eight different architectural
+companies. The companies completed their designs by the end of 2009. Five of these designs were selected
+for further development. During this midpoint of the project, when the first designs were handed over to
+the Finnish Cultural Foundation, the government was preparing new energy efficiency legislation for
+buildings. Since the Finnish Cultural Foundation had a clear objective to create unique houses rather
+than just responding to the upcoming norm, they felt the need to modify the aims of the project. The
+upcoming regulations supported the use of a mechanical design with a vapor barrier structure as a way
+to achieve the energy efficiency measures. So the Finnish Cultural Foundation decided that the houses
+planned as part of the K3 initiative should function with an organic design (meaning natural ventilation
+and a structure without vapor barriers). A report was ordered from Kimmo Lylykangas (an architect
+specialized in energy-efficient construction) that would attest to the feasibility of the organic house design.
+Based on these premises, the architects were paired with the house manufacturers and asked to start
+designing the final versions of the houses. The final designs were published in 2011 and made available
+on the project website for free. The project officially ended with the publication of the designs. The
+designs did arouse interest in house buyers, but the house manufacturers were unable to deliver clear
+packages with affordable pricing. For this reason, the Finnish Cultural Foundation has continued to keep
+the discussion alive and sought new ways to get the first houses built.
+
+5. Analysis of the Cases
+
+In this section, we analyze the cases using the hybrid socio-economic theory of new path creation [24].
+Because the projects operated within the same context, the initial conditions and landscape change
+outcomes were virtually identical. Therefore, the main focus of the analysis is on the path creation
+processes, the path establishment processes, and the main barriers to path creation in the two cases.
+
+5.1. New Path Creation in the MeraReponen Case
+
+The project’s initial conditions were marked by the lack of innovativeness in the construction industry
+and speculation about rising energy prices. Although European energy efficiency legislation was already
+under preparation, it was not clearly affecting the agenda in Finland during the initiation of the project.
+Although some delays did occur and a few structural barriers hindered the commercialization of the
+
+Sustainability 2015, 7
+8808
+
+energy-efficient building, the path creation process for the MeraReponen case was successful one. The
+process is summarized in Table 2.
+
+Table 2. Path creation process for the MeraReponen case. Initial conditions and landscape
+change outcome are the same for both cases.
+
+External pressures:
+
+Industry’s internal environment:
+
+-
+oil crisis & potentially rising energy prices
+
+Initial
+
+-
+low innovation activity in the
+
+-
+global warming
+
+Conditions
+
+construction sector
+
+-
+construction sectors’ climate change mitigation potential
+
+-
+EU regulation
+
+Interested partners group together
+
+VTT—continued experiments with a
+
+Reponen Company—interested in
+
+for the MeraReponen project to seek
+
+Path creation
+
+small number of houses throughout
+
+commercializing the energy efficiency
+
+competitive advantage in the
+
+process
+
+the years and identification of a niche
+
+innovation
+
+marketplace through new innovation
+
+market
+
+and business logic emerges
+
+Timing: increasing
+
+Building code
+
+attention to climate
+
+Demo house
+
+Similar
+
+Production lines
+
+requirements for
+
+change makes
+
+-
+proving the
+
+processes
+
+established for
+
+Environmental
+
+good energy and
+
+energy efficiency a
+
+economics
+
+abroad, such
+
+energy-efficient
+
+policies
+
+indoor performance
+
+priority in
+
+and technical
+
+as the
+
+New path
+
+elements
+
+emphasize
+
+are easier to
+
+construction
+
+soundness of
+
+development
+
+establishment
+
+-
+Construction
+
+urban density
+
+demonstrate with
+
+-
+success in
+
+low-energy
+
+done by the
+
+process
+
+becomes
+
+-
+favor
+
+mechanical design
+
+framing the
+
+buildings
+
+Passive
+
+more simple
+
+apartment
+
+-
+increased
+
+“high-tech”
+
+-
+gaining
+
+House
+
+and
+
+houses
+
+predictability of
+
+pathway as the
+
+market
+
+Institute in
+
+economic
+
+building permit
+
+solution
+
+interest
+
+Germany.
+
+process
+
+-
+followers enter
+
+the market
+
+Construction industry traditionally
+
+reluctant to invest in actual
+
+Barriers to
+
+construction in fear of adding costs
+
+Well- known mistakes made in late
+
+Low energy
+
+new path
+
+during the construction phase that
+
+prices
+Finding funding
+
+70’s oil crises when trying to save
+
+creation
+
+could only save money during the
+
+energy in buildings
+
+operation phase since not seen as
+
+profitable for the builder
+
+Bubbling under:
+
+Landscape
+
+Bubbling under:
+
+Energy-efficient construction
+
+-
+fear of potential negative
+
+change
+
+-
+dissatisfaction with lack of
+
+dominated by mechanical design
+
+implications of homogenous
+
+outcome
+
+alternatives
+
+building stock
+
+The initial conditions for the project featured an operative environment dominated by a
+“business-as-usual” mentality and a lack of innovativeness. Both typical features of the construction
+industry, where investments in research and development had been low [5]. The industry seemed to rely
+on the notion that a permanent shortage of housing and a constant demand for new buildings will secure
+revenues. A lack of investment in research and development and the poor collaboration between
+academia and industry had also been noted internationally [45]. Despite the fact that the VTT Technical
+
+Sustainability 2015, 7
+8809
+
+Research Center of Finland had conducted many studies on the advantages of energy-efficient housing,
+the industry as a whole remained rather skeptical about it. Until the commencement of the MeraReponen
+project, energy-efficient building remained more of an invention than innovation.
+The path creation process for the MeraReponen case was clearly successful. This was in part because
+the project participants shared the same visionary business plans. The pilot versions helped to prove the
+economic feasibility of the innovation, which encouraged the project partners to create separate production
+lines for energy-efficient elements. This helped them to gain economic value by eliminating the need to
+make the elements and windows for the houses separately or to build them on-site.
+The path establishment process for the MeraReponen case confirmed the economic feasibility of
+energy-efficient housing; the construction costs of energy-efficient houses even in this pilot phase were
+only 5% greater than for regular houses. The economics worked especially well for those developers
+who remained owners of the houses for a longer period of time. The first buildings were constructed for
+companies that specialize in housing rental services. As soon as the first building was finished, it was
+promptly followed by several others. This rising market interest confirmed the impression of those
+involved in the project that energy-efficient housing is definitely a business asset. This helped to secure
+continuation along the chosen path.
+The discourse on climate change provided background support for the project and helped raise
+awareness about the issue of energy efficiency in the real estate and construction sector. Also,
+environmental policies started focusing more on the compactness of communities, which favored
+apartment buildings over detached houses. The new niche was significantly helped by regulations, which
+pushed the industry to invest in energy-efficient housing technology. The attention and praise received
+from politicians benefitted the project. President Tarja Halonen picked the concept to be awarded by the
+Finnish Association of Civil Engineers in 2007. Minister of Employment and the Economy Jan
+Vapaavuori attended the laying of the foundation stone for the first such building in Heinola in 2008.
+The first building was supposed to be finished by the time of the building fair in Heinola in 2004.
+This goal was later abandoned because of complaints about the building plan for the area. Another delay
+occurred in 2007 when the Housing Finance and Development Centre of Finland (ARA) ran out of
+money. This slowed the construction project by one year. Though these delays were unfortunate and
+slowed down the process, they did not constitute drastic challenges to the idea of energy-efficient
+housing. The main barriers for the path creation process included a lack of support for energy efficiency
+measures in the construction industry and cognitive barriers due to past mistakes made in the construction
+industry when insulating homes.
+The first barrier resulted from the fact that the contractor and the owners and inhabitants of the new
+houses did not share the same interest when it came to energy costs. The profitability of energy efficiency
+measures only materialize during the use phase, whereas the costs of these measures materialize during
+the construction phase. In the real estate market, the pricing is heavily influenced by many factors other
+than just the energy consumption of the building. As Kyrö et al. have stated [46], these include external
+factors (e.g., location, availability of nearby services, commuting opportunities) and value-determinant
+factors (e.g., gross rent, yield, vacancy rate, residual value). The influence of energy efficiency on the
+overall value by way of such value-determinant factors is minor, approximately 2% of the real estate
+value [47] which results in a decrease in the motivation of the contractor to invest more in energy
+efficiency. Energy prices have not been rising steeply enough to create considerable demand for energy
+
+Sustainability 2015, 7
+8810
+
+efficiency measures. This barrier was partly overcome in the project by marketing this solution to housing
+companies, which benefitted from the savings during the use phase of the building. The new regulations
+demanding a higher level of energy efficiency for all buildings helped to remove this barrier altogether.
+The cognitive barrier to energy-efficient housing was the fear of so-called “bottle houses,” which
+were constructed after the oil crisis in the 1970s. This type of house had thick insulation, but no additional
+ventilation, which led to moisture damage and bad air quality. For this reason, attempts to improve
+energy efficiency were prone to suspicion about possible moisture damage. The matter was discussed in
+detail when the building code was about to be renewed. Both VTT and Tampere University of Technology
+prepared a report on the feasibility of energy-efficient housing. The VTT report supported the new
+energy-efficient housing technology while Tampere University of Technology’s report was more
+critical. The latter report called for more research on the topic on the basis of the unknown effects of
+climate change on the Finnish climate, which, combined with possible mistakes made in the planning
+and construction phases for energy-efficient houses (due to the lack of knowledge of both the designers
+and building contractors), might result in failures. The results from the VTT report were valued more in the
+formulation of the energy legislation. This helped eliminate fears about moisture damage in low-energy
+houses. As more residents moved into the houses, their positive experiences all helped break down this
+cognitive barrier.
+By the time the regulations were enforced, the MeraReponen concept was already clearly below
+the new limits for energy use. Despite the general decrease in building activity through economic
+stagnation, their order book was full. The project won many prizes and international opportunities arose
+in Russia. Reponen soon also broadened the scope of its concept to include low-energy apartment
+buildings made of wood (the first one was completed in 2011). As the functionality of the technology
+was proven and pushed forward by legislation, other entrants soon emerged on the market. The concept
+became a brand name and served as a benchmark for the industry as well as policy makers on how to
+build low-energy housing. As a landscape outcome, the mechanical design is now established as the way
+to build low-energy houses.
+
+5.2. New Path Creation in the K3 Case
+
+Similarly to the MeraReponen case, the K3 project was affected by the internal environment of the
+construction industry. However, energy efficiency legislation and discussions about climate change also
+affected the K3 project. However, the path creation process for the K3 case has not achieved a commercially
+viable product. The main factors affecting the path creation process are summarized in Table 3.
+In particular, the lack of co-operation between architects and house manufacturers was seen as a
+leading cause for the building of monotonic detached houses. During the conception phase of the K3
+initiative, discussions about climate change had already affected the construction industry and the need
+to promote sustainability in housing through energy efficiency had emerged. The first EU directive on
+energy efficiency in buildings was accepted in 2002 and the member states were obliged to implement
+the directive in national legislation by 2006 [48]. In Finland, the implementation process was led by the
+Ministry of the Environment, and the necessary legislation was set up in 2008 and entered into force in
+2010. A further update was made in 2010, which entered into force in 2012.
+
+Sustainability 2015, 7
+8811
+
+Table 3. Path creation process for the K3 case. Initial conditions and landscape change
+outcome are the same for both cases.
+
+External pressures:
+
+Industry’s internal environment:
+
+-
+oil crisis & potentially rising energy prices
+
+Initial
+
+-
+low innovation activity in the
+
+-
+global warming
+
+conditions
+
+construction sector
+
+-
+construction sectors’ climate change mitigation potential
+
+-
+EU regulation
+
+Finnish Cultural Foundation and Fiskars
+
+Path
+
+Corporation agree on the need to
+
+The K3 project created and centered
+
+Organic design proposed as an
+
+creation
+
+support values of sustainability and
+
+around the Foundation
+
+alternative to mechanical design
+
+process
+
+aesthetics in detached house
+
+manufacturing
+
+Attempts to
+
+New path
+
+Attempts to facilitate collaboration
+
+Gaining strong
+
+All house designs made
+
+influence new
+
+establishment
+
+between house manufacturers and
+
+support from
+
+available for free for private and
+
+building
+
+process
+
+architects
+
+experts
+
+commercial use
+
+regulation
+
+Building code
+
+requirements for good
+
+energy and indoor
+
+No production lines
+
+Timing:
+
+performance are easier
+
+established
+
+increasing
+
+to demonstrate via
+
+-
+house
+
+attention to
+
+No demo
+
+Environmental
+
+mechanical design
+
+manufacturers
+
+climate change
+
+The focal
+
+house
+
+policies
+
+-
+autonomy and
+
+hesitate to
+
+makes energy
+
+organization
+
+-
+untested
+
+Barriers to
+
+emphasize
+
+responsibility of
+
+invest in
+
+efficiency a
+
+had no
+
+technical
+
+new path
+
+urban density
+
+municipal building
+
+development
+
+priority in
+
+direct
+
+solutions
+
+creation
+
+-
+disfavor
+
+officials combined
+
+activities
+
+construction
+
+business
+
+-
+market
+
+detached
+
+with their tendency
+
+-
+component
+
+-
+failure in
+
+interest in
+
+interest
+
+houses
+
+for risk avoidance
+
+suppliers not
+
+framing the
+
+the project
+
+not raised
+
+was seen to
+
+included in the
+
+“low-tech”
+
+decrease the
+
+development
+
+pathway as a
+
+predictability of
+
+phase
+
+solution
+
+building permit
+
+process
+
+Bubbling under:
+
+Landscape
+
+Bubbling under:
+
+Energy-efficient construction dominated
+
+-
+fear of potential negative
+
+change
+
+-
+dissatisfaction with lack of
+
+by mechanical design
+
+implications of homogenous
+
+outcome
+
+alternatives
+
+building stock
+
+For the path creation process, the Finnish Cultural Foundation had a clear vision of deviating from
+the existing ways of working in the construction sector. The problem the Foundation wanted to tackle
+had to do with the fact that while house manufacturers typically produce most of the detached houses,
+only a few of them are actually designed by architects. The Foundation wanted to create a new manner
+of co-operation between architects and house manufacturers. In addition, it did not want to restrict
+the sustainability of housing to just energy efficiency; housing should also take into account, for
+example, materials, building methods, lifespan, and support for sustainable lifestyles. This idea grew
+
+Sustainability 2015, 7
+8812
+
+more prominent during the project. As it became clear that the new legislation was going to force all
+new houses to be energy-efficient, the design requirements for the houses were modified. A new
+direction was found in organic houses. Organic design principles were seen as a means to approach
+sustainability more holistically rather than treating it simply as a question of energy efficiency. In
+Finland, many authorities, including the leading legislators, assumed that only mechanical design could
+achieve low-energy consumption and good indoor air quality simultaneously.
+The Finnish Cultural Foundation intended to establish the path for its project by engaging the house
+manufacturers to work with architects. The purpose was to cleverly introduce architectural values into
+industrial house manufacturing in a manner that would be acceptable and realistic enough to become a
+part of existing business models. Co-operation between architects and house manufacturers, however,
+did not work as well as planned. Only one team had a reasonable amount of mutual correspondence.
+Neither were the house manufacturers able to use the models in their production line. The other
+interesting factor was the decision to make the models free and available for both private and commercial
+use. The idea was to distribute the results of the project as widely as possible, thereby enabling the spread
+of knowledge. The project received strong support in the form of expert analysis on the feasibility of
+organic low-energy houses, which was used to help with attempts to influence regulators concerning
+energy efficiency legislation.
+The main barriers to path creation came from regulations and from the suspicions that the municipal
+building officials had about the organic design. Also, the unwillingness or inability of house manufacturers
+to innovate, the lack of industrial pre-manufactured elements, untested technical solutions, and timing
+hindered the establishment of a viable path creation process.
+The energy efficiency regulations attested to the implicit assumption that mechanical design should
+be the industry standard, hence the first regulations did not approve of organic low-energy housing. This
+was changed in the updated regulation. In general, experts in the field still viewed mechanical design as
+the correct way to construct a low-energy building. This view was made clear by the municipal building
+officials. In the publication event for the project, an official from Helsinki asked the project leaders
+whether they were aware that the organic design would not be compatible with the building code and,
+consequently, such houses would not receive building permits in Helsinki. Although this issue was
+resolved with officials in other municipalities, and organic houses are in fact now allowed, the incident
+shows the general suspicion towards organic low-energy houses in Finland.
+The reluctance of house manufacturers to take a more proactive approach in the process weakened
+the results. While the project initially piqued interest among house manufacturers, several possible
+participants soon backed off. The co-operation between architects and house manufacturers did not work
+as well as planned; only one architect-house manufacturer team co-operated enough to actually say the
+design was a result of teamwork, and yet even this design did not make it onto the market as such.
+The need to create new low-energy housing technology without having accredited testing methods
+damaged the credibility of the project. Also, the primary client withdrew from its planned role as
+developer and neither the Foundation nor the house manufacturers were willing to take responsibility
+should the houses need a renovation later on. This risk was left to the potential home owners, which hurt
+the demand for the houses; although potential home buyers were found, they withdrew when faced with
+this requirement.
+
+Sustainability 2015, 7
+8813
+
+Timing influenced the project. At the same time that the designs were being finished, mechanical
+design was getting more attention from other construction companies and gaining acceptance. Previously,
+the technical feasibility of the mechanical design had been under suspicion. However, now the question
+was whether it could even be possible to build low-energy houses without mechanical design.
+The landscape change outcome of the path creation attempt was that by the end of 2014, not a single
+industrially manufactured K3 house had yet been built. The Finnish Cultural Foundation’s aspirations
+for house manufacturers to take the initiative in building such homes after the launch of the designs was
+not realized. New means for building the first homes are still being sought, but it is obvious that as it
+stands, mechanical design is clearly the dominant pathway in low-energy housing in Finland.
+
+5.3. Comparison of the Cases
+
+Why did the two path creation attempts have such different market outcomes despite their proven
+technological functionality and demand? In this section, we outline and discuss the differences between
+the two cases in order to answer that question.
+Although the initial conditions were the same, some distinctions about the importance of different
+factors can be made. Major differences in the beginning stages had to do with the fact that MeraReponen
+project was motivated more by the trend of rising fuel prices. The K3 project was motivated more by the
+aspiration to produce beautiful, sustainable, and reasonably priced houses. Also, the low-energy technology
+used in the MeraReponen project case had been researched for a long time by the personnel at the VTT
+Technical Research Centre before there was any market interest in commercializing the technology. In
+contrast, the K3 project relied more on good professional design practices.
+The path creation process in both projects originated from an idea by key agents. A niche then formed
+around these agents. The differences between the projects lies more in the fact that the MeraReponen
+niche formed around pure business actors, whereas in the K3 case, the niche formed around a private trust
+dedicated to promoting art and science, (Finnish Cultural Foundation). Also, although it was the intention of
+the Finnish Cultural Foundation that detached houses would become a profitable business for the
+companies involved, pushing forward its vision of sustainability could have been emphasized more.
+Interestingly, despite some mutual challenges like getting the industry actors interested, most of the
+factors that supported the MeraReponen project had the opposite effect on the K3 project. The K3 project
+also lacked some critical elements, such as a tangible demo building. The contradictions between the
+path establishment processes and obstacles to path establishment in the MeraReponen and K3 projects
+are illustrated in Table 4.
+The landscape outcome for low-energy housing is that the mechanical design used in the MeraReponen
+project has become dominant in the field and is currently the main model for how to build low-energy
+houses. There are still some supporters for the organic design proposed in the K3 project who fear that
+the dominance of just one solution will lead to a lack of alternatives in building stock. Total homogeneity
+is considered a poor result since, if technical problems were to arise in the long run, it would then affect
+all new buildings.
+
+Sustainability 2015, 7
+8814
+
+Table 4. A comparison of the path establishment process in the MeraReponen case and
+corresponding path creation barriers in the K3 case.
+
+MeraReponen Case Path Establishment
+K3 Case Barriers to Path Establishment
+
+Demo house
+-
+proving the economic and technical soundness of
+low-energy buildings
+-
+creating market interest
+
+No demo house
+-
+untested technical solutions
+-
+market interest not raised
+
+No production lines established
+-
+house manufacturers hesitate to invest in
+development activities
+-
+component suppliers not included in development phase
+
+Production lines established for
+low-energy elements
+-
+Construction becomes more simple and economic
+
+Environmental policies emphasize urban density
+-
+favors apartment houses
+Environmental policies emphasize urban density
+-
+disfavors detached houses
+
+Building code requirements for good energy and
+indoor performance are easier to demonstrate with
+mechanical design
+-
+increased predictability of building
+permit process
+
+Building code requirements for good energy and indoor
+performance are easier to demonstrate with mechanical design
+-
+autonomy and responsibility of municipal building officials
+combined with their tendency for risk avoidance reduced
+the predictability of the building permit process
+
+Timing: increasing attention to climate change makes
+energy efficiency a priority in construction
+-
+success in framing the “high-tech” pathway as the
+solution
+-
+followers enter the market
+
+Timing: increasing attention to climate change makes energy
+efficiency a priority in construction
+-
+failure in framing the “low-tech” pathway as a solution
+
+6. Results
+
+In this paper, we have explored two innovation projects in energy-efficient housing. Despite both
+being developed in the same context, their outcomes were strikingly different. The comparison of these
+two innovation projects as path creation processes give some valuable insights on construction innovation.
+The results highlight two issues that were crucial to the market success of these innovations: one of a
+systemic nature and the other concerning innovation management.
+First, the institutional context and its changes during the innovation projects affected the outcome:
+path creation was either helped or hindered by the regulatory environment. The development of energy
+efficiency regulations and the dominant technological trajectory of low-energy houses are interdependent.
+It seems that while supporting the trajectory of the innovation developed in the first case, regulators
+created virtually insurmountable cognitive and normative obstacles to finding alternative technological
+pathways. This was clearly shown by how the building regulations that came into force during the
+projects did not support the organic design pathway that was developed in the K3 project. Although the
+current legislation explicitly mentions the possibility for organic design in housing, the use of natural
+ventilation and structures without vapor barriers is inhibited due to the vagueness of the methods in
+demonstrating the feasibility of such an option. The issue is left to the individual judgment of municipal
+building officials, thus decreasing the predictability of building permit decisions. Furthermore, the
+previous version of the legislation, which was in force between 2008 and 2010, was even less receptive
+to organic design, rendering the technology impossible to use in low-energy houses. It helped the
+
+Sustainability 2015, 7
+8815
+
+mechanical design pathway become more established in the MeraReponen project and provided a clear
+sign to the industry regarding what kind of innovations policy-makers value.
+Second, this study confirms the results of previous research in that significance of proof of concepts
+for new housing innovations cannot be underestimated [49,50]. The importance of a pilot project lies
+not only in showcasing and testing the technology, but also in its ability to increase political support,
+investments, and public awareness. While the difference in the outcomes of the two projects was largely
+influenced by the operating environment, differences in how the projects were managed also played an
+important role. The lack of a pilot organic house clearly affected the outcome and hindered the
+commercialization of the K3 project. It created a marketing problem since there was no showcase example
+and no one was eager to take on the role of the pioneer. Although the models made created interest in
+potential buyers, this did not materialize into something more since neither the house manufacturers nor
+the customers wanted to assume full responsibility for possible future renovation work had the
+technology not worked. In the MeraReponen project, the whole process was designed with the aim of
+creating actual buildings. This aim was guaranteed by applying for financial help from both Tekes and Ara.
+Interestingly, leadership, resources and capabilities of the organizations did not seem to be crucial in
+undermining the success of the K3 project. The interviewees thanked the Finnish Cultural Foundation
+for its vision and efforts to push the project forward and for bringing the project participants together.
+The financial support that the Finnish Cultural Foundation gave to the project was substantial and made
+the project feasible. Despite some problems the architects and house manufacturers had in their co-operation,
+all models were finalized on paper. It was only in the latest phases of the project when the biggest
+obstacles—building regulations and the lacking of a demo house—started undermining its potency.
+
+7. Discussion
+
+This paper broadens the scope of research on energy-efficient buildings beyond the technical sphere
+through an in-depth comparative analysis of two innovation projects from the development phase to
+market introduction. The hybrid socio-economic theory of new path creation [24] was used to structure
+the comparison. The critical techno-economic and political success factors were analyzed to explain why
+two simultaneous innovation projects that had similar aims, operated in the same context, and produced
+technically sound, energy-efficient houses had completely different market outcomes.
+Although it is an empirical study in the Finnish context and the results are not transferable elsewhere
+as such, the study brings up some interesting practical as well as theoretical implications and questions.
+Firstly, it is clear that in both projects, active path creation was done and barriers raised by path
+dependency existed. Both of these projects clearly started as a result of the main actors adopting ideas
+for implementation, following the elements of innovation by Winch [25]. The leading actors thus played
+an important role in the processes. Based on our data, problems of management did not seem to be an
+issue in either of the projects. In both projects, the leading actors took responsibility for the projects and
+ensured that the process went forward. That said, the project network in the K3 project was more
+top-down led than the MeraReponen. Thus, further research on to what extent the difference in the
+organization of project networks influences innovation processes could be supported.
+Also, the negative impact that the regulations had on the innovation process in the case K3 raises the
+question: how should project participants and especially those in leading positions react to these kinds
+
+Sustainability 2015, 7
+8816
+
+of path creation barriers, and what possibilities are there for action? In the K3 case, attempts to influence
+the regulations existed, and later regulations made their model feasible, though it was still more
+complicated to put into practice than the mechanical version. Perhaps they would have been more
+successful had they not insisted on having the natural ventilation without vapor barriers. Alternatively,
+they could have been more active in influencing the regulations earlier on in the process. It is also
+possible that lobbying or partnering with influential opinion leaders more actively would have helped.
+While these are issues that cannot be answered based on this study, it is clear that the analysis of
+which barriers can be overcome and how is important. It has been reported that collective action [51,52]
+can be used to gain support for certain technologies. Further studies on how these types of regulative
+barriers could be overcome, especially in highly regulated fields, could be supported. Also, a further
+analysis on the debates on the energy efficiency regulations, political interests and power relations
+between the industrial and political actors could shed more light on which actors influence the innovation
+environment and how. It is also interesting that neither of the leading organizations in the two ambitious
+innovation projects is a big player in the construction industry. The leader in the MeraReponen project
+was a medium-sized company while the leading actor of the K3 project was not even a usual actor in the
+field. On the one hand, the role of the Finnish Cultural Foundation as a construction industry innovator
+can be questioned: Would the project have been more successful had the leader been more business
+oriented? On the other hand, it is likely that the organic design pathway for low-energy houses would
+never have been created without the Foundation. Also, as a non-profit organization and an outsider to
+the industry, the Foundation was a more patient innovator without the need for an instant economic win.
+Further research on the actions of the bigger players in the construction industry might shed more light
+on the reasons why the bigger players were not active in this role and give further insights on the barriers
+of energy-efficient housing innovations. That said, it can be noted that the barriers identified in this study
+do reflect similar issues than previous research in other countries [18,19]. Usually though the barriers
+are created by missing regulations, not because of regulations which impede the development of
+alternative modes of reaching the energy efficiency.
+In this study, we chose to focus our analysis on the path creation processes and its barriers, which
+highlighted the institutional context. However, this approach leaves the perspective of the users
+and their innovation adoption uncovered. Further research could seek to answer whether differences
+in the energy efficiency techniques influence how energy-efficient houses are welcomed by home
+buyers. The innovation diffusion model of Rogers could also be used to track the pace of adoption of
+energy-efficient construction in Finland.
+Policy makers have been noted to play a crucial role for the introduction of highly-efficient housing,
+and there have been demands from the research field for more policy-push in this field [19]. In the cases
+studied in this article, policy acted as an enabler for one case but restricted action in the other case. This
+leads to the conclusion that while policies can promote construction innovations, policy makers should
+be more aware of how their specific actions affect industry innovations. Also, even if they improve the
+energy efficiency of housing, energy performance regulations can sometimes merely result in the
+development of incremental innovations [53]. Before implementing policies, evaluation of possible
+effects on innovations should be conducted. Approaches from transition studies and strategic niche
+management could be employed to create coherent strategies for purposeful and planned transition to
+sustainable housing.
+
+Sustainability 2015, 7
+8817
+
+The implications of these findings for low-energy housing in the future are interesting. Sustainability
+within the construction industry now primarily has to do with energy efficiency. However, the ways in
+which technologies are valued from an environmental standpoint are time bound and can change [54].
+Mechanical design has proven to be effective in efforts to increase energy efficiency. However, should
+the meaning of sustainability change and become more concerned with the carbon footprint during the
+entire lifecycle of buildings, organic design might become a much more appealing alternative.
+Legislation that creates pressure to use a specific technology for a general end has a negative effect on
+the development and availability of options. For example, Williamson et al. [55] have noted that in
+Australia the regulations encouraged a generic model for low-energy housing. This generic model did
+not, however, meet the occupants’ expectations nor did it suit their behavior. Also, the projected energy
+consumption of the dwellings was not successfully predicted. Thus, the diversification of low-energy
+housing technologies may be beneficial.
+Whether the designs produced in the K3 project will promote diversification in the long run remains
+to be seen. The analysis of the path creation process would benefit from a follow-up study. Other scholars
+have argued that alternative paths can exist within an industry even when a dominant path has already
+been established [35]. A further examination of the Finnish housing industry in the future could show
+whether one of these two paths to low-energy housing will remain dominant, whether they will shape
+the construction industry together, or whether some other solutions will replace them both.
+The study implies that the success of low-energy construction seems to depend heavily on the innovation
+capability of the industry and policymakers. The industry has to learn how to create successful partner
+networks around its new low-energy solutions that contain, e.g., ecosystems. Similarly, public authorities
+have to learn to understand the interlinked ecosystem-level consequences of their actions aimed at
+promoting a low-energy future. Finally, low-energy construction seems to be the next great challenge,
+one where genuine co-operation between the industry, public authorities, and academia is a prerequisite
+for the success of the cause.
+
+Acknowledgments
+
+The authors thank Tekes—the Finnish Funding Agency for Technology and Innovation—for research
+funding. The views expressed by the authors do not necessarily reflect those of the funders.
+
+Author Contributions
+
+Pia Pässilä is the primary author. She was primarily responsible for initiating the work; for the
+acquisition, analysis and interpretation of the data; and for writing the paper. Lauri Pulkka made a
+substantial contribution to the acquisition, analysis, and interpretation of the data and to drafting and
+reviewing the manuscript. Seppo Junnila contributed substantially to the interpretation of the data and
+to reviewing the content of the work. All authors have read and approved the final manuscript.
+
+Conflicts of Interest
+
+The authors declare no conflicts of interest.
+
+Sustainability 2015, 7
+8818
+
+Appendix
+
+Table A1. Data used for the MeraReponen case.
+
+Source
+Details
+5 interviews
+- the CEO of the Reponen Company: He had an active role
+heading up the project, as he started as CEO the same year the
+company decided to start developing the low-energy
+business idea
+- the development manager at Skaala Company (provided the
+windows for the low-energy building)
+- CEO of SPU (firm providing the insulation material for the low-
+energy building)
+- an expert at VTT who had a long career at VTT and participated
+in many low-energy housing projects
+- a technology expert from Tekes
+
+Interviews were conducted during
+2009–2010. They vary from 100 to
+130 min in duration. The interviews
+were recorded and transcribed
+
+Written documents
+- Saari, Mikko: Builder’s low energy choices in a building block.
+Presentation at the builder’s climate and energy seminar in 2008
+- Presentation of Jyri Jaskari, Skaala windows and doors at the
+Hospital Technic Days on the 4th and 5th of February, 2009
+- Saari, Mikko. (2008): Passive House. What is it and how can it
+be done? Presentation at the Housing and Climate Change
+Seminar. Helsinki
+- Building Block 2000. Live better—research project. House that
+saves energy is also healthy. “Article in journal Talotekniikka,
+May 1997, pp. 32–34
+- Building low-energy houses is simple. Article by Tiina Tähtinen
+in journal Electricity and Heat. 1994
+- Martinkauppi, Kirsi (edit.): ERA17 Final report. Ministry of
+Environment, Sitra Tekes. 2001.
+
+Table A2. MeraReponen project partners.
+
+MeraReponen Partners
+Name of the partner
+Role
+
+Reponen Company
+Leader of the projects, a fairly small actor in the Finnish
+construction industry which employs circa 60 people
+VTT Technical Research Centre
+A large professional research institute
+Skaala
+Manufacturer of windows
+SPU
+Manufacturer of insulators
+Meptek Oy (Swegon ILTO Oy)
+Manufacturer of air-conditioning units
+
+LS Laatuseinä
+Wall elements. Has partnered with Reponen company
+already in previous projects
+
+The School of Applied Sciences in Mikkeli
+Role in both adding to the knowledge base as well as
+learning more it. Educational cooperation
+Finnish Youth Housing Association (NAL)
+Owner of the first building block
+
+Sustainability 2015, 7
+8819
+
+Table A3. Description of the data for the K3 case.
+
+Source
+Details
+7 interviews
+- the Secretary General of the Finnish Cultural
+Foundation
+- both project managers
+- two external members of the initiative’s
+steering group
+- one architecture firm
+- one house manufacturing firm
+
+Interviews were conducted mainly in late 2013. They
+vary from 25 to 110 min in duration. The interviews
+were recorded and transcribed
+
+The confidential reports were made available by two
+different interviewees. The preliminary report offers a
+detailed account of the original idea and the plan for
+how to implement it. The assessment report consists
+of two parts, a chronological record of events and a
+subjective evaluation of the initiative from the
+Foundation’s perspective.
+The Foundation has published the publicly available
+documents on its website with the exception of an
+article published in a popular journal. Technical
+reports and the assessment of the first-round designs
+were produced by building and HPAC experts. The
+article about K3 houses was written by the former
+communications manager of the Confederation of
+Finnish Construction Industries
+
+Confidential documents
+- Preliminary report on the relevance,
+implementation, and challenges of the initiative
+by a consultant in 2008 (17 pp.)
+- Project assessment report by the Foundation in
+2013 (7 pp.)
+Publicly available documents
+- Technical report on organic design (65 pp.)
+- Design guidelines for architects (2 pp.)
+- Assessment report of the first-round designs
+(21 pp.)
+- Comment on proposed building regulation by
+the Foundation (4 pp.)
+- Article about K3 houses in popular media (6 pp.)
+- Initiative website
+
+References
+
+1.
+Council of the European Union. Energy/Climate Change—Elements of the Final Compromise;
+Council of the European Union: Brussels, Belgium, 2008.
+2.
+The European Commission. Communication from the Commission to the European Parliament, the
+Council, the European Economic and Social Committee and the Committee of the Regions: A
+Policy Framework for Climate and Energy in the Period from 2020 to 2030. Available online:
+http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52014DC0015&from=EN
+(accessed on 29 June 2015).
+3.
+The European Parliament and the Council. Directive 2010/31/EU of the European Parliament and
+of the Council of 19 May 2010 on the Energy Performance of Buildings. Available online: http://eur-
+lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32010L0031 (accessed on 29 June 2015).
+4.
+The European Parliament and the Council. Directive 2012/27/EU of the European Parliament and
+of the Council of 25 October 2012 on Energy Efficiency, Amending Directives 2009/125/EC and
+2010/30/EU and Repealing Directives 2004/8/EC and 2006/32/EC. Available online: http://eur-
+lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2012:315:0001:0056:en:PDF (accessed on 29
+June 2015).
+
+Sustainability 2015, 7
+8820
+
+5.
+Loikkanen, T.; Hyvönen, J. Sectoral Innovation Watch-Construction Sector; Innova European
+Commission: Espoo, Finland, 2011.
+6.
+Finlex. Finlex. Laki Rakennuksen Energiatodistuksesta. Available online: http://www.finlex.fi/fi/
+laki/alkup/2007/20070487 (accessed on 30 June 2015). (In Finnish)
+7.
+Ministry of the Environment. D3 Suomen rakentamismääräyskokoelma. Rakennusten
+Energiatehokkuus. Available online: http://www.finlex.fi/data/normit/34165-D3-2010_suomi_22-
+12-2008.pdf (accessed on 29 June 2015). (In Finnish)
+8.
+Ministry of the Environment. Rakennusten Energiatehokkuus. Määräykset Ja Ohjeet 2012.
+Available online: http://www.finlex.fi/data/normit/37188-D3-2012_Suomi.pdf (accessed on 29
+June 2015). (In Finnish)
+9.
+Jussila, V. VTT: Järkevästi Tehty Matalaenergiatalo ei Ole Homeriski (Soundly Made Low-Energy
+House Not Prone to Moisture Damages); Tekniikka ja Talous Magazine: Helsinki, Finland, 2008.
+(In Finnish)
+10. Törmänen, E. Matalaenergiatalot Ovat Homepommeja? (Are Low-Energy Houses Prone to
+Moisture Damages?); Tekniikka ja Talous Magazine: Helsinki, Finland, 2008. (In Finnish)
+11. Gunner, A.; Hultmark, G.; Vorre, A.; Afshari, A.; Bergsøe, N.C. Energy-Saving Potential of a Novel
+Ventilation System with Decentralised Fans in an Office Building. Energy Build. 2014, 84, 360–366.
+12. El Fouih, Y.; Stabat, P.; Rivière, P.; Hoang, P.; Archambault, V. Adequacy of Air-to-Air Heat Recovery
+Ventilation Syste Applied in Low Energy Buildings. Energy Build. 2012, 54, 29–39.
+13. Guerra-Santin, O.; Tweed, C.; Jenkins, H.; Jiang, S. Monitoring the Performance of Low Energy
+Dwellings: Two UK Case Studies. Energy Build. 2013, 64, 32–40.
+14. Persson, J.; Grönkvist, S. Drivers for and Barriers to Low-Energy Buildings in Sweden. J. Clean. Prod.
+2014, doi:10.1016/j.jclepro.2014.09.094.
+15. Ryghaug, M.; Sørensen, K.H. How Energy Efficiency Fails in the Building Industry. Energy Policy
+2009, 37, 984–991.
+16. Halme, M.; Nieminen, J.; Nykänen, E.; Sarvaranta, L.; Savonen, A. Business from Sustainability:
+Drivers for Energy Efficient Housing; VTT Otamedia: Espoo, Finland, 2005.
+17. Windapo, A.O. Examination of Green Building Drivers in the South African Construction Industry:
+Economics versus Ecology. Sustainability 2014, 6, 6088–6106.
+18. Haavik, T.; Mlecnik, E.; Rødsjø, A. From Demonstration Projects to Volume Market of Sustainable
+Construction. Energy Procedia 2012, 30, 1411–1421.
+19. Mlecnik, E. Innovation Development for Highly Energy-Efficient Housing. In Proceedings of the
+CIB International Conference on Construction in a Changing World, Sri Lanka, India, 4–7 May 2014.
+20. Mlecnik, E. Innovation Development for Highly Energy-Efficient Housing: Opportunities
+and Challenges Related to the Adoption of Passive Houses; IOS Press: Amsterdam,
+The Netherlands, 2013.
+21. Yin, R.K. Case Study Research: Design and Methods; Sage Publications: Thousand Oaks, CA,
+USA, 2013.
+22. Polkinghorne, D.E. Narrative Configuration in Qualitative Analysis. Int. J. Qual. Stud. Educ. 1995,
+8, 5–23.
+23. Simmie, J. Path Dependence and New Technological Path Creation in the Danish Wind Power
+Industry. Eur. Plan. Stud. 2012, 20, 753–772.
+
+Sustainability 2015, 7
+8821
+
+24. Simmie, J.; Sternberg, R.; Carpenter, J. New Technological Path Creation: Evidence from the
+British and German Wind Energy Industries. J. Evolut. Econ. 2014, 24, 875–904.
+25. Winch, G. Zephyrs of Creative Destruction: Understanding the Management of Innovation in
+Construction. Build. Res. Inf. 1998, 26, 268–279.
+26. Winch, G.M. How Innovative is Construction? Comparing Aggregated Data on Construction
+Innovation and Other Sectors—A Case of Apples and Pears. Constr. Manage. Econ. 2003, 21,
+651–654.
+27. Marceau, J.; Houghton, J.; Toner, P.; Manley, K.; Gerasimou, E.; Cook, N. Mapping the Building
+and Construction Product System in Australia; University of Western Sydney Macarthur: Sydney,
+NSW, Australia, 1999.
+28. Blayse, A.M.; Manley, K. Key Influences on Construction Innovation. Constr. Innov. 2004, 4,
+143–154.
+29. Dubois, A.; Gadde, L. The Construction Industry as a Loosely Coupled System: Implications for
+Productivity and Innovation. Constr. Manag. Econ. 2002, 20, 621–631.
+30. Law, J.; Gallon, M. The life and death of an aircraft: A network analysis of technical change.
+In Shaping Technology/Building Society: Studies in Sociotechnical Change; Bijker, W.E., Law, J.,
+Eds.; MIT Press: Cambridge, MA, USA, 1992; p. 21.
+31. Gann, D.M.; Salter, A. Learning and Innovation Management in Project-Based, Service-Enhanced
+Firms. Int. J. Innov. Manag. 1998, 2, 431–454.
+32. Lovio, R.; Mickwitz, P.; Heiskanen, E. 15 Path Dependence, Path Creation and Creative Destruction
+in the Evolution of Energy Systems. In The Handbook of Research on Energy Entrepreneurship;
+Edward Elgar Publishing: Cheltenham, UK, 2011; p. 274.
+33. Henderson, R.M.; Clark, K.B. Architectural Innovation: The Reconfiguration of Existing Product
+Technologies and the Failure of Established Firms. Adm. Sci. Q. 1990, 35, 9–30.
+34. Christensen, C.M.; Rosenbloom, R.S. Explaining the Attacker’s Advantage: Technological
+Paradigms, Organizational Dynamics, and the Value Network. Res. Policy 1995, 24, 233–257.
+35. Bergek, A.; Onufrey, K. Is One Path enough? Multiple Paths and Path Interaction as an Extension
+of Path Dependency Theory. Ind. Corp. Chang. 2013, doi: 10.1093/icc/dtt040.
+36. Garud, R.; Karnøe, P. Path Creation as a Process of Mindful Deviation. Path Depend. Creat.
+2001, 138, 1–38.
+37. Garud, R.; Kumaraswamy, A.; Karnøe, P. Path Dependence or Path Creation? J. Manag. Stud. 2010,
+47, 760–774.
+38. Rogers, E.M. Diffusion of Innovations; Simon and Schuster: New York, NY, USA, 2010.
+39. Geels, F.W.; Schot, J. Typology of sociotechnical transition pathways. Res. Policy 2007, 36, 399–417.
+40. Smith, A.; Stirling, A.; Berkhout, F. The governance of sustainable socio-technical transitions. Res.
+Policy 2005, 34, 1491–1510.
+41. Kemp, R.; Schot, J.; Hoogma, R. Regime Shifts to Sustainability through Processes of Niche
+Formation: The Approach of Strategic Niche Management. Technol. Anal. Strateg. Manag. 1998,
+10, 175–195.
+42. Schot, J.; Geels, F.W. Strategic niche management and sustainable innovation journeys: Theory,
+findings, research agenda, and policy. Technol. Anal. Strateg. Manag. 2008, 20, 537–554.
+
+Sustainability 2015, 7
+8822
+
+43. Törmänen,
+E.;
+Repo,
+H.
+Asuntojen
+Energiankulutus
+Vähenee.
+Available
+online:
+http://www.tekniikkatalous.fi/tekniikka/rakennus/2007-11-21/Asuntojen-energiankulutus-
+v%C3%A4henee-3296522.html (accessed on 21 June 2015) (In Finnish).
+44. Pulkka, L.; Junnila, S. Old-Technology Twist to Sustainability Innovation in the Construction
+Industry: Case-Study of an NGO’s Low-Tech Alternative for Energy Efficient Housing in Finland.
+In Proceedings of the CIB International Conference on Construction in a Changing World,
+Heritance Kandalama, Sri Lanka, 4–7 May 2014.
+45. Dulaimi, M.F.; Ling, Y.Y.F.; Ofori, G.; Silva, N.D. Enhancing Integration and Innovation in
+Construction. Build. Res. Inf. 2002, 30, 237–247.
+46. Kyrö, R.; Heinonen, J.; Säynäjoki, A.; Junnila, S. Occupants have Little Influence on the overall
+Energy Consumption in District Heated Apartment Buildings. Energy Build. 2011, 43, 3484–3490.
+47. Christersson, M.; Säynäjoki, A.; Vimpari, J.; Junnila, S. Assessment of Financial and
+Environmental Potential of a Real Estate Energy Efficiency Investment. In Proceedings of the 2014
+CIB International Council for Research and Innovation in Building and Construction, Heritance
+Kandalama, Sri Lanka, 4–7 May 2014.
+48. The European Parliament and the Council. Directive 2002/91/EC of the European Parliament and
+of the Council of 16 December 2002 on the Energy Performance of Buildings. Available online:
+http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32002L0091 (accessed on 30 June 2015).
+49. Femenias, P. Demonstration Projects for Sustainable Building: Towards a Strategy for Sustainable
+Development in the Building Sector Based on Swedish and Dutch Experience; Chalmers University
+of Technology: Gothenburg, Sweden, 2004.
+50. Van Hal, A. Beyond the Demonstration Project: The Diffusion of Environmental Innovations in
+Housing. Ph.D. Thesis, Technische Universiteit Delft, Delft, The Netherland, October 2000.
+51. Dowell, G.; Swaminathan, A.; Wade, J. Pretty Pictures and Ugly Scenes: Political and Technological
+Maneuvers in High Definition Television. Adv. Strategic Manag. 2002, 19, 97–134.
+52. Hargrave, T.J.; van de Ven A.H. A Collective Action Model of Institutional Innovation. Acad.
+Manag. Rev. 2006, 31, 864–888.
+53. Beerepoot, M.; Beerepoot, N. Government Regulation as an Impetus for Innovation: Evidence from
+Energy Performance Regulation in the Dutch Residential Building Sector. Energy Policy 2007, 35,
+4812–4825.
+54. Kivimaa, P. The Innovation Effects of Environmental Policies: Linking Policies, Companies and
+Innovations in the Nordic Pulp and Paper Industry; Helsinki School of Economics: Helsinki,
+Finland, 2008.
+55. Williamson, T.; Soebarto, V.; Radford, A. Comfort and Energy use in Five Australian
+Award-Winning Houses: Regulated, Measured and Perceived. Build. Res. Inf. 2010, 38, 509–529.
+
+© 2015 by the authors; licensee MDPI, Basel, Switzerland. This article is an open access article
+distributed under the terms and conditions of the Creative Commons Attribution license
+(http://creativecommons.org/licenses/by/4.0/).

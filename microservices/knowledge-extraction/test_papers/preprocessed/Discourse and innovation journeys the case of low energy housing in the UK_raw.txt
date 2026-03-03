@@ -1,0 +1,1115 @@
+Technology Analysis & Strategic Management
+
+ISSN: 0953-7325 (Print) 1465-3990 (Online) Journal homepage: www.tandfonline.com/journals/ctas20
+
+Discourse and innovation journeys: the case of
+low energy housing in the UK
+
+Heather Lovell
+
+To cite this article: Heather Lovell (2008) Discourse and innovation journeys: the case of low
+energy housing in the UK, Technology Analysis & Strategic Management, 20:5, 613-632, DOI:
+10.1080/09537320802292883
+
+To link to this article:  https://doi.org/10.1080/09537320802292883
+
+Published online: 27 Oct 2008.
+
+Submit your article to this journal
+
+Article views: 1455
+
+View related articles
+
+Citing articles: 5 View citing articles
+
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=ctas20
+
+Technology Analysis & Strategic Management
+Vol. 20, No. 5, September 2008, 613–632
+
+Discourse and innovation journeys: the case
+of low energy housing in the UK
+
+Heather Lovell∗
+
+Centre for the Study of Environmental Change and Sustainability (CECS), School of Geosciences, University of
+Edinburgh, UK
+
+The paper examines the role of discourse in innovation journeys using the example of low
+energy housing in the UK. Discourse is shown to be inﬂuential within innovation journeys in
+two main ways: ﬁrst, discourse unites the often disparate organisations involved in innovation,
+and thereby gives structure and direction to the innovation journey; second, discourse has the
+power to retrospectively ‘reframe’the course of an innovation journey, leaving out inconsistent
+parts and ignoring twists and turns, so past innovation journeys are in effect reconstructed in
+the present. This discursive remapping of innovation journeys has implications for current and
+future pathways of innovation. Further, there is a two-way relationship between discourse and
+technology development. It is discussed how pioneering low energy housing developments
+have themselves become a signiﬁcant part of low carbon housing discourse, acting as powerful
+‘storylines’.
+
+Keywords:
+discourse coalitions; innovation journeys; low energy housing; climate change;
+framing; storylines
+
+Introduction
+
+The main objective of the paper is to assess the key processes, mechanisms and patterns in an
+innovation journey from a discourse analysis perspective, using the case of low energy housing in
+the UK. Discourse analysis incorporates a large literature (see Dryzek 1997; Sharp and Richardson
+2001 for an overview), and for this reason the paper focuses on two key discursive processes within
+the UK low energy housing innovation journey: ﬁrst, the emergence of a network of actors united
+by language about climate change, a low carbon housing discourse coalition (Hajer 1995); and
+second, the framing and reframing of innovations as solutions to different policy problems (Laws
+and Rein 2003; Rein and Schon 1993). It is shown how discourse is particularly important during
+the developmental stage of an innovation journey because once prototypes have been built, and
+innovations are in the public arena and have a visible material presence, it becomes possible for
+organisations not involved in the initiation stage of an innovation journey to try to claim ownership
+of the innovation through discursively reframing it to meet their objectives.
+
+∗Email: heather.lovell@ed.ac.uk
+
+ISSN 0953-7325 print/ISSN 1465-3990 online
+© 2008 Taylor & Francis
+DOI: 10.1080/09537320802292883
+http://www.informaworld.com
+
+H. Lovell
+
+The role of discourse in innovation journeys has not been examined in detail, which is surprising
+because the notion of an innovation journey concerns ideas, people and relationships, and thereby
+has signiﬁcant overlap with discourse analysis, which concentrates on similar themes (Dryzek
+1997; Flyvbjerg 1998; Hastings 1999; Rydin 1999; Sharp and Richardson 2001). An innovation
+journey is deﬁned byVan deVen et al. (1999, 6) as ‘new ideas that are developed and implemented
+to achieve desired outcomes by people who engage in transactions (relationships) with others in
+changing institutional and organizational contexts’ (emphasis in original). It is argued here that
+the politics and power struggles highlighted through a focus on discourse are integral to the inno-
+vation process, and deserve more attention. Discourse both constrains and enables innovations,
+in particular through its role in simplifying the messiness of innovation journeys.
+An objective of the paper is therefore to broaden Van de Ven’s original approach to innovation
+journeys, which focused on corporations and discrete products (Van de Ven et al. 1999). The
+empirical focus of the paper is on the changing policy and socio-technical context within which
+a diverse group of technical and administrative low energy housing innovations developed in
+the UK from the 1970s to 2006–2007, including photovoltaic panels, solar design, insulation,
+wind turbines, micro-CHP plants, self-build housing, and new models of planning and designing
+housing. It is not the author’s intention to examine in detail the journey of each speciﬁc innovation.
+Rather, analysis concentrates on the inﬂuence of discourse on low energy housing innovations
+as a whole, as well as the effect of the low energy housing innovations themselves on discourse
+and policy. The paper explores how low energy housing innovations were initially developed
+and trialled in the UK within the sustainable housing movement during the 1970s. Sustainable
+housing – originally designed to meet a number of broadly deﬁned environmental and social
+objectives – became reframed more narrowly as ‘low carbon housing’ by a loosely associated
+group of policy actors – a discourse coalition – in the late 1990s as climate change rose up the
+UK policy agenda. The process of low carbon reframing has signiﬁcantly remapped the historical
+innovation journey, and this in turn has had a bearing on the contemporary pathway of low energy
+housing technologies.
+The analysis is based on a combination of interview and documentary evidence collated through
+a UK Economic and Social Research Council (ESRC) funded doctorate (2001–2005), and Post-
+doctoral Fellowship (2005–2007). Approximately 50 in-depth semi-structured interviews were
+conducted with a range of people involved in sustainable housing, climate change policy and
+low carbon technology innovation in the UK. Organisations interviewed included local and
+national government, sustainable housing groups, consultancies, Registered Social Landlords,
+non-governmental organisations, regional government agencies, architects, renewable energy
+ﬁrms, and private sector house builders. The interviews were transcribed and coded in order
+to identify key discourses. In addition, documentary evidence was compiled and analysed from
+a range of sources including government policy documents, housing and energy industry trade
+magazines, and the national press.
+The paper is structured as follows. First, the role of discourse in innovation journeys is assessed,
+and theories about discourse coalitions and discursive framing are introduced. Second, the UK
+low energy housing innovation journey is explored using a discourse analysis approach, from
+its early origins in the sustainable housing movement of the 1970s, to the later dominance of a
+low carbon housing discourse coalition centred on the problem of climate change. It is discussed
+how the low carbon discourse coalition has used ecologically modern discourse to promote the
+beneﬁts of low energy housing. At its simplest, ecological modernisation is the idea that there
+is no conﬂict between economic growth and protecting the environment because ‘smart’ green
+technologies can fulﬁl both objectives (Mol and Spaargaren 2000; Murphy 2000; Young 2000).
+
+Discourse and Innovation Journeys
+
+The metaphors or ‘storylines’ (after Hajer 1995) used by the low carbon discourse coalition to
+help explain and deﬁne their work hence have a strong technology focus. In conclusion, the author
+reﬂects on the strengths and limitations of discourse analysis to the innovation journey concept.
+
+The relationship between discourse and innovation journeys
+
+As mentioned, the role of discourse has not been explored in detail in the context of innovation
+journeys (see Van de Ven et al. 1999), so the key objective here is to highlight in what ways it
+might be relevant. It is argued that discourse is important in innovation journeys for two main
+reasons. First, it unites disparate actors involved in innovation, and thereby gives coherence
+to otherwise loosely co-ordinated, messy pathways of change: discourse gives structure to the
+innovation journey. Second, and related, discourse has the power to retrospectively change the
+course of innovation journeys; to ‘reframe’ the journey, simplifying it, reshaping or forgetting
+its origins, and ignoring twists and turns. As is shown to be the case with low energy housing,
+this retrospective remapping of past innovation journeys can affect the contemporary trajectory
+of innovations. These ideas are discussed with reference to two political science theories about
+discourse: discourse coalitions, and discursive framing.
+There is a long tradition in political science of theorising policy change as driven by networks
+of actors – termed policy networks – mixed groups of people involved in the policy process from
+government, corporations, the media and non-governmental organisations (Marsh and Rhodes
+1992; Sabatier 1999). Policy networks are an important inﬂuence on the direction and pace of
+innovation journeys because it is through these networks that decisions are made on issues such
+as the regulatory environment, grant funding and consumer markets for new innovations; factors
+all identiﬁed as critical to innovation journeys (Van de Ven et al. 1999). The policy network
+literature is large, and it is not my intention to discuss it in full here. Rather, I wish to concentrate
+on one particular type of policy network – the discourse coalition – and illustrate how discourse
+coalitions give structure to the messiness of innovation journeys. Members of discourse coalitions
+do not necessarily share the same values, rather they are driven by a variety of different aims and
+beliefs, and united instead by their shared use of language (Hajer 1995). The ‘glue’ that binds
+these actors is discourse – the way they talk about an issue and the metaphors or ‘storylines’ that
+they use. Storylines are deﬁned as ‘the essential discursive cement that creates communicative
+networks among actors with different or at best overlapping perceptions and understandings’
+(Hajer 1995, 63, emphasis added). Discourse coalitions are loose, ﬂuid networks and it is storylines
+that facilitate understanding between network members who do not otherwise have much in
+common.
+Discourse coalition theory was originally developed in relation to public policy debates, rather
+than private sector innovation (Flyvbjerg 1998; Sharp and Richardson 2001). There are hence
+some limitations in translating the concept to innovation journeys, but the concept of a discourse
+coalition was always designed to embrace a wide range of actors – including the private sector and
+non-governmental actors – not just government (Bulkeley 2000; Hajer 1995; Owens and Cowell
+2002). It is a broader, more inclusive concept than an industrial lobby, for example, and therefore
+more appropriate to the empirical case of low energy housing. Further, in this paper it is shown
+how the innovation journey of low energy housing has been closely connected with government
+and public policy as climate change has risen up the UK policy agenda, so the public policy origins
+of discourse coalition theory has relevance.
+Discursive framing concerns how new ideas are presented, and in particular how problems
+and solutions are simpliﬁed in order to make them understandable and amenable to debate,
+
+H. Lovell
+
+it is deﬁned as: ‘. . . a way of selecting, organising, interpreting and making sense of a complex
+reality to provide guideposts for knowing, analysing, persuading and acting’ (Rein and Schon
+1993, 146, emphasis added), or ‘a particular way of representing knowledge, and . . . the reliance
+on schemas that bound and order a chaotic situation, facilitate interpretation and provide a guide
+for doing and acting’ (Laws and Rein 2003, 173, emphasis added). Discursive frames are hence
+a critical inﬂuence on innovation journeys because of their role in neatening and simplifying
+individual innovation pathways, retrospectively making it appear that there was only ever one
+predeﬁned journey, when in reality there were multiple often overlapping innovation trajectories
+(Van de Ven et al. 1999). Framing sets the boundaries around an issue, or technology, and allows
+ownership of it by certain actors. It is thereby closely connected to the concept of a discourse
+coalition. There has been extensive academic debate about the relationship between discourse
+coalitions, frames and storylines, which is not appropriate to enter in detail here (see Rein and
+Schon 1993). For this analysis I assume that framing is a technique used by discourse coalitions
+to help deﬁne their boundaries of activity and lend coherence to their discourse. For example,
+it is discussed below how the low carbon housing discourse coalition draws on an ecologically
+modern discursive frame.
+Framing is usually discussed in terms of framing an emerging situation or issue as a problem,
+as follows:
+
+A frame is a perspective from which an amorphous, ill-deﬁned, problematic situation can be made
+sense of and acted on. (Rein and Schon 1993, 146, emphasis added)
+
+However, framing of solutions can also occur, and this is what happened with UK sustainable
+housing: existing technologies were retrospectively framed as a solution to new policy problems
+that emerged during the course of the innovation journey, most notably climate change. This type
+of reframing occurs most readily when an innovation is disseminated within the public domain,
+i.e. once it has a material presence – and thus is recognised and adopted by different organisations.
+In sum, considering ideas about discourse coalitions and discursive framing and reframing
+helps us to better recognise and acknowledge the non-linearity or ‘messiness’ of innovation
+journeys. Discourse acts to ﬁlter out and simplify seemingly irrelevant issues, technologies and
+ideas in order to create an effective, understandable message, thereby simplifying innovation
+journeys retrospectively. Analysts of innovation journeys must therefore play close attention to
+how discourse operates, especially to reinstating some of the complex dynamics of innovation
+journeys; a task turned to below.
+
+The UK low energy housing innovation journey
+
+This section is structured as follows. First, the origins of the low energy housing innovation journey
+in the 1970s are discussed, and a period of policy ﬂux during the late 1990s is explored when
+policy makers became interested in sustainable housing as a solution to a number of persistent
+policy problems. Second, the process of ‘low carbon’ reframing of existing low energy housing
+innovations is assessed: the low carbon discourse coalition is described, and it is shown how the
+coalition has simpliﬁed and remapped the past innovation journey of low energy housing through
+use of ecologically modern discourse. ‘Storylines’used by the discourse coalition about innovative
+housing developments – in particular two UK developments called BedZed and Hockerton – are
+critically assessed. These technology-based storylines have helped inspire further innovation and
+action, thereby speeding up and facilitating the innovation journey. However, there have been
+
+Discourse and Innovation Journeys
+
+some problems arising from the low carbon discourse coalition’s simpliﬁcation and remapping
+of the low energy housing innovation journey, especially the way in which it has largely ignored
+the social context in which the low energy housing innovations were originally developed.
+
+The 1970s: the early origins of UK sustainable housing
+
+A general pattern identiﬁed in the innovation journey of low energy housing is a shift from early
+stage innovation in the 1970s being dominated by a single close-knit network of people with
+shared environmental and social values (an ‘advocacy coalition’, see Sabatier and Jenkins Smith
+1993), to looser multiple networks of actors united by shared language – discourse coalitions –
+emerging during the 1990s. The case of low energy housing thus has parallels with other research
+regarding the professionalisation of environmental groups over time as new types of mainstream
+actor become involved once sustainable innovations are established (Lounsbury et al. 2003; Smith
+2007). The sustainable housing movement emerged in the early 1970s in the UK (Barton 2000;
+Chappells and Shove 2000; Smith et al. 1998), concurrent with an increased public awareness
+of environmental issues, and an upsurge in radical deep green environmentalism (Dryzek 1997;
+Porter and Brown 1996). Examples of sustainable housing developments from this period include
+the Centre for Alternative Technology (CAT) in Wales and the Findhorn Ecovillage in Scotland
+(CAT 1995; Findhorn Ecovillage 2003). Housing developments were typically broadly designed
+as a solution to a number of environmental and social problems, ranging from water pollution
+to fuel poverty (CAT 1995; Wood 1990). Innovation was not located within private companies
+but rather dispersed across a range of largely informal organisations and individuals, including
+community groups, non-governmental organisations, green architects and social entrepreneurs
+(see Chappells and Shove 2000; Lovell 2004; Smith 2004). Table 1 gives some examples of key
+organisations and individuals involved in sustainable housing during this early stage of innovation.
+The sustainable housing movement believed radical societal changes were necessary in order to
+achieve sustainable development, such as governance via small-scale self-sufﬁcient communities
+(Dobson 2000). Crucially, those involved perceived themselves as a social movement united by
+deep green environmental and social values (Lovell 2004; Smith 2003, 2004). Somewhat paradoxi-
+cally for this analysis, therefore, the ‘deep green’beliefs that united these early innovators centred
+on a rejection of a technical ﬁx to environmental problems, instead advocating a fundamental
+shift in attitudes and consciousness (Dobson 2000). Prototype household-level renewable energy
+technologies such as micro-hydro, wind turbines, wall and roof insulation, etc., were adopted
+primarily because they enabled this network of early innovators to fulﬁl their desire for autonomy
+from modern society (Wood 1990). However, as explained in an assessment of the history of the
+CAT development in Wales, there were a mix of views in the early sustainable housing movement
+about their role as innovators – the situation was not clear-cut:
+
+There was always a tension [at CAT] between those who wanted to raise a drawbridge to the outside
+world and those who believed that what they were doing was primarily to serve others. (Richard
+St George, co-founder of CAT, quoted in CAT 1995, 9)
+
+Nevertheless, despite this internal tension, these actors played an important role in the early
+development and testing of new low energy housing technologies (see BRECSU 1996; CAT
+1995; Wood 1990).
+Two issues about the relationship between discourse and innovation journeys are worth empha-
+sisinghere.First,thattheoriginalcontextinwhichlowenergyhousinginnovationsweredeveloped
+
+H. Lovell
+
+Table 1. Principle organisations involved in the UK sustainable housing movement in the 1970s.
+
+Name of actor
+Brief description
+
+Centre for Alternative Technology
+(CAT), Machynlleth, Wales
+1973+
+
+A community development in an old quarry site in rural Wales,
+established in 1973. It is a self built autonomous development
+(energy and water self sufﬁcient). It also operates as a sustainable
+housing education and resource centre, and runs residential
+courses (see CAT 1995). CAT publishes a quarterly sustainability
+magazine called Clean Slate
+
+Findhorn Ecovillage, Scotland
+1962+
+A self built community in rural Scotland. It was established in
+1962, and building on site started in the early 1970s. As with
+CAT, there is an education centre and residential courses (see
+Findhorn Ecovillage 2003)
+
+Communes Network and Diggers
+and Dreamers 1968+
+The Communes Network started as the Communes Movement in
+1968, founded by the Selene Community in Wales. Among other
+activities it produced a bi-monthly magazine The Communes
+Journal, which had a print run of 3000 copies. In 1975 it became
+the Communes Network, a more loosely connected organisation,
+which still operates informally today. Some members of the
+Communes Network have formed ‘Diggers and Dreamers’ –
+a self build community organisation which aims to help self
+builders to network, and to access information on self build
+housing (Dawling 1992)
+
+Undercurrents magazine 1972–early
+1980s
+Undercurrents was a radical environmental magazine published
+in the 1970s and early 1980s (commenced in 1972), and was
+regarded as the alternative movement’s journal during this
+period. Its subtitle was ‘the magazine of radical science and
+people’s technology’. It focused in particular on sustainable
+housing communities active during the 1970s
+
+Robert and Brenda Vale 1970s+
+The Vales’ both studied architecture at Cambridge University in the
+early 1970s, and in 1975 published ‘The Autonomous House’,
+an inﬂuential text for the sustainable housing movement. They
+subsequently built their own autonomous house in the village of
+Southwell in the East Midlands, UK, and were then the architects
+for the nearby Hockerton Housing Development. They remain
+active in the ﬁeld of sustainable and low energy housing
+
+and experimented with is very different to how they are used and promoted currently in the early
+twenty-ﬁrst century. Those using low energy innovations at the household and community scale
+in the 1970s were part of a radical ‘alternative’ social movement, united by strong values and a
+desire to be self-sufﬁcient (Chappells and Shove 2000; Dobson 2000; Lovell 2004; Smith 2004).
+The example of low energy housing illustrates the messiness and unpredictability of an innovation
+journey: those organisations and individuals involved at the early stages have not been a long-
+term feature of the innovation journey. Second, and related, the policy context in which these low
+energy housing innovations developed was very different to the contemporary situation. Energy
+efﬁciency and renewable energy were issues on the government’s policy agenda in the 1970s, but
+not because of climate change – which had yet to become widely recognised in policy circles –
+but largely because of fuel shortages and the OPEC oil crisis (see Toke 2000). So a low carbon –
+or even a low energy – innovation journey was not planned from the outset, those involved at the
+
+Discourse and Innovation Journeys
+
+time could not envisage where their activities might lead: the ﬁnal destination of the innovation
+journey was unknown. Innovations centred initially on a wide range of environmental and social
+issues, and it was only subsequently that low energy innovations were prioritised by other more
+mainstream organisations.
+
+The late 1990s: the reframing of sustainable housing
+
+During the late 1990s and turn of the century there was a growing interest in sustainable housing
+from mainstream organisations, in particular the UK government. There emerged during this
+period multiple discourse coalitions who framed sustainable housing as a solution to a number of
+policy problems, ranging from modernisation of the construction industry, to meeting the demand
+for new housing (see Table 2).
+The empirical material in Table 2 indicates how there were multiple possible innovation
+pathways at this point, centred on different innovations used in sustainable housing develop-
+ments, ranging from factory-based housing technologies (a solution within the ‘innovation in the
+construction industry’ discourse, see The Housing Forum 2001), to car sharing initiatives and
+housing without car parking (innovations adopted by the ‘trafﬁc congestion’ discourse coalition,
+see DEFRA 2000). In other words, there were a number of different directions the innovation
+journey could take, with a high degree of uncertainty and messiness. It is not my intention to
+imply here that none of these pathways were subsequently followed: in the early twenty-ﬁrst
+century sustainable housing continues to be framed as a solution to a number of policy problems
+in the UK, in particular construction industry modernisation and meeting the demand for new
+housing (see Barker 2004; ODPM 2003b). The situation is thus in keeping with the notion of
+a non-linear, contested innovation journey with multiple pathways. However, as climate change
+rose up the UK political agenda it was the low energy innovations that became the dominant
+focus of attention. Other pathways have subsequently been selectively ‘edited out’by low carbon
+discourse coalition, as explored below, because a clear uniting message was required to unite
+the low carbon discourse coalition, and any ‘messiness’ in the story of low energy housing,
+such as experimentation with other social and environmental innovations, was unhelpful in this
+regard.
+A critical inﬂuence on the low energy housing innovation journey during this period was that
+a reasonably large amount of sustainable housing already existed in the UK: the innovations
+had a material presence. Once an innovation has undergone the initiation stage of an innova-
+tion journey and is within the public domain it is more readily able to be discursively reframed
+in this way. Thus the material presence of the UK sustainable housing developments rendered
+them liable to ‘capture’ and discursive reframing (Lovell 2004). The developmental stage of
+an innovation journey – when working prototypes are within the public domain – is hence a
+critical period from a discourse analysis perspective because multiple future pathways for the
+innovations become possible as ownership of the technology is wrested from those actors orig-
+inally involved in its initiation. The prior material existence of innovations makes it appear that
+rapid progress has been made on an issue, and thus is particularly appealing in policy areas
+where there is a gap between government targets and actual policy achievements. The mate-
+rial presence of innovations also helps demonstrate that the new technologies work, and thus
+reduces risk for more mainstream institutions who wish to use them. Furthermore, it helps to
+ground rhetoric or discourse about a particular problem and thus lends the discourse coalition
+credibility.
+
+H. Lovell
+
+Technologies: ‘smart’ metering, prefabricated housing
+components, household renewable energy technologies,
+e.g. PV roof tiles
+
+Housing Developments: Greenwich Millennium Village,
+London; INTEGER housing projects at Maidenhead &
+Sandwell
+
+Technologies: low ‘e’ insulated windows, solar hot water
+systems, wall and roof insulation
+
+Policies: Speech by Construction Minister Brian Wilson
+April 2003 – green housing and housing sector
+modernisation (DTI 2003); The Housing Forum
+2001 Off Site Manufacture report – ‘Homing in on
+Excellence’
+
+Housing Developments: ‘Zed squared’ zero energy, zero
+waste development in the Thames Gateway; the West
+Stevenage development; Ashton Green, Leicester
+
+Poor quality of existing
+housing stock
+UK government; social housing organisations;
+local authorities.
+Policies: The Sustainable Communities ‘Pathﬁnder’
+Regeneration Areas; The 2003 Decent Homes policy;
+Urban Regeneration Companies
+
+Policies: The 2003 Sustainable Communities Plan; The
+Millennium Communities Programme; WWF One
+Million Sustainable Homes campaign
+
+Technologies: prefabricated housing components, high
+density design, community-level provision of utility
+systems (water, energy, waste)
+
+Housing Developments: inner city Tower Block
+refurbishment – e.g. Glastonbury House, Pimlico,
+London
+
+Policy problem sustainable housing
+Organisations involved
+Examples of policies, housing
+was framed as a solution to
+in framing
+developments and technologies
+
+Table 2. The framing of sustainable housing as a solution to different UK policy problems (adapted from Lovell (2004)).
+
+Meeting the demand for
+new housing
+UK government; private sector house builders;
+local authority planners; the Town &
+Country Planning Association; WWF.
+
+Lack of innovation in the
+construction industry
+UK government; government-funded housing
+innovation organisations (Rethinking
+Construction and the Housing Forum).
+
+Discourse and Innovation Journeys
+
+Meeting renewable energy
+generation targets
+Energy utilities; UK Government; renewable
+energy companies.
+Policies: The ‘Clear Skies’ community and household grant
+programme; the social housing Generating Solar Homes
+Programme
+
+Policies: The 2001 Fuel Poverty strategy; The 2003 Energy
+White Paper; The 2000 Home Energy Conservation Act
+
+Housing Developments: The Vales’Autonomous House;
+Hockerton Housing Development, Notts.; BedZed, south
+London; Greenwich Millennium Village
+
+Technologies: low ‘e’ insulated windows, solar hot water
+systems, wall and roof insulation, PV panels, small wind
+turbines, community and micro-CHP
+
+Technologies: low ‘e’ insulated windows, solar hot
+water systems, wall and roof insulation, community and
+micro-CHP
+
+Housing Developments: Boughton Energy Village,
+Newark and Sherwood District Council, East Midlands;
+Ravenscliffe, Bradford, North British Housing
+Association, 64 low energy timber frame houses
+
+Technologies: community electric car share schemes,
+high-density design, no car parking spaces for residents
+
+Technologies: solar hot water systems, PV panels, small
+wind turbines, community and micro-CHP
+
+Policies: The 2003 Energy White Paper; ‘Energy - The
+Changing Climate’. The UK Royal Commission on
+Environmental Pollution’s 22nd Report
+
+Housing Developments: Slateford Green, Edinburgh;
+BedZed, south London
+
+Housing Developments: North Nines, Edmonton,
+London; Sherwood Energy Village, East Midlands
+
+Policies: The UK Transport 10 Year Plan (2000)
+
+Fuel poverty
+Local authorities; government-funded energy
+efﬁciency advice centres; energy utilities;
+campaign organisations.
+
+Climate Change mitigation
+(‘low carbon’)
+Energy utilities; UK government; local
+authorities; Private sector house builders;
+social housing organisations; green
+architects; WWF.
+
+Trafﬁc congestion
+UK government; local authority planners;
+campaign organisations, e.g. Transport
+2000.
+
+H. Lovell
+
+The reframing of sustainable housing as a solution to climate change
+
+The remainder of the paper concentrates on how one particular discourse coalition active during
+the late 1990s – the low carbon discourse coalition – has come to dominate policy debate since the
+turn of the century (Turnpenny et al. 2005; Vidal 2006). Low energy housing innovations such as
+solar hot water heating systems, self build community schemes and passive solar design – initially
+developed and tested by the sustainable housing movement prior to the problem of climate change
+rising up the UK’s policy agenda – have become reframed as ‘low carbon’.
+The current UK climate change policy framework is brieﬂy introduced, followed by a discus-
+sion of how the discourse coalition has conducted low carbon framing using ecologically modern
+discourse. Technologies are an integral part of this discourse, and it is shown how certain sus-
+tainable housing developments have themselves become important low carbon ‘storylines’ (after
+Hajer 1995). The implications of the emergence of a UK low carbon discourse coalition for the
+innovation journey of low energy housing are considered. It is shown how the framing of sus-
+tainable housing as low carbon has speeded up the innovation journey of low energy household
+technologies. However, the narrowing of debate to focus on the energy aspects of sustainable
+housing has been contested, and some of the inconsistencies and difﬁculties in maintaining a
+coherent low carbon discourse are discussed.
+
+Climate change policy in the UK: an introduction
+
+Climate change has become an important policy problem within the UK and other industri-
+alised countries since it ﬁrst captured widespread public attention at the Rio 1992 Earth Summit
+(Bulkeley and Betsill 2003; Newell 2000). Since the turn of the century in particular climate
+change has risen dramatically up the UK’s policy agenda (House of Commons 2006; Stern 2006;
+Vidal 2006). Through the international Kyoto Protocol the UK Government is committed to
+reducing greenhouse gas emissions by 12.5% by the year 2012, and it also has a long-term
+legally binding goal to lower carbon emissions by 60% by 2050 through the 2006 Climate
+Change and Sustainable Energy Act (HM Government 2006). It has been suggested that dis-
+course structuration (after Hajer 1995, 60–61) has occurred with the issue of climate change
+in the UK, deﬁned as when a certain way of discussing an issue dominates policy discourse,
+such that those not using particular phrases or storylines risk losing credibility (see Turnpenny
+et al. 2005).
+Although the 2003 UK Energy White Paper reframed energy policy around the issue of climate
+change, in particular concentrating on the action required in the residential sector (DTI 2003), the
+government has since faced mounting criticism for its failure to make signiﬁcant progress in curb-
+ing emissions. For example, the government’s sustainability advisor, the Sustainable Development
+Commission, suggested that ‘. . . current methods of dealing with climate change are incompatible
+with the task at hand’(SDC 2006a, 6). In response to this criticism, and with growing evidence of
+the detrimental effects of climate change (IPCC 2007; NCAR 2006), the government introduced
+a raft of new climate change policies in 2005–2007, including a number of signiﬁcant initiatives
+to encourage the development of low carbon homes, such as relief from stamp duty (house sales
+tax) for zero carbon homes (HM Revenue & Customs 2007), a new national code for the sus-
+tainable design and construction of housing (the Code for Sustainable Homes), a pledge for all
+new housing in England and Wales to be zero carbon by the year 2016, and mandatory energy
+performance certiﬁcates for homes when they are sold (Communities and Local Government
+2006; Kelly 2006).
+
+Discourse and Innovation Journeys
+
+Yet, despite the development of UK climate change policy, there remains a shortage of politically
+acceptable solutions to the problem, thus leaving the government open to challenges of engaging
+in policy rhetoric rather than action. In other words, there is a gap between the UK government
+climate change targets, and the policies in place (RCEP 2000; SDC 2003). Thus there is a strong
+political drive for solutions: ‘ready-made’solutions such as sustainable housing are ideal, and the
+low carbon discourse coalition has been adept at framing low energy housing innovations in a
+way designed to appeal to policy makers.
+
+The low carbon housing discourse coalition
+
+The UK low carbon housing discourse coalition comprises a loosely connected group of organi-
+sations and individuals united through their use of shared language and ideas about solutions to
+climate change in the housing sector. There are some inherent difﬁculties in mapping members
+of the discourse coalition, because of its ﬂuid membership, but in general terms the low carbon
+coalition comprises three main types of organisation, those involved in domestic energy efﬁciency,
+renewable energy, and construction industry modernisation (see Table 3).
+The discursive ‘frame’ used by the low carbon discourse coalition – its way of describing and
+seeing the world that helps deﬁne its boundaries – is ecological modernisation; ‘the discourse
+that recognises the structural character of the environmental problematique, but none the less
+assumes that existing political, economic, and social institutions can internalise the care for the
+environment’ (Hajer 1995, 25). A central assertion of an ecologically modern approach is that
+economic growth is not incompatible with protecting the environment, a ‘win–win’scenario (Mol
+and Spaargaren 2000; Murphy 2000). There is also a strong focus on technology-based solutions
+to environmental problems (Christoff 2000). As Table 4 demonstrates, the low carbon housing
+discourse coalition has drawn heavily on these ecologically modern ideas.
+The ecologically modern discursive frame has been important to the innovation journey of low
+energy housing in a number of different ways. First, ecologically modern discourse has had strong
+appeal to policy makers because, as the examples in Table 4 demonstrate, it has presented low
+
+Table 3. Members of the UK low carbon housing discourse coalition.
+
+Core focus of innovation activities
+Examples of discourse coalition member organisations
+
+Domestic energy efﬁciency
+local authorities; the Building Research Establishment (BRE);
+Housing Associations and The Housing Corporation; the Energy
+Saving Trust (EST); energy utilities; Energy Efﬁciency Advice
+Centres; Department for Environment Food and Rural Affairs
+(DEFRA); Association for the Conservation of Energy (ACE);
+Ofﬁce of Communities and Local Government
+
+Renewable energy
+renewable energy companies (e.g. Solar Century); Regional
+DevelopmentAuthorities (RDAs); energy utilities; BRE; the Carbon
+Trust; DEFRA; the Renewable Power Association
+
+Construction industry
+modernisation
+Rethinking Construction (the Housing Forum); Ofﬁce of Communities
+and Local Government.; large private sector house builders
+(e.g. Countryside Properties, Laing); small private sector house
+builders (e.g. Greenﬁeld Way, Gusto Construction); BRE; English
+Partnerships (the Millennium Communities Programme); Housing
+Associations and The Housing Corporation
+
+H. Lovell
+
+Table 4. Examples of ecologically modern discourse used by the UK low carbon housing discourse coalition.
+
+‘Win–win’: no incompatibility between economic
+growth and environmental protection
+Technology-based solutions
+
+‘We try to promote passive [technologies], so
+that householders don’t even need to know
+that they’re making an environmental saving.’
+(Interview, sustainability manager in the social
+housing sector, June 2002)
+
+‘Government is seeking a partnership in the way we
+“de-carbonise”’ our building stock, involving all of
+the players in delivering greener, better buildings
+faster’ (DTI 2003). Extract from a speech by the
+Construction Minister, Brian Wilson, at the 2003
+Buildings Awards
+
+‘So what we’re trying to do on our [housing]
+developments is, its all in there, you buy the
+house and its there, you don’t have to think about
+it, you’re not even aware of it . . . . And all the
+technologies are put in in a way that you would
+be nuts to want to replace them with something
+else.’ (Interview, sustainable housing manager at
+an environmental charity, June 2002)
+
+‘the houses are more expensive because they are
+more popular, because it is a super place to live,
+well designed very attractive, low energy . . . .
+There will be a premium on the house prices so
+the [local] authority will get some of that back
+through each house that is sold off. So ultimately it
+will be self ﬁnancing.’ (Interview, a local authority
+manager responsible for planning a large low
+carbon housing development, December 2002)
+
+‘our overriding concern is to . . . encourage those
+yet to embrace the [sustainability] agenda that
+sustainable construction can be low or no-cost.’
+(The Housing Forum 2002, 2)
+
+‘[we’re] trying to come up with a lifestyle that makes
+it easier and more convenient to live a lower
+impact existence, than by using conventional
+alternatives. So what we’re saying is that if you’re
+prepared to work with the infrastructure we’ve
+provided, you can achieve really quite astonishing
+things. Its possible to live [at BedZed] and be
+pretty close to carbon neutrality.’ (Bill Dunster,
+Chief Architect of BedZed housing development,
+quoted in Lowenstein (2001, emphasis added))
+
+energy housing technologies as capable of mitigating climate change with no negative economic
+implications. This has helped speed up the innovation journey, encouraging the government to
+direct money and resources towards low energy housing through a number of government grants
+and policy initiatives (see for example DTI 2007; Energy Saving Trust 2007; HM Revenue &
+Customs 2007). Second, and related, the ecologically modern framing of low carbon discourse
+has been used partly as a way of distancing low energy housing technologies from the social
+and institutional context in which they were initially developed. The approach and language of
+the low carbon discourse coalition stands in strong contrast to the deep green values and beliefs
+of the original 1970s sustainable housing movement. In effect the socially ‘alternative’ origins
+of these technologies have been placed outside of the ecologically modern discursive frame, as
+part of an attempt to reorientate the past trajectory of the low energy housing innovation journey.
+Thus, for instance, the project developers of the UK BedZed housing development comment how
+‘BedZed is a long way from the hairshirt living that bedevils green living’ (Lowenstein 2001,
+16). It is notable though how BedZed’s architect also describes the development as having origins
+in the 1970s socially alternative bioregionalism movement (Lowenstein 2001b); the ecologically
+modern framing is not without tension and dispute.
+The key point here is about the power of discourse to retrospectively change the course of
+innovation journeys by mapping out different pathways and selectively editing the reasons for,
+and context of, original innovations. For instance, an ex-local authority energy manager in the
+
+Discourse and Innovation Journeys
+
+East Midlands, UK, describes shifts in discourse from energy conservation to climate change
+mitigation as follows:
+
+10 or 15 years ago [the local authority energy mangers’] jobs were to save energy, to save money.
+Over the past few years they have concentrated on saving carbon, it still saves energy, it still saves
+money, so they just package things differently. (Interview, December 2002).
+
+Similarly, another local authority energy manager in the East Midlands, who has been working
+on energy issues within local government for the last 25 years, explains his strategy for accessing
+funding through using different discourses:
+
+what happened then was that the government came back from Rio . . . and they said we’ll do a green
+house program in council housing. So we took our strategy and shoved it through the word processor
+. . . . So we developed this technique, as ﬂavour of the month changes, we took the same strategy and
+just reordered the priorities. So I secured about £2 million extra money through competitive bidding.
+(Interview, August 2002).
+
+People involved in sustainable housing innovation have therefore strategically reframed their
+activities using discourse as new policy issues have risen up the government’s agenda during the
+course of the innovation journey. These interview extracts also illustrate the dominance of ecolog-
+ically modern ideas within the low carbon discourse coalition, with no perceived incompatibility
+between economic growth and environmental protection.
+
+Sustainable housing developments as low carbon storylines
+
+The low carbon discourse coalition has used a number of ‘storylines’ to convey its ecologically
+modern message about solutions to climate change in the housing sector, including about smart
+housing and housing ‘lifecycles’(see Lovell 2004). The most relevant storyline to this discussion,
+because of its clear technology-focus, is about existing sustainable housing developments which
+have been reframed as ‘low carbon’by the discourse coalition. Analysis here concentrates on two
+especially high-proﬁle developments – the BedZed development in south London (BedZed 2001;
+BRECSU 2002), and the Hockerton Housing Project in the East Midlands, UK (BRECSU 2000;
+Vale 2001), which have become metaphors – short-hand discursive techniques – used by the low
+carbon discourse coalition. It is examined here how these storylines have inﬂuenced the innovation
+journey of UK low energy housing in terms of both technology and policy development.
+The sustainable housing developments of BedZed and Hockerton have had extensive coverage
+in specialist and general media, facilitated by their unusual, eye catching appearance (see Figures 1
+and 2). These two developments in particular have acquired almost a celebrity status, with much
+publicity in mainstream media, not just industry journals (Lovell 2007). The Beddington Zero
+Energy Development, or ‘BedZed’, is a housing development in south London; the outcome
+of a joint initiative between the architect Bill Dunster, the Peabody Trust (a Registered Social
+Landlord), and the environmental consultancy BioRegional Development Group (BRECSU 2002;
+Lowenstein 2001a). It comprises 82 homes; nearly half of which have been sold on the private
+market, and the remainder are social or low-income housing. BedZed comprises a number of
+sustainable innovations including an on-site combined heat and power plant, an electric car pool,
+rainwater tanks, and sedum grass roofs (BRECSU 2002). Hockerton is an earth-sheltered housing
+development near Newark in the East Midlands. The ﬁve terraced homes have no need for central
+heating: large conservatories collect heat from the sun, and the walls are very well-insulated.
+
+H. Lovell
+
+Figure 1. The BedZed housing development, London.
+
+Figure 2. Hockerton Housing Project, Hockerton.
+
+Electricity is provided by photovoltaic panels and a wind turbine, and all wastewater is treated
+on-site in a reed bed (BRECSU 2000). Both Hockerton and BedZed comprise a number of social
+or administrative innovations, ranging from the community leasehold at Hockerton to the electric
+car share scheme at BedZed. However, it is their technical energy innovations that have been
+prioritised by the low carbon discourse coalition, a point returned to below.
+BedZed and Hockerton have acted as a focal point for policy makers, uniting otherwise disparate
+actors, and thereby have created further opportunities for innovation.Table 5 gives examples of UK
+policy documents citing BedZed. Notably, the policy documents neglect to mention how BedZed
+emerged in the absence of signiﬁcant direct government support. The government has nevertheless
+attempted to associate itself with BedZed and claim ownership through frequent references to the
+development in policy discourse, and through site visits, including the launch of new policies
+
+Discourse and Innovation Journeys
+
+Table 5. Examples of UK policy documents citing BedZed.
+
+Policy document
+Reference to Bedzed
+
+Speech by Energy Minister Brian Wilson, February
+2002 (DTI 2003b)
+‘Demonstrations such as the developments . . .
+at BedZed . . . prove that the technologies are
+available to deliver practical systems’
+
+Royal Commission on Environmental Pollution,
+22nd Report: ‘Energy – Our Changing Climate’
+Has a case study box devoted to BedZed and describes
+it as: ‘the most ambitious low energy housing
+development in the UK to date’ (RCEP 2000, 105)
+
+Government Energy Efﬁciency Best Practice
+Programme – General Information Report no. 89
+‘. . . BedZed represent[s] state-of-the-art for
+sustainable housing in the UK’ (BRECSU 2002, 3)
+
+Double page picture spread (pp. 298–99)
+
+UK 2003: The Ofﬁcial Yearbook of the United
+Kingdom of Great Britain and Northern Ireland
+(The Stationery Ofﬁce, 2003)
+
+BedZed is cited as an example of a solution to climate
+change
+
+Environment Agency report – ‘Our Urban
+Future’, September 2002 (www.environment-
+agency.gov.uk)
+
+The Housing Corporation (2004)
+It is used as a model case study for Registered
+Social Landlords ‘. . . to show how sustainable
+development can be achieved’
+
+there. For example, Patricia Hewitt, the then UK Secretary for Trade and Industry, used BedZed
+as a location to announce a new government solar power initiative (DTI 2002). Similarly, the
+Liberal Democrat party leader visited because he ‘was making an environment announcement
+later that day and wanted a photo to go with any publicity’(BioRegional Communications Ofﬁcer
+2004, personal communication).
+Thestorylinesaboutthesetwohousingdevelopmentshavepromotedfurtherlowenergyhousing
+innovation, and thereby helped speed up the innovation journey, because their material existence
+has acted to convince others – government, business and householders – of the economic and
+technical feasibility of low carbon housing. As the project manager of the Hockerton housing
+project succinctly summarises:
+
+The most effective tool is the place and the fact that we are living in it. (Interview, Hockerton Project
+Manager, March 2003)
+
+In other words, the innovative dwellings literally lend substance to the discourse coalition’s
+arguments, and have helped sustainable housing to be viewed as a credible solution to climate
+change. Similarly, the authors of the Government-commissioned report about BedZed stress how
+the development represents:
+
+. . . a powerful argument for the feasibility of a zero-carbon target for all new build. (BRECSU
+2002, 11)
+
+and a housing policy ofﬁcer at a non-governmental organisation involved in sustainable housing
+describes how they have used BedZed to inﬂuence key decision makers in government:
+
+I think [exemplar projects] are invaluable for showing people what might be done. It is really great
+when we want to talk to people about sustainable housing – important people – we take them to
+
+H. Lovell
+
+BedZed . . . and to actually see it in action I think is very inspiring, rather than just talking about what
+it might look like. (Interview, Sustainable Homes co-ordinator at a national environmental NGO,
+May 2003)
+
+These technology-focused storylines thereby constitute a key element of the ecologically modern
+low carbon discourse used by the coalition. The interview extracts also illustrate how, with the
+rise of low carbon discourse in the UK housing sector (Lovell 2004; Toke 2000), it has become
+increasingly important not just to participate in the discourse, but to have actual material evidence
+of low carbon practice in order to promote new ideas and gain support. A small number of
+policy theorists have considered the impact of seeing new policy ideas and innovations in practice
+(see Guy and Osborn 2001; Owens and Rayner 1999). Hajer, for example, discusses the key
+role of policy actors’ excursions to certain sites of interest, in particular when visiting forests in
+Scandinavia damaged by acid rain:
+
+A striking ﬁnding . . . concerned the role of meetings and excursions in the process of persuasion . . .
+these practices . . . can . . . be identiﬁed as an essential moment in the process of proliferation and
+utilization of knowledge, and . . . policy change . . .. (Hajer 1995, 271)
+
+Thus actually seeing the damaged trees helped catalyse shifts in policy. Applied to the idea of
+an innovation journey, it reminds us of the agency of technologies and materials within their
+own innovation journey. In particular, there is a stage when the physical presence of innovations,
+and publicity about them, acts to speed up the innovation journey and simultaneously opens up
+a number of different pathways for future development and growth. Thus there is a two-way
+process of interaction between innovations and discourse; it is not just that publicity, discourse
+and the policy context inﬂuence the innovation journey, but also that the innovations themselves
+shape policy and discourse. For instance, both Hockerton and BedZed are cited in policy docu-
+ments recommending changes to the UK energy building regulations because of climate change
+(ODPM 2000, 2003a). In addition, new policies have been forthcoming at a local government
+level, based on the experience of BedZed and Hockerton. Sutton Borough Council, where BedZed
+is located, set an important new precedent in planning procedure by awarding the development
+contract to the BedZed team, despite not being the highest bidder (BRECSU 2002). Experience
+with BedZed also informed the Unitary Development Plan produced by Merton Borough Coun-
+cil – the neighbouring local authority – which now requires new developments over a certain
+size to source 10% of their energy from renewable resources (Merton Borough Council 2004).
+The 10% renewable energy requirement, which became known as ‘the Merton Rule’, was sub-
+sequently incorporated into national government planning guidance (Merton Borough Council
+2008).
+In sum, there have been a number of important implications of the rise in low carbon discourse
+for the innovation journey of low energy housing. One effect has been to speed up the innovation
+journey: the low energy housing sector has experienced rapid growth. Surveys have identiﬁed
+over four hundred low energy housing developments or single houses in the UK (White 2002),
+with nearly 200 built or planned since the late 1990s (Sustainable Homes 2003). This increase
+in the pace of the innovation journey has partly been achieved through greater publicity of low
+energy housing innovations, which has encouraged consumer demand (see Lovell 2005b), but
+also through a number of new government grant programmes for low energy technologies (DTI
+2007; see also Energy Saving Trust 2007). A second effect of the spread of low carbon discourse
+has been to prioritise the development of certain types of low energy innovation over others,
+
+Discourse and Innovation Journeys
+
+notably technical innovations over administrative ones. This relates to the type of ecologically
+modern discourse adopted by the low carbon discourse coalitions, which has tended to prioritise
+technical solutions to environmental problems over institutional or social reform (see Table 4).
+Thus, for example, highly visible renewable energy technologies such as photovoltaic panels and
+small wind turbines have been prioritised in government funding programmes such as the Low
+Carbon Buildings Programme, whereas administrative innovations such as planning reforms,
+or integrating sustainable decision making within private sector house builders – although an
+active part of the government’s agenda – have been relatively overlooked (House of Commons
+Environmental Audit Committee 2006).
+There have also been negative effects on the low energy housing innovation journey arising
+from how the boundaries of the low carbon discourse coalition have been narrowly deﬁned in
+ways that ignore issues that contradict its core ecologically modern ideology. The discourse has
+been uncritically adopted by members of the coalition, including government, which has inhibited
+learning. The ecologically modern framing, with its focus on proﬁtable low carbon technologies,
+has resulted in some important behavioural and social issues arising from occupied low energy
+housing developments being overlooked. For instance, at BedZed problems have occurred with
+residents using blinds over the windows – in an effort to gain some privacy – but which block sun-
+light and hence the passive solar heating effect, which is required to maintain comfortable indoor
+temperatures (Bioregional 2003). Similarly at Hockerton some of the houses have experienced
+low winter temperatures below 18 degrees centigrade and residents have had to compensate by
+wearing extra clothing, or in some cases using portable heating devices such as oil radiators and
+wood stoves (BRECSU 2000).As these examples demonstrate, it is not the case that residents can
+become low carbon by simply living in these developments – an idea that the ecologically modern
+discourse promotes – but rather that some degree of active householder participation and involve-
+ment is required. Experience from BedZed and Hockerton suggests that these ‘softer’ social or
+administrative innovations are a necessary part of their successful functioning. The second main
+strand of ecologically modern discourse – about the ﬁnancial beneﬁts of being green, the ‘win–
+win’ scenario – has also acted to exclude important contradictory evidence about the difﬁculty
+of making low carbon housing ﬁnancially viable. BedZed, for example, is said to have overrun
+its budget by £5 million (Clark and Smit 2004; Lovell 2005a), and Hockerton’s moderate con-
+struction cost was achieved in large part through use of unpaid self-build labour (Energy Saving
+Trust 2003).
+These kind of technical and ﬁnancial issues – the ‘twists and turns’ of a typical innovation
+journey – do not ﬁt well with the ecologically modern discourse used by the low carbon dis-
+course coalition, and hence have not been widely reported (see for example Bioregional 2003;
+BRECSU 2000, 2002; Minton 2002). Media coverage of BedZed and Hockerton has almost
+exclusively been positive: 99% of the articles written about BedZed have been complimentary,
+as have all but two articles or programmes about Hockerton (Lovell 2005a). A lack of honesty
+about problems with existing low energy housing technologies can lead to insufﬁcient learning,
+and therefore hamper their innovation journey because there is a risk of the technologies being
+used in a more widespread manner without the problems being corrected. Rose (1991) has sug-
+gested that honest accounts of policies or projects are not necessary for learning, because the
+main impact of demonstration projects is to generate ‘inspirational learning’, thereby motivat-
+ing others to adopt similar approaches; an outcome that can be seen in the case of low energy
+housing. However, Rose’s focus is more on learning about social issues than technical ones:
+there are perhaps greater limitations to inspirational learning if signiﬁcant technical problems are
+replicated.
+
+H. Lovell
+
+Conclusions
+
+The case of UK low energy housing illustrates the inﬂuence of discourse on an innovation journey,
+showing, for example, how discourse smooths out the dynamic twists and turns of an innovation
+journey through retrospectively retelling and simplifying the journey using a particular discursive
+frame, in this instance ecological modernisation. It has been discussed how discourse may speed
+up an innovation journey by creating cohesion among actors, and through presenting technologies
+in a way designed to appeal to policy makers, but the narrow framing of innovation may create
+problemsbecausekeyissuesandfactsareleftout.Learningcanbeinhibitedbecauseofareluctance
+to engage with the complex, often contradictory dynamics inherent to an innovation journey.
+Discourse is evidently an important factor in innovation journeys, and more research is needed to
+explore whether the patterns and processes identiﬁed here might be applicable to other cases.
+A discourse analysis perspective also raises some critical challenges for notion of an innovation
+journey.A key methodological challenge arises from considering the implications of the power of
+discourse to retrospectively remap an innovation journey. It suggests the need for researchers to
+pay sharp attention to how interviewees might ‘tell the story’of an innovation journey – neatening
+and simplifying it within a particular discursive frame – and thereby missing out important con-
+tradictory issues and events. Indeed, research has shown that theories about innovation have been
+used by practitioners as a type of policy discourse, where innovation has been portrayed in line
+with certain popular theoretical frameworks, such as transitions theory (Smith and Kern 2007).
+Methodological rigour is therefore needed to triangulate interviews with other data, and perhaps
+for political and social scientists to engage with the data-intensive mapping of all possible relevant
+events in an innovation journey in a manner advocated by Van de Ven et al. (1999). The paper
+highlights the value of an interdisciplinary approach to innovation journeys: a focus on discourse
+highlights the critical patterns and dynamics of the broader policy, political and cultural context
+within which an innovation journey takes place, and hence adds signiﬁcant insight.
+
+References
+
+Barker, K. 2004. Review of housing supply – securing our future housing needs. Final Report. London: HMSO.
+Barton, H., ed. 2000. Sustainable communities: the potential for eco-neighbourhoods. London: Earthscan.
+BedZed, 2001. About BedZed – what is BedZed? http://www.bedzed.org.uk/about.htm.
+Bioregional. 2003. Technical tour of BedZed housing development. South London: H. LovellSutton.
+BioRegional Communications Ofﬁcer. 2004. Email correspondence: Jennie Organ, Communications Ofﬁcer – Bio-
+Regional Development Group. H. Lovell, London.
+BRECSU. 1996. General Information Report 53: Building a sustainable future – homes for an autonomous community.
+Building Research Establishment (BRE), Watford.
+———. 2000. New Practice Proﬁle 119: The Hockerton Housing Project – design lessons for developers and clients.
+Building Research Establishment (BRE), Watford.
+———. 2002. General Information Report 89: BedZED – Beddington Zero Energy Development, Sutton. Building
+Research Establishment (BRE), Watford.
+Bulkeley, H. 2000. Discourse coalitions and the Australian climate change policy network. Environment and Planning C,
+18: 727–48.
+Bulkeley, H., and Betsill, M. 2003. Cities and climate change: urban sustainability and global environmental governance.
+London: Routledge.
+CAT. 1995. Crazy idealists? The CAT story. Machynlleth: The Centre for Alternative Technology (CAT).
+Chappells, H., and Shove, E. 2000. Sustainable homes and integration. In Domestic consumption utility services and the
+environment (DOMUS), eds. H. Chappells, M. Klintman, A.-L. Linden et al., 105–28. Wageningen: Universities of
+Lancaster, and Lund.
+Christoff, P. 2000. Ecological modernisation, ecological modernities. Environmental Politics 5: 476–500.
+Clark, P., and J. Smit. 2004. Dream over. Building 1–3.
+
+Discourse and Innovation Journeys
+
+Communities and Local Government. 2006. Building a greener future: towards zero carbon development – consultation.
+London, HMSO.
+DEFRA. 2000. Transport 2010 – the ten year plan. Department for the Environment Food and Rural Affairs (DEFRA),
+London.
+Dobson, A. 2000. Green political thought. Routledge, London and New York.
+Dryzek, J. 1997. The politics of the Earth: environmental discourses. Oxford: Oxford University Press.
+DTI. 2002. First stage of major PV Demonstration Programme launched. New Review 52, no. 1.
+———. 2003. Energy white paper: our energy future – creating a low carbon economy. London: HMSO.
+———. 2007. Low carbon buildings programme, phase 2. http://www.lowcarbonbuildingsphase2.org.uk/.
+Energy Saving Trust. 2003. Sustainable construction: Hockerton Housing Project. www.practicalhelp.org.uk.
+———. 2007. Housing and buildings funding database. http://www.energysavingtrust.org.uk/housingbuildings/funding/
+database/.
+Findhorn Ecovillage. 2003. Findhorn – an introduction. http://www.ecovillageﬁndhorn.com/.
+Flyvbjerg, B. 1998. Rationality and power: democracy in practice. Chicago, IL: University of Chicago Press.
+Guy, S., and S. Osborn. 2001. Contesting environmental design: the hybrid green building. In Infrastructure in transition:
+urban networks, buildings, plans, eds. S. Guy, S. Marvin and T. Moss, 87–102. London: Earthscan.
+Hajer, M.A. 1995. The politics of environmental discourse: ecological modernisation and the policy process. Oxford:
+Clarendon Press.
+Hastings, A. 1999. Analysing power relations in partnerships: is there a role for discourse analysis? Urban Studies 36:
+91–106.
+HM Government. 2006. Climate change and sustainable energy act 2006. http://www.opsi.gov.uk/ACTS/acts2006/
+ukpga_20060019_en.pdf.
+HM Revenue & Customs. 2007. Stamp duty land tax relief for new zero-carbon homes. http://www.hmrc.gov.uk/ria/9-
+zero-carbon-homes.pdf.
+House of Commons Environmental Audit Committee. 2006. Sustainable housing: a follow-up report. London: HMSO,
+275.
+House of Commons. 2006. Climate change and sustainable energy bill. http://www.publications.parliament.uk/pa/
+cm200506/cmbills/017/2006017.pdf.
+IPCC. 2007. Climate change 2007: the physical science basis – summary for policymakers. Paris: Intergovernmental
+Panel on Climate Change (IPCC).
+Kelly, R. 2006. Shaping a low carbon future – our environmental vision. http://www.communities.gov.uk/index.asp?
+id=1505202.
+Laws, D., and M. Rein. 2003. Reframing practice. In Deliberative policy analysis: understanding governance in the
+network society, eds. M.A. Hajer and H. Wagenaar, 172–206. Cambridge: Cambridge University Press.
+Lounsbury, M., M.J.Ventresca, and P.M. Hirsch. 2003. Social movements, ﬁeld frames and industry emergence: a cultural-
+political perspective on US recycling. Socio-Economic Review 1: 71–104.
+Lovell, H. 2004. Framing sustainable housing as a solution to climate change. Journal of Environmental Policy and
+Planning 6: 35–56.
+———.2005a.Thegovernanceofemergingsocio-technicalsystems:thecaseoflowenergyhousingintheUK.Department
+of Geography, Cambridge University, Cambridge.
+———. 2005b. Supply and demand for low energy housing in the UK: insights from a science and technology studies
+approach. Housing Studies 20: 815–29.
+———. 2007. The governance of innovation in socio-technical systems: the difﬁculties of strategic niche management in
+practice. Science and Public Policy 34: 35–44.
+Lowenstein, O. 2001a. From BedZed to eternity. Building for a Future 11: 16–21.
+———. 2001b. Zero energy homes come to the United Kingdom. Building for a Future 11: 8–14.
+Marsh, D., and R.A.W. Rhodes, eds. 1992. Policy Networks in British Government. Oxford: Clarendon Press.
+Merton Borough Council. 2004. Forum for the Future – a radical planning decision to promote renewable energy.
+http://www.regionalfutures.org.uk/newsdigest/mertonboroughcouncil_page2181.aspx.
+———. 2008. The 10% renewable energy policy. http://www.merton.gov.uk/living/planning/plansandprojects/
+10percentpolicy.htm.
+Minton, A. 2002. Eco experiments. Estates Gazette 62–3.
+Mol,A.P.J., and G. Spaargaren, G. 2000. Ecological modernisation theory in debate: a review. In Ecological modernisation
+around the world: perspectives and critical debates, eds. A.P.J. Mol and D.A. Sonnenfeld, 17–49. London: Frank
+Cass.
+Murphy, J. 2000. Editorial – ecological modernisation. Geoforum 31: 1–8.
+
+H. Lovell
+
+NCAR (US National Centre for Atmospheric Research). 2006. Abrupt ice retreat could produce ice-free arctic summers
+by 2040.
+Newell, P. 2000. Climate for change: non-state actors and the global politics of the greenhouse. Cambridge: Cambridge
+University Press.
+ODPM. 2000. Current thinking on possible future amendments of energy efﬁciency provisions. http://www.odpm.gov.uk/
+stellent/groups/odpm_buildreg/documents/page/odpm_breg_600333.hcsp.
+———. 2003a. Industry Advisory Group (Working Party 4). Low and Zero Carbon Energy Systems Meeting Minutes,
+16 October 2003. www.odpm.gov.uk.
+———. 2003b. Sustainable communities: building for the future. London: HMSO.
+Owens, S., and T. Rayner. 1999. When knowledge matters: the role and inﬂuence of the Royal Commission on
+Environmental Pollution. Journal of Environmental Policy and Planning 1: 7–24.
+Owens, S.E., and R. Cowell. 2002. Land and limits: interpreting sustainability in the planning process. London: Routledge.
+Porter, G., and J.W. Brown. 1996. Global environmental politics. Boulder, CO: Westview Press.
+RCEP. 2000. Energy – the changing climate, 22nd Report. London: HMSO.
+Rein, M., and D. Schon. 1993. Reframing policy discourse. In The argumentative turn in policy analysis and planning,
+eds. F. Fischer and J. Forester, 145–66. London: UCL Press.
+Rose, R. 1991. What is lesson drawing. Journal of Public Policy 11: 3–30.
+Rydin, Y. 1999. Can we talk ourselves into sustainability? The role of discourse in the environmental policy process.
+Environmental Values 8: 467–84.
+Sabatier, P.A. 1999. Theories of the policy process: theoretical lenses on public policy. Boulder, CO: Westview Press.
+Sabatier, P.A., and Jenkins Smith, H.C., eds. 1993. Policy change and learning: an advocacy coalition approach. Boulder,
+CO: Westview Press.
+SDC (Sustainable Development Commission). 2003. Policy audit of United Kingdom climate change policies and
+programmes. SDC, The Edinburgh Centre for Carbon Management Ltd, London.
+———. 2006. Climate change: the UK programme – an SDC response. http://www.sd-commission.org.uk/publications.
+Sharp, L., and T. Richardson. 2001. Reﬂections on Foucauldian discourse analysis in planning and environmental policy
+research. Journal of Environmental Policy and Planning 3: 193–209.
+Smith,A. 2003. Transforming technological regimes for sustainable development: a role for alternative technology niches?
+Science and Public Policy 30: 127–35.
+———. 2004. Governance lessons from green niches: the case of eco-housing. Paper presented at ESRC Sustainable
+Technologies Programme Workshop on Governance, Technology and Sustainability, Open University, September
+7–8, Milton Keynes.
+———. 2007. Translating sustainabilities between green niches and socio-technical regimes. Technology Analysis &
+Strategic Management 19, no. 4: 427–50.
+Smith,A., and F. Kern. 2007. The transitions discourse in the ecological modernisation of the Netherlands. SPRU Working
+Paper no.160, SPRU, University of Sussex, Brighton.
+Smith, M., J. Whitelegg, and N.J. Williams. 1998. Greening the built environment. London, Earthscan.
+Stern, S.N. 2006. The stern review on the economics of climate change. London: HM Treasury.
+Sustainable Homes. 2003. Sustainable Homes Ecodatabase. http://www.sustainablehomes.co.uk/.
+The Housing Forum. 2001. Homing in on excellence: a commentary on the use of offsite fabrication methods for the
+United Kingdom house building industry. The Housing Forum, London.
+Toke, D. 2000. Policy network creation: the case of energy efﬁciency. Public Administration 78: 835–54.
+Turnpenny, J., A. Haxeltine et al. 2005. Mapping actors involved in climate change policy networks in the UK. Tyndall
+Centre Working Paper no. 66, January 2005.
+Vale, R. 2001. Hockerton Housing Project – Case Study 7.7b. Australian Greenhouse Ofﬁce, Institute for Sustainable
+Futures, Canberra, 1–6.
+Van de Ven, A.H., D.E. Polley, R. Garud, and S. Venkataraman. 1999. The innovation journey. Oxford: Oxford University
+Press.
+Vidal, J. 2006. The year the world woke up. The Guardian, December 20.
+White, N. 2002. Sustainable housing schemes in the United Kingdom, Hockerton Housing Project, Hockerton.
+Wood, A. 1990. History and overview of communal living, http://www.diggersanddreamers.org.uk/Articles/199001.htm.
+Young, S.C. 2000. Introduction: the origins and evolving nature of ecological modernisation. In The emergence of
+ecological modernisation: integrating the environment and the economy?, ed. S.C.Young, 1–39. London: Routledge.

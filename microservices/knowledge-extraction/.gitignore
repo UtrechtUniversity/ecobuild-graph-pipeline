@@ -3,3 +3,5 @@ test_papers/*.pdf
 __pycache__/
 .venv/
 *.pyc
+test_papers/*.txt
+test_papers/*.json

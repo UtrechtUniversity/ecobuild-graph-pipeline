@@ -38,20 +38,25 @@ class DocumentConverter:
     
     @staticmethod
     def pdf_to_text(pdf_path: str) -> str:
-        """Convert PDF to plain text using pdfplumber"""
+        """Convert PDF to plain text using PyMuPDF (fitz)"""
         try:
-            import pdfplumber
+            import fitz
             
             text_parts = []
-            with pdfplumber.open(pdf_path) as pdf:
-                for page in pdf.pages:
-                    text = page.extract_text()
-                    if text:
-                        text_parts.append(text)
+            doc = fitz.open(pdf_path)
+            for page in doc:
+                # Use block-level extraction and sort by reading order (y, then x)
+                blocks = page.get_text("blocks")
+                blocks.sort(key=lambda b: (b[1], b[0]))
+                
+                # Filter out small irrelevant blocks and extract text
+                text = "\n".join([b[4] for b in blocks if len(b) >= 5])
+                if text.strip():
+                    text_parts.append(text)
             
             return '\n\n'.join(text_parts)
         except ImportError:
-            raise ImportError("pdfplumber not installed. Install with: pip install pdfplumber")
+            raise ImportError("PyMuPDF not installed. Install with: pip install pymupdf")
     
     @staticmethod
     def txt_to_text(txt_path: str) -> str:

@@ -1,0 +1,56 @@
+================================================================================
+EXTRACTION REPORT: thermal_office_China
+================================================================================
+
+### ENTITIES (BUILDINGS) ###
+
+Entity 1:
+  Name: Tall Office Building
+    Context: "a tall office building in Nanning city with a vertical courtyard system"
+  Country: China
+    Context: "China's energy revolution and green building development"
+  City: Nanning
+    Context: "Nanning city has vertical courtyard system with different layouts"
+
+
+### DESIGN STRATEGIES ###
+  Anchor verification: 2/2 verified
+
+
+Strategy 1: Vertical Courtyard System
+  Confidence: 1.0  |  Anchor: ✓ (score: 0.95)
+  Context: "…nditioning, making it signiﬁcantly outweigh the impact of the
+other systems, like lighting (Wan et al., 2012).
+With an intention to promote industrial construction and vari-
+able layout plan, a tall ofﬁce building in Nanning city has vertical
+courtyard system with different layouts, as seen in Fig. 2. The three
+typical ofﬁce layouts are selected to compare the thermal perfor-
+mance and thermal energy consumption between traditional ones
+(ofﬁce þ single courtyard) and fusion one (ofﬁce þ multi-court-
+yards), ranging from linear (1st ﬂoor), integrated (3rd ﬂoor) to
+fusion one (7th ﬂoor) as shown in Fig. 3.
+
+considering the occupants’ constantly changing needs, the buil…"
+
+Strategy 2: Fusion Layout
+  Confidence: 1.0  |  Anchor: ✓ (score: 1.00)
+  Context: "…in Fig. 2. The three
+typical ofﬁce layouts are selected to compare the thermal perfor-
+mance and thermal energy consumption between traditional ones
+(ofﬁce þ single courtyard) and fusion one (ofﬁce þ multi-court-
+yards), ranging from linear (1st ﬂoor), integrated (3rd ﬂoor) to
+fusion one (7th ﬂoor) as shown in Fig. 3.
+
+considering the occupants’ constantly changing needs, the building
+separation system has been extensively explored with the promo-
+tion of industrial construction, especially in residential sector.
+However, its magnitude, policy’s relevance, level of industrializa-
+tion and autonomous proposition…"
+
+
+### ECOSYSTEM SERVICES ###
+  Anchor verification: 0/4 verified
+
+  No services with verified anchors.
+
+================================================================================

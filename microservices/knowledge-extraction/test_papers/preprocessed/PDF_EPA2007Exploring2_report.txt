@@ -1,0 +1,29 @@
+================================================================================
+EXTRACTION REPORT: PDF_EPA2007Exploring2
+================================================================================
+
+### ENTITIES (BUILDINGS) ###
+
+Entity 1:
+  Name: Factory-based housing development
+  Country: United Kingdom
+  City: various cities in the UK
+
+Entity 2:
+  Name: Low energy housing demonstration project
+  Country: United Kingdom
+  City: various cities in the UK
+
+
+### DESIGN STRATEGIES ###
+  Anchor verification: 0/10 verified
+
+  No strategies with verified anchors.
+
+
+### ECOSYSTEM SERVICES ###
+  Anchor verification: 0/3 verified
+
+  No services with verified anchors.
+
+================================================================================

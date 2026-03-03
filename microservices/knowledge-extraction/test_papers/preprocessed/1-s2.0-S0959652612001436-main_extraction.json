@@ -1,0 +1,114 @@
+{
+  "entities": [
+    {
+      "name": {
+        "value": "Passive House",
+        "context": "a type of highly energy-efﬁcient home",
+        "context_verified": true,
+        "context_match_score": 0.838
+      },
+      "country": {
+        "value": "Belgium",
+        "context": "region dominated by heating demand",
+        "context_verified": true,
+        "context_match_score": 0.941
+      },
+      "city": {
+        "value": "Flanders",
+        "context": "region where the innovation took place",
+        "context_verified": false,
+        "context_match_score": 0.684
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": 2003,
+        "context": "initial innovation introduced",
+        "context_verified": true,
+        "context_match_score": 0.862
+      }
+    }
+  ],
+  "design_strategies": [
+    {
+      "name": "Green wall system",
+      "confidence": 1.0,
+      "anchor_text": "Green walls are a popular choice for urban spaces.",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.52
+    },
+    {
+      "name": "Hydroponic systems",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Rainwater harvesting systems",
+      "confidence": 1.0,
+      "anchor_text": "The building uses rainwater harvesting systems to reduce water consumption.",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.52
+    },
+    {
+      "name": "Solar thermal collectors",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Smart irrigation",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Green corridors",
+      "confidence": 0.1,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Biophilic design",
+      "confidence": 0.1,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    }
+  ],
+  "ecosystem_services": [
+    {
+      "name": "Regulation of air quality",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.8,
+      "anchor_text": "air pollution reduction",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.652
+    },
+    {
+      "name": "Primary production",
+      "category": "Provisioning",
+      "confidence": 1.0,
+      "anchor_text": "photosynthesis",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.643
+    }
+  ]
+}

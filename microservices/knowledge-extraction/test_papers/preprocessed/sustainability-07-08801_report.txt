@@ -1,0 +1,31 @@
+================================================================================
+EXTRACTION REPORT: sustainability-07-08801
+================================================================================
+
+### ENTITIES (BUILDINGS) ###
+
+Entity 1:
+  Name: Energy-Efficient House
+    Context: "one of the two innovation projects"
+  Country: Finland
+  City: Finland
+  Year Of Construction: 2010
+    Context: "before the energy efficiency legislation came into force"
+
+Entity 2:
+  Name: Wind Power Industry
+  Country: Denmark
+
+
+### DESIGN STRATEGIES ###
+  Anchor verification: 0/7 verified
+
+  No strategies with verified anchors.
+
+
+### ECOSYSTEM SERVICES ###
+  Anchor verification: 0/2 verified
+
+  No services with verified anchors.
+
+================================================================================

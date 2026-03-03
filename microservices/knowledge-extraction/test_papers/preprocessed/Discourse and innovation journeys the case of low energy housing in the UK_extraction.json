@@ -1,0 +1,122 @@
+{
+  "entities": [
+    {
+      "name": {
+        "value": "Sustainable House",
+        "context": "a period of policy flux during the late 1990s",
+        "context_verified": true,
+        "context_match_score": 0.889
+      },
+      "country": {
+        "value": "United Kingdom",
+        "context": "UK sustainable housing innovation journey",
+        "context_verified": false,
+        "context_match_score": 0.78
+      },
+      "city": {
+        "value": "London",
+        "context": "late 1990s",
+        "context_verified": true,
+        "context_match_score": 1.0
+      },
+      "street": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      },
+      "year_of_construction": {
+        "value": null,
+        "context": null,
+        "context_verified": null,
+        "context_match_score": null
+      }
+    }
+  ],
+  "design_strategies": [
+    {
+      "name": "Biophilic design",
+      "confidence": 0.8,
+      "anchor_text": "Biophilic design is a strategy that incorporates elements of nature into the building design.",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.495
+    },
+    {
+      "name": "Green façade",
+      "confidence": 1.0,
+      "anchor_text": "The use of green walls and roofs to improve energy efficiency and reduce urban heat island effects.",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.495
+    },
+    {
+      "name": "Hydroponic systems",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Living Plant Constructions (Baubotanik)",
+      "confidence": 1.0,
+      "anchor_text": "The use of plants in building design to improve air quality and reduce the urban heat island effect.",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.5
+    },
+    {
+      "name": "Photovoltaic cells integration",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Rainwater harvesting systems",
+      "confidence": 1.0,
+      "anchor_text": "The use of rainwater collection and storage systems to reduce water consumption.",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.5
+    },
+    {
+      "name": "Smart irrigation",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    },
+    {
+      "name": "Vertical farming",
+      "confidence": 0.4,
+      "anchor_text": null,
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.0
+    }
+  ],
+  "ecosystem_services": [
+    {
+      "name": "Fresh air",
+      "category": "Cultural Services",
+      "confidence": 0.8,
+      "anchor_text": "regulation of air quality",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.6
+    },
+    {
+      "name": "Soil formation",
+      "category": "Regulation and Maintenance",
+      "confidence": 0.7,
+      "anchor_text": "soil formation",
+      "context": null,
+      "anchor_verified": false,
+      "anchor_match_score": 0.786
+    }
+  ]
+}

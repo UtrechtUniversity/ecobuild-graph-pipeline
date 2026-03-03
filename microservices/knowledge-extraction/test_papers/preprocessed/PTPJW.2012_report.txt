@@ -1,0 +1,81 @@
+================================================================================
+EXTRACTION REPORT: PTPJW.2012
+================================================================================
+
+### ENTITIES (BUILDINGS) ###
+
+Entity 1:
+  Name: West Village
+    Context: "First net zero energy community in the USA"
+  Country: USA
+    Context: "sunbelt cities of the USA"
+  City: Davis
+    Context: "University of California at Davis"
+  Year Of Construction: 2024
+    Context: "Fully built-out"
+
+Entity 2:
+  Name: Broga˚rden
+  Country: Sweden
+    Context: "Alingsa˚s, Sweden"
+  City: Alingsa˚s
+  Year Of Construction: 1972
+    Context: "Built between 1970-1972"
+
+Entity 3:
+  Name: Hammarby Sjo¨stad
+  Country: Sweden
+    Context: "Stockholm, Sweden"
+  City: Stockholm
+    Context: "Hammarby Sjo¨stad project"
+  Year Of Construction: 2024
+
+Entity 4:
+  Name: Vauban
+  Country: Germany
+    Context: "Freiburg, Germany"
+  City: Freiburg
+  Year Of Construction: 2024
+
+Entity 5:
+  Name: Aldo Leopold Legacy Center
+  Country: USA
+    Context: "Baraboo, Wisconsin"
+  City: Baraboo
+  Year Of Construction: 2024
+
+
+### DESIGN STRATEGIES ###
+  Anchor verification: 2/3 verified
+
+
+Strategy 1: Renovation to passive house standard
+  Confidence: 1.0  |  Anchor: ✓ (score: 1.00)
+  Context: "…rea, made the decision to renovate
+the sixteen buildings comprising the Broga˚rden neighbourhood. For years there had been
+problems with the brick facades crumbling due to freeze-thaw cycles and acid rain, and
+complaints about drafts and low indoor temperatures (Figure 1). They made the decision to
+renovate the houses to the passive house standard, which suited the needs of the Broga˚rden
+apartments perfectly; simple to construct when a fac¸ade renovation was needed anyway,
+and providing good indoor comfort for residents.
+The solution was augmented with the inclusion of consultants interested in the social
+and environmental sustainability of…"
+
+Strategy 2: Façade cladding
+  Confidence: 0.8  |  Anchor: ✓ (score: 1.00)
+  Context: "…brick facades crumbling due to freeze-thaw cycles and acid rain, and
+complaints about drafts and low indoor temperatures (Figure 1). They made the decision to
+renovate the houses to the passive house standard, which suited the needs of the Broga˚rden
+apartments perfectly; simple to construct when a fac¸ade renovation was needed anyway,
+and providing good indoor comfort for residents.
+The solution was augmented with the inclusion of consultants interested in the social
+and environmental sustainability of the area. Alingsa˚shem decided that increased
+accessibility and diversity would provide social and economic stability in t…"
+
+
+### ECOSYSTEM SERVICES ###
+  Anchor verification: 0/3 verified
+
+  No services with verified anchors.
+
+================================================================================

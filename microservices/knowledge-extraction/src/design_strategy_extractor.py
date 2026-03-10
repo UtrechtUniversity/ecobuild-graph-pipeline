@@ -9,204 +9,151 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Optional
 
+# ── Few-shot example directory (relative to this file) ──────────────────────
+_EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "test_papers" / "examples"
+
 logger = logging.getLogger(__name__)
 
+output_dir = Path("/app/test_papers/preprocessed")
 
 class DesignStrategyPromptBuilder:
     """Builds targeted prompts for extracting design strategies"""
     
+    # ── Few-shot example helpers ─────────────────────────────────────────
+
     @staticmethod
-    def build_design_strategy_extraction_prompt(text: str) -> str:
+    def _load_all_design_strategy_examples() -> List[dict]:
+        """Load all section-skeleton few-shot examples for design strategy extraction.
+        Globs for design_strategy_extraction_example_*.json in the examples directory.
+        Returns an empty list if no files are found so the prompt still works."""
+        pattern = "design_strategy_extraction_example_*.json"
+        example_paths = sorted(_EXAMPLES_DIR.glob(pattern))
+        if not example_paths:
+            logger.warning(f"No few-shot examples matching {pattern} in {_EXAMPLES_DIR} — skipping.")
+            return []
+        examples = []
+        for path in example_paths:
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    examples.append(json.load(f))
+                    logger.info(f"Loaded few-shot example: {path.name}")
+            except Exception as e:
+                logger.warning(f"Failed to load few-shot example {path.name}: {e} — skipping.")
+        return examples
+
+    @staticmethod
+    def _format_example_block(example: dict, index: int = 1, total: int = 1) -> str:
+        """Format the loaded example dict into a prompt-ready text block."""
+        skeleton = example.get("section_skeleton", "")
+        expected = json.dumps(example.get("expected_output", {}), indent=2)
+        lesson = example.get("lesson", "")
+        citation = example.get("citation", f"Example {index}")
+
+        return (
+            f"\n--- FEW-SHOT EXAMPLE {index} of {total}: {citation} ---\n"
+            f"{skeleton}\n\n"
+            f"Correct extraction from the example paper above:\n{expected}\n\n"
+            f"KEY LESSON: {lesson}\n"
+            f"--- END OF EXAMPLE {index} ---\n"
+        )
+
+    # ── Main prompt builder ──────────────────────────────────────────────
+
+    @staticmethod
+    def build_design_strategy_extraction_prompt(text: str, file_name: str = "") -> str:
         """Build prompt for extracting design strategies from case study"""
-        
-        return f"""Paper text:
-{text}
 
----
-You are an expert in sustainable building design and renewable energy systems.
+        base_name = Path(file_name).stem
 
-Your task: Extract ALL design strategies, systems, or technologies implemented in the CASE STUDY BUILDING (not from literature review or other examples).
+        # Optionally inject few-shot examples
+        examples = DesignStrategyPromptBuilder._load_all_design_strategy_examples()
+        if examples:
+            example_blocks = "\n".join(
+                DesignStrategyPromptBuilder._format_example_block(ex, i + 1, len(examples))
+                for i, ex in enumerate(examples)
+            )
+        else:
+            example_blocks = ""
 
-DESIGN STRATEGIES include (but are not limited to):
-- Aeroponic systems
-- Airdrop irrigation systems
-- Aquaponic systems
-- Beehives
-- Biofilters
-- Biomass energy collection
-- Biophilic design
-- Bioremediation
-- Black/greywater treatment
-- Blue-green roofs
-- Blueroofs
-- Botanical garden
-- Burning hydrogen
-- Cisterns
-- Coated glass
-- Community gardens
-- Compact construction
-- Companion planting
-- Composting
-- Cradle to cradle design
-- Cross ventilation
-- Delayed drainage systems
-- Design for deconstruction
-- Downspout strategies
-- Drip irrigation systems
-- Dynamic/aerodynamic architecture
-- Ecological analogue design
-- Edible Landscapes
-- Elevated constructions
-- Extensive green roof
-- Façade cladding
-- Fit form to function
-- Floating contructions
-- Fog harvesting
-- Food forests
-- Green corridors
-- Green façade
-- Green wall system
-- Greenhouse agriculture
-- Heat-cold storage installation
-- Hedgerows consisting of edible plants
-- Herb gardens
-- High albedo materials
-- Hydro turbines
-- Hydrogen burning system
-- Hydronic radiant system
-- Hydroponic systems
-- Increase of native plants
-- Increase species diversity
-- Indoor (food) gardens
-- Infiltration systems for excess rain water
-- Insect attracting structures
-- Insulation material
-- Integration of retaining walls
-- Integration of thermal mass
-- Intensive green roof
-- Intercropping
-- Interlocking panels
-- Introduction of keystone species in property
-- Leakage control
-- Light filtering for temperature keeping
-- Living Plant Constructions (Baubotanik)
-- Location planning with little sun and wind
-- Low albedo materials
-- Medicinal gardens
-- Micro livestock
-- Microbial fuel cells
-- Moss wall
-- Noise reducing technologies
-- Organic farming
-- Orientation sound barriers
-- Permaculture
-- Permeable paving system
-- Photovoltaic cells integration
-- Photovoltaic panels
-- Pile foundations
-- Placed on columns or stilts
-- Planter green wall
-- Pocket garden/park
-- Private gardens
-- Rainwater Cooling System
-- Rainwater harvesting systems
-- Reduction of light pollution
-- Replace equipment or install water saving devices
-- Retaining wall system
-- Revegetation
-- Roof ponds
-- Sacrificial ground floors
-- Seismic architecture
-- Semi-intensive green roof
-- Separation of waste streams
-- Smart irrigation
-- Smart roofs
-- Soakwells
-- Soil filtration
-- Soil quality monitoring
-- Solar thermal collectors
-- Solar water heaters
-- Solid walls
-- Source separation of wastewater
-- Stack ventilation
-- Stepping stone habitats
-- Structural bracing strategies
-- Sunscreens
-- Sustainably sourced materials
-- Texture and form based sound barriers
-- Thermal desorption
-- Thermal energy storage system
-- Trellis/fence farms
-- Urban mining
-- Urban orchards
-- Urban (rooftop) farming
-- Use of biodegradable materials
-- Use of carbon/GHG storing building materials
-- Use of daylight
-- Use of locally sourced materials
-- Use of mulch
-- Use of pre-existing vegetation
-- Use of readily available materials
-- Use of recycled materials
-- Use of traditional techniques
-- Vegetable gardens
-- Vegetated grid pave
-- Vegetated pergola
-- Vegetation cover increase
-- Vegetation for insulation
-- Vertical farming
-- Vertical mobile garden
-- Waste management
-- Water cooling systems
-- Water efficient systems
-- Water less systems
-- Water source heat pump
-- Water storage
-- Wind barriers
-- Wind turbines
-- Xeriscaping
+        current_prompt = f"""{example_blocks}
+            Now extract from THIS paper:
 
-For EACH design strategy found, provide:
-1. name: The strategy name or system type
-2. anchor: A SHORT EXACT PHRASE of 5-10 words copied verbatim from the paper that
-   best locates where this design strategy is discussed. This phrase will be searched in the
-   source document to retrieve the surrounding passage — it must exist exactly as
-   written in the paper text above.
-   RULES FOR ANCHOR:
-   - Copy 5-10 consecutive words exactly as they appear in the paper text above
-   - Choose words that are specific and unique to this design strategy mention
-   - Do NOT paraphrase, summarise, or change any words
-   - If you cannot identify a specific passage in the text above, set anchor to null
-3. confidence: A score from 0.0 to 1.0 indicating how confident you are that the paper's own case study genuinely evidences this strategy (1.0 = explicitly discussed with data/results, 0.5 = implied but not primary focus, 0.1 = only tangentially mentioned)
+            Paper text:
+            {text}
 
-Reply with a SINGLE JSON object only. No preamble, no conversational filler.
+            ---
+            You are an expert in sustainable building design and renewable energy systems.
 
-The JSON object MUST follow this structure:
-{{
-    "design_strategies": [
-        {{
-            "name": "strategy name",
-            "anchor": "five to ten exact words from the paper",
-            "confidence": 0.8
-        }},
-        {{
-            "name": "another strategy name",
-            "anchor": null,
-            "confidence": 0.4
-        }}
-    ]
-}}
+            Your task: Extract ALL design strategies, systems, or technologies implemented in the CASE STUDY BUILDING (not from literature review or other examples).
 
-CRITICAL RULES:
-- Extract ONLY strategies from the case study building (often in "Case Study" or "Methods" sections)
-- Do NOT extract strategies mentioned in literature review or introduction
-- The anchor must be a verbatim copy of words from the paper text above — do not
-  invent or paraphrase
-- If you cannot find a passage in the text that evidences a strategy, set
-  anchor to null rather than guessing
-- Include ALL design strategies found, even if multiple models/configurations- Use null for name if no strategies found
+            A design strategy for a building is a deliberate intervention or set of interventions implemented to achieve specific functional, environmental, social, or economic objectives. 
+            It can include both overarching design approaches and concrete measures such as solar panels, green walls, or water filtration systems when they are intentionally applied to meet defined performance goals.
+            A sustainable design strategy specifically refers to those interventions that generate ecosystem services, aim to reduce environmental impact, enhance resource efficiency, and contribute positively to ecological 
+            and social systems across the building's life cycle. 
 
-JSON output:"""
+            Design strategies are often the independent variables in the study. They are manipulated or changed to achieve a specific outcome (ecosystem services).
+
+            LOOK FOR PHRASES LIKE:
+            - "for this study" 
+            - "for this research" 
+            - "Methods"
+            - "Results"
+
+            IGNORE PHRASES LIKE:
+            - "previous studies"
+            - Literature review sections
+
+            For EACH design strategy found, provide:
+            1. name: The strategy name or system type
+            2. anchor: A SHORT EXACT PHRASE of 5-10 words copied verbatim from the paper that
+            best locates where this design strategy is discussed. This phrase will be searched in the
+            source document to retrieve the surrounding passage — it must exist exactly as
+            written in the paper text above.
+            RULES FOR ANCHOR:
+            - Copy 5-10 consecutive words exactly as they appear in the paper text above
+            - Choose words that are specific and unique to this design strategy mention
+            - Do NOT paraphrase, summarise, or change any words
+            - If you cannot identify a specific passage in the text above, set anchor to null
+            3. confidence: A score from 0.0 to 1.0 indicating how confident you are that the paper's own case study genuinely evidences this strategy (1.0 = explicitly discussed with data/results, 0.5 = implied but not primary focus, 0.1 = only tangentially mentioned)
+            4. implementation_details: A list of the particularities of the design strategy's implementation in the case study building. Each detail should be a short string of 5-10 words, copied EXACTLY as it is written in the paper text above.
+
+            Reply with a SINGLE JSON object only. No preamble, no conversational filler.
+
+            The JSON object MUST follow this structure:
+            {{
+                "design_strategies": [
+                    {{
+                        "name": "strategy name",
+                        "anchor": "five to ten exact words from the paper",
+                        "confidence": 0.8,
+                        "implementation_details": ["detail 1", "detail 2", "detail 3"]
+                    }},
+                    {{
+                        "name": "another strategy name",
+                        "anchor": null,
+                        "confidence": 0.4,
+                        "implementation_details": ["detail 1", "detail 2"]
+                    }}
+                ]
+            }}
+
+            CRITICAL RULES:
+            - Extract ONLY strategies from the case study building (often in "Case Study" or "Methods" sections)
+            - Do NOT extract strategies mentioned in literature review or introduction
+            - The anchor must be a verbatim copy of words from the paper text above — do not
+            invent or paraphrase
+            - If you cannot find a passage in the text that evidences a strategy, set
+            anchor to null rather than guessing
+            - Include ALL design strategies found, even if multiple models/configurations- Use null for name if no strategies found
+
+            JSON output:"""
+        # Save prompt text
+        prompt_path = output_dir / f"{base_name}_design_strategy_extraction_prompt.txt"
+        with open(prompt_path, 'w', encoding='utf-8') as f:
+            f.write(current_prompt)
+        logger.info(f"  ✓ Saved prompt text: {prompt_path}")
+
+        return current_prompt
 
 
 class DesignStrategyExtractor:
@@ -230,7 +177,8 @@ class DesignStrategyExtractor:
                     "stream": False,
                     "options": {
                         "temperature": 0.01,  # Low for factual extraction
-                        "num_predict": 2000  # Allow longer responses for multiple strategies
+                        "num_predict": 2000,  # Allow longer responses for multiple strategies
+                        "num_ctx": 12000,     # Prevent prompt truncation
                     }
                 },
                 timeout=180
@@ -263,7 +211,7 @@ class DesignStrategyExtractor:
         
         return {'design_strategies': []}
     
-    def extract_from_text(self, text: str, verbose: bool = True) -> Dict:
+    def extract_from_text(self, text: str, verbose: bool = True, file_name: str = "") -> Dict:
         """
         Extract design strategies from a research paper text.
 
@@ -282,14 +230,8 @@ class DesignStrategyExtractor:
         if verbose:
             logger.info("Extracting design strategies from text...")
         
-        # Truncate if too long
-        if len(text) > 15000:
-            if verbose:
-                logger.warning(f"Text truncated from {len(text)} to 15000 chars")
-            text = text[:15000]
-        
         # Build and send prompt
-        prompt = self.prompt_builder.build_design_strategy_extraction_prompt(text)
+        prompt = self.prompt_builder.build_design_strategy_extraction_prompt(text, file_name)
         response = self._query_ollama(prompt)
         
         if verbose and not response:

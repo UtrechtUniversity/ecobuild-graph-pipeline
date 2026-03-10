@@ -15,6 +15,8 @@ from dataclasses import dataclass, asdict
 
 logger = logging.getLogger(__name__)
 
+output_dir = Path("/app/test_papers/preprocessed")
+
 
 @dataclass
 class Entity:
@@ -72,8 +74,10 @@ class OllamaPromptBuilder:
     # ── Main prompt builder ──────────────────────────────────────────────
 
     @staticmethod
-    def build_building_extraction_prompt(text: str) -> str:
+    def build_building_extraction_prompt(text: str, file_name: str = "") -> str:
         """Build prompt for extracting primary entities and their metadata"""
+        
+        base_name = Path(file_name).stem
 
         # Optionally inject few-shot examples
         examples = OllamaPromptBuilder._load_all_building_examples()
@@ -85,7 +89,7 @@ class OllamaPromptBuilder:
         else:
             example_blocks = ""
 
-        return f"""
+        current_prompt = f"""
         You are an expert in academic information extraction.
         {example_blocks}
         Now extract from THIS paper:
@@ -97,6 +101,7 @@ class OllamaPromptBuilder:
         Based on the paper text ABOVE, identify and extract all primary buildings discussed in the academic study conducted.
         These could be one or more specific sustainable buildings.
         Identify which building(s) are being STUDIED (not just mentioned) and extract ONLY the case study building(s) 
+        DO NOT extract company names, or other entities which are not buildings.
 
         LOOK FOR PHRASES LIKE:
         - "case study"
@@ -123,10 +128,19 @@ class OllamaPromptBuilder:
                 }}
             ]
         }}
-        CRITICAL: For EVERY field of every JSON object, provide both the "value" AND a short verbatim "context" snippet (max 30 words) from the text as evidence. 
+        CRITICAL: For EVERY field of every JSON object, provide both the "value" AND a short verbatim "context" snippet (5-7 words) from the text to 
+        serve as anchor text for a context resolver. 
         Use null for values if information is not found.
 
         JSON output:"""
+
+        # Save prompt text
+        prompt_path = output_dir / f"{base_name}_building_extraction_prompt.txt"
+        with open(prompt_path, 'w', encoding='utf-8') as f:
+            f.write(current_prompt)
+        logger.info(f"  ✓ Saved prompt text: {prompt_path}")
+
+        return current_prompt
 
 
 class OllamaInterface:
@@ -150,7 +164,8 @@ class OllamaInterface:
                     "stream": False,
                     "options": {
                         "temperature": 0.01,  # Low for factual extraction
-                       }
+                        "num_ctx": 12000,     # Prevent prompt truncation
+                    }
                 },
                 timeout=120
             )
@@ -186,7 +201,7 @@ class EntityInformationExtractor:
         self.prompt_builder = OllamaPromptBuilder()
         self.ollama = OllamaInterface(model, base_url)
     
-    def extract_from_text(self, text: str, verbose: bool = True) -> Dict:
+    def extract_from_text(self, text: str, verbose: bool = True, file_name: str = "") -> Dict:
         """
         Extract all entities from a research paper text
         
@@ -199,14 +214,8 @@ class EntityInformationExtractor:
         """
         if verbose:
             print("Extracting entities from text...")
-        
-        if len(text) > 15000:
-            if verbose:
-                print(f"  Warning: Text is very long ({len(text)} chars). Truncating to 15000 chars for LLM context.")
-                print(f"Kept text: {text[:15000]}\n")
-            text = text[:15000] + "\n... [TRUNCATED] ..."
 
-        prompt = self.prompt_builder.build_building_extraction_prompt(text)
+        prompt = self.prompt_builder.build_building_extraction_prompt(text, file_name)
         response = self.ollama.query(prompt)
         
         if verbose and not response:

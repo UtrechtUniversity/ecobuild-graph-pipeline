@@ -1,0 +1,48 @@
+{
+    "paper_id": "Hecht_2025",
+    "citation": "Hecht et al. (2025) - Rocks and walls: Biodiversity and temperature regulation of natural cliffs and vertical greenery systems",
+    "description": "Section-skeleton few-shot example for ecosystem service extraction. Blue-highlighted passages from the annotated PDF are preserved as relevant_snippets.",
+    "section_skeleton": "Paper structure (Hecht et al., 2025 — 16 pages, ~68,000 characters):\n--- TITLE & ABSTRACT (page 1) ---\n\"VGSs act as temperature buffer creating a cooling layer towards the building wall during the day and a warming layer during the night.\"\n\"Furthermore, VGSs host significantly more animals than non-vegetated walls\"\n--- INTRODUCTION (pages 1-2) ---\n[...background on urban heat island, vertical greenery systems — DESCRIBES DESIGN STRATEGIES not ecosystem services — IGNORE THIS]\n--- METHODOLOGY (pages 2-5) ---\n[...study setup, measurement methods — DESCRIBES DESIGN STRATEGIES — IGNORE THIS]\n--- RESULTS (pages 5-10) --- ← LOOK HERE\n[...air temperature measurements, surface temperature data, biodiversity observations...]\n\"the average daily air temperature at the air-exposed side of the VGSs was on average 0.7 °C and 0.6 °C higher than behind the foliage and climber VGSs, respectively\"\n\"A total of 280 animal species were observed interacting with the walls, of which 65 % (n = 182) could be identified to the species, genus or family level\"\n--- DISCUSSION (pages 10-14) --- ← ALSO LOOK HERE\n\"In this study we quantified the ecosystem services of temperature regulation and habitat provisioning on existing foliage and climber VGSs in Singapore\"\n\"VGSs were cooling the walls of the building during the day. By contrast, the foliage and climber VGSs reduced cooling of the walls during the night, keeping the air behind the vegetation warmer than at their surface.\"\n--- CONCLUSIONS (pages 14-15) ---\n[...summary of findings — IGNORE THIS]",
+    "relevant_snippets": [
+        {
+            "text": "VGSs act as temperature buffer creating a cooling layer towards the building wall during the day and a warming layer during the night.",
+            "why_relevant": "Evidences temperature regulation as an ecosystem service provided by VGSs",
+            "page": 1
+        },
+        {
+            "text": "the average daily air temperature at the air-exposed side of the VGSs was on average 0.7 °C and 0.6 °C higher than behind the foliage and climber VGSs, respectively",
+            "why_relevant": "Quantitative evidence for temperature regulation — cooling effect measured",
+            "page": 6
+        },
+        {
+            "text": "In this study we quantified the ecosystem services of temperature regulation and habitat provisioning on existing foliage and climber VGSs in Singapore",
+            "why_relevant": "Explicitly names the ecosystem services studied: temperature regulation and habitat provisioning",
+            "page": 10
+        },
+        {
+            "text": "A total of 280 animal species were observed interacting with the walls, of which 65 % (n = 182) could be identified to the species, genus or family level",
+            "why_relevant": "Evidences animal biodiversity / habitat provision as an ecosystem service",
+            "page": 7
+        },
+        {
+            "text": "VGSs host significantly more animals than non-vegetated walls, however, VGS have less animals than vegetated natural cliffs.",
+            "why_relevant": "Comparative biodiversity evidence between VGSs, natural cliffs, and control walls",
+            "page": 1
+        }
+    ],
+    "expected_output": {
+        "ecosystem_services": [
+            {
+                "name": "temperature regulation",
+                "confidence": 1.0,
+                "anchor": "temperature buffer creating a cooling layer towards the building wall"
+            },
+            {
+                "name": "animal biodiversity",
+                "confidence": 1.0,
+                "anchor": "280 animal species were observed interacting with the walls"
+            }
+        ]
+    },
+    "lesson": "This paper explicitly studies two ecosystem services: temperature regulation and animal biodiversity (habitat provision). The model should map temperature regulation → 'Regulation of temperature' (Regulation and Maintenance category) and animal biodiversity → 'Habitat' (Provisioning category). The VGS types (foliage, climber, natural cliffs) are DESIGN STRATEGIES, not ecosystem services. The model should NOT extract VGS types as ecosystem services."
+}

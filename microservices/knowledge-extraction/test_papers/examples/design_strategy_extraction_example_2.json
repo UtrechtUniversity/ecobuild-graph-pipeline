@@ -1,125 +1,49 @@
 {
-    "paper_id": "Lan_2019",
-    "citation": "Lan et al. (2019) - A holistic design approach for residential net-zero energy buildings: A case study in Singapore",
-    "description": "Section-skeleton few-shot example for design strategy extraction. Yellow-highlighted passages from the annotated PDF are preserved as relevant_snippets.",
-    "section_skeleton": "Paper structure (Lan et al., 2019 — 16 pages):\n--- TITLE & ABSTRACT (page 1) ---\n[...about holistic NZEB design in Singapore using Triple Bottom Line principles, optimizing daylighting, natural cooling, energy efficiency and LCC — IGNORE THIS as it describes the methodology, not specific strategies implemented]\n--- INTRODUCTION (pages 1-2) ---\n[...~5000 chars citing literature on ZEB cost-optimization, multi-objective optimization studies across Europe, Middle East, Hong Kong — IGNORE THIS, it is a literature review only]\n--- METHODOLOGY (pages 2-4) ---\n[...~8000 chars explaining Triple Bottom Line framework, ASHRAE 55-2010 comfort model, JEPlus+EA/EnergyPlus optimization coupling, NSGA-II algorithm — IGNORE THIS, these describe the analytical method not design strategies of the case study buildings]\n--- CASE STUDY: CLIMATE & BUILDING TYPES (page 5) --- ← LOOK HERE\n\"The most common housing types in Singapore are HDB (Housing and Development Board) flats, condominiums, and landed houses.\"\n\"Both HDB flats and condominiums are high-rise buildings, which range from 10 to 40 storeys.\"\n\"Among landed houses, terraced houses are the most common... Most terraced and semi-detached houses are 6 m wide and 14–20 m long with 2-3 floors.\"\n--- CASE STUDY: LANDED HOUSE — PHASE 1 (pages 5-7) --- ← LOOK HERE\n\"This case study is based on a hypothetical floor plan of a typical terraced house in Singapore... The house has three floors with total floor area of 306 m2 and floor height of 3.5 m.\"\n\"The front and backside exterior walls and the roof are constructed with 100mm thick brick with 20mm thick cement plasters on both sides. The resulting U-value is 2.76 W/m2 k. Additional insulation is set as a design variable in Phase 1 optimization.\"\n[Design variable table shows: Exterior Wall Thermal Insulation (polystyrene, 0–20 mm), Roof Thermal Insulation (polystyrene, 0–20 mm), Window Status (open/closed schedules), WWR (0.2–0.5), Window Types (U-value|SHGC|VT variants), Overhang Projection (0–45°)]\n--- CASE STUDY: LANDED HOUSE — PHASE 2 (page 7) --- ← LOOK HERE\n\"An air-conditioning system is added to the EnergyPlus model to calculate the cooling energy consumption. The temperature set point of the air-conditioner is assumed to be constant at 24°C.\"\n[Active Design Variables table shows: Air-conditioner (COP 3.8–5.0), Water Heater (0.9 standard or 2.7 heat pump), Light type (LED/CFL/Incandescent), Refrigerator (37–50 W per 400L)]\n--- CASE STUDY: APARTMENT BUILDING — PHASE 1 (pages 7-8) --- ← LOOK HERE\n\"The building model is based on a hypothesis floor plan of a typical apartment building in Singapore. There are 25 floors with 4 units on each floor.\"\n[Same passive and active design variables as landed house apply]\n--- RENEWABLE ENERGY SYSTEM REQUIREMENT (pages 10-12) --- ← LOOK HERE\n\"To achieve net-zero electricity, the required sizes of PV panel for landed and apartment building are 16.5 m2 and 3,884 m2, respectively.\"\n\"If solar panels are installed on exterior walls and windows as shown in Fig. 14 (3), it is able to supply electricity for 13 floors. With more solar panel installed on exterior walls (Fig. 14 (4)), it is able to cover 19 floors out of 25 floors.\"\n--- DISCUSSION & CONCLUSIONS (pages 11-16) ---\n[...sensitivity analysis insights, comparisons with non-tropical literature, limitations — IGNORE THIS for strategy extraction, findings explain but do not introduce new strategies]",
+    "paper_id": "Hecht_2025",
+    "citation": "Hecht et al. (2025) - Rocks and walls: Biodiversity and temperature regulation of natural cliffs and vertical greenery systems",
+    "description": "Section-skeleton few-shot example for design strategy extraction. Blue-highlighted passages from the annotated PDF are preserved as relevant_snippets.",
+    "section_skeleton": "Paper structure (Hecht et al., 2025 — 16 pages, ~68,000 characters):\n--- TITLE & ABSTRACT (page 1) ---\n\"Vertical greenery systems (VGSs) have been proposed to mitigate rising temperatures and the loss of biodiversity.\"\n\"air and surface temperature measurements as well as biodiversity observations were conducted on two different types of existing VGSs (climber, foliage) on buildings in Singapore and compared to non-vegetated building walls and vegetated natural cliffs.\"\n--- INTRODUCTION (pages 1-2) ---\n[...background on urban heat island, VGSs, temperature regulation, biodiversity — IGNORE THIS]\n--- METHODOLOGY (pages 2-5) --- ← LOOK HERE\n\"The study took place in the urban environment of Singapore between August 2022 and March 2023.\"\n[...describes types of VGSs studied, measurement methods, biodiversity data collection...]\n\"These VGSs are largely of two types – climber and foliage.\"\n\"Climber VGSs consist of self-climbing plants such as ivy or vine species that grow from the soil up on a structure typically wires or cables.\"\n\"Foliage VGSs typically consist of smaller plants such as Philodendron species that are potted in boxes and that are generally managed using an integrated irrigation system.\"\n--- RESULTS (pages 5-10) ---\n[...air and surface temperature data, biodiversity data — THESE ARE ECOSYSTEM SERVICES NOT DESIGN STRATEGIES]\n--- DISCUSSION (pages 10-14) ---\n[...analysis of temperature performance, biodiversity benefits — IGNORE THIS]\n--- CONCLUSIONS (pages 14-15) ---\n[...summary of findings — IGNORE THIS]",
     "relevant_snippets": [
         {
-            "text": "The approach is applied to the design of residential NZEBs in a tropical country, Singapore. The potential of building residential NZEBs in Singapore is evaluated with two typical residential building types: a landed house and apartment building. The required capacity of a renewable energy system (RES) is calculated.",
-            "why_relevant": "Establishes that the case study evaluates both a landed house and apartment building as vehicles for testing NZEB strategies including a renewable energy system",
+            "text": "air and surface temperature measurements as well as biodiversity observations were conducted on two different types of existing VGSs (climber, foliage) on buildings in Singapore and compared to non-vegetated building walls and vegetated natural cliffs.",
+            "why_relevant": "Identifies the design strategy: vertical greenery systems in different wall types including climber, foliage, and comparison with natural cliffs and non-vegetated controls",
             "page": 1
         },
         {
-            "text": "optimizing the utilization of daylighting and natural cooling, energy efficiency and cost effectiveness",
-            "why_relevant": "Summarises the three overarching design strategy categories evaluated: passive daylighting, passive natural cooling, and active energy efficiency measures",
+            "text": "Foliage VGSs typically consist of smaller plants such as Philodendron species that are potted in boxes and that are generally managed using an integrated irrigation system.",
+            "why_relevant": "Implementation detail: foliage VGS type",
+            "page": 2
+        },
+        {
+            "text": "Climber VGSs consist of self-climbing plants such as ivy or vine species that grow from the soil up on a structure typically wires or cables.",
+            "why_relevant": "Implementation detail: climber VGS type",
+            "page": 2
+        },
+        {
+            "text": "Rocky cliffs were included as a 'natural reference' (hereafter called natural cliffs) to set a benchmark and identify the extent to which man-made VGSs",
+            "why_relevant": "Implementation detail: natural cliffs used as reference for VGS performance",
+            "page": 2
+        },
+        {
+            "text": "each climber and foliage VGS was paired with a control wall within 200 m distance and exposed to the same cardinal direction",
+            "why_relevant": "Implementation detail: controlled experimental setup with non-vegetated walls",
             "page": 3
-        },
-        {
-            "text": "The front and backside exterior walls and the roof are constructed with 100mm thick brick with 20mm thick cement plasters on both sides. The resulting U-value is 2.76 W/m2 k. Additional insulation is set as a design variable in Phase 1 optimization.",
-            "why_relevant": "Identifies building envelope insulation as a design strategy evaluated in the case study, with polystyrene insulation thickness (0–20mm) as a variable",
-            "page": 5
-        },
-        {
-            "text": "There are 9 passive design variables evaluated in Phase 1... Window Status is used to represent the window opening time during a day, i.e. always open, open during daytime only, open during night only, and always closed.",
-            "why_relevant": "Identifies controlled natural ventilation (window status scheduling) as a passive design strategy for thermal comfort and natural cooling",
-            "page": 6
-        },
-        {
-            "text": "Overhang projection is described by the overhang depth as fraction of window height... overhang projection, window type, and WWR are the most influential variables in daylighting performance.",
-            "why_relevant": "Identifies passive shading via overhang projection as a design strategy for controlling solar heat gain and optimizing daylighting",
-            "page": 6
-        },
-        {
-            "text": "An air-conditioning system is added to the EnergyPlus model to calculate the cooling energy consumption. The temperature set point of the air-conditioner is assumed to be constant at 24°C. The air-conditioner operating hours are based on the thermal discomfort time from Phase 1 simulation.",
-            "why_relevant": "Identifies a high-efficiency air conditioning system (COP 3.8–5.0) as an active design strategy in Phase 2 of the case study",
-            "page": 7
-        },
-        {
-            "text": "Water Heater Efficiency 0.9 (4000W), 2.7 (heat pump, 1300W)",
-            "why_relevant": "Identifies a heat pump water heater as an active energy efficiency strategy evaluated in the case study, compared against a conventional resistance element",
-            "page": 6
-        },
-        {
-            "text": "Light type Efficacy (lm/W) and type 70(LED), 50(CFL), 10(Incadescent)",
-            "why_relevant": "Identifies LED lighting as an active energy efficiency strategy evaluated in the case study",
-            "page": 6
-        },
-        {
-            "text": "To achieve net-zero electricity, the required sizes of PV panel for landed and apartment building are 16.5m2 and 3,884m2, respectively.",
-            "why_relevant": "Identifies rooftop solar photovoltaic panels as the renewable energy system evaluated to achieve net-zero energy for both building types",
-            "page": 10
-        },
-        {
-            "text": "If solar panels are installed on exterior walls and windows as shown in Fig. 14 (3), it is able to supply electricity for 13 floors. With more solar panel installed on exterior walls (Fig. 14 (4)), it is able to cover 19 floors out of 25 floors.",
-            "why_relevant": "Identifies building-integrated photovoltaic (BIPV) facade — solar panels on exterior walls — as an extended design strategy evaluated for the apartment building",
-            "page": 11
         }
     ],
     "expected_output": {
         "design_strategies": [
             {
-                "name": "Rooftop solar photovoltaic (PV) panels",
-                "context": [
-                    "To achieve net-zero electricity, the required sizes of PV panel for landed and apartment building are 16.5m2 and 3,884m2, respectively, based on 18% panel efficiency, annual average solar radiation of 1,666 kWh/m2/year, and a performance ratio of 0.8.",
-                    "Results show that while it is achievable to build a net-zero energy landed house with only rooftop solar panels, it is much more difficult to achieve net-zero energy for apartment buildings due to insufficient rooftop area."
-                ],
-                "confidence": 1.0
-            },
-            {
-                "name": "Building-integrated photovoltaic (BIPV) facade — solar panels on exterior walls",
-                "context": [
-                    "If solar panels are installed on exterior walls and windows as shown in Fig. 14 (3), it is able to supply electricity for 13 floors. With more solar panel installed on exterior walls (Fig. 14 (4)), it is able to cover 19 floors out of 25 floors.",
-                    "For a 25-floor H-shaped residential building with a solar panel integrated facade, the produced electricity is able to meet the energy demand of up to 19 floors."
-                ],
-                "confidence": 0.9
-            },
-            {
-                "name": "Natural ventilation / natural cooling (passive)",
-                "context": [
-                    "Window Status is used to represent the window opening time during a day, i.e. always open, open during daytime only, open during night only, and always closed. For natural cooling performance, window status is found to be the dominant factor over others.",
-                    "Natural cooling in NZEB also benefits human health. Air-conditioning brings thermal comfort to people, but over long time durations it may cause many health problems including nasal issues, headaches, itchy eyes, difficulty breathing and dizziness due to poor IAQ."
-                ],
-                "confidence": 1.0
-            },
-            {
-                "name": "Daylighting optimization (passive)",
-                "context": [
-                    "Overhang projection, window type, and WWR are the most influential variables in daylighting performance. Window to Wall Ratio (WWR) is adjusted by varying the window lower edge position while fixing the window width and top edge position.",
-                    "The minimum ineffective daylighting time is 16.4 hours per day, which means that the longest daylighting hours with illuminance higher than 300 lx is 7.6 hours per day."
-                ],
-                "confidence": 1.0
-            },
-            {
-                "name": "Building envelope thermal insulation (polystyrene)",
-                "context": [
-                    "The front and backside exterior walls and the roof are constructed with 100mm thick brick with 20mm thick cement plasters on both sides. The resulting U-value is 2.76 W/m2 k. Additional insulation is set as a design variable in Phase 1 optimization.",
-                    "Exterior Wall Thermal Insulation (polystyrene) thickness of insulation 20, 10, 5, 0 mm; Roof Thermal Insulation (polystyrene) thickness of insulation 20, 10, 5, 0 mm, with a lifespan of 30 years and cost of 140/m3 SGD."
-                ],
-                "confidence": 0.8
-            },
-            {
-                "name": "High-efficiency air conditioning system",
-                "context": [
-                    "An air-conditioning system is added to the EnergyPlus model to calculate the cooling energy consumption. The temperature set point of the air-conditioner is assumed to be constant at 24°C. Air-conditioner efficiency is defined as full load COP ranging from 3.8 to 5.0.",
-                    "Light type has the most significant impact on both energy consumption and LCC. Water heater type and air-conditioner operating hours also have relatively big impact on energy consumption and LCC."
-                ],
-                "confidence": 0.9
-            },
-            {
-                "name": "Heat pump water heater",
-                "context": [
-                    "Water Heater Efficiency 0.9 (4000W conventional), 2.7 (heat pump, 1300W). Higher water heater efficiency (heat pump water heater) increases energy efficiency but results in lower cost effectiveness because the initial cost difference is greater than the cost savings from electricity."
-                ],
-                "confidence": 0.8
-            },
-            {
-                "name": "LED lighting",
-                "context": [
-                    "Light type Efficacy (lm/W) and type: 70 (LED), 50 (CFL), 10 (Incandescent). Light type has the most significant impact on both energy consumption and LCC, due to the dramatic performance difference among the different light types."
-                ],
-                "confidence": 0.9
+                "name": "Vertical green systems in walls",
+                "anchor": "two different types of existing VGSs (climber, foliage) on buildings",
+                "confidence": 1.0,
+                "implementation_details": [
+                    "Foliage VGSs typically consist of smaller plants such as Philodendron species",
+                    "Climber VGSs consist of self-climbing plants such as ivy or vine species",
+                    "Rocky cliffs were included as a 'natural reference'",
+                    "each climber and foliage VGS was paired with a control wall"
+                ]
             }
         ]
     },
-    "lesson": "This paper evaluates EIGHT distinct design strategies across two phases of a two-building case study. Phase 1 contains PASSIVE strategies (natural ventilation, daylighting, insulation, shading), while Phase 2 contains ACTIVE system strategies (air conditioning, water heater, lighting, PV). A third category — the renewable energy system sizing — appears in a separate section. The model must read ALL relevant sections (Case Study pages 4-11) to capture all strategies. The methodology section (pages 2-4) explains the optimization framework and must NOT be confused with actual strategies applied to the buildings. Strategies appear in TWO forms: as design variables in a table (Table 2) and as narrative descriptions in the text — both must be read. Unlike the DeArruda paper where three discrete models are named, here strategies are interwoven across phases and building types; the model must synthesize them into distinct named strategies."
+    "lesson": "From this 16-page paper, the design strategy is vertical greenery systems (VGSs) implemented on building walls. The study compares two VGS types (foliage and climber) against natural cliffs and non-vegetated control walls. Implementation details describe how each type works: foliage with potted plants and integrated irrigation, climbers growing from soil up on wires/cables, and natural cliffs as a benchmark. The model should identify the VGS as the design strategy and not confuse the measured outcomes (temperature regulation, biodiversity) as design strategies — those are ecosystem services."
 }

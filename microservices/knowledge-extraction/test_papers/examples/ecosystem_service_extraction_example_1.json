@@ -1,0 +1,58 @@
+{
+    "paper_id": "Brunsgaard_2011",
+    "citation": "Brunsgaard et al. (2011) - Evaluation of the Indoor Environment of Comfort Houses: Qualitative and Quantitative Approaches",
+    "description": "Section-skeleton few-shot example for ecosystem service extraction. Blue-highlighted passages from the annotated PDF are preserved as relevant_snippets.",
+    "section_skeleton": "Paper structure (Brunsgaard et al., 2011 — 20 pages, ~76,000 characters):\n--- TITLE & ABSTRACT (page 1) ---\n[...about evaluation of indoor environment in Comfort Houses, passive houses in Denmark...]\n--- INTRODUCTION (pages 1-2) ---\n[...background on energy consumption, passive houses — describes DESIGN STRATEGIES not ecosystem services — IGNORE THIS]\n--- METHODS (pages 2-5) ---\n[...mixed methods, quantitative measurements (temperature, CO2, RH, daylight, acoustics), qualitative interviews...]\n\"thermal comfort and indoor air quality, daylight conditions and acoustic properties\"\n--- RESULTS (pages 5-15) --- ← LOOK HERE\n[...indoor temperature measurements in summer and winter, CO2 levels, relative humidity, daylight factors, reverberation time and ventilation noise...]\n\"The measurements show that there is a tendency towards high temperatures in all three cases\"\n\"The charts in Table 4 show that there were no problems with the CO2 levels during the summer period, whereas the required CO2 levels were not met in cases 2 and 8 during the winter.\"\n\"The graphs in Table 5 show that all cases fulfilled the requirement of a minimum 2% daylight factor, even at the back of the room.\"\n\"The measurements show that none of the cases satisfied the class B requirement of the Danish Building Regulations regarding the reverberation time without furniture\"\n--- DISCUSSION (pages 15-18) ---\n[...analysis of results — supplementary evidence]\n--- CONCLUSIONS (pages 18-19) ---\n[...summary of findings — IGNORE THIS]",
+    "relevant_snippets": [
+        {
+            "text": "thermal comfort and indoor air quality, daylight conditions and acoustic properties",
+            "why_relevant": "Lists all four ecosystem services evaluated in this study",
+            "page": 2
+        },
+        {
+            "text": "The measurements show that there is a tendency towards high temperatures in all three cases",
+            "why_relevant": "Evidences thermal comfort (indoor temperature) as an ecosystem service measured in the case study",
+            "page": 7
+        },
+        {
+            "text": "The charts in Table 4 show that there were no problems with the CO2 levels during the summer period, whereas the required CO2 levels were not met in cases 2 and 8 during the winter.",
+            "why_relevant": "Evidences indoor air quality as an ecosystem service measured through CO2 and humidity levels",
+            "page": 9
+        },
+        {
+            "text": "The graphs in Table 5 show that all cases fulfilled the requirement of a minimum 2% daylight factor, even at the back of the room.",
+            "why_relevant": "Evidences daylight conditions as an ecosystem service measured through daylight factors",
+            "page": 12
+        },
+        {
+            "text": "The measurements show that none of the cases satisfied the class B requirement of the Danish Building Regulations regarding the reverberation time without furniture",
+            "why_relevant": "Evidences acoustic properties as an ecosystem service measured through reverberation time and ventilation noise",
+            "page": 14
+        }
+    ],
+    "expected_output": {
+        "ecosystem_services": [
+            {
+                "name": "thermal comfort (indoor temperature)",
+                "confidence": 1.0,
+                "anchor": "tendency towards high temperatures in all three cases"
+            },
+            {
+                "name": "indoor air quality",
+                "confidence": 0.9,
+                "anchor": "no problems with the CO2 levels during the summer period"
+            },
+            {
+                "name": "daylight conditions",
+                "confidence": 0.8,
+                "anchor": "all cases fulfilled the requirement of a minimum 2% daylight factor"
+            },
+            {
+                "name": "acoustic properties",
+                "confidence": 0.9,
+                "anchor": "none of the cases satisfied the class B requirement"
+            }
+        ]
+    },
+    "lesson": "This paper evaluates four aspects of the indoor environment: thermal comfort (indoor temperature), indoor air quality (CO2 levels and relative humidity), daylight conditions, and acoustic properties (reverberation time and ventilation noise). These are the ecosystem services evidenced by the passive house design strategy. The model should map these to the taxonomy: thermal comfort → 'Regulation of temperature', air quality → 'Regulation of air quality', daylight → 'Solar energy' (provisioning), acoustics → 'Regulation of sound'. Do NOT extract the passive house design itself as an ecosystem service — that is the design strategy."
+}

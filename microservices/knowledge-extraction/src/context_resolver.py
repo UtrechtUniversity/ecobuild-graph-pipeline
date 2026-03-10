@@ -55,47 +55,58 @@ def find_anchor_in_text(
         return {"found": False, "score": 0.0, "context": None, "char_start": -1}
 
     anchor_clean = anchor.strip()
+    lower_anchor = anchor_clean.lower()
+    lower_text   = source_text.lower()
 
     # 1. Exact match
-    lower_text = source_text.lower()
-    lower_anchor = anchor_clean.lower()
     idx = lower_text.find(lower_anchor)
     if idx != -1:
         context = _extract_window(source_text, idx, len(anchor_clean), context_window)
         return {"found": True, "score": 1.0, "context": context, "char_start": idx}
 
-    # 2. Fuzzy sliding-window fallback 
-    anchor_len = len(anchor_clean)
+    # 2. partial_ratio fuzzy match
+    # fuzz.partial_ratio(short, long) finds the best-aligning substring of
+    # `long` that matches `short`, handling OCR noise and minor whitespace
+    # differences without the alignment errors of a manual sliding window.
+    score = fuzz.partial_ratio(lower_anchor, lower_text) / 100.0
 
-    # Step by ~20% of anchor length so we don't miss a match that straddles
-    # a step boundary, without being so slow we scan every character.
-    step = max(1, anchor_len // 5)
+    if score < FUZZY_MATCH_THRESHOLD:
+        logger.debug(
+            f"Anchor not found (partial_ratio={score:.3f} < {FUZZY_MATCH_THRESHOLD}): "
+            f'"{anchor_clean[:60]}"'
+        )
+        return {"found": False, "score": round(score, 3), "context": None, "char_start": -1}
 
-    best_score = 0.0
-    best_idx = -1
+    # partial_ratio confirms a match exists but doesn't return its position,
+    # so we do a two-pass scan to locate it for window extraction.
+    # Pass 1 (coarse): step = anchor_len // 10 to find approximate region.
+    # Pass 2 (fine):   step = 1 within +/-coarse_step of the best coarse position.
+    anchor_len   = len(anchor_clean)
+    coarse_step  = max(1, anchor_len // 10)
+    best_ratio   = 0.0
+    best_idx     = 0
 
-    for i in range(0, max(0, len(source_text) - anchor_len + 1), step):
-        window = source_text[i: i + anchor_len]
-        score = fuzz.ratio(lower_anchor, window.lower()) / 100.0
-        if score > best_score:
-            best_score = score
-            best_idx = i
+    for i in range(0, max(1, len(source_text) - anchor_len + 1), coarse_step):
+        s = fuzz.ratio(lower_anchor, lower_text[i: i + anchor_len]) / 100.0
+        if s > best_ratio:
+            best_ratio = s
+            best_idx   = i
 
-    if best_score >= FUZZY_MATCH_THRESHOLD:
-        context = _extract_window(source_text, best_idx, anchor_len, context_window)
-        return {
-            "found": True,
-            "score": round(best_score, 3),
-            "context": context,
-            "char_start": best_idx,
-        }
+    refine_start = max(0, best_idx - coarse_step)
+    refine_end   = min(len(source_text) - anchor_len + 1, best_idx + coarse_step + 1)
+    for i in range(refine_start, refine_end):
+        s = fuzz.ratio(lower_anchor, lower_text[i: i + anchor_len]) / 100.0
+        if s > best_ratio:
+            best_ratio = s
+            best_idx   = i
 
-    logger.debug(
-        f"Anchor not found (best score {best_score:.2f} < {FUZZY_MATCH_THRESHOLD}): "
-        f'"{anchor_clean[:60]}..."'
-    )
-    return {"found": False, "score": round(best_score, 3), "context": None, "char_start": -1}
-
+    context = _extract_window(source_text, best_idx, anchor_len, context_window)
+    return {
+        "found":      True,
+        "score":      round(score, 3),   # report partial_ratio (true match quality)
+        "context":    context,
+        "char_start": best_idx,
+    }
 
 def _extract_window(text: str, match_start: int, match_len: int, window: int) -> str:
     """Extract text around a match, trimming to sentence/word boundaries."""

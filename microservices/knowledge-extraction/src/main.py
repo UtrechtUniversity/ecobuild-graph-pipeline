@@ -23,6 +23,7 @@ from .context_resolver import (
     resolve_design_strategy_contexts,
     resolve_ecosystem_service_contexts,
 )
+from .entity_resolution import EntityResolutionMatcher
 
 # --- Logger Setup ---
 logger = logging.getLogger(__name__)
@@ -102,6 +103,12 @@ async def main():
         model=OLLAMA_LLM_MODEL,
         base_url=OLLAMA_HOST
     )
+
+    logger.info("Initializing entity resolution matcher (pre-embedding vocabularies)...")
+    resolver = EntityResolutionMatcher(
+        ollama_host=OLLAMA_HOST,
+        embedding_model=OLLAMA_EMBEDDING_MODEL,
+    )
     
     # Define paths
     test_papers_dir_path = "/app/test_papers/test_papers"
@@ -157,7 +164,7 @@ async def main():
             # STEP 2: Extract Entities (Buildings)
             # ========================================
             logger.info("\nSTEP 2: Extracting entities (buildings)...")
-            entity_results = entity_extractor.extract_from_text(raw_text, verbose=False)
+            entity_results = entity_extractor.extract_from_text(raw_text, verbose=False, file_name=pdf_path)
             
             entities = entity_results.get('entities', [])
 
@@ -192,7 +199,7 @@ async def main():
             # STEP 3: Extract Design Strategies
             # ========================================
             logger.info("\nSTEP 3: Extracting design strategies...")
-            design_results = design_extractor.extract_from_text(raw_text, verbose=False)
+            design_results = design_extractor.extract_from_text(raw_text, verbose=False, file_name=pdf_path)
 
             # Resolve anchors → real context passages from the source document
             logger.info("  Resolving design strategy anchors against source text...")
@@ -200,6 +207,11 @@ async def main():
 
             strategies = design_results.get('design_strategies', [])
             verified, total = _count_verified(strategies)
+
+            # Semantic vocabulary matching — runs on all items (verified or not)
+            logger.info("  Matching design strategies to vocabulary...")
+            design_results = resolver.resolve_design_strategy_matches(design_results)
+            strategies = design_results.get('design_strategies', [])
 
             if strategies:
                 logger.info(f"  ✓ Found {total} design strategies ({verified}/{total} anchors verified)")
@@ -214,7 +226,7 @@ async def main():
             # STEP 4: Extract Ecosystem Services
             # ========================================
             logger.info("\nSTEP 4: Extracting ecosystem services...")
-            ecosystem_results = ecosystem_extractor.extract_from_text(raw_text, verbose=False)
+            ecosystem_results = ecosystem_extractor.extract_from_text(raw_text, verbose=False, file_name=pdf_path)
 
             # Resolve anchors → real context passages from the source document
             logger.info("  Resolving ecosystem service anchors against source text...")
@@ -222,6 +234,11 @@ async def main():
 
             eco_services = ecosystem_results.get('ecosystem_services', [])
             verified_eco, total_eco = _count_verified(eco_services)
+
+            # Semantic vocabulary matching — runs on all items (verified or not)
+            logger.info("  Matching ecosystem services to vocabulary...")
+            ecosystem_results = resolver.resolve_ecosystem_service_matches(ecosystem_results)
+            eco_services = ecosystem_results.get('ecosystem_services', [])
 
             if eco_services:
                 logger.info(f"  ✓ Found {total_eco} ecosystem services ({verified_eco}/{total_eco} anchors verified)")
@@ -298,14 +315,18 @@ async def main():
                 for idx, strategy in enumerate(strategies, 1):
                     if not strategy.get('anchor_verified'):
                         continue
-                    name       = strategy.get('name', 'Unnamed')
-                    confidence = strategy.get('confidence', 'N/A')
-                    context    = strategy.get('context')
-                    score      = strategy.get('anchor_match_score')
+                    name             = strategy.get('name', 'Unnamed')
+                    confidence       = strategy.get('confidence', 'N/A')
+                    context          = strategy.get('context')
+                    anchor_score     = strategy.get('anchor_match_score')
+                    vocab_match      = strategy.get('vocab_match', '')
+                    vocab_score      = strategy.get('vocab_match_score')
 
-                    score_str = f" (score: {score:.2f})" if score is not None else ""
+                    anchor_score_str = f" (score: {anchor_score:.2f})" if anchor_score is not None else ""
+                    vocab_score_str  = f" ({vocab_score:.4f})" if vocab_score is not None else ""
                     report_lines.append(f"\nStrategy {idx}: {name}")
-                    report_lines.append(f"  Confidence: {confidence}  |  Anchor: ✓{score_str}")
+                    report_lines.append(f"  Confidence: {confidence}  |  Anchor: ✓{anchor_score_str}")
+                    report_lines.append(f"  Vocab match: {vocab_match}{vocab_score_str}")
                     if context:
                         report_lines.append(f'  Context: "{context}"')
 
@@ -325,21 +346,27 @@ async def main():
                 for service in eco_services:
                     if not service.get('anchor_verified'):
                         continue
-                    cat = service.get('category', 'Unknown')
+                    # Group by vocab_category if available, else fall back to
+                    # the LLM-assigned category from the extractor
+                    cat = service.get('vocab_category') or service.get('category', 'Unknown')
                     by_category.setdefault(cat, []).append(service)
 
                 if by_category:
                     for category, cat_services in by_category.items():
                         report_lines.append(f"\n  [{category.upper()}]")
                         for idx, service in enumerate(cat_services, 1):
-                            name       = service.get('name', 'Unnamed')
-                            confidence = service.get('confidence', 'N/A')
-                            context    = service.get('context')
-                            score      = service.get('anchor_match_score')
+                            name         = service.get('name', 'Unnamed')
+                            confidence   = service.get('confidence', 'N/A')
+                            context      = service.get('context')
+                            anchor_score = service.get('anchor_match_score')
+                            vocab_match  = service.get('vocab_match', '')
+                            vocab_score  = service.get('vocab_match_score')
 
-                            score_str = f" (score: {score:.2f})" if score is not None else ""
+                            anchor_score_str = f" (score: {anchor_score:.2f})" if anchor_score is not None else ""
+                            vocab_score_str  = f" ({vocab_score:.4f})" if vocab_score is not None else ""
                             report_lines.append(f"\n  Service {idx}: {name}")
-                            report_lines.append(f"    Confidence: {confidence}  |  Anchor: ✓{score_str}")
+                            report_lines.append(f"    Confidence: {confidence}  |  Anchor: ✓{anchor_score_str}")
+                            report_lines.append(f"    Vocab match: {vocab_match}{vocab_score_str}")
                             if context:
                                 report_lines.append(f'    Context: "{context}"')
                 else:

@@ -12,6 +12,10 @@ from typing import Dict, List, Optional
 # ── Few-shot example directory (relative to this file) ──────────────────────
 _EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "test_papers" / "examples"
 
+from langchain_ollama import ChatOllama
+from langchain_core.prompts import PromptTemplate
+
+
 logger = logging.getLogger(__name__)
 
 output_dir = Path("/app/test_papers/preprocessed")
@@ -130,13 +134,11 @@ class DesignStrategyPromptBuilder:
                     {{
                         "name": "strategy name",
                         "anchor": "five to ten exact words from the paper",
-                        "confidence": 0.8,
                         "implementation_details": ["detail 1", "detail 2", "detail 3"]
                     }},
                     {{
                         "name": "another strategy name",
                         "anchor": null,
-                        "confidence": 0.4,
                         "implementation_details": ["detail 1", "detail 2"]
                     }}
                 ]
@@ -162,59 +164,19 @@ class DesignStrategyPromptBuilder:
 
 
 class DesignStrategyExtractor:
-    """Main design strategy extraction orchestrator"""
+    """Main design strategy extraction agent orchestrated via LangChain"""
     
     def __init__(self, model: str = "llama3.2", base_url: str = "http://localhost:11434"):
         self.prompt_builder = DesignStrategyPromptBuilder()
-        self.model = model
-        self.base_url = base_url
-    
-    def _query_ollama(self, prompt: str) -> str:
-        """Send query to Ollama API and return response"""
-        try:
-            import requests
-            
-            response = requests.post(
-                f"{self.base_url}/api/generate",
-                json={
-                    "model": self.model,
-                    "prompt": prompt,
-                    "stream": False,
-                    "options": {
-                        "temperature": 0.1,  # Low for factual extraction
-                        "num_predict": 2000,  # Allow longer responses for multiple strategies
-                        "num_ctx": 12000,     # Prevent prompt truncation
-                    }
-                },
-                timeout=180
-            )
-            
-            if response.status_code == 200:
-                return response.json().get('response', '')
-            else:
-                logger.error(f"API returned status {response.status_code}")
-                return '{}'
-                
-        except Exception as e:
-            logger.error(f"Error querying Ollama: {e}")
-            return '{}'
-    
-    def _extract_json(self, response: str) -> dict:
-        """Extract and parse JSON from LLM response"""
-        # Remove markdown code blocks if present
-        response = re.sub(r'```json\s*', '', response)
-        response = re.sub(r'```\s*', '', response)
-        
-        # Try to find JSON in response
-        json_match = re.search(r'\{.*\}', response, re.DOTALL)
-        if json_match:
-            try:
-                return json.loads(json_match.group())
-            except json.JSONDecodeError as e:
-                logger.error(f"JSON parse error: {e}")
-                logger.debug(f"Failed to parse: {json_match.group()[:500]}")
-        
-        return {'design_strategies': []}
+        self.llm = ChatOllama(
+            model=model,
+            base_url=base_url,
+            temperature=0.1,
+            num_predict=2000,
+            num_ctx=12000,
+            format="json"
+        )
+        self.chain = PromptTemplate.from_template("{prompt}") | self.llm
     
     def extract_from_text(self, text: str, verbose: bool = True, file_name: str = "") -> Dict:
         """
@@ -237,13 +199,24 @@ class DesignStrategyExtractor:
         
         # Build and send prompt
         prompt = self.prompt_builder.build_design_strategy_extraction_prompt(text, file_name)
-        response = self._query_ollama(prompt)
+        response_msg = self.chain.invoke({"prompt": prompt})
+        response = response_msg.content
         
         if verbose and not response:
-            logger.warning("Empty response from Ollama")
+            logger.warning("Empty response from LLM")
         
         # Extract JSON
-        raw_results = self._extract_json(response)
+        raw_results = {'design_strategies': []}
+        response = re.sub(r'```json\s*', '', response)
+        response = re.sub(r'```\s*', '', response)
+        
+        json_match = re.search(r'\{.*\}', response, re.DOTALL)
+        if json_match:
+            try:
+                raw_results = json.loads(json_match.group())
+            except json.JSONDecodeError as e:
+                logger.error(f"JSON parse error: {e}")
+                logger.debug(f"Failed to parse: {json_match.group()[:500]}")
         
         # Debug output
         if not raw_results.get('design_strategies') and verbose:
@@ -374,6 +347,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+from langchain_core.tools import tool
+
+@tool
+def extract_design_strategies_from_text(text: str, file_name: str = "") -> dict:
+    """Extract design strategies from the provided text of an academic paper."""
+    extractor = DesignStrategyExtractor()
+    return extractor.extract_from_text(text, verbose=False, file_name=file_name)
 
 
 

@@ -14,6 +14,7 @@ import re
 import logging
 from typing import Optional
 from rapidfuzz import fuzz
+from langchain_core.tools import tool
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +22,7 @@ logger = logging.getLogger(__name__)
 # 0.82 catches minor OCR/whitespace differences while rejecting clear misses.
 FUZZY_MATCH_THRESHOLD = 0.80
 
-
+@tool
 def find_anchor_in_text(
     anchor: str,
     source_text: str,
@@ -125,6 +126,7 @@ def _extract_window(text: str, match_start: int, match_len: int, window: int) ->
 # Per-extractor resolver helpers
 # ---------------------------------------------------------------------------
 
+@tool
 def resolve_design_strategy_contexts(
     results: dict,
     source_text: str,
@@ -174,7 +176,7 @@ def resolve_design_strategy_contexts(
     )
     return results
 
-
+@tool
 def resolve_ecosystem_service_contexts(
     results: dict,
     source_text: str,
@@ -222,7 +224,7 @@ def resolve_ecosystem_service_contexts(
     )
     return results
 
-
+@tool
 def resolve_entity_contexts(
     results: dict,
     source_text: str,

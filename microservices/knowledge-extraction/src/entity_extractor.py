@@ -13,6 +13,10 @@ from typing import Dict, List, Set, Tuple, Optional
 _EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "test_papers" / "examples"
 from dataclasses import dataclass, asdict
 
+from langchain_ollama import ChatOllama
+from langchain_core.prompts import PromptTemplate
+from langchain_core.tools import tool
+
 logger = logging.getLogger(__name__)
 
 output_dir = Path("/app/test_papers/preprocessed")
@@ -149,67 +153,23 @@ terraced houses, etc.) is irrelevant — do NOT reproduce any of it.
         return current_prompt
 
 
-class OllamaInterface:
-    """Interface to interact with Ollama via API (Docker-compatible)"""
-    
-    def __init__(self, model: str = "llama3.2", base_url: str = "http://localhost:11434"):
-        self.model = model
-        self.base_url = base_url
-    
-    def query(self, prompt: str) -> str:
-        """Send query to Ollama API and return response"""
-        
-        try:
-            import requests
-            
-            response = requests.post(
-                f"{self.base_url}/api/generate",
-                json={
-                    "model": self.model,
-                    "prompt": prompt,
-                    "stream": False,
-                    "options": {
-                        "temperature": 0.1,  # Low for factual extraction
-                        "num_ctx": 12000,     # Prevent prompt truncation
-                    }
-                },
-                timeout=120
-            )
-            
-            if response.status_code == 200:
-                return response.json().get('response', '')
-            else:
-                return f'{{"error": "API returned status {response.status_code}"}}'
-                
-        except Exception as e:
-            return f'{{"error": "{str(e)}"}}'
-    
-    def extract_json(self, response: str) -> dict:
-        """Extract and parse JSON from LLM response"""
-        # Try to find JSON in response
-        json_match = re.search(r'\{.*\}', response, re.DOTALL)
-        if json_match:
-            try:
-                # Clean up markdown if present
-                content = json_match.group()
-                if content.startswith('```json'):
-                    content = content[7:-3]
-                return json.loads(content)
-            except json.JSONDecodeError:
-                pass
-        return {}
-
-
 class EntityInformationExtractor:
-    """Main extraction orchestrator"""
+    """Main extraction agent orchestrated via LangChain"""
     
     def __init__(self, model: str = "llama3.2", base_url: str = "http://localhost:11434"):
         self.prompt_builder = OllamaPromptBuilder()
-        self.ollama = OllamaInterface(model, base_url)
+        self.llm = ChatOllama(
+            model=model,
+            base_url=base_url,
+            temperature=0.1,
+            num_ctx=12000,
+            format="json"
+        )
+        self.chain = PromptTemplate.from_template("{prompt}") | self.llm
     
     def extract_from_text(self, text: str, verbose: bool = True, file_name: str = "") -> Dict:
         """
-        Extract all entities from a research paper text
+        Extract all entities from a research paper text using a LangChain pipeline
         
         Args:
             text: Full text of the research paper
@@ -219,15 +179,26 @@ class EntityInformationExtractor:
             Dictionary containing a list of extracted entities
         """
         if verbose:
-            print("Extracting entities from text...")
+            print("Extracting entities from text using LangChain agent...")
 
         prompt = self.prompt_builder.build_building_extraction_prompt(text, file_name)
-        response = self.ollama.query(prompt)
+        response_msg = self.chain.invoke({"prompt": prompt})
+        response = response_msg.content
         
         if verbose and not response:
-            print("  Warning: Empty response from Ollama interface.")
+            print("  Warning: Empty response from LLM.")
         
-        raw_results = self.ollama.extract_json(response)
+        # Extract and parse JSON from LLM response
+        raw_results = {}
+        json_match = re.search(r'\{.*\}', response, re.DOTALL)
+        if json_match:
+            try:
+                content = json_match.group()
+                if content.startswith('```json'):
+                    content = content[7:-3]
+                raw_results = json.loads(content)
+            except json.JSONDecodeError:
+                pass
         
         # Debug: if entities is empty, log the response for inspection
         if not raw_results.get('entities') and verbose:
@@ -346,3 +317,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+@tool
+def extract_entities_from_text(text: str, file_name: str = "") -> dict:
+    """Extract entities (buildings) from the provided text of an academic paper."""
+    extractor = EntityInformationExtractor()
+    return extractor.extract_from_text(text, verbose=False, file_name=file_name)

@@ -17,7 +17,10 @@ ollama = "^0.4.9"
 neo4j = "^5.28.1"
 pymupdf = "^1.24.0"
 python-docx = "^1.1.2"
-
+langchain = "^0.3.0"
+langchain-ollama = "^0.2.0"
+pydantic = "^2.0.0"
+langgraph = "^0.2.0"
 
 [build-system]
 requires = ["poetry-core"]

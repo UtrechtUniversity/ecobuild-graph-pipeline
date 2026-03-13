@@ -4,6 +4,7 @@
 
 import logging
 import math
+import time
 from typing import Optional
 
 import numpy as np
@@ -408,27 +409,38 @@ class EntityResolutionMatcher:
 
     # ── Ollama embedding call ─────────────────────────────────────────────────
 
-    def _embed(self, text: str) -> Optional[np.ndarray]:
+    def _embed(self, text: str, max_retries: int = 5) -> Optional[np.ndarray]:
         """Return a normalised embedding vector for `text`, or None on failure."""
-        try:
-            response = requests.post(
-                f"{self.ollama_host}/api/embeddings",
-                json={"model": self.embedding_model, "prompt": text},
-                timeout=30,
-            )
-            if response.status_code == 200:
-                vec = np.array(response.json()["embedding"], dtype=np.float32)
-                norm = np.linalg.norm(vec)
-                return vec / norm if norm > 0 else vec
-            else:
-                logger.warning(
-                    f"Embedding request failed (status {response.status_code}) "
-                    f"for text: '{text[:60]}'"
+        retries = 0
+        while retries <= max_retries:
+            try:
+                response = requests.post(
+                    f"{self.ollama_host}/api/embeddings",
+                    json={"model": self.embedding_model, "prompt": text},
+                    timeout=30,
                 )
+                if response.status_code == 200:
+                    vec = np.array(response.json()["embedding"], dtype=np.float32)
+                    norm = np.linalg.norm(vec)
+                    return vec / norm if norm > 0 else vec
+                else:
+                    logger.warning(
+                        f"Embedding request failed (status {response.status_code}) "
+                        f"for text: '{text[:60]}'"
+                    )
+                    return None
+            except (requests.exceptions.ConnectionError, requests.exceptions.ConnectTimeout) as e:
+                retries += 1
+                if retries > max_retries:
+                    logger.error(f"Max retries reached. Embedding error for '{text[:60]}': {e}")
+                    return None
+                wait_time = 2 ** retries
+                logger.warning(f"Connection to Ollama failed. Retrying in {wait_time}s... ({retries}/{max_retries})")
+                time.sleep(wait_time)
+            except Exception as e:
+                logger.error(f"Unexpected embedding error for '{text[:60]}': {e}")
                 return None
-        except Exception as e:
-            logger.error(f"Embedding error for '{text[:60]}': {e}")
-            return None
+        return None
 
     # ── Query construction ────────────────────────────────────────────────────
 

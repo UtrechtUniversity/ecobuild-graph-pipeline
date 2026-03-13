@@ -6,6 +6,8 @@ Handles conversion from various formats to plain text
 import subprocess
 from pathlib import Path
 from typing import Optional
+from langchain_core.tools import tool
+
 
 
 class DocumentConverter:
@@ -114,9 +116,11 @@ class DocumentConverter:
         return text.strip()
 
 
+@tool
 def convert_document(input_path: str, output_path: Optional[str] = None) -> str:
     """
     Convert a document to text and optionally save to file
+
     
     Args:
         input_path: Path to input document

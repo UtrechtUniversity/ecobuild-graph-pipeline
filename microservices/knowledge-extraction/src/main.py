@@ -316,17 +316,32 @@ async def main():
                     if not strategy.get('anchor_verified'):
                         continue
                     name             = strategy.get('name', 'Unnamed')
-                    confidence       = strategy.get('confidence', 'N/A')
+                    anchor           = strategy.get('anchor_text', 'N/A')
                     context          = strategy.get('context')
                     anchor_score     = strategy.get('anchor_match_score')
-                    vocab_match      = strategy.get('vocab_match', '')
-                    vocab_score      = strategy.get('vocab_match_score')
+                    vocab_top_matches = strategy.get('vocab_top_matches', [])
+                    implementation_details = strategy.get('implementation_details', [])
 
                     anchor_score_str = f" (score: {anchor_score:.2f})" if anchor_score is not None else ""
-                    vocab_score_str  = f" ({vocab_score:.4f})" if vocab_score is not None else ""
                     report_lines.append(f"\nStrategy {idx}: {name}")
-                    report_lines.append(f"  Confidence: {confidence}  |  Anchor: ✓{anchor_score_str}")
-                    report_lines.append(f"  Vocab match: {vocab_match}{vocab_score_str}")
+                    report_lines.append(f"  Anchor: {anchor} {anchor_score_str}")
+                    
+                    if vocab_top_matches:
+                        report_lines.append(f"  Vocab top matches:")
+                        for match in vocab_top_matches:
+                            m_name = match.get('name', 'Unknown')
+                            m_score = match.get('score', 0.0)
+                            report_lines.append(f"    - {m_name} ({m_score:.4f})")
+                    else:
+                        report_lines.append(f"  Vocab top matches: N/A")
+                    
+                    if implementation_details:
+                        report_lines.append(f"  Implementation details:")
+                        for detail in implementation_details:
+                            report_lines.append(f"    - {detail}")
+                    else:
+                        report_lines.append(f"  Implementation details: N/A")
+                        
                     if context:
                         report_lines.append(f'  Context: "{context}"')
 
@@ -346,9 +361,11 @@ async def main():
                 for service in eco_services:
                     if not service.get('anchor_verified'):
                         continue
-                    # Group by vocab_category if available, else fall back to
-                    # the LLM-assigned category from the extractor
-                    cat = service.get('vocab_category') or service.get('category', 'Unknown')
+                    # Group by the category of the top vocab match if available,
+                    # else fall back to the LLM-assigned category from the extractor
+                    top_matches = service.get('vocab_top_matches', [])
+                    vocab_cat = top_matches[0].get('category') if top_matches else None
+                    cat = vocab_cat or service.get('category', 'Unknown')
                     by_category.setdefault(cat, []).append(service)
 
                 if by_category:
@@ -356,17 +373,25 @@ async def main():
                         report_lines.append(f"\n  [{category.upper()}]")
                         for idx, service in enumerate(cat_services, 1):
                             name         = service.get('name', 'Unnamed')
-                            confidence   = service.get('confidence', 'N/A')
+                            anchor       = service.get('anchor_text', 'N/A')
                             context      = service.get('context')
                             anchor_score = service.get('anchor_match_score')
-                            vocab_match  = service.get('vocab_match', '')
-                            vocab_score  = service.get('vocab_match_score')
+                            vocab_top_matches = service.get('vocab_top_matches', [])
 
                             anchor_score_str = f" (score: {anchor_score:.2f})" if anchor_score is not None else ""
-                            vocab_score_str  = f" ({vocab_score:.4f})" if vocab_score is not None else ""
                             report_lines.append(f"\n  Service {idx}: {name}")
-                            report_lines.append(f"    Confidence: {confidence}  |  Anchor: ✓{anchor_score_str}")
-                            report_lines.append(f"    Vocab match: {vocab_match}{vocab_score_str}")
+                            report_lines.append(f"    Anchor: {anchor} {anchor_score_str}")
+                            
+                            if vocab_top_matches:
+                                report_lines.append(f"    Vocab top matches:")
+                                for match in vocab_top_matches:
+                                    m_name = match.get('name', 'Unknown')
+                                    m_score = match.get('score', 0.0)
+                                    m_cat = match.get('category')
+                                    cat_str = f" [{m_cat}]" if m_cat else ""
+                                    report_lines.append(f"      - {m_name}{cat_str} ({m_score:.4f})")
+                            else:
+                                report_lines.append(f"    Vocab top matches: N/A")
                             if context:
                                 report_lines.append(f'    Context: "{context}"')
                 else:

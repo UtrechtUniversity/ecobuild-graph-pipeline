@@ -446,24 +446,26 @@ class EntityResolutionMatcher:
         query: str,
         vocab_embeddings: list[np.ndarray],
         vocab_names: list[str],
-    ) -> tuple[str, float]:
-        """Embed `query` and return (best_name, cosine_score)."""
+        top_n: int = 3,
+    ) -> list[tuple[str, float]]:
+        """Embed `query` and return the top `top_n` (name, cosine_score) pairs."""
         query_emb = self._embed(query)
         if query_emb is None or not vocab_embeddings:
-            return ("", 0.0)
+            return [("" , 0.0)] * top_n
 
         scores = [_cosine_similarity(query_emb, v) for v in vocab_embeddings]
-        best_idx = int(np.argmax(scores))
-        return vocab_names[best_idx], round(scores[best_idx], 4)
+        top_indices = np.argsort(scores)[::-1][:top_n]
+        return [(vocab_names[i], round(scores[i], 4)) for i in top_indices]
 
     # ── Public batch-resolution methods ──────────────────────────────────────
 
     def resolve_design_strategy_matches(self, results: dict) -> dict:
         """
-        Add `vocab_match` and `vocab_match_score` to each design strategy
-        in `results`. Operates on all items regardless of anchor verification
-        status (matching is independent of whether the context was found in
-        the source). Returns `results` modified in-place.
+        Add `vocab_top_matches` to each design strategy in `results`.
+        `vocab_top_matches` is a list of up to 3 dicts, each with
+        `name` and `score`, ordered by descending similarity.
+        Operates on all items regardless of anchor verification status.
+        Returns `results` modified in-place.
         """
         strategies = results.get("design_strategies", [])
         if not self._ds_embeddings:
@@ -475,12 +477,12 @@ class EntityResolutionMatcher:
             context = strategy.get("context")  # may be None if anchor unverified
             query   = self._build_query(name, context)
             if query == "SKIP":
-                strategy["vocab_match"]       = "No context available"
-                strategy["vocab_match_score"] = 0.0
+                strategy["vocab_top_matches"] = [{"name": "No context available", "score": 0.0}]
                 continue
-            match, score = self._find_best_match(query, self._ds_embeddings, self._ds_names)
-            strategy["vocab_match"]       = match
-            strategy["vocab_match_score"] = score
+            top_matches = self._find_best_match(query, self._ds_embeddings, self._ds_names)
+            strategy["vocab_top_matches"] = [
+                {"name": name, "score": score} for name, score in top_matches
+            ]
 
         logger.info(
             f"Design strategy vocab resolution complete for {len(strategies)} items."
@@ -489,8 +491,10 @@ class EntityResolutionMatcher:
 
     def resolve_ecosystem_service_matches(self, results: dict) -> dict:
         """
-        Add `vocab_match`, `vocab_match_score`, and `vocab_category` to each
-        ecosystem service in `results`. Returns `results` modified in-place.
+        Add `vocab_top_matches` to each ecosystem service in `results`.
+        `vocab_top_matches` is a list of up to 3 dicts, each with
+        `name`, `score`, and `category`, ordered by descending similarity.
+        Returns `results` modified in-place.
         """
         services = results.get("ecosystem_services", [])
         if not self._eco_embeddings:
@@ -502,19 +506,19 @@ class EntityResolutionMatcher:
             context = service.get("context")
             query   = self._build_query(name, context)
             if query == "SKIP":
-                service["vocab_match"]       = "No context available"
-                service["vocab_match_score"] = 0.0
+                service["vocab_top_matches"] = [{"name": "No context available", "score": 0.0, "category": None}]
                 continue
-            match, score = self._find_best_match(query, self._eco_embeddings, self._eco_names)
-            service["vocab_match"]       = match
-            service["vocab_match_score"] = score
-
-            # Look up the category of the matched term
-            try:
-                idx = self._eco_names.index(match)
-                service["vocab_category"] = self._eco_categories[idx]
-            except ValueError:
-                service["vocab_category"] = None
+            top_matches = self._find_best_match(query, self._eco_embeddings, self._eco_names)
+            service["vocab_top_matches"] = []
+            for match_name, match_score in top_matches:
+                try:
+                    idx = self._eco_names.index(match_name)
+                    category = self._eco_categories[idx]
+                except ValueError:
+                    category = None
+                service["vocab_top_matches"].append(
+                    {"name": match_name, "score": match_score, "category": category}
+                )
 
         logger.info(
             f"Ecosystem service vocab resolution complete for {len(services)} items."

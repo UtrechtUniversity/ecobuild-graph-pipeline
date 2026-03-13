@@ -35,7 +35,6 @@
             {
                 "name": "Vertical green systems in walls",
                 "anchor": "two different types of existing VGSs (climber, foliage) on buildings",
-                "confidence": 1.0,
                 "implementation_details": [
                     "Foliage VGSs typically consist of smaller plants such as Philodendron species",
                     "Climber VGSs consist of self-climbing plants such as ivy or vine species",

@@ -34,12 +34,10 @@
         "ecosystem_services": [
             {
                 "name": "thermal comfort (indoor temperature)",
-                "confidence": 1.0,
                 "anchor": "tendency towards high temperatures in all three cases"
             },
             {
                 "name": "indoor air quality",
-                "confidence": 0.9,
                 "anchor": "no problems with the CO2 levels during the summer period"
             },
             {

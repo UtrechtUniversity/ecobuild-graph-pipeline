@@ -128,7 +128,7 @@ def _extract_window(text: str, match_start: int, match_len: int, window: int) ->
 def resolve_design_strategy_contexts(
     results: dict,
     source_text: str,
-    context_window: int = 300,
+    context_window: int = 200,
 ) -> dict:
     """
     Replace each design strategy's raw LLM anchor with a verified context passage.
@@ -178,7 +178,7 @@ def resolve_design_strategy_contexts(
 def resolve_ecosystem_service_contexts(
     results: dict,
     source_text: str,
-    context_window: int = 300,
+    context_window: int = 200,
 ) -> dict:
     """
     Replace each ecosystem service's raw LLM anchor with a verified context passage.
@@ -187,7 +187,7 @@ def resolve_ecosystem_service_contexts(
     """
     services = results.get("ecosystem_services", [])
     verified_count = 0
-    unverified_count = 0
+    unverified_count = 0    
 
     for service in services:
         anchor = service.pop("anchor", None)
@@ -226,7 +226,7 @@ def resolve_ecosystem_service_contexts(
 def resolve_entity_contexts(
     results: dict,
     source_text: str,
-    context_window: int = 300,
+    context_window: int = 100,
 ) -> dict:
     """
     Verify the context snippets already embedded in each entity field dict.

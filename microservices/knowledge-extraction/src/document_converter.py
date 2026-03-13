@@ -59,12 +59,6 @@ class DocumentConverter:
             raise ImportError("PyMuPDF not installed. Install with: pip install pymupdf")
     
     @staticmethod
-    def txt_to_text(txt_path: str) -> str:
-        """Read plain text file"""
-        with open(txt_path, 'r', encoding='utf-8') as f:
-            return f.read()
-    
-    @staticmethod
     def convert_to_text(file_path: str) -> str:
         """
         Auto-detect file type and convert to text
@@ -79,7 +73,6 @@ class DocumentConverter:
         extension = path.suffix.lower()
         
         converters = {
-            '.txt': DocumentConverter.txt_to_text,
             '.docx': DocumentConverter.docx_to_text,
             '.pdf': DocumentConverter.pdf_to_text,
         }

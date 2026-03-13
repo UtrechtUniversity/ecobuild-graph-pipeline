@@ -23,7 +23,7 @@
     "expected_output": {
         "entities": [
             {
-                "name": {
+                "building_type": {
                     "value": "Vale da Mata condominium",
                     "context": "For the case study, the Vale da Mata condominium was selected"
                 },

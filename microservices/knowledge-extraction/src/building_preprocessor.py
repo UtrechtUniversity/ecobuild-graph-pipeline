@@ -7,6 +7,7 @@ import os
 import sys
 import logging
 from pathlib import Path
+import re
 
 # Import only the converter
 from .document_converter import DocumentConverter
@@ -18,6 +19,38 @@ class BuildingPreprocessor:
     """
     Preprocesses PDFs to extract text
     """
+    def _extract_abstract(self, text: str) -> str:
+        """
+        Extract abstract from processed text
+        """
+        abstract = re.search(r"\n(Abstract|A B S T R A C T)\n", text, flags=re.IGNORECASE)
+        introduction = re.search(r"\n(Introduction|I N T R O D U C T I O N)\n", text, flags=re.IGNORECASE)
+
+        if abstract and introduction:
+            return text[abstract.start():introduction.start()]
+        else:
+            raise ValueError("Abstract or introduction not found in text")
+        
+        return text
+
+    def _remove_metadata(self, text: str) -> str:
+        """
+        Remove initial metadata section from processed text
+        """
+        metadata = re.search(r"\n(Key Words|Keywords|Abstract|A B S T R A C T)", text, flags=re.IGNORECASE)
+        if metadata:
+            return text[metadata.start():]
+        return text
+
+    def _remove_references(self, text: str) -> str:
+        """
+        Remove references section from processed text
+        """
+        ref_start = re.search(r"\n(References|Bibliography)\n", text, flags=re.IGNORECASE)
+        if ref_start:
+            return text[:ref_start.start()]
+        return text
+        
     
     def __init__(self, ollama_host: str = None, ollama_model: str = None):
         """
@@ -59,6 +92,10 @@ class BuildingPreprocessor:
         try:
             raw_text = self.converter.convert_to_text(str(pdf_path))
             raw_text = self.converter.preprocess_text(raw_text)
+            raw_text = self._remove_references(raw_text)
+            logger.info("  → WARNING: References removed")
+            # raw_text = self._remove_metadata(raw_text)
+            # logger.info("  → WARNING: Metadata removed")
         except Exception as e:
             logger.error(f"  ✗ Failed to convert PDF: {e}")
             return {"error": str(e)}

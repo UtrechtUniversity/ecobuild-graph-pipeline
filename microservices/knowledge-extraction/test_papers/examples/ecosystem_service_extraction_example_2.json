@@ -34,12 +34,10 @@
         "ecosystem_services": [
             {
                 "name": "temperature regulation",
-                "confidence": 1.0,
                 "anchor": "temperature buffer creating a cooling layer towards the building wall"
             },
             {
                 "name": "animal biodiversity",
-                "confidence": 1.0,
                 "anchor": "280 animal species were observed interacting with the walls"
             }
         ]

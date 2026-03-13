@@ -50,11 +50,11 @@ class DesignStrategyPromptBuilder:
         citation = example.get("citation", f"Example {index}")
 
         return (
-            f"\n--- FEW-SHOT EXAMPLE {index} of {total}: {citation} ---\n"
+            f"\n--- FEW-SHOT EXAMPLE {index} of {total} (DIFFERENT PAPER — DO NOT COPY): {citation} ---\n"
             f"{skeleton}\n\n"
-            f"Correct extraction from the example paper above:\n{expected}\n\n"
+            f"Correct extraction from the example paper above (NOT your task):\n{expected}\n\n"
             f"KEY LESSON: {lesson}\n"
-            f"--- END OF EXAMPLE {index} ---\n"
+            f"--- END OF EXAMPLE {index} — THE ABOVE IS NOT THE PAPER YOU SHOULD EXTRACT FROM ---\n"
         )
 
     # ── Main prompt builder ──────────────────────────────────────────────
@@ -76,7 +76,8 @@ class DesignStrategyPromptBuilder:
             example_blocks = ""
 
         current_prompt = f"""{example_blocks}
-            Now extract from THIS paper:
+        
+            The examples above demonstrate the EXTRACTION PROCESS only. The content in them should NOT be used or repeated — extract only from the paper provided below. 
 
             Paper text:
             {text}
@@ -90,6 +91,11 @@ class DesignStrategyPromptBuilder:
             It can include both overarching design approaches and concrete measures such as solar panels, green walls, or water filtration systems when they are intentionally applied to meet defined performance goals.
             A sustainable design strategy specifically refers to those interventions that generate ecosystem services, aim to reduce environmental impact, enhance resource efficiency, and contribute positively to ecological 
             and social systems across the building's life cycle. 
+
+            Equivalent terms that also refer to design strategies are:
+            - design solution
+            - design intervention
+            - design type
 
             Design strategies are often the independent variables in the study. They are manipulated or changed to achieve a specific outcome (ecosystem services).
 
@@ -114,8 +120,7 @@ class DesignStrategyPromptBuilder:
             - Choose words that are specific and unique to this design strategy mention
             - Do NOT paraphrase, summarise, or change any words
             - If you cannot identify a specific passage in the text above, set anchor to null
-            3. confidence: A score from 0.0 to 1.0 indicating how confident you are that the paper's own case study genuinely evidences this strategy (1.0 = explicitly discussed with data/results, 0.5 = implied but not primary focus, 0.1 = only tangentially mentioned)
-            4. implementation_details: A list of the particularities of the design strategy's implementation in the case study building. Each detail should be a short string of 5-10 words, copied EXACTLY as it is written in the paper text above.
+            3. implementation_details: A list of the particularities of the design strategy's implementation in the case study building. Each detail should be a short string of 5-10 words, copied EXACTLY as it is written in the paper text above.
 
             Reply with a SINGLE JSON object only. No preamble, no conversational filler.
 
@@ -146,12 +151,12 @@ class DesignStrategyPromptBuilder:
             anchor to null rather than guessing
             - Include ALL design strategies found, even if multiple models/configurations- Use null for name if no strategies found
 
-            JSON output:"""
+            JSON output (values must come ONLY from the paper text above):"""
         # Save prompt text
-        prompt_path = output_dir / f"{base_name}_design_strategy_extraction_prompt.txt"
-        with open(prompt_path, 'w', encoding='utf-8') as f:
-            f.write(current_prompt)
-        logger.info(f"  ✓ Saved prompt text: {prompt_path}")
+        # prompt_path = output_dir / f"{base_name}_design_strategy_extraction_prompt.txt"
+        # with open(prompt_path, 'w', encoding='utf-8') as f:
+        #     f.write(current_prompt)
+        # logger.info(f"  ✓ Saved prompt text: {prompt_path}")
 
         return current_prompt
 
@@ -176,7 +181,7 @@ class DesignStrategyExtractor:
                     "prompt": prompt,
                     "stream": False,
                     "options": {
-                        "temperature": 0.01,  # Low for factual extraction
+                        "temperature": 0.1,  # Low for factual extraction
                         "num_predict": 2000,  # Allow longer responses for multiple strategies
                         "num_ctx": 12000,     # Prevent prompt truncation
                     }

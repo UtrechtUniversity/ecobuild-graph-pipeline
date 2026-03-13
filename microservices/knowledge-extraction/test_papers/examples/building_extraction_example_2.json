@@ -48,7 +48,7 @@
     "expected_output": {
         "entities": [
             {
-                "name": {
+                "building_type": {
                     "value": "Typical terraced house",
                     "context": "This case study is based on a hypothetical floor plan of a typical terraced house in Singapore"
                 },
@@ -70,7 +70,7 @@
                 }
             },
             {
-                "name": {
+                "building_type": {
                     "value": "Typical apartment building",
                     "context": "The building model is based on a hypothesis floor plan of a typical apartment building in Singapore"
                 },

@@ -64,11 +64,11 @@ class OllamaPromptBuilder:
         citation = example.get("citation", f"Example {index}")
 
         return (
-            f"\n--- FEW-SHOT EXAMPLE {index} of {total}: {citation} ---\n"
+            f"\n--- FEW-SHOT EXAMPLE {index} of {total} (DIFFERENT PAPER — DO NOT COPY): {citation} ---\n"
             f"{skeleton}\n\n"
-            f"Correct extraction from the example paper above:\n{expected}\n\n"
+            f"Correct extraction from the example paper above (NOT your task):\n{expected}\n\n"
             f"KEY LESSON: {lesson}\n"
-            f"--- END OF EXAMPLE {index} ---\n"
+            f"--- END OF EXAMPLE {index} — THE ABOVE IS NOT THE PAPER YOU SHOULD EXTRACT FROM ---\n"
         )
 
     # ── Main prompt builder ──────────────────────────────────────────────
@@ -92,8 +92,14 @@ class OllamaPromptBuilder:
         current_prompt = f"""
         You are an expert in academic information extraction.
         {example_blocks}
-        Now extract from THIS paper:
 
+        ════════════════════════════════════════════════════
+        EXAMPLES COMPLETE — YOUR ACTUAL TASK BEGINS NOW
+        ════════════════════════════════════════════════════
+        The examples above demonstrate the EXTRACTION PROCESS only. All their content (Singapore,
+terraced houses, etc.) is irrelevant — do NOT reproduce any of it.
+        Extract only from the paper text below. 
+        
         Paper text:
         {text}
 
@@ -120,7 +126,7 @@ class OllamaPromptBuilder:
         {{
             "entities": [
                 {{
-                    "name": {{"value": "entity name", "context": "snippet"}},
+                    "building_type": {{"value": "building type", "context": "snippet"}},
                     "country": {{"value": "country name", "context": "snippet"}},
                     "city": {{"value": "city name", "context": "snippet"}},
                     "street": {{"value": "street address", "context": "snippet"}},
@@ -132,13 +138,13 @@ class OllamaPromptBuilder:
         serve as anchor text for a context resolver. 
         Use null for values if information is not found.
 
-        JSON output:"""
+        JSON output (values must come ONLY from the paper text above):"""
 
         # Save prompt text
-        prompt_path = output_dir / f"{base_name}_building_extraction_prompt.txt"
-        with open(prompt_path, 'w', encoding='utf-8') as f:
-            f.write(current_prompt)
-        logger.info(f"  ✓ Saved prompt text: {prompt_path}")
+        # prompt_path = output_dir / f"{base_name}_building_extraction_prompt.txt"
+        # with open(prompt_path, 'w', encoding='utf-8') as f:
+        #     f.write(current_prompt)
+        # logger.info(f"  ✓ Saved prompt text: {prompt_path}")
 
         return current_prompt
 
@@ -163,7 +169,7 @@ class OllamaInterface:
                     "prompt": prompt,
                     "stream": False,
                     "options": {
-                        "temperature": 0.01,  # Low for factual extraction
+                        "temperature": 0.1,  # Low for factual extraction
                         "num_ctx": 12000,     # Prevent prompt truncation
                     }
                 },

@@ -2,7 +2,7 @@
 Modified Neo4j pipeline with building information preprocessing
 Now extracts entities, design strategies, AND ecosystem services
 """
-
+ 
 from requests.models import HTTPError
 from io import BytesIO
 import requests
@@ -12,9 +12,9 @@ import os
 import asyncio
 import logging
 import json
-
+ 
 # Import the preprocessor and extractors
-from .building_preprocessor import BuildingPreprocessor
+from .paper_preprocessor import PaperPreprocessor
 from .entity_extractor import EntityInformationExtractor
 from .design_strategy_extractor import DesignStrategyExtractor
 from .ecosystem_service_extractor import EcosystemServiceExtractor
@@ -24,11 +24,11 @@ from .context_resolver import (
     resolve_ecosystem_service_contexts,
 )
 from .entity_resolution import EntityResolutionMatcher
-
+ 
 # --- Logger Setup ---
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
+ 
 # Environment variables
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
@@ -36,8 +36,8 @@ NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://ollama:11434")
 OLLAMA_LLM_MODEL = os.getenv("OLLAMA_LLM_MODEL", "llama3")
 OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
-
-
+ 
+ 
 def download_paper_pdf(url: str) -> BytesIO | None:
     """Downloads the pdf of the paper from the provided url"""
     logger.info(f"Attempting to download pdf from {url}")
@@ -61,13 +61,13 @@ def download_paper_pdf(url: str) -> BytesIO | None:
         else:
             logger.info(f"URL {url} does not contain a pdf.")
             return None
-
+ 
 def _count_verified(items: list, verified_key: str = "anchor_verified") -> tuple[int, int]:
     """Return (verified_count, total_count) for a list of extracted items."""
     total = len(items)
     verified = sum(1 for item in items if item.get(verified_key) is True)
     return verified, total
-
+ 
 async def main():
     """
     Current extraction pipeline:
@@ -80,7 +80,7 @@ async def main():
     
     # Initialize the building preprocessor
     logger.info("Initializing building information preprocessor...")
-    preprocessor = BuildingPreprocessor(
+    preprocessor = PaperPreprocessor(
         ollama_host=OLLAMA_HOST,
         ollama_model=OLLAMA_LLM_MODEL
     )
@@ -103,7 +103,7 @@ async def main():
         model=OLLAMA_LLM_MODEL,
         base_url=OLLAMA_HOST
     )
-
+ 
     logger.info("Initializing entity resolution matcher (pre-embedding vocabularies)...")
     resolver = EntityResolutionMatcher(
         ollama_host=OLLAMA_HOST,
@@ -155,19 +155,36 @@ async def main():
                 continue
             
             logger.info(f"  ✓ Text extracted: {preprocess_result['raw_text_path']}")
-            
-            # Load the extracted text
+ 
+            # Load section-aware text
+            # raw_text = full body (no metadata/references) — used as the
+            #            universal source for anchor verification.
+            # *_text   = targeted subsets passed to each extractor.
             with open(preprocess_result['raw_text_path'], 'r', encoding='utf-8') as f:
                 raw_text = f.read()
+ 
+            sections = preprocess_result.get("sections")
+ 
+            def _join(*names) -> str:
+                """Concatenate named sections; fall back to raw_text if all empty."""
+                if sections is None:
+                    return raw_text
+                parts = [getattr(sections, n, "") for n in names if getattr(sections, n, "")]
+                return "\n\n".join(parts) if parts else raw_text
+ 
+            # Text scopes fed to each extractor
+            building_text   = _join("abstract", "introduction", "keywords", "methods", "unclassified") 
+            ds_text         = _join("methods", "results", "discussion", "unclassified")  
+            es_text         = _join("results", "discussion", "conclusion", "unclassified")
             
             # ========================================
             # STEP 2: Extract Entities (Buildings)
             # ========================================
             logger.info("\nSTEP 2: Extracting entities (buildings)...")
-            entity_results = entity_extractor.extract_from_text(raw_text, verbose=False, file_name=pdf_path)
+            entity_results = entity_extractor.extract_from_text(building_text, verbose=False, file_name=pdf_path)
             
             entities = entity_results.get('entities', [])
-
+ 
             # Verify entity context snippets against the source document.
             logger.info("  Verifying entity context snippets against source text...")
             entity_results = resolve_entity_contexts(entity_results, raw_text)
@@ -199,20 +216,20 @@ async def main():
             # STEP 3: Extract Design Strategies
             # ========================================
             logger.info("\nSTEP 3: Extracting design strategies...")
-            design_results = design_extractor.extract_from_text(raw_text, verbose=False, file_name=pdf_path)
-
+            design_results = design_extractor.extract_from_text(ds_text, verbose=False, file_name=pdf_path)
+ 
             # Resolve anchors → real context passages from the source document
             logger.info("  Resolving design strategy anchors against source text...")
             design_results = resolve_design_strategy_contexts(design_results, raw_text)
-
+ 
             strategies = design_results.get('design_strategies', [])
             verified, total = _count_verified(strategies)
-
+ 
             # Semantic vocabulary matching — runs on all items (verified or not)
             logger.info("  Matching design strategies to vocabulary...")
             design_results = resolver.resolve_design_strategy_matches(design_results)
             strategies = design_results.get('design_strategies', [])
-
+ 
             if strategies:
                 logger.info(f"  ✓ Found {total} design strategies ({verified}/{total} anchors verified)")
                 for strategy in strategies[:3]:
@@ -221,25 +238,25 @@ async def main():
                     logger.info(f"    {v} {name}")
             else:
                 logger.info("  ✗ No design strategies identified")
-
+ 
             # ========================================
             # STEP 4: Extract Ecosystem Services
             # ========================================
             logger.info("\nSTEP 4: Extracting ecosystem services...")
-            ecosystem_results = ecosystem_extractor.extract_from_text(raw_text, verbose=False, file_name=pdf_path)
-
+            ecosystem_results = ecosystem_extractor.extract_from_text(es_text, verbose=False, file_name=pdf_path)
+ 
             # Resolve anchors → real context passages from the source document
             logger.info("  Resolving ecosystem service anchors against source text...")
             ecosystem_results = resolve_ecosystem_service_contexts(ecosystem_results, raw_text)
-
+ 
             eco_services = ecosystem_results.get('ecosystem_services', [])
             verified_eco, total_eco = _count_verified(eco_services)
-
+ 
             # Semantic vocabulary matching — runs on all items (verified or not)
             logger.info("  Matching ecosystem services to vocabulary...")
             ecosystem_results = resolver.resolve_ecosystem_service_matches(ecosystem_results)
             eco_services = ecosystem_results.get('ecosystem_services', [])
-
+ 
             if eco_services:
                 logger.info(f"  ✓ Found {total_eco} ecosystem services ({verified_eco}/{total_eco} anchors verified)")
                 for service in eco_services[:3]:
@@ -275,13 +292,13 @@ async def main():
             # STEP 6: Generate Combined Report
             # ========================================
             logger.info("\nSTEP 6: Generating report...")
-
+ 
             report_lines = []
             report_lines.append("=" * 80)
             report_lines.append(f"EXTRACTION REPORT: {pdf_base_name}")
             report_lines.append("=" * 80)
             report_lines.append("")
-
+ 
             # Entities section
             report_lines.append("### ENTITIES (BUILDINGS) ###")
             if entities:
@@ -296,7 +313,7 @@ async def main():
                             value    = data
                             context  = None
                             verified = None
-
+ 
                         if value is not None:
                             report_lines.append(f"  {key.replace('_', ' ').title()}: {value}")
                             # Only show context snippet if it was confirmed in the source
@@ -304,9 +321,9 @@ async def main():
                                 report_lines.append(f"    Context: \"{context}\"")
             else:
                 report_lines.append("  No entities found.")
-
+ 
             report_lines.append("\n")
-
+ 
             # Design strategies section
             report_lines.append("### DESIGN STRATEGIES ###")
             if strategies:
@@ -321,7 +338,7 @@ async def main():
                     anchor_score     = strategy.get('anchor_match_score')
                     vocab_top_matches = strategy.get('vocab_top_matches', [])
                     implementation_details = strategy.get('implementation_details', [])
-
+ 
                     anchor_score_str = f" (score: {anchor_score:.2f})" if anchor_score is not None else ""
                     report_lines.append(f"\nStrategy {idx}: {name}")
                     report_lines.append(f"  Anchor: {anchor} {anchor_score_str}")
@@ -344,14 +361,14 @@ async def main():
                         
                     if context:
                         report_lines.append(f'  Context: "{context}"')
-
+ 
                 if verified_s == 0:
                     report_lines.append("  No strategies with verified anchors.")
             else:
                 report_lines.append("  No design strategies found.")
-
+ 
             report_lines.append("\n")
-
+ 
             # Ecosystem services section
             report_lines.append("### ECOSYSTEM SERVICES ###")
             if eco_services:
@@ -367,7 +384,7 @@ async def main():
                     vocab_cat = top_matches[0].get('category') if top_matches else None
                     cat = vocab_cat or service.get('category', 'Unknown')
                     by_category.setdefault(cat, []).append(service)
-
+ 
                 if by_category:
                     for category, cat_services in by_category.items():
                         report_lines.append(f"\n  [{category.upper()}]")
@@ -377,7 +394,7 @@ async def main():
                             context      = service.get('context')
                             anchor_score = service.get('anchor_match_score')
                             vocab_top_matches = service.get('vocab_top_matches', [])
-
+ 
                             anchor_score_str = f" (score: {anchor_score:.2f})" if anchor_score is not None else ""
                             report_lines.append(f"\n  Service {idx}: {name}")
                             report_lines.append(f"    Anchor: {anchor} {anchor_score_str}")
@@ -398,15 +415,15 @@ async def main():
                     report_lines.append("  No services with verified anchors.")
             else:
                 report_lines.append("  No ecosystem services found.")
-
+ 
             report_lines.append("\n" + "=" * 80)
-
+ 
             report_path = os.path.join(preprocessed_output_dir, f"{pdf_base_name}_report.txt")
             with open(report_path, 'w', encoding='utf-8') as f:
                 f.write('\n'.join(report_lines))
-
+ 
             logger.info(f"  ✓ Report saved to: {report_path}")
-
+ 
             # ========================================
             # Display Summary
             # ========================================
@@ -417,19 +434,19 @@ async def main():
             logger.info(f"Design Strategies:  {d_t}  ({d_v} anchors verified, {d_t - d_v} unverified)")
             logger.info(f"Ecosystem Services: {e_t}  ({e_v} anchors verified, {e_t - e_v} unverified)")
             logger.info(f"Output: {json_path}")
-
+ 
             # ========================================
             # STEP 7: (FUTURE) Neo4j Integration
             # ========================================
             """
             Uncomment when ready to integrate with Neo4j:
-
+ 
             logger.info("\nSTEP 7: Processing with Neo4j pipeline...")
-
+ 
             from neo4j_graphrag.experimental.pipeline.config.runner import PipelineRunner
-
+ 
             pipeline = PipelineRunner.from_config_file("src/test_config.json")
-
+ 
             results = await pipeline.run({
                 "file_path": preprocess_result['raw_text_path'],
                 "metadata": {
@@ -438,15 +455,15 @@ async def main():
                     "design_strategies": strategies
                 }
             })
-
+ 
             logger.info(f"  ✓ Neo4j results: {results}")
             """
-
+ 
             logger.info(f"\n✓ Completed: {os.path.basename(pdf_path)}")
-
+ 
         except Exception as e:
             logger.error(f"\n✗ Error processing '{os.path.basename(pdf_path)}': {e}", exc_info=True)
-
+ 
     # ========================================
     # Final Summary
     # ========================================
@@ -460,7 +477,7 @@ async def main():
     logger.info(f"  - *_extraction.json (entities + design strategies + ecosystem services)")
     logger.info(f"  - *_report.txt (human-readable, with anchor verification status)")
     logger.info(f"{'='*80}")
-
-
+ 
+ 
 if __name__ == "__main__":
     asyncio.run(main())

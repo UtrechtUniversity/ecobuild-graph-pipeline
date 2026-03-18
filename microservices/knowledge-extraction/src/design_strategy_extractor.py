@@ -375,14 +375,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-
-
-## Dump for unused prompt text
-# LOOK FOR:
-# - "Model 1", "Model 2", "Model 3" (different design configurations)
-# - "photovoltaic system", "PV panels", "solar panels"
-# - "solar heating system", "SHS", "solar collectors"
-# - "grid-connected", "zero energy balance"
-# - Specific equipment (inverters, boilers, collectors)
-# - "implemented", "installed", "adopted", "used"

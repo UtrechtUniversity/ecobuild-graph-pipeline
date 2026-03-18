@@ -12,6 +12,19 @@ class DocumentConverter:
     """Convert various document formats to plain text"""
     
     @staticmethod
+    def pdf_to_markdown(pdf_path: str) -> str:
+        """Convert PDF to markdown using pymupdf4llm"""
+        try:
+            import pymupdf4llm
+            import pymupdf
+            import pymupdf.layout
+        except ImportError:
+            raise ImportError("pymupdf4llm not installed. Install with: pip install pymupdf4llm")
+        
+        doc = pymupdf.Document(pdf_path)
+        return pymupdf4llm.to_markdown(doc, footer = False, header = False)
+
+    @staticmethod
     def docx_to_text(docx_path: str) -> str:
         """Convert DOCX to plain text using python-docx"""
         try:

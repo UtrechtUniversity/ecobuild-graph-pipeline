@@ -8,31 +8,23 @@ import sys
 import logging
 from pathlib import Path
 import re
+import fitz
+import statistics
+import json
 
-# Import only the converter
 from .document_converter import DocumentConverter
+from .paper_section_extractor import PaperSectionExtractor
 
 logger = logging.getLogger(__name__)
 
+OLLAMA_LLM_MODEL = os.getenv("OLLAMA_LLM_MODEL", "llama3")
+OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 
-class BuildingPreprocessor:
+class PaperPreprocessor:
     """
     Preprocesses PDFs to extract text
     """
-    def _extract_abstract(self, text: str) -> str:
-        """
-        Extract abstract from processed text
-        """
-        abstract = re.search(r"\n(Abstract|A B S T R A C T)\n", text, flags=re.IGNORECASE)
-        introduction = re.search(r"\n(Introduction|I N T R O D U C T I O N)\n", text, flags=re.IGNORECASE)
-
-        if abstract and introduction:
-            return text[abstract.start():introduction.start()]
-        else:
-            raise ValueError("Abstract or introduction not found in text")
-        
-        return text
-
     def _remove_metadata(self, text: str) -> str:
         """
         Remove initial metadata section from processed text
@@ -52,7 +44,7 @@ class BuildingPreprocessor:
         return text
         
     
-    def __init__(self, ollama_host: str = None, ollama_model: str = None):
+    def __init__(self, ollama_host: str = OLLAMA_HOST, ollama_model: str = OLLAMA_LLM_MODEL):
         """
         Initialize preprocessor
         
@@ -61,7 +53,12 @@ class BuildingPreprocessor:
             ollama_model: Unused (kept for compatibility)
         """
         self.converter = DocumentConverter()
-        logger.info("Initialized BuildingPreprocessor (PDF-to-text only)")
+        logger.info("Initialized PaperPreprocessor (PDF-to-text only)")
+        # self.section_extractor = PaperSectionExtractor(
+        #     model=ollama_model, 
+        #     base_url=ollama_host
+        # )
+        # logger.info("Initialized section extractor")
     
     def preprocess_pdf(self, pdf_path: str, output_dir: str = None) -> dict:
         """
@@ -86,16 +83,18 @@ class BuildingPreprocessor:
         base_name = pdf_path.stem
         
         logger.info(f"Preprocessing PDF: {pdf_path.name}")
-        
+              
         # Convert PDF to text
         logger.info("  → Converting PDF to text...")
         try:
-            raw_text = self.converter.convert_to_text(str(pdf_path))
-            raw_text = self.converter.preprocess_text(raw_text)
-            raw_text = self._remove_references(raw_text)
-            logger.info("  → WARNING: References removed")
+            # raw_text = self.converter.convert_to_text(str(pdf_path))
+            raw_md_text = self.converter.pdf_to_markdown(str(pdf_path))
+            raw_text = self.converter.preprocess_text(raw_md_text)
+            # raw_text = self._remove_references(raw_text)
+            # logger.info("  → WARNING: References removed")
             # raw_text = self._remove_metadata(raw_text)
             # logger.info("  → WARNING: Metadata removed")
+            # raw_text = self._extract_abstract(raw_text)
         except Exception as e:
             logger.error(f"  ✗ Failed to convert PDF: {e}")
             return {"error": str(e)}
@@ -105,10 +104,31 @@ class BuildingPreprocessor:
         with open(raw_text_path, 'w', encoding='utf-8') as f:
             f.write(raw_text)
         logger.info(f"  ✓ Saved raw text: {raw_text_path}")
+
+        # Save markdown text
+        markdown_text_path = output_dir / f"{base_name}_raw.md"
+        with open(markdown_text_path, 'w', encoding='utf-8') as f:
+            f.write(raw_md_text)
+        logger.info(f"  ✓ Saved markdown text: {markdown_text_path}")
+
+        # # Extract sections
+        # logger.info("  → Extracting sections...")
+        # try:
+        #     sections = self.section_extractor.extract_sections(raw_text)
+        # except Exception as e:
+        #     logger.error(f"  ✗ Failed to extract sections: {e}")
+        #     return {"error": str(e)}
+
+        # # Save sections
+        # sections_path = output_dir / f"{base_name}_sections.json"
+        # with open(sections_path, 'w', encoding='utf-8') as f:
+        #     json.dump(sections, f, indent=2)
+        # logger.info(f"  ✓ Saved sections: {sections_path}")
         
         return {
             "pdf_path": str(pdf_path),
-            "raw_text_path": str(raw_text_path)
+            "raw_text_path": str(raw_text_path),
+            # "sections_path": str(sections_path)
         }
     
     def batch_preprocess(self, input_dir: str, output_dir: str = None) -> list:
@@ -168,7 +188,7 @@ def main():
     )
     
     # Initialize preprocessor (no params needed now)
-    preprocessor = BuildingPreprocessor()
+    preprocessor = PaperPreprocessor()
     
     input_path = Path(args.input)
     

@@ -8,6 +8,8 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, List, Optional
+from llama_index.core.llms import LLM
+from .llama_index_interface import LlamaIndexInterface
 
 # ── Few-shot example directory (relative to this file) ──────────────────────
 _EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "test_papers" / "examples"
@@ -22,7 +24,7 @@ class EcosystemServicePromptBuilder:
     # ── Few-shot example helpers ─────────────────────────────────────────
 
     @staticmethod
-    def _load_all_ecosystem_service_examples() -> List[dict]:
+    def load_all_ecosystem_service_examples() -> List[dict]:
         """Load all section-skeleton few-shot examples for ecosystem service extraction.
         Globs for ecosystem_service_extraction_example_*.json in the examples directory.
         Returns an empty list if no files are found so the prompt still works."""
@@ -42,7 +44,7 @@ class EcosystemServicePromptBuilder:
         return examples
 
     @staticmethod
-    def _format_example_block(example: dict, index: int = 1, total: int = 1) -> str:
+    def format_example_block(example: dict, index: int = 1, total: int = 1) -> str:
         """Format the loaded example dict into a prompt-ready text block."""
         skeleton = example.get("section_skeleton", "")
         expected = json.dumps(example.get("expected_output", {}), indent=2)
@@ -66,10 +68,10 @@ class EcosystemServicePromptBuilder:
         base_name = Path(file_name).stem
 
         # Optionally inject few-shot examples
-        examples = EcosystemServicePromptBuilder._load_all_ecosystem_service_examples()
+        examples = EcosystemServicePromptBuilder.load_all_ecosystem_service_examples()
         if examples:
             example_blocks = "\n".join(
-                EcosystemServicePromptBuilder._format_example_block(ex, i + 1, len(examples))
+                EcosystemServicePromptBuilder.format_example_block(ex, i + 1, len(examples))
                 for i, ex in enumerate(examples)
             )
         else:
@@ -168,12 +170,11 @@ JSON output (values must come ONLY from the paper text above):"""
 class EcosystemServiceExtractor:
     """Main ecosystem service extraction orchestrator"""
 
-    def __init__(self, model: str = "llama3.2", base_url: str = "http://localhost:11434"):
+    def __init__(self, llm: LLM):
         self.prompt_builder = EcosystemServicePromptBuilder()
-        self.model = model
-        self.base_url = base_url
+        self.llm_interface = LlamaIndexInterface(llm)
 
-    def _query_ollama(self, prompt: str) -> str:
+    def query (self, prompt: str) -> str:
         """Send query to Ollama API and return response"""
         try:
             import requests
@@ -203,7 +204,7 @@ class EcosystemServiceExtractor:
             logger.error(f"Error querying Ollama: {e}")
             return '{}'
 
-    def _extract_json(self, response: str) -> dict:
+    def extract_json(self, response: str) -> dict:
         """Extract and parse JSON from LLM response"""
         # Remove markdown code blocks if present
         response = re.sub(r'```json\s*', '', response)
@@ -241,13 +242,13 @@ class EcosystemServiceExtractor:
 
         # Build and send prompt
         prompt = self.prompt_builder.build_ecosystem_service_extraction_prompt(text, file_name)
-        response = self._query_ollama(prompt)
+        response = self.llm_interface.query(prompt)
 
         if verbose and not response:
             logger.warning("Empty response from Ollama")
 
         # Extract JSON
-        raw_results = self._extract_json(response)
+        raw_results = self.llm_interface.extract_json(response)
 
         # Debug output
         if not raw_results.get('ecosystem_services') and verbose:

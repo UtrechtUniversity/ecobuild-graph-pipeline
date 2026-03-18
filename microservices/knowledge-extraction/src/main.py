@@ -4,6 +4,8 @@ Now extracts entities, design strategies, AND ecosystem services
 """
  
 from requests.models import HTTPError
+from llama_index.llms.ollama import Ollama
+from llama_index.embeddings.ollama import OllamaEmbedding
 from io import BytesIO
 import requests
 from time import sleep
@@ -34,8 +36,12 @@ NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://ollama:11434")
-OLLAMA_LLM_MODEL = os.getenv("OLLAMA_LLM_MODEL", "llama3")
+OLLAMA_LLM_MODEL = os.getenv("OLLAMA_LLM_MODEL", "llama3.2")
 OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
+
+#LlamaIndex model definitions
+llm = Ollama(model=OLLAMA_LLM_MODEL, base_url=OLLAMA_HOST, context_window=12000, temperature=0.11, request_timeout=180.0)
+embed_model = OllamaEmbedding(model_name=OLLAMA_EMBEDDING_MODEL, base_url=OLLAMA_HOST, request_timeout=180.0) 
  
  
 def download_paper_pdf(url: str) -> BytesIO | None:
@@ -80,35 +86,20 @@ async def main():
     
     # Initialize the building preprocessor
     logger.info("Initializing building information preprocessor...")
-    preprocessor = PaperPreprocessor(
-        ollama_host=OLLAMA_HOST,
-        ollama_model=OLLAMA_LLM_MODEL
-    )
+    preprocessor = PaperPreprocessor(llm)
     
     # Initialize extractors
     logger.info("Initializing entity extractor...")
-    entity_extractor = EntityInformationExtractor(
-        model=OLLAMA_LLM_MODEL, 
-        base_url=OLLAMA_HOST
-    )
+    entity_extractor = EntityInformationExtractor(llm)
     
     logger.info("Initializing design strategy extractor...")
-    design_extractor = DesignStrategyExtractor(
-        model=OLLAMA_LLM_MODEL,
-        base_url=OLLAMA_HOST
-    )
+    design_extractor = DesignStrategyExtractor(llm)
     
     logger.info("Initializing ecosystem service extractor...")
-    ecosystem_extractor = EcosystemServiceExtractor(
-        model=OLLAMA_LLM_MODEL,
-        base_url=OLLAMA_HOST
-    )
+    ecosystem_extractor = EcosystemServiceExtractor(llm)
  
     logger.info("Initializing entity resolution matcher (pre-embedding vocabularies)...")
-    resolver = EntityResolutionMatcher(
-        ollama_host=OLLAMA_HOST,
-        embedding_model=OLLAMA_EMBEDDING_MODEL,
-    )
+    resolver = EntityResolutionMatcher(embed_model)
     
     # Define paths
     test_papers_dir_path = "/app/test_papers/test_papers"
@@ -473,7 +464,7 @@ async def main():
     logger.info(f"Total PDFs processed: {len(pdf_files_to_process)}")
     logger.info(f"Output directory: {preprocessed_output_dir}")
     logger.info(f"\nFiles created per paper:")
-    logger.info(f"  - *_raw.txt (plain text)")
+    logger.info(f"  - *_raw.md (markdown text)")
     logger.info(f"  - *_extraction.json (entities + design strategies + ecosystem services)")
     logger.info(f"  - *_report.txt (human-readable, with anchor verification status)")
     logger.info(f"{'='*80}")

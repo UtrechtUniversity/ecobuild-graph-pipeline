@@ -8,6 +8,9 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, List, Optional
+from llama_index.core.llms import LLM
+
+from .llama_index_interface import LlamaIndexInterface
 
 # ── Few-shot example directory (relative to this file) ──────────────────────
 _EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "test_papers" / "examples"
@@ -22,7 +25,7 @@ class DesignStrategyPromptBuilder:
     # ── Few-shot example helpers ─────────────────────────────────────────
 
     @staticmethod
-    def _load_all_design_strategy_examples() -> List[dict]:
+    def load_all_design_strategy_examples() -> List[dict]:
         """Load all section-skeleton few-shot examples for design strategy extraction.
         Globs for design_strategy_extraction_example_*.json in the examples directory.
         Returns an empty list if no files are found so the prompt still works."""
@@ -42,7 +45,7 @@ class DesignStrategyPromptBuilder:
         return examples
 
     @staticmethod
-    def _format_example_block(example: dict, index: int = 1, total: int = 1) -> str:
+    def format_example_block(example: dict, index: int = 1, total: int = 1) -> str:
         """Format the loaded example dict into a prompt-ready text block."""
         skeleton = example.get("section_skeleton", "")
         expected = json.dumps(example.get("expected_output", {}), indent=2)
@@ -66,10 +69,10 @@ class DesignStrategyPromptBuilder:
         base_name = Path(file_name).stem
 
         # Optionally inject few-shot examples
-        examples = DesignStrategyPromptBuilder._load_all_design_strategy_examples()
+        examples = DesignStrategyPromptBuilder.load_all_design_strategy_examples()
         if examples:
             example_blocks = "\n".join(
-                DesignStrategyPromptBuilder._format_example_block(ex, i + 1, len(examples))
+                DesignStrategyPromptBuilder.format_example_block(ex, i + 1, len(examples))
                 for i, ex in enumerate(examples)
             )
         else:
@@ -164,12 +167,11 @@ class DesignStrategyPromptBuilder:
 class DesignStrategyExtractor:
     """Main design strategy extraction orchestrator"""
     
-    def __init__(self, model: str = "llama3.2", base_url: str = "http://localhost:11434"):
+    def __init__(self, llm: LLM):
         self.prompt_builder = DesignStrategyPromptBuilder()
-        self.model = model
-        self.base_url = base_url
+        self.llm_interface = LlamaIndexInterface(llm)
     
-    def _query_ollama(self, prompt: str) -> str:
+    def query(self, prompt: str) -> str:
         """Send query to Ollama API and return response"""
         try:
             import requests
@@ -199,7 +201,7 @@ class DesignStrategyExtractor:
             logger.error(f"Error querying Ollama: {e}")
             return '{}'
     
-    def _extract_json(self, response: str) -> dict:
+    def extract_json(self, response: str) -> dict:
         """Extract and parse JSON from LLM response"""
         # Remove markdown code blocks if present
         response = re.sub(r'```json\s*', '', response)
@@ -237,13 +239,13 @@ class DesignStrategyExtractor:
         
         # Build and send prompt
         prompt = self.prompt_builder.build_design_strategy_extraction_prompt(text, file_name)
-        response = self._query_ollama(prompt)
+        response = self.llm_interface.query(prompt)
         
         if verbose and not response:
             logger.warning("Empty response from Ollama")
         
         # Extract JSON
-        raw_results = self._extract_json(response)
+        raw_results = self.llm_interface.extract_json(response)
         
         # Debug output
         if not raw_results.get('design_strategies') and verbose:

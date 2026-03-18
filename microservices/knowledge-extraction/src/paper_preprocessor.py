@@ -11,9 +11,10 @@ import re
 import fitz
 import statistics
 import json
+from llama_index.core.llms import LLM
 
 from .document_converter import DocumentConverter
-from .paper_section_extractor import PaperSectionExtractor
+# from .paper_section_extractor import PaperSectionExtractor
 
 logger = logging.getLogger(__name__)
 
@@ -44,14 +45,14 @@ class PaperPreprocessor:
         return text
         
     
-    def __init__(self, ollama_host: str = OLLAMA_HOST, ollama_model: str = OLLAMA_LLM_MODEL):
+    def __init__(self, llm: LLM):
         """
         Initialize preprocessor
         
         Args:
-            ollama_host: Unused (kept for compatibility)
-            ollama_model: Unused (kept for compatibility)
+            llm: LlamaIndex LLM instance
         """
+        self.llm = llm
         self.converter = DocumentConverter()
         logger.info("Initialized PaperPreprocessor (PDF-to-text only)")
         # self.section_extractor = PaperSectionExtractor(
@@ -88,8 +89,8 @@ class PaperPreprocessor:
         logger.info("  → Converting PDF to text...")
         try:
             # raw_text = self.converter.convert_to_text(str(pdf_path))
-            raw_md_text = self.converter.pdf_to_markdown(str(pdf_path))
-            raw_text = self.converter.preprocess_text(raw_md_text)
+            raw_text = self.converter.pdf_to_markdown(str(pdf_path))
+            # raw_text = self.converter.preprocess_text(raw_md_text)
             # raw_text = self._remove_references(raw_text)
             # logger.info("  → WARNING: References removed")
             # raw_text = self._remove_metadata(raw_text)
@@ -100,16 +101,10 @@ class PaperPreprocessor:
             return {"error": str(e)}
         
         # Save raw text
-        raw_text_path = output_dir / f"{base_name}_raw.txt"
+        raw_text_path = output_dir / f"{base_name}_raw.md"
         with open(raw_text_path, 'w', encoding='utf-8') as f:
             f.write(raw_text)
         logger.info(f"  ✓ Saved raw text: {raw_text_path}")
-
-        # Save markdown text
-        markdown_text_path = output_dir / f"{base_name}_raw.md"
-        with open(markdown_text_path, 'w', encoding='utf-8') as f:
-            f.write(raw_md_text)
-        logger.info(f"  ✓ Saved markdown text: {markdown_text_path}")
 
         # # Extract sections
         # logger.info("  → Extracting sections...")

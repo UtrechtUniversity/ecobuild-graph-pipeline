@@ -1,10 +1,12 @@
 # ======================= #
-# TODO: Implement pipeline for semantic matching of extracted desin strategies and ecosystem services onto existing vocabulary
+# Tool for semantic matching of extracted design strategies and ecosystem services onto existing vocabulary
 # ======================= #
 
 import logging
 import math
 from typing import Optional
+
+from llama_index.core.embeddings import BaseEmbedding
 
 import numpy as np
 import requests
@@ -339,7 +341,7 @@ DESIGN_STRATEGIES_TAXONOMY = [
 
 # ── Embedding + cosine similarity helpers ────────────────────────────────────
 
-def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
+def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
     """Cosine similarity between two 1-D numpy vectors."""
     denom = np.linalg.norm(a) * np.linalg.norm(b)
     if denom == 0:
@@ -356,19 +358,16 @@ class EntityResolutionMatcher:
 
     Parameters
     ----------
-    ollama_host : str
-        Base URL of the Ollama server (e.g. "http://ollama:11434").
-    embedding_model : str
-        Ollama model name to use for embeddings (e.g. "nomic-embed-text").
+    embedding_model : BaseEmbedding
+        LlamaIndex embedding model instance.
     """
 
-    def __init__(self, ollama_host: str, embedding_model: str):
-        self.ollama_host = ollama_host.rstrip("/")
+    def __init__(self, embedding_model: BaseEmbedding):
         self.embedding_model = embedding_model
 
         logger.info(
             f"EntityResolutionMatcher: pre-embedding vocabularies via "
-            f"{embedding_model} at {ollama_host} ..."
+            f"{embedding_model.model_name} ..."
         )
 
         # ── Ecosystem services ────────────────────────────────────────────
@@ -379,7 +378,7 @@ class EntityResolutionMatcher:
 
         for name, category, description in ECOSYSTEM_SERVICES_TAXONOMY:
             vocab_string = f"{name}: {description}"
-            emb = self._embed(vocab_string)
+            emb = self.embed(vocab_string)
             if emb is not None:
                 self._eco_names.append(name)
                 self._eco_categories.append(category)
@@ -396,7 +395,7 @@ class EntityResolutionMatcher:
         self._ds_embeddings: list[np.ndarray] = []
 
         for name in DESIGN_STRATEGIES_TAXONOMY:
-            emb = self._embed(name)
+            emb = self.embed(name)
             if emb is not None:
                 self._ds_names.append(name)
                 self._ds_embeddings.append(emb)
@@ -408,24 +407,14 @@ class EntityResolutionMatcher:
 
     # ── Ollama embedding call ─────────────────────────────────────────────────
 
-    def _embed(self, text: str) -> Optional[np.ndarray]:
+    def embed(self, text: str) -> Optional[np.ndarray]:
         """Return a normalised embedding vector for `text`, or None on failure."""
         try:
-            response = requests.post(
-                f"{self.ollama_host}/api/embeddings",
-                json={"model": self.embedding_model, "prompt": text},
-                timeout=30,
-            )
-            if response.status_code == 200:
-                vec = np.array(response.json()["embedding"], dtype=np.float32)
-                norm = np.linalg.norm(vec)
-                return vec / norm if norm > 0 else vec
-            else:
-                logger.warning(
-                    f"Embedding request failed (status {response.status_code}) "
-                    f"for text: '{text[:60]}'"
-                )
-                return None
+            vec = np.array(
+                self.embedding_model.get_text_embedding(text), 
+                dtype=np.float32)
+            norm = np.linalg.norm(vec)
+            return vec / norm if norm > 0 else vec
         except Exception as e:
             logger.error(f"Embedding error for '{text[:60]}': {e}")
             return None
@@ -433,7 +422,7 @@ class EntityResolutionMatcher:
     # ── Query construction ────────────────────────────────────────────────────
 
     @staticmethod
-    def _build_query(name: str, context: Optional[str]) -> str:
+    def build_query(name: str, context: Optional[str]) -> str:
         """Combine extracted name and context into a single query string."""
         if context:
             return f"{name}. {context}"
@@ -441,7 +430,7 @@ class EntityResolutionMatcher:
 
     # ── Per-item matching ─────────────────────────────────────────────────────
 
-    def _find_best_match(
+    def find_best_match(
         self,
         query: str,
         vocab_embeddings: list[np.ndarray],
@@ -449,11 +438,11 @@ class EntityResolutionMatcher:
         top_n: int = 3,
     ) -> list[tuple[str, float]]:
         """Embed `query` and return the top `top_n` (name, cosine_score) pairs."""
-        query_emb = self._embed(query)
+        query_emb = self.embed(query)
         if query_emb is None or not vocab_embeddings:
             return [("" , 0.0)] * top_n
 
-        scores = [_cosine_similarity(query_emb, v) for v in vocab_embeddings]
+        scores = [cosine_similarity(query_emb, v) for v in vocab_embeddings]
         top_indices = np.argsort(scores)[::-1][:top_n]
         return [(vocab_names[i], round(scores[i], 4)) for i in top_indices]
 
@@ -475,11 +464,11 @@ class EntityResolutionMatcher:
         for strategy in strategies:
             name    = strategy.get("name") or ""
             context = strategy.get("context")  # may be None if anchor unverified
-            query   = self._build_query(name, context)
+            query   = self.build_query(name, context)
             if query == "SKIP":
                 strategy["vocab_top_matches"] = [{"name": "No context available", "score": 0.0}]
                 continue
-            top_matches = self._find_best_match(query, self._ds_embeddings, self._ds_names)
+            top_matches = self.find_best_match(query, self._ds_embeddings, self._ds_names)
             strategy["vocab_top_matches"] = [
                 {"name": name, "score": score} for name, score in top_matches
             ]
@@ -504,11 +493,11 @@ class EntityResolutionMatcher:
         for service in services:
             name    = service.get("name") or ""
             context = service.get("context")
-            query   = self._build_query(name, context)
+            query   = self.build_query(name, context)
             if query == "SKIP":
                 service["vocab_top_matches"] = [{"name": "No context available", "score": 0.0, "category": None}]
                 continue
-            top_matches = self._find_best_match(query, self._eco_embeddings, self._eco_names)
+            top_matches = self.find_best_match(query, self._eco_embeddings, self._eco_names)
             service["vocab_top_matches"] = []
             for match_name, match_score in top_matches:
                 try:

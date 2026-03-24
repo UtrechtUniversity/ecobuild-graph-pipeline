@@ -142,10 +142,10 @@ async def main():
             )
             
             if "error" in preprocess_result:
-                logger.error(f"  ✗ Preprocessing failed: {preprocess_result['error']}")
+                logger.error(f"  Preprocessing failed: {preprocess_result['error']}")
                 continue
             
-            logger.info(f"  ✓ Text extracted: {preprocess_result['raw_text_path']}")
+            logger.info(f"  Text extracted: {preprocess_result['raw_text_path']}")
  
             # Load section-aware text
             # raw_text = full body (no metadata/references) — used as the
@@ -163,10 +163,10 @@ async def main():
                 parts = [sections.get(n, "") for n in names if sections.get(n)]
                 return "\n\n".join(parts) if parts else raw_text
  
-            # Text scopes fed to each extractor
-            building_text   = _join("abstract", "introduction", "keywords", "methods", "unclassified") 
-            ds_text         = _join("methods", "results", "discussion", "unclassified")  
-            es_text         = _join("results", "discussion", "conclusion", "unclassified")
+            # Text sections each extractor looks at
+            building_text   = _join("abstract") 
+            ds_text         = _join("abstract")  
+            es_text         = _join("abstract")
             
             # ========================================
             # STEP 2: Extract Entities (Buildings)
@@ -183,7 +183,7 @@ async def main():
             
             # Log entity summary
             if entities:
-                logger.info(f"  ✓ Found {len(entities)} entities")
+                logger.info(f"  Found {len(entities)} entities")
                 for ent in entities:
                     name = ent.get('name', {}).get('value') if isinstance(ent.get('name'), dict) else ent.get('name')
                     city = ent.get('city', {}).get('value') if isinstance(ent.get('city'), dict) else ent.get('city')
@@ -201,7 +201,7 @@ async def main():
                         f"  [{n_verified}/{n_total} fields verified]"
                     )
             else:
-                logger.info("  ✗ No entities identified")
+                logger.info("  No entities identified")
             
             # ========================================
             # STEP 3: Extract Design Strategies
@@ -222,13 +222,13 @@ async def main():
             strategies = design_results.get('design_strategies', [])
  
             if strategies:
-                logger.info(f"  ✓ Found {total} design strategies ({verified}/{total} anchors verified)")
+                logger.info(f"  Found {total} design strategies ({verified}/{total} anchors verified)")
                 for strategy in strategies[:3]:
                     name = strategy.get('name', 'Unnamed')
                     v = "✓" if strategy.get('anchor_verified') else "✗"
                     logger.info(f"    {v} {name}")
             else:
-                logger.info("  ✗ No design strategies identified")
+                logger.info("  No design strategies identified")
  
             # ========================================
             # STEP 4: Extract Ecosystem Services
@@ -249,14 +249,14 @@ async def main():
             eco_services = ecosystem_results.get('ecosystem_services', [])
  
             if eco_services:
-                logger.info(f"  ✓ Found {total_eco} ecosystem services ({verified_eco}/{total_eco} anchors verified)")
+                logger.info(f"  Found {total_eco} ecosystem services ({verified_eco}/{total_eco} anchors verified)")
                 for service in eco_services[:3]:
                     name = service.get('name', 'Unnamed')
                     category = service.get('category', 'Unknown')
                     v = "✓" if service.get('anchor_verified') else "✗"
                     logger.info(f"    {v} {name} [{category}]")
             else:
-                logger.info("  ✗ No ecosystem services identified")
+                logger.info("  No ecosystem services identified")
             
             # ========================================
             # STEP 5: Combine Results into Single JSON
@@ -277,7 +277,7 @@ async def main():
             with open(json_path, 'w', encoding='utf-8') as f:
                 json.dump(combined_results, f, indent=2, ensure_ascii=False)
             
-            logger.info(f"  ✓ Combined results saved to: {json_path}")
+            logger.info(f"  Combined results saved to: {json_path}")
             
             # ========================================
             # STEP 6: Generate Combined Report
@@ -289,7 +289,14 @@ async def main():
             report_lines.append(f"EXTRACTION REPORT: {pdf_base_name}")
             report_lines.append("=" * 80)
             report_lines.append("")
- 
+
+            cov_info = preprocess_result.get("coverage_info")
+            if cov_info:
+                report_lines.append("### SECTION COVERAGE ###")
+                report_lines.append(f"  Status: {cov_info.get('status', 'unknown').upper()}")
+                report_lines.append(f"  Details: {cov_info.get('message', '')}")
+                report_lines.append("\n")
+
             # Entities section
             report_lines.append("### ENTITIES (BUILDINGS) ###")
             if entities:
@@ -413,7 +420,7 @@ async def main():
             with open(report_path, 'w', encoding='utf-8') as f:
                 f.write('\n'.join(report_lines))
  
-            logger.info(f"  ✓ Report saved to: {report_path}")
+            logger.info(f"  Report saved to: {report_path}")
  
             # ========================================
             # Display Summary
@@ -447,13 +454,13 @@ async def main():
                 }
             })
  
-            logger.info(f"  ✓ Neo4j results: {results}")
+            logger.info(f"  Neo4j results: {results}")
             """
  
-            logger.info(f"\n✓ Completed: {os.path.basename(pdf_path)}")
+            logger.info(f"\n    Completed: {os.path.basename(pdf_path)}")
  
         except Exception as e:
-            logger.error(f"\n✗ Error processing '{os.path.basename(pdf_path)}': {e}", exc_info=True)
+            logger.error(f"\n    Error processing '{os.path.basename(pdf_path)}': {e}", exc_info=True)
  
     # ========================================
     # Final Summary

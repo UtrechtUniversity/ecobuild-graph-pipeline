@@ -142,11 +142,11 @@ terraced houses, etc.) is irrelevant — do NOT reproduce any of it.
 
         JSON output (values must come ONLY from the paper text above):"""
 
-        # Save prompt text
-        prompt_path = output_dir / f"{base_name}_building_extraction_prompt.txt"
-        with open(prompt_path, 'w', encoding='utf-8') as f:
-            f.write(current_prompt)
-        logger.info(f"  ✓ Saved prompt text: {prompt_path}")
+        # # Save prompt text
+        # prompt_path = output_dir / f"{base_name}_building_extraction_prompt.txt"
+        # with open(prompt_path, 'w', encoding='utf-8') as f:
+        #     f.write(current_prompt)
+        # logger.info(f"  Saved prompt text: {prompt_path}")
 
         return current_prompt
 

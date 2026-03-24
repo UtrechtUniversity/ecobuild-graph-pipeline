@@ -24,6 +24,8 @@ from __future__ import annotations
 import logging
 import math
 import re
+import json
+import os
 from typing import Optional
 
 from llama_index.core.llms import LLM
@@ -67,31 +69,42 @@ def _strip_markdown_formatting(text: str) -> str:
     text = re.sub(r'^\*\*==>.*?(?:\n\s*\n|\Z)', '', text, flags=re.MULTILINE | re.DOTALL)
     # Bold / italic: **text** or *text* → text
     text = re.sub(r'\*{1,2}(.+?)\*{1,2}', r'\1', text)
-    # Markdown table rows: | cell | cell | → stripped entirely
-    text = re.sub(r'\|.+\|', '', text)
+    # Markdown table borders and separator rows (e.g. |---|---|)
+    text = re.sub(r'^[\s|:\-]+$\n?', ' ', text, flags=re.MULTILINE)
+    # Markdown table cells: | cell | cell | →  cell   cell 
+    text = re.sub(r'\|', ' ', text)
     # Inline links: [label](url) → label
     text = re.sub(r'\[(.+?)\]\(.+?\)', r'\1', text)
+    # ATX headings: # Heading -> Heading
+    text = re.sub(r'^#{1,6}\s+', '', text, flags=re.MULTILINE)
     # Collapse 3+ consecutive newlines
     text = re.sub(r'\n{3,}', '\n\n', text)
     return text
 
 ## Prompt for LLM fallback
 def _build_classification_prompt(heading_context: dict[str, str]) -> str:
-    canonical = ", ".join(CANONICAL_SECTIONS)
-    header_list = "\n".join(f"- Header: {h}\n  Context: {ctx}" for h, ctx in heading_context.items())
-    return (
-        f"""
-        You are classifying academic paper section headers into canonical categories.
-        Canonical categories: {canonical}
-        For each header below, assign exactly one canonical category based on the header and its context.
-        Reply ONLY with a JSON object mapping each header to its category. No preamble.
-
-        Headers and Context:
-        {header_list}
-
-        JSON output:
-        """
+    canonical_block = "\n".join(
+        f"  - {label}: {desc}" for label, desc in CANONICAL_SECTIONS.items()
     )
+    header_list = "\n".join(
+        f"  - \"{h}\" (opening text: {ctx[:200] if ctx else 'none'})"
+        for h, ctx in heading_context.items()
+    )
+    return f"""You are classifying headings from academic papers into canonical section types.
+
+    Canonical section types and their meanings:
+    {canonical_block}
+
+    Rules:
+    - Journal names, author names, affiliations, and paper titles are NOT sections — classify these as "unclassified".
+    - Numbered headings like "4.1. ..." follow the same rules as unnumbered ones.
+    - When in doubt between two categories, use the opening text as a tiebreaker.
+    - Return ONLY a valid JSON object. No explanation, no preamble, no markdown fences.
+
+    Headings to classify:
+    {header_list}
+
+    JSON output mapping each heading string to exactly one canonical label:"""
 
 
 def _cosine_similarity(a: list[float], b: list[float]) -> float:
@@ -106,6 +119,8 @@ def _cosine_similarity(a: list[float], b: list[float]) -> float:
 
 # ── Embedding-based classifier (any LlamaIndex BaseEmbedding) ────────────────
 
+_PROMPT = "task: classification | query: "
+
 class _EmbeddingClassifier:
     """
     Wraps any LlamaIndex ``BaseEmbedding`` (e.g. OllamaEmbedding) to perform
@@ -117,7 +132,7 @@ class _EmbeddingClassifier:
         self._embed_model = embed_model
         # Pre-compute embeddings for all canonical labels once at startup.
         self._label_embeddings: dict[str, list[float]] = {
-            label: self._embed_model.get_text_embedding(description)
+            label: self._embed_model.get_text_embedding(_PROMPT + description)
             for label, description in CANONICAL_SECTIONS.items()
         }
         logger.info(
@@ -131,7 +146,7 @@ class _EmbeddingClassifier:
         for heading, context in heading_context.items():
             try:
                 text_to_embed = f"{heading}\n{context}" if context else heading
-                h_emb = self._embed_model.get_text_embedding(text_to_embed)
+                h_emb = self._embed_model.get_text_embedding(_PROMPT + text_to_embed)
                 best_label = max(
                     self._label_embeddings,
                     key=lambda label: _cosine_similarity(h_emb, self._label_embeddings[label]),
@@ -179,7 +194,7 @@ class PaperSectionExtractor:
 
     # ── Public API ────────────────────────────────────────────────────────────
 
-    def extract_sections_from_markdown(self, md_text: str) -> dict[str, str]:
+    def extract_sections(self, md_text: str, out_dir: Optional[str] = None, base_name: Optional[str] = None) -> dict[str, str]:
         """
         Parse *md_text* (pymupdf4llm output) and return a section dict.
 
@@ -215,7 +230,15 @@ class PaperSectionExtractor:
                 context = clean_text.split('\n\n')[0] if clean_text else ""
                 heading_context[heading] = context
 
+        # Classify headings
         heading_map = self._classify_headings(heading_context) if heading_context else {}
+        
+        if out_dir and base_name:
+            # Save heading map to file
+            map_path = os.path.join(out_dir, f"{base_name}_heading_map.json")
+            with open(map_path, "w", encoding="utf-8") as f:
+                json.dump(heading_map, f, indent=2, ensure_ascii=False)
+            logger.info("  Saved heading map: %s", map_path)
         
         # Merge bodies under their canonical name.
         merged: dict[str, list[str]] = {c: [] for c in CANONICAL_SECTIONS}

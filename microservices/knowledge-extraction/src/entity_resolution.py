@@ -351,6 +351,8 @@ def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
 
 # ── Main matcher class ────────────────────────────────────────────────────────
 
+_PROMPT = "task: classification | query: "
+
 class EntityResolutionMatcher:
     """
     Embeds vocabulary terms once at initialisation, then matches extracted
@@ -411,7 +413,7 @@ class EntityResolutionMatcher:
         """Return a normalised embedding vector for `text`, or None on failure."""
         try:
             vec = np.array(
-                self.embedding_model.get_text_embedding(text), 
+                self.embedding_model.get_text_embedding(_PROMPT + text), 
                 dtype=np.float32)
             norm = np.linalg.norm(vec)
             return vec / norm if norm > 0 else vec

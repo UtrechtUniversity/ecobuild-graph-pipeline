@@ -1,210 +1,171 @@
 """
-Preprocessing adapter for Neo4j pipeline
-Extracts text from PDF and prepares it for processing
+Preprocessing adapter for the knowledge-extraction pipeline.
+
+Converts a PDF → pymupdf4llm Markdown → LlamaIndex Document
+and partitions the document into canonical sections via PaperSectionExtractor.
 """
 
-import os
-import sys
+import json
 import logging
 from pathlib import Path
+from typing import Optional
 import re
-import fitz
-import statistics
-import json
-from llama_index.core.llms import LLM
 
-from .document_converter import DocumentConverter
-# from .paper_section_extractor import PaperSectionExtractor
+import pymupdf
+import pymupdf4llm
+from llama_index.core import Document
+from llama_index.core.llms import LLM
+from llama_index.core.embeddings import BaseEmbedding
+
+from .paper_section_extractor import PaperSectionExtractor
 
 logger = logging.getLogger(__name__)
 
-OLLAMA_LLM_MODEL = os.getenv("OLLAMA_LLM_MODEL", "llama3")
-OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
-OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 
 class PaperPreprocessor:
     """
-    Preprocesses PDFs to extract text
+    Ingests a PDF and returns:
+    - A LlamaIndex ``Document`` (the full markdown text + file metadata)
+    - A ``sections`` dict mapping canonical section names → section text
+    - The path to the saved raw markdown file (used for anchor resolution)
     """
-    def _remove_metadata(self, text: str) -> str:
+
+    def __init__(self, llm: LLM, embed_model: Optional[BaseEmbedding] = None) -> None:
+        self.llm = llm
+        self.section_extractor = PaperSectionExtractor(llm, embed_model=embed_model)
+        logger.info("Initialized PaperPreprocessor (pymupdf4llm + LlamaIndex)")
+
+    # ── Core ingestion ────────────────────────────────────────────────────────
+
+    def _pdf_to_markdown(self, pdf_path: Path) -> str:
+        """Convert a PDF to Markdown using pymupdf4llm."""
+        doc = pymupdf.Document(str(pdf_path))
+        return pymupdf4llm.to_markdown(doc, footer=False, header=False)
+
+    def _strip_markdown_formatting(self, text: str) -> str:
+        """Remove markdown syntax that adds noise for LLM extraction.
+
+        Strips bold/italic markers, table rows, link syntax (keeping the label),
+        and collapses runs of blank lines to at most two newlines.
+        Call this on body text only — never on the raw heading string.
         """
-        Remove initial metadata section from processed text
-        """
-        metadata = re.search(r"\n(Key Words|Keywords|Abstract|A B S T R A C T)", text, flags=re.IGNORECASE)
-        if metadata:
-            return text[metadata.start():]
+        # Remove "ommitted image" paragraphs
+        text = re.sub(r'^\*\*==>.*?(?:\n\s*\n|\Z)', '', text, flags=re.MULTILINE | re.DOTALL)
+        # Bold / italic: **text** or *text* → text
+        text = re.sub(r'\*{1,2}(.+?)\*{1,2}', r'\1', text)
+        # Markdown table rows: | cell | cell | → stripped entirely
+        text = re.sub(r'\|.+\|', '', text)
+        # Inline links: [label](url) → label
+        text = re.sub(r'\[(.+?)\]\(.+?\)', r'\1', text)
+        # Collapse 3+ consecutive newlines
+        text = re.sub(r'\n{3,}', '\n\n', text)
         return text
 
-    def _remove_references(self, text: str) -> str:
+    # ── Public API ────────────────────────────────────────────────────────────
+
+    def preprocess_pdf(self, pdf_path: str, output_dir: str | None = None) -> dict:
         """
-        Remove references section from processed text
-        """
-        ref_start = re.search(r"\n(References|Bibliography)\n", text, flags=re.IGNORECASE)
-        if ref_start:
-            return text[:ref_start.start()]
-        return text
-        
-    
-    def __init__(self, llm: LLM):
-        """
-        Initialize preprocessor
-        
-        Args:
-            llm: LlamaIndex LLM instance
-        """
-        self.llm = llm
-        self.converter = DocumentConverter()
-        logger.info("Initialized PaperPreprocessor (PDF-to-text only)")
-        # self.section_extractor = PaperSectionExtractor(
-        #     model=ollama_model, 
-        #     base_url=ollama_host
-        # )
-        # logger.info("Initialized section extractor")
-    
-    def preprocess_pdf(self, pdf_path: str, output_dir: str = None) -> dict:
-        """
-        Preprocess a PDF: extract text and save it
-        
-        Args:
-            pdf_path: Path to PDF file
-            output_dir: Directory to save outputs (default: same as PDF)
-        
-        Returns:
-            Dict with paths to generated files
+        Preprocess a single PDF.
+
+        Parameters
+        ----------
+        pdf_path:   Path to the PDF file.
+        output_dir: Directory for saved outputs (default: ``<pdf_dir>/preprocessed``).
+
+        Returns
+        -------
+        dict with keys:
+            ``pdf_path``       – original PDF path (str)
+            ``raw_text_path``  – path to the saved Markdown file (str)
+            ``document``       – LlamaIndex Document (full markdown + metadata)
+            ``sections``       – dict[str, str] of canonical sections
+        On error, returns ``{"error": <message>}``.
         """
         pdf_path = Path(pdf_path)
-        
+
         if output_dir is None:
             output_dir = pdf_path.parent / "preprocessed"
-        else:
-            output_dir = Path(output_dir)
-        
+        output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
-        
+
         base_name = pdf_path.stem
-        
-        logger.info(f"Preprocessing PDF: {pdf_path.name}")
-              
-        # Convert PDF to text
-        logger.info("  → Converting PDF to text...")
+        logger.info("Preprocessing PDF: %s", pdf_path.name)
+
+        # ── Step 1: PDF → Markdown ────────────────────────────────────────────
+        logger.info("  → Converting PDF to Markdown via pymupdf4llm …")
         try:
-            # raw_text = self.converter.convert_to_text(str(pdf_path))
-            raw_text = self.converter.pdf_to_markdown(str(pdf_path))
-            # raw_text = self.converter.preprocess_text(raw_md_text)
-            # raw_text = self._remove_references(raw_text)
-            # logger.info("  → WARNING: References removed")
-            # raw_text = self._remove_metadata(raw_text)
-            # logger.info("  → WARNING: Metadata removed")
-            # raw_text = self._extract_abstract(raw_text)
-        except Exception as e:
-            logger.error(f"  ✗ Failed to convert PDF: {e}")
-            return {"error": str(e)}
-        
-        # Save raw text
-        raw_text_path = output_dir / f"{base_name}_raw.md"
-        with open(raw_text_path, 'w', encoding='utf-8') as f:
-            f.write(raw_text)
-        logger.info(f"  ✓ Saved raw text: {raw_text_path}")
+            md_text = self._pdf_to_markdown(pdf_path)
+        except Exception as exc:
+            logger.error("  ✗ PDF conversion failed: %s", exc)
+            return {"error": str(exc)}
 
-        # # Extract sections
-        # logger.info("  → Extracting sections...")
-        # try:
-        #     sections = self.section_extractor.extract_sections(raw_text)
-        # except Exception as e:
-        #     logger.error(f"  ✗ Failed to extract sections: {e}")
-        #     return {"error": str(e)}
+        # ── Step 2: Wrap in a LlamaIndex Document ────────────────────────────
+        li_document = Document(
+            text=md_text,
+            metadata={"file_name": pdf_path.name, "file_path": str(pdf_path)},
+        )
 
-        # # Save sections
-        # sections_path = output_dir / f"{base_name}_sections.json"
-        # with open(sections_path, 'w', encoding='utf-8') as f:
-        #     json.dump(sections, f, indent=2)
-        # logger.info(f"  ✓ Saved sections: {sections_path}")
-        
+        # ── Step 3: Save raw Markdown (for identifying headers) ──────────
+        raw_md_path = output_dir / f"{base_name}_raw.md"
+        raw_md_path.write_text(md_text, encoding="utf-8")
+        logger.info("  ✓ Saved raw Markdown: %s", raw_md_path)
+
+        # ── Step 3.5: Save clean text (no formatting) ───────────────────
+        stripped_text = self._strip_markdown_formatting(md_text)  
+        stripped_path = output_dir / f"{base_name}_plain.txt"
+        stripped_path.write_text(stripped_text, encoding="utf-8")
+        logger.info("  ✓ Saved clean text: %s", stripped_path)
+
+        # ── Step 4: Extract canonical sections ───────────────────────────────
+        # Heading detection runs on raw md_text; body stripping happens inside extract_sections_from_markdown after slicing.
+        logger.info("  → Extracting sections …")
+        try:
+            sections = self.section_extractor.extract_sections_from_markdown(md_text)
+        except Exception as exc:
+            logger.error("  ✗ Section extraction failed: %s", exc)
+            sections = {}
+
+        # Optionally persist sections for debugging
+        sections_path = output_dir / f"{base_name}_sections.json"
+        sections_path.write_text(
+            json.dumps(sections, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+        logger.info("  ✓ Saved sections: %s", sections_path)
+
         return {
             "pdf_path": str(pdf_path),
-            "raw_text_path": str(raw_text_path),
-            # "sections_path": str(sections_path)
+            "raw_text_path": str(stripped_path),
+            "document": li_document,
+            "sections": sections,
         }
-    
-    def batch_preprocess(self, input_dir: str, output_dir: str = None) -> list:
+
+    def batch_preprocess(self, input_dir: str, output_dir: str | None = None) -> list[dict]:
         """
-        Preprocess all PDFs in a directory
-        
-        Args:
-            input_dir: Directory containing PDFs
-            output_dir: Directory to save outputs
-        
-        Returns:
-            List of result dictionaries
+        Preprocess all PDFs in *input_dir*.
+
+        Returns a list of result dicts (same shape as ``preprocess_pdf``).
         """
         input_path = Path(input_dir)
-        
         if not input_path.exists():
-            logger.error(f"Input directory not found: {input_dir}")
+            logger.error("Input directory not found: %s", input_dir)
             return []
-        
-        # Find all PDFs
-        pdf_files = list(input_path.glob("*.pdf"))
-        
+
+        pdf_files = sorted(input_path.glob("*.pdf"))
         if not pdf_files:
-            logger.warning(f"No PDF files found in {input_dir}")
+            logger.warning("No PDF files found in %s", input_dir)
             return []
-        
-        logger.info(f"Found {len(pdf_files)} PDF files to preprocess")
-        
-        results = []
-        for i, pdf_path in enumerate(pdf_files, 1):
-            logger.info(f"\n[{i}/{len(pdf_files)}] Processing: {pdf_path.name}")
+
+        logger.info("Found %d PDF files to preprocess", len(pdf_files))
+
+        results: list[dict] = []
+        for i, pdf in enumerate(pdf_files, 1):
+            logger.info("\n[%d/%d] Processing: %s", i, len(pdf_files), pdf.name)
             try:
-                result = self.preprocess_pdf(str(pdf_path), output_dir)
-                results.append(result)
-            except Exception as e:
-                logger.error(f"  ✗ Error: {e}", exc_info=True)
-                results.append({"pdf_path": str(pdf_path), "error": str(e)})
-        
-        logger.info(f"\n✓ Preprocessed {len(results)} files")
+                result = self.preprocess_pdf(str(pdf), output_dir)
+            except Exception as exc:
+                logger.error("  ✗ Error: %s", exc, exc_info=True)
+                result = {"pdf_path": str(pdf), "error": str(exc)}
+            results.append(result)
+
+        logger.info("\n✓ Preprocessed %d files", len(results))
         return results
-
-
-def main():
-    """Standalone preprocessing script"""
-    import argparse
-    
-    parser = argparse.ArgumentParser(description="Preprocess PDFs: Extract text only")
-    parser.add_argument("input", help="Input PDF file or directory")
-    parser.add_argument("-o", "--output", help="Output directory", default=None)
-    
-    args = parser.parse_args()
-    
-    # Setup logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
-    )
-    
-    # Initialize preprocessor (no params needed now)
-    preprocessor = PaperPreprocessor()
-    
-    input_path = Path(args.input)
-    
-    if input_path.is_file():
-        # Process single file
-        result = preprocessor.preprocess_pdf(str(input_path), args.output)
-        if "error" not in result:
-            print(f"\n✓ Preprocessing complete!")
-            print(f"  Text file: {result.get('raw_text_path')}")
-    
-    elif input_path.is_dir():
-        # Process directory
-        results = preprocessor.batch_preprocess(str(input_path), args.output)
-        print(f"\n✓ Batch preprocessing complete! Processed {len(results)} files")
-    
-    else:
-        print(f"Error: {args.input} is not a file or directory")
-        return 1
-    
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

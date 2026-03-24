@@ -48,8 +48,7 @@ logs/
 temp_configs/
 temp_container_files/
 zz_old_proj_backup/
-microservices/knowledge-extraction/test_papers/examples/brunsgaard_2011_converted.txt
-microservices/knowledge-extraction/test_papers/examples/hecht_2025_converted.txt
+microservices/knowledge-extraction/test_papers/examples/*.txt
 
 # Git
 # Ignore inner git directories to allow root repo to track everything

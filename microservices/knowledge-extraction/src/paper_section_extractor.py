@@ -1,205 +1,283 @@
+"""
+Paper section extractor — markdown-heading-first, pluggable classification.
+
+Flow
+----
+1. Parse ATX headings (# / ## / ###) out of the pymupdf4llm markdown string.
+2. Slice the markdown into raw sections keyed by heading.
+3. Classify headings using either:
+   a. Any LlamaIndex ``BaseEmbedding`` (e.g. OllamaEmbedding) — encodes
+      headings and canonical labels, picks the closest label by cosine
+      similarity.
+   b. (Not in use) An LLM prompt fallback when no embed_model is supplied to PaperSectionExtractor.
+4. Merge slices that share a canonical name and return
+   {canonical_category: text}.
+
+Canonical categories
+--------------------
+abstract · introduction · methods · results · discussion ·
+conclusion · references · keywords · unclassified
+"""
+
 from __future__ import annotations
- 
+
+import logging
+import math
 import re
-import collections
 from typing import Optional
- 
-# PDFPlumber — used only for header detection (reliable font metadata per char)
-import pdfplumber
- 
-# PyMuPDF — used only for clean text extraction
-import fitz
- 
-from rapidfuzz import fuzz, process
-import statistics
- 
- 
-SECTION_ALIASES: dict[str, list[str]] = {
-    "metadata":     [],
-    "abstract":     ["abstract", "summary", "executive summary", "synopsis",
-                     "description"],
-    "keywords":     ["keywords", "key words", "index terms", "key terms"],
-    "introduction": ["introduction", "background", "motivation",
-                     "background and motivation", "background & motivation",
-                     "overview"],
-    "related_work": ["related work", "related works", "literature review",
-                     "prior work", "previous work"],
-    "methods":      ["methods", "method", "methodology", "materials and methods",
-                     "materials & methods", "proposed method", "proposed approach",
-                     "approach", "model", "framework", "system", "architecture"],
-    "results":      ["results", "evaluation", "findings", "empirical results",
-                     "benchmarks", "results and discussion"],
-    "discussion":   ["discussion", "analysis", "discussion and analysis",
-                     "discussion and conclusion", "discussion & conclusion"],
-    "conclusion":   ["conclusion", "conclusions", "concluding remarks",
-                     "summary and conclusion", "future work",
-                     "conclusion and future work"],
-    "acknowledgements": ["acknowledgements", "acknowledgments", "acknowledgement",
-                         "acknowledgment"],
-    "references":   ["references", "bibliography", "notes and references",
-                     "works cited", "citations", "literature",
-                     "reference list", "bibliographic references"],
-    "appendix":     ["appendix", "appendices", "supplementary material",
-                     "supplementary", "supplemental material", "supplemental materials",
-                     "additional material", "online supplement"],
+
+from llama_index.core.llms import LLM
+from llama_index.core.embeddings import BaseEmbedding
+from llama_index.core.node_parser import MarkdownNodeParser
+from llama_index.core import Document
+
+from .llama_index_interface import LlamaIndexInterface
+
+logger = logging.getLogger(__name__)
+
+# ── Public constants ──────────────────────────────────────────────────────────
+
+CANONICAL_SECTIONS: dict[str, str] = {
+    "abstract": "summary overview of the study objectives findings and conclusions",
+    "introduction": "background context motivation research gap and objectives",
+    "methods": "methodology data collection experimental setup study design procedure",
+    "results": "findings measurements data analysis outcomes performance assessment",
+    "discussion": "interpretation of results comparison with literature implications",
+    "conclusion": "summary of findings limitations future work recommendations",
+    "references": "bibliography citations list of sources",
+    "keywords": "index terms key concepts",
+    "unclassified": "miscellaneous content that does not fit other sections",
 }
- 
-_ALIAS_TO_CANONICAL: dict[str, str] = {}
-for _canon, _aliases in SECTION_ALIASES.items():
-    for _alias in _aliases:
-        _ALIAS_TO_CANONICAL[_alias] = _canon
- 
-_ALL_ALIASES: list[str] = list(_ALIAS_TO_CANONICAL.keys())
- 
- 
-def _normalize(text: str) -> str:
-    t = text.strip()
-    # collapse spaced letters: "A B S T R A C T" -> "abstract"
-    if re.fullmatch(r"(?:[A-Za-z]\s+){2,}[A-Za-z]", t):
-        t = t.replace(" ", "")
-    # strip leading section numbers: "1.", "2.3 ", "A. ", "IV. "
-    t = re.sub(r"^\s*(?:\d+\.)+\s*|^[a-zA-Z]{1,4}\.\s+", "", t)
-    t = re.sub(r"\s+", " ", t).casefold()
-    return t.strip()
- 
- 
-def _chars_to_lines(chars: list[dict]) -> list[list[dict]]:
+
+# Regex that matches any ATX heading (# … ####) at the start of a line.
+_HEADING_RE = re.compile(r"^#{1,4}\s+(.+)$", re.MULTILINE)
+
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+
+def _strip_markdown_formatting(text: str) -> str:
+    """Remove markdown syntax that adds noise for LLM extraction.
+
+    Strips bold/italic markers, table rows, link syntax (keeping the label),
+    and collapses runs of blank lines to at most two newlines.
+    Call this on body text only — never on the raw heading string.
     """
-    Group pdfplumber char dicts into lines by rounding their y0 coordinate.
-    Characters whose y0 values are within 1 pt of each other are the same line.
-    Returns lines sorted top-to-bottom (descending y0 in PDF space).
-    """
-    buckets: dict[int, list[dict]] = {}
-    for ch in chars:
-        key = round(ch["y0"])
-        buckets.setdefault(key, []).append(ch)
-    # sort each line left-to-right, then return lines top-to-bottom
-    return [
-        sorted(line_chars, key=lambda c: c["x0"])
-        for _, line_chars in sorted(buckets.items(), reverse=True)
-    ]
- 
- 
-def _line_font_info(line_chars: list[dict]) -> tuple[float, bool]:
-    """Return (dominant_font_size, is_bold) for a list of pdfplumber char dicts."""
-    sizes = [c["size"] for c in line_chars if c.get("size")]
-    if not sizes:
-        return 0.0, False
-    bold_count = sum(
-        1 for c in line_chars
-        if any(w in (c.get("fontname") or "").lower() for w in ("bold", "heavy", "black", ",b"))
+    # Remove "ommitted image" paragraphs
+    text = re.sub(r'^\*\*==>.*?(?:\n\s*\n|\Z)', '', text, flags=re.MULTILINE | re.DOTALL)
+    # Bold / italic: **text** or *text* → text
+    text = re.sub(r'\*{1,2}(.+?)\*{1,2}', r'\1', text)
+    # Markdown table rows: | cell | cell | → stripped entirely
+    text = re.sub(r'\|.+\|', '', text)
+    # Inline links: [label](url) → label
+    text = re.sub(r'\[(.+?)\]\(.+?\)', r'\1', text)
+    # Collapse 3+ consecutive newlines
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text
+
+## Prompt for LLM fallback
+def _build_classification_prompt(heading_context: dict[str, str]) -> str:
+    canonical = ", ".join(CANONICAL_SECTIONS)
+    header_list = "\n".join(f"- Header: {h}\n  Context: {ctx}" for h, ctx in heading_context.items())
+    return (
+        f"""
+        You are classifying academic paper section headers into canonical categories.
+        Canonical categories: {canonical}
+        For each header below, assign exactly one canonical category based on the header and its context.
+        Reply ONLY with a JSON object mapping each header to its category. No preamble.
+
+        Headers and Context:
+        {header_list}
+
+        JSON output:
+        """
     )
-    return statistics.median(sizes), bold_count > len(line_chars) * 0.5
- 
- 
-def _detect_headers(pdf_path: str, min_fuzzy_score: float = 70.0) -> list[tuple[int, str, str]]:
+
+
+def _cosine_similarity(a: list[float], b: list[float]) -> float:
+    """Compute cosine similarity between two embedding vectors."""
+    dot = sum(x * y for x, y in zip(a, b))
+    norm_a = math.sqrt(sum(x * x for x in a))
+    norm_b = math.sqrt(sum(x * x for x in b))
+    if norm_a == 0 or norm_b == 0:
+        return 0.0
+    return dot / (norm_a * norm_b)
+
+
+# ── Embedding-based classifier (any LlamaIndex BaseEmbedding) ────────────────
+
+class _EmbeddingClassifier:
     """
-    Use PDFPlumber to find section headers.
- 
-    Returns a list of (page_number, raw_text, canonical_name), sorted by
-    page order. Duplicate canonical names are deduplicated (first wins).
+    Wraps any LlamaIndex ``BaseEmbedding`` (e.g. OllamaEmbedding) to perform
+    section-heading classification via cosine similarity against the canonical
+    label set.  No generative model is involved — results are deterministic.
     """
-    all_sizes: list[float] = []
-    page_lines: list[tuple[int, list[dict]]] = []  # (page_no, line_chars)
- 
-    with pdfplumber.open(pdf_path) as pdf:
-        for page_no, page in enumerate(pdf.pages):
-            chars = [c for c in (page.chars or []) if c.get("text", "").strip()]
-            for line_chars in _chars_to_lines(chars):
-                size, _ = _line_font_info(line_chars)
-                if size > 0:
-                    all_sizes.append(size)
-                page_lines.append((page_no, line_chars))
- 
-    if not all_sizes:
-        return []
- 
-    body_size = statistics.median(all_sizes)
- 
-    headers: list[tuple[int, str, str]] = []
-    seen_canonical: set[str] = set()
- 
-    for page_no, line_chars in page_lines:
-        raw_text = "".join(c["text"] for c in line_chars).strip()
-        if not raw_text or len(raw_text) < 3 or len(raw_text.split()) > 10:
-            continue
- 
-        size, is_bold = _line_font_info(line_chars)
-        if size < body_size * 1.1 and not is_bold:
-            continue
- 
-        norm = _normalize(raw_text)
-        if not norm:
-            continue
- 
-        result = process.extractOne(norm, _ALL_ALIASES, scorer=fuzz.token_sort_ratio)
-        if result is None:
-            continue
-        best_alias, score, _ = result
-        if score < min_fuzzy_score:
-            continue
- 
-        canonical = _ALIAS_TO_CANONICAL[best_alias]
-        if canonical in seen_canonical:
-            continue
- 
-        seen_canonical.add(canonical)
-        headers.append((page_no, raw_text, canonical))
- 
-    return headers
- 
- 
+
+    def __init__(self, embed_model: BaseEmbedding) -> None:
+        self._embed_model = embed_model
+        # Pre-compute embeddings for all canonical labels once at startup.
+        self._label_embeddings: dict[str, list[float]] = {
+            label: self._embed_model.get_text_embedding(description)
+            for label, description in CANONICAL_SECTIONS.items()
+        }
+        logger.info(
+            "EmbeddingClassifier ready (%s canonical labels pre-embedded).",
+            len(self._label_embeddings),
+        )
+
+    def classify(self, heading_context: dict[str, str]) -> dict[str, str]:
+        """Return ``{heading: canonical_category}`` using cosine similarity."""
+        result: dict[str, str] = {}
+        for heading, context in heading_context.items():
+            try:
+                text_to_embed = f"{heading}\n{context}" if context else heading
+                h_emb = self._embed_model.get_text_embedding(text_to_embed)
+                best_label = max(
+                    self._label_embeddings,
+                    key=lambda label: _cosine_similarity(h_emb, self._label_embeddings[label]),
+                )
+                result[heading] = best_label
+            except Exception as exc:
+                logger.debug("Embedding classify failed for %r: %s", heading, exc)
+                result[heading] = "unclassified"
+        return result
+
+
+# ── Main class ────────────────────────────────────────────────────────────────
+
+
 class PaperSectionExtractor:
-    def __init__(self, min_fuzzy_score: float = 72.0):
-        self.min_fuzzy_score = min_fuzzy_score
- 
-    def extract_sections(self, pdf_path: str) -> dict:
-        # ── Step 1: detect headers via PDFMiner ──────────────────────────────
-        headers = _detect_headers(pdf_path, self.min_fuzzy_score)
- 
-        # ── Step 2: extract clean full text via PyMuPDF ──────────────────────
-        doc = fitz.open(pdf_path)
-        pages_text: list[str] = [page.get_text("text") for page in doc]
-        doc.close()
-        full_text = "\n\n".join(pages_text)
- 
-        # ── Step 3: find each header's position in the full text and slice ───
-        # We search for the raw header string inside the PyMuPDF text.
-        # This sidesteps any coordinate-system mismatch between the two libs.
-        boundaries: list[tuple[int, str]] = []  # (char_offset, canonical)
- 
-        for _page_no, raw_text, canonical in headers:
-            pos = full_text.lower().find(raw_text.lower())
-            if pos == -1:
-                # Try the normalised form as a fallback
-                norm = _normalize(raw_text)
-                pos = full_text.lower().find(norm.lower())
-            if pos == -1:
-                continue  # couldn't anchor this header; skip
-            boundaries.append((pos, canonical))
- 
-        # Sort by position and deduplicate (string search may re-find earlier hit)
-        boundaries.sort(key=lambda x: x[0])
-        seen: set[str] = set()
-        deduped: list[tuple[int, str]] = []
-        for pos, canonical in boundaries:
-            if canonical not in seen:
-                seen.add(canonical)
-                deduped.append((pos, canonical))
-        boundaries = deduped
- 
-        # ── Step 4: slice full_text into sections ────────────────────────────
-        sections: dict[str, str] = {}
- 
-        if not boundaries:
-            sections["undefined"] = full_text
-            return sections
- 
-        # Text before the first header
-        sections["undefined"] = full_text[: boundaries[0][0]].strip()
- 
-        for i, (pos, canonical) in enumerate(boundaries):
-            end = boundaries[i + 1][0] if i + 1 < len(boundaries) else len(full_text)
-            sections[canonical] = full_text[pos:end].strip()
- 
-        return sections
+    """
+    Converts a pymupdf4llm markdown string into a canonical-section dict.
+
+    Classification strategy (resolved at construction time):
+
+    1. If ``embed_model`` is supplied → embedding-based cosine-similarity
+       classification (deterministic, no free-form generation).
+    2. Otherwise → single LLM prompt call through ``LlamaIndexInterface``.
+
+    Parameters
+    ----------
+    llm:
+        Any LlamaIndex ``LLM`` instance. Used as the classifier when no
+        embed_model is supplied.
+    embed_model:
+        Optional LlamaIndex ``BaseEmbedding`` (e.g. ``OllamaEmbedding``).
+        When provided, headings are classified via cosine similarity against
+        pre-embedded canonical labels — no LLM call is made for classification.
+    """
+
+    def __init__(self, llm: LLM, embed_model: Optional[BaseEmbedding] = None) -> None:
+        self.llm_interface = LlamaIndexInterface(llm)
+        self._embed_classifier: _EmbeddingClassifier | None = None
+
+        if embed_model is not None:
+            self._embed_classifier = _EmbeddingClassifier(embed_model)
+            logger.info("Section classification: embedding cosine similarity (OllamaEmbedding).")
+        else:
+            logger.info("Section classification: LLM prompt (LlamaIndex).")
+
+    # ── Public API ────────────────────────────────────────────────────────────
+
+    def extract_sections_from_markdown(self, md_text: str) -> dict[str, str]:
+        """
+        Parse *md_text* (pymupdf4llm output) and return a section dict.
+
+        Returns
+        -------
+        dict[str, str]
+            ``{canonical_category: concatenated_body_text}``
+            Unrecognised or heading-less text lands in ``"unclassified"``.
+        """
+        matches = list(_HEADING_RE.finditer(md_text))
+        
+        nodes = []
+        if matches and matches[0].start() > 0:
+            pre_text = md_text[0:matches[0].start()].strip()
+            if pre_text:
+                nodes.append({"heading": "", "text": pre_text})
+        elif not matches:
+             nodes.append({"heading": "", "text": md_text})
+                
+        for i, match in enumerate(matches):
+            heading = match.group(1).strip()
+            start_pos = match.end()
+            end_pos = matches[i+1].start() if i + 1 < len(matches) else len(md_text)
+            text = md_text[start_pos:end_pos].strip()
+            nodes.append({"heading": heading, "text": text})
+
+        # Collect unique non-empty headings and their context.
+        heading_context: dict[str, str] = {}
+        for node in nodes:
+            heading = node["heading"]
+            if heading and heading not in heading_context:
+                clean_text = _strip_markdown_formatting(node["text"]).strip()
+                context = clean_text.split('\n\n')[0] if clean_text else ""
+                heading_context[heading] = context
+
+        heading_map = self._classify_headings(heading_context) if heading_context else {}
+        
+        # Merge bodies under their canonical name.
+        merged: dict[str, list[str]] = {c: [] for c in CANONICAL_SECTIONS}
+
+        for node in nodes:
+            heading = node["heading"]
+            canonical = heading_map.get(heading, "unclassified") if heading else "unclassified"
+            body = _strip_markdown_formatting(node["text"])
+            if not body:
+                continue
+            merged[canonical].append(body)
+
+        # Join and drop empty canonicals.
+        result: dict[str, str] = {}
+        for canonical, parts in merged.items():
+            joined = "\n\n".join(parts).strip()
+            if joined:
+                result[canonical] = joined
+
+        logger.info(
+            "Extracted %d canonical sections: %s",
+            len(result),
+            list(result.keys()),
+        )
+        return result
+
+    # ── Private helpers ───────────────────────────────────────────────────────
+
+    def _classify_headings(self, heading_context: dict[str, str]) -> dict[str, str]:
+        """
+        Dispatch to embedding-based classifier or LLM depending on config.
+
+        Returns ``{raw_heading: canonical}`` for every entry in *heading_context*.
+        """
+        if self._embed_classifier is not None:
+            logger.debug("Classifying %d headings via embedding cosine similarity.", len(heading_context))
+            return self._embed_classifier.classify(heading_context)
+
+        logger.debug("Classifying %d headings via LLM prompt.", len(heading_context))
+        return self._classify_headings_via_llm(heading_context)
+
+    def _classify_headings_via_llm(self, heading_context: dict[str, str]) -> dict[str, str]:
+        """
+        Single LLM call: returns ``{raw_heading: canonical}``.
+        Invalid categories are coerced to ``"unclassified"``.
+        """
+        prompt = _build_classification_prompt(heading_context)
+        raw_response = self.llm_interface.query(prompt)
+        mapping: dict = self.llm_interface.extract_json(raw_response)
+
+        validated: dict[str, str] = {}
+        for heading in heading_context:
+            raw_cat = mapping.get(heading, "unclassified")
+            canonical = raw_cat.strip().lower() if isinstance(raw_cat, str) else "unclassified"
+            if canonical not in CANONICAL_SECTIONS:
+                logger.debug(
+                    "LLM returned unknown category %r for heading %r → unclassified",
+                    canonical,
+                    heading,
+                )
+                canonical = "unclassified"
+            validated[heading] = canonical
+
+        logger.debug("LLM heading classification: %s", validated)
+        return validated

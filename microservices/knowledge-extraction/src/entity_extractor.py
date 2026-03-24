@@ -143,64 +143,12 @@ terraced houses, etc.) is irrelevant — do NOT reproduce any of it.
         JSON output (values must come ONLY from the paper text above):"""
 
         # Save prompt text
-        # prompt_path = output_dir / f"{base_name}_building_extraction_prompt.txt"
-        # with open(prompt_path, 'w', encoding='utf-8') as f:
-        #     f.write(current_prompt)
-        # logger.info(f"  ✓ Saved prompt text: {prompt_path}")
+        prompt_path = output_dir / f"{base_name}_building_extraction_prompt.txt"
+        with open(prompt_path, 'w', encoding='utf-8') as f:
+            f.write(current_prompt)
+        logger.info(f"  ✓ Saved prompt text: {prompt_path}")
 
         return current_prompt
-
-# Delete this if everything works
-# class OllamaInterface:
-#     """Interface to interact with Ollama via API (Docker-compatible)"""
-    
-#     def __init__(self, model: str = "llama3.2", base_url: str = "http://localhost:11434"):
-#         self.model = model
-#         self.base_url = base_url
-    
-#     def query(self, prompt: str) -> str:
-#         """Send query to Ollama API and return response"""
-        
-#         try:
-#             import requests
-            
-#             response = requests.post(
-#                 f"{self.base_url}/api/generate",
-#                 json={
-#                     "model": self.model,
-#                     "prompt": prompt,
-#                     "stream": False,
-#                     "options": {
-#                         "temperature": 0.1,  # Low for factual extraction
-#                         "num_ctx": 12000,     # Prevent prompt truncation
-#                     }
-#                 },
-#                 timeout=120
-#             )
-            
-#             if response.status_code == 200:
-#                 return response.json().get('response', '')
-#             else:
-#                 return f'{{"error": "API returned status {response.status_code}"}}'
-                
-#         except Exception as e:
-#             return f'{{"error": "{str(e)}"}}'
-    
-#     def extract_json(self, response: str) -> dict:
-#         """Extract and parse JSON from LLM response"""
-#         # Try to find JSON in response
-#         json_match = re.search(r'\{.*\}', response, re.DOTALL)
-#         if json_match:
-#             try:
-#                 # Clean up markdown if present
-#                 content = json_match.group()
-#                 if content.startswith('```json'):
-#                     content = content[7:-3]
-#                 return json.loads(content)
-#             except json.JSONDecodeError:
-#                 pass
-#         return {}
-
 
 class EntityInformationExtractor:
     """Main extraction orchestrator"""

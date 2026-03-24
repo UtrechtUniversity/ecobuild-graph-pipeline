@@ -25,7 +25,6 @@ FUZZY_MATCH_THRESHOLD = 0.80
 def find_anchor_in_text(
     anchor: str,
     source_text: str,
-    context_window: int = 300,
 ) -> dict:
     """
     Locate an anchor phrase inside source_text and return the surrounding passage.
@@ -40,8 +39,6 @@ def find_anchor_in_text(
         Short phrase (ideally 5-10 words) that the LLM identified as a locator.
     source_text : str
         Full raw text of the paper.
-    context_window : int
-        Number of characters to include on each side of the matched anchor.
 
     Returns
     -------
@@ -61,7 +58,7 @@ def find_anchor_in_text(
     # 1. Exact match
     idx = lower_text.find(lower_anchor)
     if idx != -1:
-        context = _extract_window(source_text, idx, len(anchor_clean), context_window)
+        context = _extract_window(source_text, idx, len(anchor_clean))
         return {"found": True, "score": 1.0, "context": context, "char_start": idx}
 
     # 2. partial_ratio fuzzy match
@@ -100,7 +97,7 @@ def find_anchor_in_text(
             best_ratio = s
             best_idx   = i
 
-    context = _extract_window(source_text, best_idx, anchor_len, context_window)
+    context = _extract_window(source_text, best_idx, anchor_len)
     return {
         "found":      True,
         "score":      round(score, 3),   # report partial_ratio (true match quality)
@@ -108,16 +105,23 @@ def find_anchor_in_text(
         "char_start": best_idx,
     }
 
-def _extract_window(text: str, match_start: int, match_len: int, window: int) -> str:
-    """Extract text around a match, trimming to sentence/word boundaries."""
-    start = max(0, match_start - window)
-    end = min(len(text), match_start + match_len + window)
-    snippet = text[start:end].strip()
-    # Prefix/suffix ellipsis so the reader knows the passage was trimmed
-    if start > 0:
+def _extract_window(text: str, match_start: int, match_len: int) -> str:
+    """Extract paragraph containing a match."""
+    # Walk backward to paragraph start
+    para_start = text.rfind("\n\n", 0, match_start)
+    para_start = 0 if para_start == -1 else para_start + 2  # skip the \n\n itself
+
+    # Walk forward to paragraph end
+    para_end = text.find("\n\n", match_start + match_len)
+    para_end = len(text) if para_end == -1 else para_end
+
+    snippet = text[para_start:para_end].strip()
+
+    if para_start > 0:
         snippet = "…" + snippet
-    if end < len(text):
+    if para_end < len(text):
         snippet = snippet + "…"
+
     return snippet
 
 
@@ -128,7 +132,6 @@ def _extract_window(text: str, match_start: int, match_len: int, window: int) ->
 def resolve_design_strategy_contexts(
     results: dict,
     source_text: str,
-    context_window: int = 200,
 ) -> dict:
     """
     Replace each design strategy's raw LLM anchor with a verified context passage.
@@ -152,7 +155,7 @@ def resolve_design_strategy_contexts(
             unverified_count += 1
             continue
 
-        result = find_anchor_in_text(anchor, source_text, context_window)
+        result = find_anchor_in_text(anchor, source_text)
         strategy["context"] = result["context"]
         strategy["anchor_verified"] = result["found"]
         strategy["anchor_match_score"] = result["score"]
@@ -178,7 +181,6 @@ def resolve_design_strategy_contexts(
 def resolve_ecosystem_service_contexts(
     results: dict,
     source_text: str,
-    context_window: int = 200,
 ) -> dict:
     """
     Replace each ecosystem service's raw LLM anchor with a verified context passage.
@@ -200,7 +202,7 @@ def resolve_ecosystem_service_contexts(
             unverified_count += 1
             continue
 
-        result = find_anchor_in_text(anchor, source_text, context_window)
+        result = find_anchor_in_text(anchor, source_text)
         service["context"] = result["context"]
         service["anchor_verified"] = result["found"]
         service["anchor_match_score"] = result["score"]
@@ -226,7 +228,6 @@ def resolve_ecosystem_service_contexts(
 def resolve_entity_contexts(
     results: dict,
     source_text: str,
-    context_window: int = 100,
 ) -> dict:
     """
     Verify the context snippets already embedded in each entity field dict.
@@ -265,7 +266,7 @@ def resolve_entity_contexts(
                 skipped_count += 1
                 continue
 
-            result = find_anchor_in_text(snippet, source_text, context_window)
+            result = find_anchor_in_text(snippet, source_text)
             field_data["context_verified"]    = result["found"]
             field_data["context_match_score"] = result["score"]
 

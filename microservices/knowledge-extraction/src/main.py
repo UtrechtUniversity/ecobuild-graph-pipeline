@@ -37,7 +37,7 @@ NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://ollama:11434")
 OLLAMA_LLM_MODEL = os.getenv("OLLAMA_LLM_MODEL", "llama3.2")
-OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
+OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "embeddinggemma")
 
 #LlamaIndex model definitions
 llm = Ollama(model=OLLAMA_LLM_MODEL, base_url=OLLAMA_HOST, context_window=12000, temperature=0.11, request_timeout=180.0)
@@ -86,7 +86,7 @@ async def main():
     
     # Initialize the building preprocessor
     logger.info("Initializing building information preprocessor...")
-    preprocessor = PaperPreprocessor(llm)
+    preprocessor = PaperPreprocessor(llm, embed_model=embed_model)
     
     # Initialize extractors
     logger.info("Initializing entity extractor...")
@@ -158,9 +158,9 @@ async def main():
  
             def _join(*names) -> str:
                 """Concatenate named sections; fall back to raw_text if all empty."""
-                if sections is None:
+                if not sections:
                     return raw_text
-                parts = [getattr(sections, n, "") for n in names if getattr(sections, n, "")]
+                parts = [sections.get(n, "") for n in names if sections.get(n)]
                 return "\n\n".join(parts) if parts else raw_text
  
             # Text scopes fed to each extractor
@@ -464,9 +464,10 @@ async def main():
     logger.info(f"Total PDFs processed: {len(pdf_files_to_process)}")
     logger.info(f"Output directory: {preprocessed_output_dir}")
     logger.info(f"\nFiles created per paper:")
-    logger.info(f"  - *_raw.md (markdown text)")
+    logger.info(f"  - *_raw.md          (pymupdf4llm markdown)")
+    logger.info(f"  - *_sections.json   (canonical section map)")
     logger.info(f"  - *_extraction.json (entities + design strategies + ecosystem services)")
-    logger.info(f"  - *_report.txt (human-readable, with anchor verification status)")
+    logger.info(f"  - *_report.txt      (human-readable, with anchor verification status)")
     logger.info(f"{'='*80}")
  
  

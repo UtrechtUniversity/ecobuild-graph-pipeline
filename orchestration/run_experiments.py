@@ -189,7 +189,7 @@ def run_all_experiments():
 
         experiment_id = experiment_config.get("experiment_id", f"untitled_exp_{int(time.time())}")
         llm_model_name = experiment_config.get("ollama_model", os.getenv("OLLAMA_LLM_MODEL", "llama3"))
-        embedding_model_name = experiment_config.get("ollama_embedding_model", os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text"))
+        embedding_model_name = experiment_config.get("ollama_embedding_model", os.getenv("OLLAMA_EMBEDDING_MODEL", "embeddinggemma"))
         
         # This is the actual config object that your Python app (main.py) will consume
         config_for_python_app = experiment_config.get("config_for_python_app", {})

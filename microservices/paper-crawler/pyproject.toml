@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-requests = "^2.32.4"
+requests = "^2.33.0"
 dotenv = "^0.9.9"
 psycopg = "^3.2.9"
 

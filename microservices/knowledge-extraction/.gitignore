@@ -7,3 +7,4 @@ test_papers/preprocessed/*.json
 test_papers/preprocessed/*.txt
 test_papers/preprocessed/*.md
 
+src/_*.py

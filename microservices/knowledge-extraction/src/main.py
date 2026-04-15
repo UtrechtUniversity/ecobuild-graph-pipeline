@@ -14,6 +14,7 @@ import os
 import asyncio
 import logging
 import json
+from collections import defaultdict
  
 # Import the preprocessor and extractors
 from .paper_preprocessor import PaperPreprocessor
@@ -26,6 +27,7 @@ from .context_resolver import (
     resolve_ecosystem_service_contexts,
 )
 from .entity_resolution import EntityResolutionMatcher
+from .paper_labeler import LLMLabeler
  
 # --- Logger Setup ---
 logger = logging.getLogger(__name__)
@@ -40,7 +42,7 @@ OLLAMA_LLM_MODEL = os.getenv("OLLAMA_LLM_MODEL", "llama3.2")
 OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "embeddinggemma")
 
 #LlamaIndex model definitions
-llm = Ollama(model=OLLAMA_LLM_MODEL, base_url=OLLAMA_HOST, context_window=12000, temperature=0.11, request_timeout=180.0)
+llm = Ollama(model=OLLAMA_LLM_MODEL, base_url=OLLAMA_HOST, context_window=14000, temperature=0.11, request_timeout=180.0)
 embed_model = OllamaEmbedding(model_name=OLLAMA_EMBEDDING_MODEL, base_url=OLLAMA_HOST, request_timeout=180.0) 
  
  
@@ -153,9 +155,31 @@ async def main():
             # *_text   = targeted subsets passed to each extractor.
             with open(preprocess_result['raw_text_path'], 'r', encoding='utf-8') as f:
                 raw_text = f.read()
- 
-            sections = preprocess_result.get("sections")
- 
+
+            labeler = LLMLabeler(llm, fuzzy_threshold = 0.8)
+            labels = defaultdict(list)
+
+            for section in preprocess_result['sections']:
+                label_results = labeler.label(preprocess_result['sections'][section], section_name=section)
+                for label_decision in label_results.decisions:
+                    if label_decision.verdict in {"YES", "UNVERIFIED"}:
+                        labels[section].append({
+                            "label":       label_decision.label.value,
+                            "verdict":     label_decision.verdict.value,
+                            "anchor_text": label_decision.anchor_text,
+                            "context":     label_decision.context,
+                            "match_score": label_decision.match_score,
+                            "rationale":   label_decision.rationale,
+                        })       
+             
+            # Save labels to file
+            labels_path = os.path.join(preprocessed_output_dir, f"{os.path.basename(pdf_path).replace('.pdf', '')}_labels.json")
+            with open(labels_path, 'w', encoding='utf-8') as f:
+                json.dump(labels, f, indent=2)
+            logger.info(f"  Labels saved to: {labels_path}")
+             
+            raise SystemError("Exiting after label extraction.")
+
             def _join(*names) -> str:
                 """Concatenate named sections; fall back to raw_text if all empty."""
                 if not sections:

@@ -79,6 +79,8 @@ def _strip_markdown_formatting(text: str) -> str:
     text = re.sub(r'^#{1,6}\s+', '', text, flags=re.MULTILINE)
     # Collapse 3+ consecutive newlines
     text = re.sub(r'\n{3,}', '\n\n', text)
+    # Remove html fomratting
+    text = re.sub(r'<[^>]+>', ' ', text)
     return text
 
 ## Prompt for LLM fallback
@@ -215,11 +217,25 @@ class PaperSectionExtractor:
              nodes.append({"heading": "", "text": md_text})
                 
         for i, match in enumerate(matches):
-            heading = match.group(1).strip()
+            heading = _strip_markdown_formatting(match.group(1).strip())
             start_pos = match.end()
             end_pos = matches[i+1].start() if i + 1 < len(matches) else len(md_text)
             text = md_text[start_pos:end_pos].strip()
             nodes.append({"heading": heading, "text": text})
+        
+        heading_sections: dict[str, str] = {}
+        for node in nodes:
+            heading = node["heading"]
+            if not heading:
+                continue
+            full_text = _strip_markdown_formatting(node["text"]).strip()
+            if heading in heading_sections:
+                heading_sections[heading] += "\n\n" + full_text   # merge repeated headings
+            else:
+                heading_sections[heading] = full_text
+
+        # Labeler debugging
+        return heading_sections
 
         # Collect unique non-empty headings and their context.
         heading_context: dict[str, str] = {}

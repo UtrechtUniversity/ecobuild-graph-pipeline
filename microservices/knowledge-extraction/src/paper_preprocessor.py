@@ -121,10 +121,10 @@ class PaperPreprocessor:
         Returns
         -------
         dict with keys:
-            ``pdf_path``       – original PDF path (str)
-            ``raw_text_path``  – path to the saved Markdown file (str)
-            ``document``       – LlamaIndex Document (full markdown + metadata)
-            ``sections``       – dict[str, str] of canonical sections
+            ``pdf_path``       - original PDF path (str)
+            ``raw_text_path``  - path to the saved Markdown file (str)
+            ``document``       - LlamaIndex Document (full markdown + metadata)
+            ``sections``       - dict[str, str] of canonical sections
         On error, returns ``{"error": <message>}``.
         """
         pdf_path = Path(pdf_path)
@@ -164,6 +164,7 @@ class PaperPreprocessor:
 
         # ── Step 4: Extract canonical sections ───────────────────────────────
         # Heading detection runs on raw md_text; body stripping happens inside extract_sections after slicing.
+        
         logger.info(" -- Extracting sections -- ")
         try:
             sections = self.section_extractor.extract_sections(md_text, out_dir=str(output_dir), base_name=base_name)

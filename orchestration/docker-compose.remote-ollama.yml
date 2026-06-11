@@ -1,0 +1,19 @@
+# Override for using a remote Ollama instance instead of the local container.
+#
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.remote-ollama.yml --profile extract up --build knowledge-extraction
+#
+# Make sure OLLAMA_HOST (and OLLAMA_LLM_MODEL / OLLAMA_EMBEDDING_MODEL) in .env
+# point at the remote Ollama server.
+
+services:
+  ollama: !reset null
+
+  knowledge-extraction:
+    depends_on: !override
+      document-db:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    volumes:
+      - /home/devuser/Projects/ecobuild-testdata:/app/test_papers/test_papers

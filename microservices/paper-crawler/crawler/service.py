@@ -1,11 +1,18 @@
 import threading
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from psycopg.errors import UniqueViolation
 
 from .crawler_logger import logger
-from .main import run_crawl
+from .main import add_query, get_connection, get_queries, remove_query, run_crawl
 
 app = FastAPI()
+
+
+class QueryCreate(BaseModel):
+    query: str
+
 
 _lock = threading.Lock()
 _stop_event = threading.Event()
@@ -53,3 +60,33 @@ async def stop():
         _stop_event.set()
         _status = "stopped"
     return {"status": _status, "error": _error}
+
+
+@app.get("/queries")
+async def list_queries():
+    with get_connection() as connection:
+        with connection.cursor() as cursor:
+            return get_queries(cursor)
+
+
+@app.post("/queries")
+async def create_query(body: QueryCreate):
+    query = body.query.strip()
+    if not query:
+        raise HTTPException(status_code=422, detail="query must not be empty")
+    with get_connection() as connection:
+        with connection.cursor() as cursor:
+            try:
+                return add_query(cursor, query)
+            except UniqueViolation:
+                raise HTTPException(status_code=409, detail="query already exists")
+
+
+@app.delete("/queries/{query_id}")
+async def delete_query(query_id: int):
+    with get_connection() as connection:
+        with connection.cursor() as cursor:
+            deleted = remove_query(cursor, query_id)
+    if not deleted:
+        raise HTTPException(status_code=404, detail=f"query '{query_id}' not found")
+    return {"message": f"query '{query_id}' removed"}

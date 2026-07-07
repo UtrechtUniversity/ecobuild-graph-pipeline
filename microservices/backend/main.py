@@ -262,11 +262,15 @@ async def get_experiment_details(experiment_id: str):
 CRAWLER_URL = os.getenv("CRAWLER_URL", "http://crawler:8000")
 
 
-def _crawler_request(method: str, path: str) -> dict:
-    request = urllib.request.Request(f"{CRAWLER_URL}{path}", method=method)
+def _crawler_request(method: str, path: str, body: dict | None = None) -> dict:
+    data = json.dumps(body).encode() if body is not None else None
+    headers = {"Content-Type": "application/json"} if data else {}
+    request = urllib.request.Request(f"{CRAWLER_URL}{path}", method=method, data=data, headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=10) as response:
             return json.loads(response.read())
+    except urllib.error.HTTPError as e:
+        raise HTTPException(status_code=e.code, detail=json.loads(e.read()).get("detail", str(e)))
     except urllib.error.URLError as e:
         raise HTTPException(status_code=502, detail=f"Crawler unreachable: {e}")
 
@@ -284,6 +288,25 @@ async def start_crawler():
 @app.post("/crawler/stop")
 async def stop_crawler():
     return _crawler_request("POST", "/stop")
+
+
+class QueryCreate(BaseModel):
+    query: str
+
+
+@app.get("/crawler/queries")
+async def list_crawler_queries():
+    return _crawler_request("GET", "/queries")
+
+
+@app.post("/crawler/queries")
+async def create_crawler_query(body: QueryCreate):
+    return _crawler_request("POST", "/queries", body.model_dump())
+
+
+@app.delete("/crawler/queries/{query_id}")
+async def delete_crawler_query(query_id: int):
+    return _crawler_request("DELETE", f"/queries/{query_id}")
 
 
 # Dummy long-running task

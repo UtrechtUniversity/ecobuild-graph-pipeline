@@ -7,7 +7,7 @@ import psycopg
 from time import sleep
 from typing import Dict
 
-from .config import QUERIES, RATE_LIMIT
+from .config import RATE_LIMIT
 from .crawler_logger import logger
 
 # Initialize environment variables
@@ -17,6 +17,33 @@ db_host = os.getenv("DB_HOST")
 db_port = os.getenv("DB_PORT")
 db_name = os.getenv("DB_NAME")
 api_key = os.getenv('SS_API_KEY')
+
+
+def get_connection() -> psycopg.Connection:
+    return psycopg.connect(
+        host=db_host, port=db_port, dbname=db_name, user=db_user, password=db_password
+    )
+
+
+def get_queries(cursor: psycopg.Cursor) -> list[dict]:
+    """Returns all configured search queries as {id, query} dicts."""
+    cursor.execute("SELECT id, query FROM search_queries ORDER BY id")
+    return [{"id": row[0], "query": row[1]} for row in cursor.fetchall()]
+
+
+def add_query(cursor: psycopg.Cursor, query: str) -> dict:
+    cursor.execute(
+        "INSERT INTO search_queries (query) VALUES (%s) RETURNING id, query",
+        (query,),
+    )
+    row = cursor.fetchone()
+    return {"id": row[0], "query": row[1]}
+
+
+def remove_query(cursor: psycopg.Cursor, query_id: int) -> bool:
+    """Returns True if a query was deleted, False if query_id didn't exist."""
+    cursor.execute("DELETE FROM search_queries WHERE id = %s", (query_id,))
+    return cursor.rowcount > 0
 
 headers = {"x-api-key": api_key}
 url = "https://api.semanticscholar.org/graph/v1/paper/search"
@@ -99,12 +126,11 @@ def run_crawl(stop_event: threading.Event) -> None:
     Cooperatively exits early if `stop_event` is set, so callers can run this
     on a background thread and stop it from the outside.
     """
-    with psycopg.connect(
-        host=db_host, port=db_port, dbname=db_name, user=db_user, password=db_password
-    ) as connection:
+    with get_connection() as connection:
         with connection.cursor() as cursor:
+            queries = [q["query"] for q in get_queries(cursor)]
 
-            for query in QUERIES:
+            for query in queries:
                 if stop_event.is_set():
                     break
 

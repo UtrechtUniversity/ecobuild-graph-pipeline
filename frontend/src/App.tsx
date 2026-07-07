@@ -4,6 +4,7 @@ import { FlaskConical } from 'lucide-react';
 import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
 import CrawlerControl from './components/CrawlerControl';
+import QueryManager from './components/QueryManager';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <div className="mx-auto flex max-w-5xl items-center gap-3 px-6 py-4">
             <FlaskConical className="size-6 text-primary" />
             <Link to="/" className="font-serif text-xl font-semibold tracking-tight">
-              Experiment Dashboard
+              EcoBuild Paper Knowledge Extractor
             </Link>
           </div>
         </header>
@@ -24,6 +25,7 @@ function App() {
               element={
                 <div className="flex flex-col gap-8">
                   <CrawlerControl />
+                  <QueryManager />
                   <ExperimentList />
                 </div>
               }

@@ -14,6 +14,7 @@ from .crawler_logger import logger
 db_user = os.getenv("DB_USER")
 db_password = os.getenv("DB_PASSWORD")
 db_host = os.getenv("DB_HOST")
+db_port = os.getenv("DB_PORT")
 db_name = os.getenv("DB_NAME")
 api_key = os.getenv('SS_API_KEY')
 
@@ -32,7 +33,7 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
     while not stop_event.is_set():
 
         query_params = {
-            "fields": "paperId,title,year,url,abstract,citationCount,isOpenAccess,openAccessPdf",
+            "fields": "paperId,title,year,url,abstract,citationCount,isOpenAccess,openAccessPdf,authors",
             "query": query,
             "offset": offset,
         }
@@ -59,24 +60,31 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
             except KeyError: # if there are no more pages left, excit loop for this query
                 break
         else:
-            logger.debug(f"Request failed. Status code: {response.status_code} ")
+            logger.error(f"Request failed, giving up on query '{query}'. Status code: {response.status_code} ")
+            break
 
 
 def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
     """Writes paper and current query to the document database"""
-    template ="INSERT INTO papers (title, authors, url, abstract, pdf_url, keywords, query) values (%s, %s, %s, %s, %s, %s, %s, %s)"
+    template = (
+        "INSERT INTO papers (ss_id, title, authors, url, abstract, pdf_url, open_access, query) "
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (ss_id) DO NOTHING"
+    )
+    ss_id = paper["paperId"]
     title = paper["title"]
-    authors = paper["authors"]
+    authors = [author["name"] for author in paper.get("authors") or []]
     url = paper["url"]
     abstract = paper["abstract"]
     open_access = paper["isOpenAccess"]
-    pdf_url = extract_pdf_url(paper["openAccessPdf"])
+    pdf_url = extract_pdf_url(paper.get("openAccessPdf"))
 
-    cursor.execute(template, (title, authors, url, abstract, pdf_url, open_access, query))
+    cursor.execute(template, (ss_id, title, authors, url, abstract, pdf_url, open_access, query))
 
-def extract_pdf_url(input: str) -> str:
-    """Extracts the pdf url from the openAccesPdf field"""
-    raise NotImplementedError
+def extract_pdf_url(open_access_pdf: dict | None) -> str | None:
+    """Extracts the pdf url from the openAccessPdf field, if present"""
+    if not open_access_pdf:
+        return None
+    return open_access_pdf.get("url")
 
 
 def run_crawl(stop_event: threading.Event) -> None:
@@ -85,7 +93,9 @@ def run_crawl(stop_event: threading.Event) -> None:
     Cooperatively exits early if `stop_event` is set, so callers can run this
     on a background thread and stop it from the outside.
     """
-    with psycopg.connect(f"dbname={db_name} user={db_user}") as connection:
+    with psycopg.connect(
+        host=db_host, port=db_port, dbname=db_name, user=db_user, password=db_password
+    ) as connection:
         with connection.cursor() as cursor:
 
             for query in QUERIES:

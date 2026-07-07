@@ -9,6 +9,9 @@ import os
 import json
 import shutil
 
+import psycopg
+from psycopg.types.json import Json
+
 # Import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -35,6 +38,71 @@ experiment_results = {}
 
 EXPERIMENTS_DIR = "experiments"
 os.makedirs(EXPERIMENTS_DIR, exist_ok=True) # Ensure the directory exists
+
+# --- Postgres-backed experiment runs (uploaded knowledge-extraction output) ---
+DB_HOST = os.getenv("DB_HOST", "document-db")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_NAME = os.getenv("DB_NAME")
+
+# Suffixes used by knowledge-extraction's output files, mapping to a short label per paper
+PREPROCESSED_FILE_SUFFIXES = {
+    "_raw.md": "raw_markdown",
+    "_plain.txt": "plain_text",
+    "_sections.json": "sections",
+    "_labels.json": "labels",
+    "_extraction.json": "extraction",
+    "_report.txt": "report",
+}
+
+
+def get_db_connection():
+    return psycopg.connect(
+        host=DB_HOST, port=DB_PORT, user=DB_USER, password=DB_PASSWORD, dbname=DB_NAME
+    )
+
+
+def init_experiments_table():
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS experiments (
+                    id TEXT PRIMARY KEY,
+                    finished_at TIMESTAMPTZ NOT NULL,
+                    config JSONB NOT NULL,
+                    metrics JSONB NOT NULL,
+                    graph JSONB NOT NULL
+                );
+            """)
+        conn.commit()
+
+
+def fetch_completed_from_db() -> list[dict]:
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT id, finished_at, config, metrics, graph FROM experiments ORDER BY finished_at DESC;")
+            rows = cur.fetchall()
+    return [
+        {"id": row[0], "finished_at": row[1], "config": row[2], "metrics": row[3], "graph": row[4]}
+        for row in rows
+    ]
+
+
+def fetch_experiment_from_db(experiment_id: str) -> dict | None:
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT id, finished_at, config, metrics, graph FROM experiments WHERE id = %s;",
+                (experiment_id,),
+            )
+            row = cur.fetchone()
+    if not row:
+        return None
+    return {"id": row[0], "finished_at": row[1], "config": row[2], "metrics": row[3], "graph": row[4]}
+
+
+init_experiments_table()
 
 class ExperimentMetadata(BaseModel):
     id: str
@@ -240,12 +308,16 @@ async def get_status():
     return {
         "running": running_experiment.model_dump() if running_experiment else None,
         "queue": [e.model_dump() for e in experiment_queue],
-        "completed": list(experiment_results.values()),
+        "completed": fetch_completed_from_db() + list(experiment_results.values()),
     }
 
 
 @app.get("/experiments/{experiment_id}")
 async def get_experiment_details(experiment_id: str):
+    db_result = fetch_experiment_from_db(experiment_id)
+    if db_result:
+        return db_result
+
     result = experiment_results.get(experiment_id)
     if not result:
         if running_experiment and running_experiment.id == experiment_id:
@@ -255,6 +327,79 @@ async def get_experiment_details(experiment_id: str):
                  return JSONResponse(status_code=202, content={"status": q_exp.status, "id": q_exp.id})
         raise HTTPException(status_code=404, detail="Experiment not found or not yet completed") # Use HTTPException for 404
     return result
+
+
+@app.post("/experiments/upload")
+async def upload_experiment_run(files: list[UploadFile] = File(...)):
+    """Register a completed knowledge-extraction run from its output files
+    (e.g. *_labels.json, *_extraction.json, *_raw.md, *_report.txt)."""
+    if not files:
+        raise HTTPException(status_code=400, detail="No files uploaded.")
+
+    papers: dict[str, dict] = {}
+
+    for upload in files:
+        filename = upload.filename or ""
+        suffix = next((s for s in PREPROCESSED_FILE_SUFFIXES if filename.endswith(s)), None)
+        if suffix is None:
+            continue
+
+        paper_name = filename[: -len(suffix)]
+        kind = PREPROCESSED_FILE_SUFFIXES[suffix]
+        raw = await upload.read()
+
+        paper = papers.setdefault(paper_name, {})
+        if kind in ("sections", "labels", "extraction"):
+            try:
+                paper[kind] = json.loads(raw)
+            except json.JSONDecodeError:
+                paper[kind] = {"error": "invalid JSON", "raw_length": len(raw)}
+        else:
+            paper[kind] = raw.decode("utf-8", errors="replace")
+
+    if not papers:
+        raise HTTPException(
+            status_code=400,
+            detail=f"No recognized knowledge-extraction output files found. Expected files ending in one of: {', '.join(PREPROCESSED_FILE_SUFFIXES)}",
+        )
+
+    paper_summaries = []
+    total_labels = 0
+    for paper_name, paper_data in papers.items():
+        labels = paper_data.get("labels", {})
+        label_count = sum(len(v) for v in labels.values()) if isinstance(labels, dict) else 0
+        total_labels += label_count
+        paper_summaries.append({
+            "name": paper_name,
+            "files": list(paper_data.keys()),
+            "label_count": label_count,
+        })
+
+    experiment_id = str(uuid4())
+    record = {
+        "id": experiment_id,
+        "finished_at": datetime.utcnow(),
+        "config": {
+            "source": "uploaded knowledge-extraction output",
+            "papers": [p["name"] for p in paper_summaries],
+        },
+        "metrics": {
+            "papers_processed": len(papers),
+            "total_labels": total_labels,
+            "papers": paper_summaries,
+        },
+        "graph": {p: papers[p] for p in papers},
+    }
+
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                "INSERT INTO experiments (id, finished_at, config, metrics, graph) VALUES (%s, %s, %s, %s, %s);",
+                (record["id"], record["finished_at"], Json(record["config"]), Json(record["metrics"]), Json(record["graph"])),
+            )
+        conn.commit()
+
+    return JSONResponse(content={"id": experiment_id, "status": "completed"})
 
 
 # Dummy long-running task

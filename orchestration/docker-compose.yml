@@ -117,8 +117,15 @@ services:
     # No profiles, so it runs by default
     ports:
       - "8000:8000" # Expose FastAPI backend on host port 8000
-    # No depends_on document-db/neo4j for now, as it's using dummy data.
-    # We'll add this when we integrate Postgres.
+    depends_on:
+      document-db:
+        condition: service_healthy
+    environment:
+      DB_HOST: document-db
+      DB_PORT: 5432
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
     healthcheck:
       test: [ "CMD", "/app/.venv/bin/python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
       interval: 10s

@@ -1,6 +1,6 @@
 // src/components/ExperimentUploader.tsx
 import React, { useState, useCallback } from 'react';
-import './ExperimentUploader.css'; // We'll create this CSS
+import './ExperimentUpload.css';
 
 interface ExperimentUploaderProps {
   onExperimentQueued: () => void; // Callback to notify parent (App/ExperimentList) to refresh

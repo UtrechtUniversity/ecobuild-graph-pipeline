@@ -24,8 +24,12 @@ url = "https://api.semanticscholar.org/graph/v1/paper/search"
 logger.info("Crawler initialized")
 
 
-def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event):
-    """Gathers all papers corresponding to the specified query"""
+def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event) -> bool:
+    """Gathers all papers corresponding to the specified query.
+
+    Returns False if a request failed and the query had to be abandoned,
+    True otherwise (including if stopped early).
+    """
     logger.info(f"Handling output of query '{query}'")
     # (re)set offset as 0 to start at first results
     offset = 0
@@ -61,7 +65,9 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
                 break
         else:
             logger.error(f"Request failed, giving up on query '{query}'. Status code: {response.status_code} ")
-            break
+            return False
+
+    return True
 
 
 def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
@@ -102,7 +108,8 @@ def run_crawl(stop_event: threading.Event) -> None:
                 if stop_event.is_set():
                     break
 
-                handle_query(cursor, query, stop_event)
+                if not handle_query(cursor, query, stop_event):
+                    raise RuntimeError(f"Crawl failed on query '{query}'")
 
                 # sleep to respect rate limit
                 sleep(RATE_LIMIT)

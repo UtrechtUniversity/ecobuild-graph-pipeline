@@ -6,6 +6,7 @@ type CrawlerStatus = 'idle' | 'running' | 'stopped' | 'error';
 
 const CrawlerControl: React.FC = () => {
   const [status, setStatus] = useState<CrawlerStatus | null>(null);
+  const [crawlError, setCrawlError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -15,6 +16,7 @@ const CrawlerControl: React.FC = () => {
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       setStatus(data.status);
+      setCrawlError(data.error ?? null);
       setError(null);
     } catch (err) {
       console.error('Failed to fetch crawler status:', err);
@@ -35,6 +37,7 @@ const CrawlerControl: React.FC = () => {
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       setStatus(data.status);
+      setCrawlError(data.error ?? null);
       setError(null);
     } catch (err) {
       console.error(`Failed to ${action} crawler:`, err);
@@ -48,7 +51,9 @@ const CrawlerControl: React.FC = () => {
     <div className="crawler-control">
       <h2>Paper Crawler</h2>
       <p>
-        Status: <span className={`crawler-status crawler-status-${status ?? 'unknown'}`}>{status ?? 'unknown'}</span>
+        Status: <span className={`crawler-status crawler-status-${status ?? 'unknown'}`}>
+          {status ?? 'unknown'}{status === 'error' && crawlError ? ` (${crawlError})` : ''}
+        </span>
       </p>
       {error && <p className="crawler-error">{error}</p>}
       <button

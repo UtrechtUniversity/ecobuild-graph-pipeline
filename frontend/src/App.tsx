@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
+import CrawlerControl from './components/CrawlerControl';
 import './App.css'; // We'll create this
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<ExperimentList />} />
+            <Route path="/" element={<><CrawlerControl /><ExperimentList /></>} />
             <Route path="/experiments/:id" element={<ExperimentDetail />} />
             {/* Add more routes if needed */}
           </Routes>

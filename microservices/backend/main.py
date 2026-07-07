@@ -8,6 +8,8 @@ from datetime import datetime, timedelta
 import os
 import json
 import shutil
+import urllib.request
+import urllib.error
 
 # Import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
@@ -255,6 +257,33 @@ async def get_experiment_details(experiment_id: str):
                  return JSONResponse(status_code=202, content={"status": q_exp.status, "id": q_exp.id})
         raise HTTPException(status_code=404, detail="Experiment not found or not yet completed") # Use HTTPException for 404
     return result
+
+
+CRAWLER_URL = os.getenv("CRAWLER_URL", "http://crawler:8000")
+
+
+def _crawler_request(method: str, path: str) -> dict:
+    request = urllib.request.Request(f"{CRAWLER_URL}{path}", method=method)
+    try:
+        with urllib.request.urlopen(request, timeout=10) as response:
+            return json.loads(response.read())
+    except urllib.error.URLError as e:
+        raise HTTPException(status_code=502, detail=f"Crawler unreachable: {e}")
+
+
+@app.get("/crawler/status")
+async def get_crawler_status():
+    return _crawler_request("GET", "/status")
+
+
+@app.post("/crawler/start")
+async def start_crawler():
+    return _crawler_request("POST", "/start")
+
+
+@app.post("/crawler/stop")
+async def stop_crawler():
+    return _crawler_request("POST", "/stop")
 
 
 # Dummy long-running task

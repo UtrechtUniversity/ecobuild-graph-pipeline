@@ -1,4 +1,5 @@
 import os
+import threading
 from psycopg.errors import PipelineStatus
 import requests
 import psycopg
@@ -22,13 +23,13 @@ url = "https://api.semanticscholar.org/graph/v1/paper/search"
 logger.info("Crawler initialized")
 
 
-def handle_query(cursor: psycopg.Cursor, query: str):
+def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event):
     """Gathers all papers corresponding to the specified query"""
     logger.info(f"Handling output of query '{query}'")
     # (re)set offset as 0 to start at first results
     offset = 0
 
-    while True:
+    while not stop_event.is_set():
 
         query_params = {
             "fields": "paperId,title,year,url,abstract,citationCount,isOpenAccess,openAccessPdf",
@@ -78,22 +79,27 @@ def extract_pdf_url(input: str) -> str:
     raise NotImplementedError
 
 
+def run_crawl(stop_event: threading.Event) -> None:
+    """Runs one full crawl pass over all configured queries.
 
-
-
-if __name__ == "__main__":
+    Cooperatively exits early if `stop_event` is set, so callers can run this
+    on a background thread and stop it from the outside.
+    """
     with psycopg.connect(f"dbname={db_name} user={db_user}") as connection:
         with connection.cursor() as cursor:
 
             for query in QUERIES:
+                if stop_event.is_set():
+                    break
 
-                handle_query(cursor, query)
+                handle_query(cursor, query, stop_event)
 
                 # sleep to respect rate limit
                 sleep(RATE_LIMIT)
 
-                # Only one iteration
-                # quit()
+
+if __name__ == "__main__":
+    run_crawl(threading.Event())
 
                     
 

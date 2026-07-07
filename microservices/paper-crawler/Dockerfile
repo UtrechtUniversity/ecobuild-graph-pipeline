@@ -18,5 +18,7 @@ COPY crawler ./crawler
 # Make sure logs show up immediately
 ENV PYTHONUNBUFFERED=1
 
-# Run the crawler main module via poetry
-ENTRYPOINT ["poetry", "run", "python", "-m", "crawler.main"]
+EXPOSE 8000
+
+# Serve the start/stop/status API; a crawl only runs when told to via POST /start
+ENTRYPOINT ["poetry", "run", "uvicorn", "crawler.service:app", "--host", "0.0.0.0", "--port", "8000"]

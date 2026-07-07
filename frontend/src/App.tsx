@@ -1,25 +1,34 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { FlaskConical } from 'lucide-react';
 import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
 import CrawlerControl from './components/CrawlerControl';
-import './App.css'; // We'll create this
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>Experiment Dashboard</h1>
-          <nav>
-            <Link to="/">Home</Link> {/* Add more links as needed */}
-          </nav>
+      <div className="min-h-screen bg-background">
+        <header className="border-b border-border bg-card">
+          <div className="mx-auto flex max-w-5xl items-center gap-3 px-6 py-4">
+            <FlaskConical className="size-6 text-primary" />
+            <Link to="/" className="font-serif text-xl font-semibold tracking-tight">
+              Experiment Dashboard
+            </Link>
+          </div>
         </header>
-        <main>
+        <main className="mx-auto max-w-5xl px-6 py-8">
           <Routes>
-            <Route path="/" element={<><CrawlerControl /><ExperimentList /></>} />
+            <Route
+              path="/"
+              element={
+                <div className="flex flex-col gap-8">
+                  <CrawlerControl />
+                  <ExperimentList />
+                </div>
+              }
+            />
             <Route path="/experiments/:id" element={<ExperimentDetail />} />
-            {/* Add more routes if needed */}
           </Routes>
         </main>
       </div>

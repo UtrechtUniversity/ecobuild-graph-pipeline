@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import './ExperimentDetail.css'; // We'll create this
+import { Link, useParams } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 
 interface CompletedExperimentDetail {
   id: string;
@@ -9,6 +10,12 @@ interface CompletedExperimentDetail {
   metrics: Record<string, any>;
   graph: Record<string, any>;
 }
+
+const panels: { key: keyof CompletedExperimentDetail; title: string; accent: string }[] = [
+  { key: 'metrics', title: 'Metrics', accent: 'border-l-warning' },
+  { key: 'config', title: 'Configuration', accent: 'border-l-primary' },
+  { key: 'graph', title: 'Neo4j Graph (JSON)', accent: 'border-l-success' },
+];
 
 const ExperimentDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -38,28 +45,36 @@ const ExperimentDetail: React.FC = () => {
     fetchExperimentDetail();
   }, [id]);
 
-  if (loading) return <div className="loading">Loading experiment details...</div>;
-  if (error) return <div className="error">{error}</div>;
-  if (!experiment) return <div className="error">Experiment not found.</div>;
+  if (loading) return <p className="py-8 text-center text-muted-foreground">Loading experiment details…</p>;
+  if (error) return <p className="py-8 text-center text-destructive">{error}</p>;
+  if (!experiment) return <p className="py-8 text-center text-destructive">Experiment not found.</p>;
 
   return (
-    <div className="experiment-detail-container">
-      <h2>Experiment Details: {experiment.id}</h2>
-      <p>Finished At: {new Date(experiment.finished_at).toLocaleString()}</p>
+    <div className="flex flex-col gap-6">
+      <Link to="/" className="inline-flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+        <ArrowLeft className="size-4" /> Back to dashboard
+      </Link>
 
-      <div className="detail-panels">
-        <div className="detail-panel metrics-panel">
-          <h3>Metrics</h3>
-          <pre>{JSON.stringify(experiment.metrics, null, 2)}</pre>
-        </div>
-        <div className="detail-panel config-panel">
-          <h3>Configuration</h3>
-          <pre>{JSON.stringify(experiment.config, null, 2)}</pre>
-        </div>
-        <div className="detail-panel graph-panel">
-          <h3>Neo4j Graph (JSON)</h3>
-          <pre>{JSON.stringify(experiment.graph, null, 2)}</pre>
-        </div>
+      <div>
+        <h2 className="font-serif text-2xl font-semibold">{experiment.id}</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Finished: {new Date(experiment.finished_at).toLocaleString()}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        {panels.map(({ key, title, accent }) => (
+          <Card key={key} className={`border-l-4 ${accent}`}>
+            <CardHeader>
+              <CardTitle className="text-base">{title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <pre className="max-h-125 overflow-auto rounded-md bg-muted p-3 font-mono text-xs whitespace-pre-wrap break-all">
+                {JSON.stringify(experiment[key], null, 2)}
+              </pre>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );

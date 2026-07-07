@@ -1,9 +1,10 @@
 // src/components/ExperimentList.tsx
-import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react'; // Add useImperativeHandle, forwardRef
+import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import './ExperimentList.css';
+import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 
-// Re-exporting interfaces for clarity if used elsewhere, but mainly for this file
 interface ExperimentMetadata {
   id: string;
   status: string;
@@ -28,15 +29,15 @@ interface StatusResponse {
 
 // Use forwardRef to allow parent to access fetchExperiments
 const ExperimentList = forwardRef<
-  { fetchExperiments: () => void }, // Define what parent can access
-  {} // Define props (none currently, but could be added)
+  { fetchExperiments: () => void },
+  {}
 >((props, ref) => {
   const [runningExperiment, setRunningExperiment] = useState<ExperimentMetadata | null>(null);
   const [queuedExperiments, setQueuedExperiments] = useState<ExperimentMetadata[]>([]);
   const [pastExperiments, setPastExperiments] = useState<CompletedExperiment[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [removingId, setRemovingId] = useState<string | null>(null); // To show loading state for removal
+  const [removingId, setRemovingId] = useState<string | null>(null);
 
   const fetchExperiments = async () => {
     try {
@@ -57,17 +58,15 @@ const ExperimentList = forwardRef<
     }
   };
 
-  // Expose fetchExperiments to parent via ref
   useImperativeHandle(ref, () => ({
     fetchExperiments,
   }));
 
-  // Handle removing an experiment from the queue
   const handleRemoveFromQueue = async (id: string) => {
     if (!window.confirm(`Are you sure you want to remove experiment ${id} from the queue?`)) {
       return;
     }
-    setRemovingId(id); // Set ID to show loading state for this specific item
+    setRemovingId(id);
     try {
       const response = await fetch(`http://localhost:8000/queue/${id}`, {
         method: 'DELETE',
@@ -78,87 +77,127 @@ const ExperimentList = forwardRef<
         throw new Error(errorData.detail || `HTTP error! status: ${response.status}`);
       }
 
-      // If successful, re-fetch all experiments to update the list
       await fetchExperiments();
       alert(`Experiment ${id} removed successfully.`);
     } catch (err) {
       console.error(`Failed to remove experiment ${id}:`, err);
       alert(`Failed to remove experiment ${id}: ${err instanceof Error ? err.message : 'Unknown error'}`);
     } finally {
-      setRemovingId(null); // Clear loading state
+      setRemovingId(null);
     }
   };
 
-
   useEffect(() => {
     fetchExperiments();
-    // Refresh every 5 seconds to update status
     const interval = setInterval(fetchExperiments, 5000);
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, []);
 
-  if (loading) return <div className="loading">Loading experiments...</div>;
-  if (error) return <div className="error">{error}</div>;
+  if (loading) return <p className="py-8 text-center text-muted-foreground">Loading experiments…</p>;
+  if (error) return <p className="py-8 text-center text-destructive">{error}</p>;
 
   return (
-    <div className="experiment-list-container">
-      <section className="experiment-section">
-        <h2>Currently Running Experiment</h2>
-        {runningExperiment ? (
-          <div className="experiment-card running-card">
-            <h3>{runningExperiment.id}</h3>
-            <p>Status: <span className="status-running">{runningExperiment.status}</span></p>
-            <p>Created At: {new Date(runningExperiment.created_at).toLocaleString()}</p>
-          </div>
-        ) : (
-          <p>No experiment currently running.</p>
-        )}
-      </section>
+    <div className="flex flex-col gap-8">
+      <Card>
+        <CardHeader>
+          <CardTitle>Currently Running</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {runningExperiment ? (
+            <Card className="border-primary/40 bg-accent">
+              <CardContent className="pt-5">
+                <h3 className="font-medium">{runningExperiment.id}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Status: <Badge variant="success">{runningExperiment.status}</Badge>
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Created: {new Date(runningExperiment.created_at).toLocaleString()}
+                </p>
+              </CardContent>
+            </Card>
+          ) : (
+            <p className="text-sm text-muted-foreground">No experiment currently running.</p>
+          )}
+        </CardContent>
+      </Card>
 
-      <section className="experiment-section">
-        <h2>Experiment Queue ({queuedExperiments.length})</h2>
-        {queuedExperiments.length > 0 ? (
-          <div className="experiment-grid">
-            {queuedExperiments.map((exp) => (
-              <div key={exp.id} className="experiment-card queued-card">
-                <h3>{exp.id}</h3>
-                <p>Status: <span className="status-queued">{exp.status}</span></p>
-                <p>Created At: {new Date(exp.created_at).toLocaleString()}</p>
-                <button
-                  onClick={() => handleRemoveFromQueue(exp.id)}
-                  disabled={removingId === exp.id} // Disable button while removing
-                  className="remove-button"
-                >
-                  {removingId === exp.id ? 'Removing...' : 'Remove'}
-                </button>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p>Queue is empty.</p>
-        )}
-      </section>
+      <Card>
+        <CardHeader>
+          <CardTitle>Experiment Queue ({queuedExperiments.length})</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {queuedExperiments.length > 0 ? (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {queuedExperiments.map((exp) => (
+                <Card key={exp.id}>
+                  <CardContent className="flex flex-col gap-1 pt-5">
+                    <h3 className="font-medium">{exp.id}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Status: <Badge variant="warning">{exp.status}</Badge>
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Created: {new Date(exp.created_at).toLocaleString()}
+                    </p>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      className="mt-2 self-start"
+                      onClick={() => handleRemoveFromQueue(exp.id)}
+                      disabled={removingId === exp.id}
+                    >
+                      {removingId === exp.id ? 'Removing…' : 'Remove'}
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">Queue is empty.</p>
+          )}
+        </CardContent>
+      </Card>
 
-      <section className="experiment-section">
-        <h2>Past Experiments ({pastExperiments.length})</h2>
-        {pastExperiments.length > 0 ? (
-          <div className="experiment-grid">
-            {pastExperiments.map((exp) => (
-              <Link to={`/experiments/${exp.id}`} key={exp.id} className="experiment-card past-card">
-                <h3>{exp.id}</h3>
-                <p>Status: <span className={`status-${exp.metrics.status === 'failed' ? 'failed' : 'completed'}`}>
-                  {exp.metrics.status === 'failed' ? 'Failed' : 'Completed'}
-                </span></p>
-                <p>Finished At: {new Date(exp.finished_at).toLocaleString()}</p>
-                {exp.metrics && exp.metrics.accuracy && <p>Accuracy: {(exp.metrics.accuracy * 100).toFixed(2)}%</p>}
-                {exp.metrics && exp.metrics.error_message && <p className="error-message">Error: {exp.metrics.error_message}</p>}
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <p>No past experiments found.</p>
-        )}
-      </section>
+      <Card>
+        <CardHeader>
+          <CardTitle>Past Experiments ({pastExperiments.length})</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {pastExperiments.length > 0 ? (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {pastExperiments.map((exp) => {
+                const failed = exp.metrics.status === 'failed';
+                return (
+                  <Link to={`/experiments/${exp.id}`} key={exp.id}>
+                    <Card className="h-full transition-shadow hover:shadow-md">
+                      <CardContent className="flex flex-col gap-1 pt-5">
+                        <h3 className="font-medium">{exp.id}</h3>
+                        <p className="text-sm text-muted-foreground">
+                          Status: <Badge variant={failed ? 'destructive' : 'success'}>{failed ? 'Failed' : 'Completed'}</Badge>
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Finished: {new Date(exp.finished_at).toLocaleString()}
+                        </p>
+                        {exp.metrics?.accuracy != null && (
+                          <p className="text-sm text-muted-foreground">
+                            Accuracy: {(exp.metrics.accuracy * 100).toFixed(2)}%
+                          </p>
+                        )}
+                        {exp.metrics?.error_message && (
+                          <p className="text-sm font-medium text-destructive">
+                            Error: {exp.metrics.error_message}
+                          </p>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">No past experiments found.</p>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 });

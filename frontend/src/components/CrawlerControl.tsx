@@ -1,8 +1,16 @@
-// src/components/CrawlerControl.tsx
 import React, { useState, useEffect, useCallback } from 'react';
-import './CrawlerControl.css';
+import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 
 type CrawlerStatus = 'idle' | 'running' | 'stopped' | 'error';
+
+const statusVariant: Record<string, 'default' | 'secondary' | 'destructive' | 'success' | 'warning'> = {
+  running: 'success',
+  idle: 'secondary',
+  stopped: 'warning',
+  error: 'destructive',
+};
 
 const CrawlerControl: React.FC = () => {
   const [status, setStatus] = useState<CrawlerStatus | null>(null);
@@ -48,29 +56,35 @@ const CrawlerControl: React.FC = () => {
   };
 
   return (
-    <div className="crawler-control">
-      <h2>Paper Crawler</h2>
-      <p>
-        Status: <span className={`crawler-status crawler-status-${status ?? 'unknown'}`}>
-          {status ?? 'unknown'}{status === 'error' && crawlError ? ` (${crawlError})` : ''}
-        </span>
-      </p>
-      {error && <p className="crawler-error">{error}</p>}
-      <button
-        onClick={() => handleAction('start')}
-        disabled={busy || status === 'running'}
-        className="crawler-button"
-      >
-        Start
-      </button>
-      <button
-        onClick={() => handleAction('stop')}
-        disabled={busy || status !== 'running'}
-        className="crawler-button"
-      >
-        Stop
-      </button>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Paper Crawler</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-muted-foreground">Status:</span>
+          <Badge variant={statusVariant[status ?? ''] ?? 'outline'} className="capitalize">
+            {status ?? 'unknown'}
+          </Badge>
+          {status === 'error' && crawlError && (
+            <span className="text-destructive">({crawlError})</span>
+          )}
+        </div>
+        {error && <p className="text-sm text-destructive">{error}</p>}
+        <div className="flex gap-2">
+          <Button onClick={() => handleAction('start')} disabled={busy || status === 'running'}>
+            Start
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => handleAction('stop')}
+            disabled={busy || status !== 'running'}
+          >
+            Stop
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

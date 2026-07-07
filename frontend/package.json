@@ -3,21 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "main": "src/index.tsx",
-  "module": "src/index.tsx",
+  "main": "src/frontend.tsx",
+  "module": "src/frontend.tsx",
   "scripts": {
-    "dev": "bun --hot --watch src/index.html",
-    "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
-    "start": "NODE_ENV=production bun src/index.html"
+    "css": "tailwindcss -i ./src/index.css -o ./src/app.css",
+    "dev": "bun run css && (tailwindcss -i ./src/index.css -o ./src/app.css --watch &) && bun --hot --watch src/index.html",
+    "build": "bun run css -- --minify && bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"'",
+    "start": "NODE_ENV=production bun run css -- --minify && NODE_ENV=production bun src/index.html"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.23.0",
     "react": "^19",
     "react-dom": "^19",
-    "react-router-dom": "^7.6.3"
+    "react-router-dom": "^7.6.3",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bun": "latest"
-  }
+    "tailwindcss": "^4.3.2"
+  },
+  "trustedDependencies": [
+    "@parcel/watcher"
+  ]
 }

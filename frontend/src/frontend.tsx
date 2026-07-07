@@ -8,7 +8,8 @@
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App"; // <--- CHANGE THIS LINE: Removed curly braces!
+import App from "./App";
+import "./app.css"; // generated from index.css by the tailwindcss CLI, see package.json scripts
 
 const elem = document.getElementById("root")!;
 const app = (

@@ -10,6 +10,7 @@ import json
 import shutil
 import urllib.request
 import urllib.error
+import psycopg
 
 # Import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
@@ -307,6 +308,130 @@ async def create_crawler_query(body: QueryCreate):
 @app.delete("/crawler/queries/{query_id}")
 async def delete_crawler_query(query_id: int):
     return _crawler_request("DELETE", f"/queries/{query_id}")
+
+
+# --- PAPERS & KNOWLEDGE EXTRACTION ---
+
+def get_db_connection() -> psycopg.Connection:
+    return psycopg.connect(
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+    )
+
+
+PAPERS_DIR = "downloaded_papers"
+os.makedirs(PAPERS_DIR, exist_ok=True)
+
+EXTRACTION_URL = os.getenv("EXTRACTION_URL", "http://knowledge-extraction:8001")
+
+# paper_id -> {"status": pending|downloading|extracting|done|failed, "error": str | None}
+# ponytail: in-memory, resets on restart. Move to a DB column if status needs to
+# survive a backend restart or be visible to other processes.
+extraction_status: dict[int, dict] = {}
+
+
+def get_papers(cursor: psycopg.Cursor) -> list[dict]:
+    cursor.execute("SELECT id, title, authors, query, open_access, pdf_url FROM papers ORDER BY id")
+    papers = []
+    for paper_id, title, authors, query, open_access, pdf_url in cursor.fetchall():
+        state = extraction_status.get(paper_id, {"status": "pending", "error": None})
+        papers.append({
+            "id": paper_id,
+            "title": title,
+            "authors": authors or [],
+            "query": query,
+            "open_access": open_access,
+            "pdf_url": pdf_url,
+            "extraction_status": state["status"],
+            "extraction_error": state["error"],
+        })
+    return papers
+
+
+def get_paper(cursor: psycopg.Cursor, paper_id: int) -> dict | None:
+    cursor.execute("SELECT pdf_url FROM papers WHERE id = %s", (paper_id,))
+    row = cursor.fetchone()
+    return {"pdf_url": row[0]} if row else None
+
+
+def download_pdf(pdf_url: str) -> bytes:
+    """Downloads PDF bytes, raising ValueError if the response isn't a PDF."""
+    request = urllib.request.Request(pdf_url, headers={"User-Agent": "ecobuild-graph-pipeline"})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        content = response.read()
+    if content[:5] != b"%PDF-":
+        raise ValueError("downloaded content is not a PDF")
+    return content
+
+
+def notify_extraction(paper_id: int, pdf_bytes: bytes) -> None:
+    """Hands the downloaded PDF off to the knowledge-extraction service."""
+    # ponytail: knowledge-extraction has no HTTP API yet (it's still a batch script
+    # over a hardcoded test_papers dir), so this call fails until it grows a
+    # POST /extract endpoint. No changes needed here once it does.
+    request = urllib.request.Request(
+        f"{EXTRACTION_URL}/extract?paper_id={paper_id}",
+        method="POST",
+        data=pdf_bytes,
+        headers={"Content-Type": "application/pdf"},
+    )
+    with urllib.request.urlopen(request, timeout=10):
+        pass
+
+
+def run_extraction(paper_id: int) -> None:
+    """Downloads a paper's PDF and hands it to knowledge-extraction, tracking status."""
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            paper = get_paper(cursor, paper_id)
+
+    if not paper or not paper["pdf_url"]:
+        extraction_status[paper_id] = {"status": "failed", "error": "No PDF URL available for this paper"}
+        return
+
+    try:
+        pdf_bytes = download_pdf(paper["pdf_url"])
+    except Exception as e:
+        extraction_status[paper_id] = {"status": "failed", "error": f"Download failed: {e}"}
+        return
+
+    with open(os.path.join(PAPERS_DIR, f"{paper_id}.pdf"), "wb") as f:
+        f.write(pdf_bytes)
+
+    extraction_status[paper_id] = {"status": "extracting", "error": None}
+
+    try:
+        notify_extraction(paper_id, pdf_bytes)
+    except Exception as e:
+        extraction_status[paper_id] = {"status": "failed", "error": f"Knowledge extraction unreachable: {e}"}
+        return
+
+    extraction_status[paper_id] = {"status": "done", "error": None}
+
+
+class PaperExtractRequest(BaseModel):
+    paper_ids: list[int]
+
+
+@app.get("/papers")
+async def list_papers():
+    try:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                return get_papers(cursor)
+    except psycopg.OperationalError as e:
+        raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
+
+
+@app.post("/papers/extract")
+async def extract_papers(body: PaperExtractRequest, background_tasks: BackgroundTasks):
+    for paper_id in body.paper_ids:
+        extraction_status[paper_id] = {"status": "downloading", "error": None}
+        background_tasks.add_task(run_extraction, paper_id)
+    return {"queued": body.paper_ids}
 
 
 # Dummy long-running task

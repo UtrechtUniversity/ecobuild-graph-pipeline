@@ -5,6 +5,7 @@ import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
 import CrawlerControl from './components/CrawlerControl';
 import QueryManager from './components/QueryManager';
+import PaperList from './components/PaperList';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <div className="flex flex-col gap-8">
                   <CrawlerControl />
                   <QueryManager />
+                  <PaperList />
                   <ExperimentList />
                 </div>
               }

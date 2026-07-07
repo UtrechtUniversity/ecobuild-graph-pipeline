@@ -2,6 +2,8 @@ import os
 import threading
 from psycopg.errors import PipelineStatus
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util import Retry
 import psycopg
 
 from time import sleep
@@ -48,6 +50,14 @@ def remove_query(cursor: psycopg.Cursor, query_id: int) -> bool:
 headers = {"x-api-key": api_key}
 url = "https://api.semanticscholar.org/graph/v1/paper/search"
 
+# ponytail: urllib3's Retry already honors S2's Retry-After header on 429s,
+# so a plain Session+adapter covers backoff without hand-rolled retry logic.
+session = requests.Session()
+session.mount("https://", HTTPAdapter(max_retries=Retry(
+    total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503],
+    raise_on_status=False,  # return the failing response instead of raising, so existing status_code handling still applies
+)))
+
 logger.info("Crawler initialized")
 
 
@@ -70,7 +80,7 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
         }
 
         # send request
-        response = requests.get(url, params=query_params, headers=headers)
+        response = session.get(url, params=query_params, headers=headers, timeout=30)
 
         if response.status_code == 200:
             logger.debug(f"Request succesful")

@@ -42,7 +42,8 @@ services:
       start_period: 10s
 
   crawler:
-    profiles: [ "crawl" ]
+    # No profiles: runs by default as a long-lived service, started/stopped via
+    # the api-backend's /crawler/* endpoints instead of a one-shot batch job.
     build:
       context: ../microservices/paper-crawler
       dockerfile: Dockerfile
@@ -60,6 +61,12 @@ services:
       - "8001:8000" # <--- CHANGED: Mapped to host port 8001 to avoid conflict
     # Note: If crawler's internal code also makes requests to other services,
     # it can still use their service names (e.g., http://api-backend:8000) inside the Docker network.
+    healthcheck:
+      test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
   ollama:
     profiles: [ "extract" ]
@@ -119,6 +126,8 @@ services:
       - "8000:8000" # Expose FastAPI backend on host port 8000
     # No depends_on document-db/neo4j for now, as it's using dummy data.
     # We'll add this when we integrate Postgres.
+    environment:
+      CRAWLER_URL: http://crawler:8000
     healthcheck:
       test: [ "CMD", "/app/.venv/bin/python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
       interval: 10s

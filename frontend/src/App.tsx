@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FlaskConical } from 'lucide-react';
 import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
-import CrawlerControl from './components/CrawlerControl';
-import QueryManager from './components/QueryManager';
 import PaperList from './components/PaperList';
+import ServiceStatus from './components/ServiceStatus';
 
 function App() {
   return (
@@ -17,6 +16,7 @@ function App() {
             <h1 className="text-xl font-semibold tracking-tight">
               <Link to="/">EcoBuild Paper Knowledge Extractor</Link>
             </h1>
+            <ServiceStatus />
           </div>
         </header>
         <main className="mx-auto max-w-5xl px-6 py-8">
@@ -25,8 +25,6 @@ function App() {
               path="/"
               element={
                 <div className="flex flex-col gap-8">
-                  <CrawlerControl />
-                  <QueryManager />
                   <PaperList />
                   <ExperimentList />
                 </div>

@@ -327,6 +327,26 @@ os.makedirs(PAPERS_DIR, exist_ok=True)
 
 EXTRACTION_URL = os.getenv("EXTRACTION_URL", "http://knowledge-extraction:8001")
 
+
+def _is_reachable(url: str, timeout: float = 2.0) -> bool:
+    """A response, even a non-2xx one, still means the process is up."""
+    try:
+        urllib.request.urlopen(url, timeout=timeout)
+        return True
+    except urllib.error.HTTPError:
+        return True
+    except Exception:
+        return False
+
+
+@app.get("/health")
+async def health():
+    return {
+        "backend": True,
+        "crawler": _is_reachable(f"{CRAWLER_URL}/status"),
+        "knowledge_extraction": _is_reachable(EXTRACTION_URL),
+    }
+
 # paper_id -> {"status": pending|downloading|extracting|done|failed, "error": str | None}
 # ponytail: in-memory, resets on restart. Move to a DB column if status needs to
 # survive a backend restart or be visible to other processes.

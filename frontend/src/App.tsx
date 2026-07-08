@@ -4,6 +4,7 @@ import { FlaskConical } from 'lucide-react';
 import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
 import PaperList from './components/PaperList';
+import PaperReview from './components/PaperReview';
 import ServiceStatus from './components/ServiceStatus';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               }
             />
             <Route path="/experiments/:id" element={<ExperimentDetail />} />
+            <Route path="/papers/:id/review" element={<PaperReview />} />
           </Routes>
         </main>
       </div>

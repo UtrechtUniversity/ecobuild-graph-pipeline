@@ -20,6 +20,7 @@ CREATE TABLE extraction_runs (
     status TEXT NOT NULL,                              /*pending|downloading|downloaded|extracting|done|failed*/
     error TEXT,                                        /*error message, set when status = failed*/
     raw_result JSONB,                                  /*knowledge-extraction's result JSON, set when status = done*/
+    raw_text TEXT,                                     /*full extracted document text, set when status = done — source for tag context highlighting*/
     started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     finished_at TIMESTAMP                              /*set once status reaches done or failed*/
 );

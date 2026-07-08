@@ -45,24 +45,27 @@ class FakeCursor:
             self._next_run_id += 1
             self._runs.append({
                 "id": run_id, "paper_id": paper_id, "status": status,
-                "error": None, "raw_result": None, "started_at": datetime.now(), "finished_at": None,
+                "error": None, "raw_result": None, "raw_text": None,
+                "started_at": datetime.now(), "finished_at": None,
             })
             self._result = (run_id,)
         elif sql.startswith("UPDATE extraction_runs"):
-            status, error, raw_result, finished_at, run_id = params
+            status, error, raw_result, raw_text, finished_at, run_id = params
             run = next(r for r in self._runs if r["id"] == run_id)
             run["status"] = status
             run["error"] = error
             if raw_result is not None:
                 run["raw_result"] = raw_result.obj
+            if raw_text is not None:
+                run["raw_text"] = raw_text
             if finished_at is not None:
                 run["finished_at"] = finished_at
-        elif sql.startswith("SELECT raw_result FROM extraction_runs"):
-            done_runs = [r for r in self._runs if r["paper_id"] == params[0] and r["status"] == "done"]
-            self._result = (done_runs[-1]["raw_result"],) if done_runs else None
         elif sql.startswith("SELECT id FROM extraction_runs"):
             done_runs = [r for r in self._runs if r["paper_id"] == params[0] and r["status"] == "done"]
             self._result = (done_runs[-1]["id"],) if done_runs else None
+        elif sql.startswith("SELECT raw_text FROM extraction_runs"):
+            run = next((r for r in self._runs if r["id"] == params[0]), None)
+            self._result = (run["raw_text"],) if run else None
         elif sql.startswith("INSERT INTO tags"):
             tag = dict(params)
             if tag.get("extra_data") is not None and hasattr(tag["extra_data"], "obj"):
@@ -202,7 +205,10 @@ def main_() -> None:
     assert eco_tags[0]["tag_type"] == "ecosystem_service" and eco_tags[0]["category"] == "regulating"
 
     # extraction_result_to_tags() combines all four mappers over one result dict.
-    combined_result = {**label_result, **entity_result, **design_result, **eco_result}
+    combined_result = {
+        **label_result, **entity_result, **design_result, **eco_result,
+        "raw_text": "Full paper text. As mandated by the city council in 2019, the roof was retrofitted.",
+    }
     combined_tags = main.extraction_result_to_tags(7, combined_result)
     assert len(combined_tags) == len(tags) + len(entity_tags) + len(design_tags) + len(eco_tags)
 
@@ -220,6 +226,7 @@ def main_() -> None:
     assert run["status"] == "done"
     assert run["raw_result"] == combined_result
     assert run["finished_at"] is not None
+    assert main.get_raw_text(cursor, run_id) == combined_result["raw_text"]
     inserted_keys = main._TAG_FIELDS + ["review_status", "added_manually"]
     assert [{k: t[k] for k in inserted_keys} for t in cursor._tags] == main.extraction_result_to_tags(run_id, combined_result)
 

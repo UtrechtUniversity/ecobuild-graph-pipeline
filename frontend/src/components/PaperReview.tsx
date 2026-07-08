@@ -45,13 +45,31 @@ function ConfidenceBadge({ tag }: { tag: Tag }) {
 type ReviewHandler = (tagId: number, status: 'accepted' | 'rejected') => void;
 type EditHandler = (tagId: number, value: string) => void;
 
-function TagRow({ tag, onReview, onEdit }: { tag: Tag; onReview: ReviewHandler; onEdit: EditHandler }) {
+function tagRowId(tagId: number): string {
+  return `tag-row-${tagId}`;
+}
+
+function tagGroupId(tagType: string): string {
+  return `tag-group-${tagType}`;
+}
+
+function textHighlightId(tagId: number): string {
+  return `text-highlight-${tagId}`;
+}
+
+function flash(el: Element | null) {
+  if (!el) return;
+  el.classList.add('ring-2', 'ring-primary');
+  setTimeout(() => el.classList.remove('ring-2', 'ring-primary'), 1500);
+}
+
+function TagRow({ tag, onReview, onEdit, onLocate }: { tag: Tag; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(tag.edited_value ?? tag.value ?? '');
   const displayValue = tag.edited_value ?? tag.value ?? '(no value)';
 
   return (
-    <details className="rounded-md border border-input bg-card px-3 py-2">
+    <details id={tagRowId(tag.id)} className="rounded-md border border-input bg-card px-3 py-2">
       <summary className="flex cursor-pointer items-center justify-between gap-2 text-sm">
         <span className="font-medium">{displayValue}</span>
         <span className="flex items-center gap-2">
@@ -87,6 +105,9 @@ function TagRow({ tag, onReview, onEdit }: { tag: Tag; onReview: ReviewHandler; 
             <Button size="sm" variant="outline" onClick={() => onReview(tag.id, 'accepted')}>Accept</Button>
             <Button size="sm" variant="outline" onClick={() => onReview(tag.id, 'rejected')}>Reject</Button>
             <Button size="sm" variant="outline" onClick={() => setEditing(true)}>Edit</Button>
+            {tag.context && (
+              <Button size="sm" variant="outline" onClick={() => onLocate(tag.id)}>Locate in text</Button>
+            )}
           </div>
         )}
       </div>
@@ -94,15 +115,81 @@ function TagRow({ tag, onReview, onEdit }: { tag: Tag; onReview: ReviewHandler; 
   );
 }
 
-function TagGroup({ tagType, tags, onReview, onEdit }: { tagType: string; tags: Tag[]; onReview: ReviewHandler; onEdit: EditHandler }) {
+function TagGroup({ tagType, tags, onReview, onEdit, onLocate }: { tagType: string; tags: Tag[]; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void }) {
   return (
-    <details className="rounded-md border border-input bg-card">
+    <details id={tagGroupId(tagType)} className="rounded-md border border-input bg-card">
       <summary className="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 font-serif text-base font-semibold">
         <span>{humanizeTagType(tagType)}</span>
         <Badge variant="secondary">{tags.length}</Badge>
       </summary>
       <div className="flex flex-col gap-2 border-t border-input p-3">
-        {tags.map((tag) => <TagRow key={tag.id} tag={tag} onReview={onReview} onEdit={onEdit} />)}
+        {tags.map((tag) => <TagRow key={tag.id} tag={tag} onReview={onReview} onEdit={onEdit} onLocate={onLocate} />)}
+      </div>
+    </details>
+  );
+}
+
+// ponytail: highlights the first occurrence of each tag's context in the text.
+// Two different tags can legitimately share identical context (the same
+// sentence supporting two findings) — they highlight the same spot, which is
+// correct. What this doesn't handle: an unrelated but textually identical
+// phrase appearing earlier elsewhere in the paper, which would "steal" the
+// highlight. Fixing that needs the extraction pipeline to capture a character
+// offset when it resolves each anchor (context_resolver.find_anchor_in_text)
+// and carry it through to the tag row — a pipeline change, not a UI one.
+export interface HighlightMatch { start: number; end: number; tagId: number }
+
+/** Pure matching logic, exported so it's testable without a JSX/DOM runtime. */
+export function computeHighlightMatches(text: string, tags: Pick<Tag, 'id' | 'context'>[]): HighlightMatch[] {
+  const matches: HighlightMatch[] = [];
+  for (const tag of tags) {
+    if (!tag.context) continue;
+    const start = text.indexOf(tag.context);
+    if (start === -1) continue;
+    matches.push({ start, end: start + tag.context.length, tagId: tag.id });
+  }
+  matches.sort((a, b) => a.start - b.start);
+
+  const accepted: HighlightMatch[] = [];
+  let lastEnd = -1;
+  for (const m of matches) {
+    if (m.start >= lastEnd) {
+      accepted.push(m);
+      lastEnd = m.end;
+    }
+  }
+  return accepted;
+}
+
+function buildHighlightSegments(text: string, tags: Tag[], onHighlightClick: (tagId: number) => void): React.ReactNode[] {
+  const accepted = computeHighlightMatches(text, tags);
+  const nodes: React.ReactNode[] = [];
+  let cursor = 0;
+  for (const m of accepted) {
+    if (m.start > cursor) nodes.push(text.slice(cursor, m.start));
+    nodes.push(
+      <mark
+        key={m.tagId}
+        id={textHighlightId(m.tagId)}
+        className="cursor-pointer rounded bg-warning/30 px-0.5 hover:bg-warning/50"
+        onClick={() => onHighlightClick(m.tagId)}
+      >
+        {text.slice(m.start, m.end)}
+      </mark>
+    );
+    cursor = m.end;
+  }
+  if (cursor < text.length) nodes.push(text.slice(cursor));
+  return nodes;
+}
+
+function PaperText({ text, tags, onHighlightClick }: { text: string; tags: Tag[]; onHighlightClick: (tagId: number) => void }) {
+  const segments = useMemo(() => buildHighlightSegments(text, tags, onHighlightClick), [text, tags, onHighlightClick]);
+  return (
+    <details className="rounded-md border border-input bg-card">
+      <summary className="cursor-pointer px-4 py-3 font-serif text-base font-semibold">Extracted text</summary>
+      <div className="max-h-150 overflow-auto whitespace-pre-wrap border-t border-input p-4 text-sm leading-relaxed">
+        {segments}
       </div>
     </details>
   );
@@ -142,6 +229,7 @@ function AddTagForm({ tagTypes, onAdd }: { tagTypes: string[]; onAdd: (tagType: 
 const PaperReview: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [tags, setTags] = useState<Tag[] | null>(null);
+  const [text, setText] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -167,6 +255,39 @@ const PaperReview: React.FC = () => {
 
     fetchResults();
   }, [id]);
+
+  useEffect(() => {
+    const fetchText = async () => {
+      if (!id) return;
+      try {
+        const response = await fetch(`http://localhost:8000/papers/${id}/text`);
+        if (!response.ok) return; // no extracted text yet — text panel just doesn't render
+        const data: { text: string } = await response.json();
+        setText(data.text);
+      } catch (err) {
+        console.error(`Failed to fetch extracted text for paper ${id}:`, err);
+      }
+    };
+
+    fetchText();
+  }, [id]);
+
+  const revealTag = (tagId: number) => {
+    const tag = tags?.find((t) => t.id === tagId);
+    if (!tag) return;
+    const groupEl = document.getElementById(tagGroupId(tag.tag_type)) as HTMLDetailsElement | null;
+    const rowEl = document.getElementById(tagRowId(tagId)) as HTMLDetailsElement | null;
+    if (groupEl) groupEl.open = true;
+    if (rowEl) rowEl.open = true;
+    rowEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    flash(rowEl);
+  };
+
+  const revealHighlight = (tagId: number) => {
+    const el = document.getElementById(textHighlightId(tagId));
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    flash(el);
+  };
 
   const handleReview: ReviewHandler = async (tagId, status) => {
     try {
@@ -230,9 +351,11 @@ const PaperReview: React.FC = () => {
 
       {knownTagTypes.length > 0 && <AddTagForm tagTypes={knownTagTypes} onAdd={handleAdd} />}
 
+      {text && <PaperText text={text} tags={visibleTags} onHighlightClick={revealTag} />}
+
       <div className="flex flex-col gap-4">
         {groupByType(visibleTags).map(([tagType, groupTags]) => (
-          <TagGroup key={tagType} tagType={tagType} tags={groupTags} onReview={handleReview} onEdit={handleEdit} />
+          <TagGroup key={tagType} tagType={tagType} tags={groupTags} onReview={handleReview} onEdit={handleEdit} onLocate={revealHighlight} />
         ))}
       </div>
     </div>

@@ -109,6 +109,7 @@ async def extract(paper_id: int, request: Request):
             "entities": entity_result.get("entities", []),
             "design_strategies": design_result.get("design_strategies", []),
             "ecosystem_services": ecosystem_result.get("ecosystem_services", []),
+            "raw_text": raw_text,
         }
     finally:
         os.remove(pdf_path)

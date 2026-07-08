@@ -400,6 +400,7 @@ def update_run(
     status: str,
     error: str | None = None,
     raw_result: dict | None = None,
+    raw_text: str | None = None,
     finished: bool = False,
 ) -> None:
     """Updates an extraction_runs row's status/error/result, stamping finished_at once terminal."""
@@ -409,10 +410,11 @@ def update_run(
         SET status = %s,
             error = %s,
             raw_result = COALESCE(%s, raw_result),
+            raw_text = COALESCE(%s, raw_text),
             finished_at = COALESCE(%s, finished_at)
         WHERE id = %s
         """,
-        (status, error, Jsonb(raw_result) if raw_result is not None else None,
+        (status, error, Jsonb(raw_result) if raw_result is not None else None, raw_text,
          datetime.now() if finished else None, run_id),
     )
 
@@ -628,7 +630,7 @@ def run_extraction(run_id: int, paper_id: int) -> None:
         _update_run(run_id, status="failed", error=f"Knowledge extraction unreachable: {e}", finished=True)
         return
 
-    _update_run(run_id, status="done", raw_result=result, finished=True)
+    _update_run(run_id, status="done", raw_result=result, raw_text=result.get("raw_text"), finished=True)
     _insert_tags(extraction_result_to_tags(run_id, result))
 
 
@@ -666,6 +668,23 @@ async def get_paper_results(paper_id: int):
                 raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
             tags = get_tags(cursor, run_id)
     return {"tags": tags}
+
+
+def get_raw_text(cursor: psycopg.Cursor, extraction_run_id: int) -> str | None:
+    cursor.execute("SELECT raw_text FROM extraction_runs WHERE id = %s", (extraction_run_id,))
+    row = cursor.fetchone()
+    return row[0] if row else None
+
+
+@app.get("/papers/{paper_id}/text")
+async def get_paper_text(paper_id: int):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            run_id = get_latest_done_run_id(cursor, paper_id)
+            text = get_raw_text(cursor, run_id) if run_id is not None else None
+    if text is None:
+        raise HTTPException(status_code=404, detail="No extracted text for this paper")
+    return {"text": text}
 
 
 def update_tag_review_status(cursor: psycopg.Cursor, tag_id: int, status: str) -> bool:

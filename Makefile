@@ -1,0 +1,33 @@
+.PHONY: install up down dev stop status
+
+install:
+	$(MAKE) -C microservices/backend install
+	$(MAKE) -C microservices/paper-crawler install
+	$(MAKE) -C frontend install
+
+# Postgres etc., via the orchestration compose file.
+up:
+	docker compose -f orchestration/docker-compose.yml up -d document-db
+
+down:
+	docker compose -f orchestration/docker-compose.yml down
+
+# Starts db + backend + crawler + frontend in the background.
+# `stop` targets these processes by command substring, so no pidfile bookkeeping.
+dev: up
+	$(MAKE) -C microservices/backend dev >/tmp/backend.log 2>&1 &
+	$(MAKE) -C microservices/paper-crawler dev >/tmp/crawler.log 2>&1 &
+	$(MAKE) -C frontend dev >/tmp/frontend.log 2>&1 &
+	@echo "backend:  http://localhost:8000  (log: /tmp/backend.log)"
+	@echo "crawler:  http://localhost:8001  (log: /tmp/crawler.log)"
+	@echo "frontend: http://localhost:3000  (log: /tmp/frontend.log)"
+
+stop:
+	-pkill -f 'uvicorn main:app'
+	-pkill -f 'uvicorn crawler.service:app'
+	-pkill -f 'bun --hot'
+	@echo "stopped"
+
+status:
+	@ss -ltnp 2>/dev/null | grep -E ':(3000|8000|8001)\b' || echo "nothing on 3000/8000/8001"
+	@docker ps --format '{{.Names}}: {{.Ports}}'

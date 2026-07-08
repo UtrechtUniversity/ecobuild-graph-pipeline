@@ -70,6 +70,8 @@ class FakeCursor:
             tag = dict(params)
             if tag.get("extra_data") is not None and hasattr(tag["extra_data"], "obj"):
                 tag["extra_data"] = tag["extra_data"].obj
+            if tag.get("bbox") is not None and hasattr(tag["bbox"], "obj"):
+                tag["bbox"] = tag["bbox"].obj
             tag["id"] = self._next_tag_id
             self._next_tag_id += 1
             tag.setdefault("review_status", "pending")
@@ -184,10 +186,12 @@ def main_() -> None:
 
     # design_strategies_to_tags() / ecosystem_services_to_tags() put
     # implementation_details/vocab_top_matches in extra_data, not flat columns.
+    # page_number/bbox (from service.py's PDF location capture) pass through too.
     design_result = {"design_strategies": [{
         "name": "green roof", "anchor_text": "extensive green roof", "context": "an extensive green roof was installed",
         "anchor_verified": True, "anchor_match_score": 0.88,
         "implementation_details": ["30cm substrate depth"], "vocab_top_matches": [{"name": "green roof", "score": 0.99}],
+        "page_number": 3, "bbox": {"x0": 10.0, "y0": 20.0, "x1": 100.0, "y1": 40.0},
     }]}
     design_tags = main.design_strategies_to_tags(7, design_result)
     assert design_tags[0]["tag_type"] == "design_strategy"
@@ -195,6 +199,8 @@ def main_() -> None:
         "implementation_details": ["30cm substrate depth"],
         "vocab_top_matches": [{"name": "green roof", "score": 0.99}],
     }
+    assert design_tags[0]["page_number"] == 3
+    assert design_tags[0]["bbox"] == {"x0": 10.0, "y0": 20.0, "x1": 100.0, "y1": 40.0}
 
     eco_result = {"ecosystem_services": [{
         "name": "stormwater retention", "category": "regulating", "anchor_text": "retains stormwater",
@@ -238,6 +244,9 @@ def main_() -> None:
     assert len(read_tags) == len(combined_tags)
     assert {t["tag_type"] for t in read_tags} == {"label", "entity", "design_strategy", "ecosystem_service"}
     assert all(t["review_status"] == "pending" and t["added_manually"] is False for t in read_tags)
+    design_read = next(t for t in read_tags if t["tag_type"] == "design_strategy")
+    assert design_read["page_number"] == 3
+    assert design_read["bbox"] == {"x0": 10.0, "y0": 20.0, "x1": 100.0, "y1": 40.0}
 
     # update_tag_review_status() sets review_status without touching anything
     # else, and never deletes the row (accept/reject are both soft).

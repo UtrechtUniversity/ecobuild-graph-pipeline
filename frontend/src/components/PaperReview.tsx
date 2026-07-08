@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import PdfViewer from './PdfViewer';
 
 interface Tag {
   id: number;
@@ -17,6 +18,8 @@ interface Tag {
   rationale: string | null;
   verified: boolean | null;
   extra_data: Record<string, unknown> | null;
+  page_number: number | null;
+  bbox: { x0: number; y0: number; x1: number; y1: number } | null;
   review_status: 'pending' | 'accepted' | 'rejected' | 'edited';
   edited_value: string | null;
   added_manually: boolean;
@@ -63,7 +66,9 @@ function flash(el: Element | null) {
   setTimeout(() => el.classList.remove('ring-2', 'ring-primary'), 1500);
 }
 
-function TagRow({ tag, onReview, onEdit, onLocate }: { tag: Tag; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void }) {
+function TagRow({ tag, onReview, onEdit, onLocate, onLocateInPdf }: {
+  tag: Tag; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void; onLocateInPdf: (tagId: number) => void;
+}) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(tag.edited_value ?? tag.value ?? '');
   const displayValue = tag.edited_value ?? tag.value ?? '(no value)';
@@ -108,6 +113,9 @@ function TagRow({ tag, onReview, onEdit, onLocate }: { tag: Tag; onReview: Revie
             {tag.context && (
               <Button size="sm" variant="outline" onClick={() => onLocate(tag.id)}>Locate in text</Button>
             )}
+            {tag.page_number !== null && tag.bbox !== null && (
+              <Button size="sm" variant="outline" onClick={() => onLocateInPdf(tag.id)}>Locate in PDF</Button>
+            )}
           </div>
         )}
       </div>
@@ -115,7 +123,9 @@ function TagRow({ tag, onReview, onEdit, onLocate }: { tag: Tag; onReview: Revie
   );
 }
 
-function TagGroup({ tagType, tags, onReview, onEdit, onLocate }: { tagType: string; tags: Tag[]; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void }) {
+function TagGroup({ tagType, tags, onReview, onEdit, onLocate, onLocateInPdf }: {
+  tagType: string; tags: Tag[]; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void; onLocateInPdf: (tagId: number) => void;
+}) {
   return (
     <details id={tagGroupId(tagType)} className="rounded-md border border-input bg-card">
       <summary className="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 font-serif text-base font-semibold">
@@ -123,7 +133,7 @@ function TagGroup({ tagType, tags, onReview, onEdit, onLocate }: { tagType: stri
         <Badge variant="secondary">{tags.length}</Badge>
       </summary>
       <div className="flex flex-col gap-2 border-t border-input p-3">
-        {tags.map((tag) => <TagRow key={tag.id} tag={tag} onReview={onReview} onEdit={onEdit} onLocate={onLocate} />)}
+        {tags.map((tag) => <TagRow key={tag.id} tag={tag} onReview={onReview} onEdit={onEdit} onLocate={onLocate} onLocateInPdf={onLocateInPdf} />)}
       </div>
     </details>
   );
@@ -232,6 +242,7 @@ const PaperReview: React.FC = () => {
   const [text, setText] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [focusPdfTagId, setFocusPdfTagId] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -289,6 +300,8 @@ const PaperReview: React.FC = () => {
     flash(el);
   };
 
+  const revealInPdf = (tagId: number) => setFocusPdfTagId(tagId);
+
   const handleReview: ReviewHandler = async (tagId, status) => {
     try {
       const response = await fetch(`http://localhost:8000/tags/${tagId}/review`, {
@@ -336,6 +349,12 @@ const PaperReview: React.FC = () => {
   // Rejected tags are hidden from this default view but never deleted server-side.
   const visibleTags = (tags ?? []).filter((tag) => tag.review_status !== 'rejected');
   const knownTagTypes = useMemo(() => Array.from(new Set((tags ?? []).map((t) => t.tag_type))), [tags]);
+  const pdfTags = useMemo(
+    () => visibleTags
+      .filter((t): t is Tag & { page_number: number; bbox: NonNullable<Tag['bbox']> } => t.page_number !== null && t.bbox !== null)
+      .map((t) => ({ id: t.id, page_number: t.page_number, bbox: t.bbox })),
+    [visibleTags],
+  );
 
   return (
     <div className="flex flex-col gap-6">
@@ -353,9 +372,14 @@ const PaperReview: React.FC = () => {
 
       {text && <PaperText text={text} tags={visibleTags} onHighlightClick={revealTag} />}
 
+      {id && <PdfViewer paperId={id} tags={pdfTags} focusTagId={focusPdfTagId} onHighlightClick={revealTag} />}
+
       <div className="flex flex-col gap-4">
         {groupByType(visibleTags).map(([tagType, groupTags]) => (
-          <TagGroup key={tagType} tagType={tagType} tags={groupTags} onReview={handleReview} onEdit={handleEdit} onLocate={revealHighlight} />
+          <TagGroup
+            key={tagType} tagType={tagType} tags={groupTags}
+            onReview={handleReview} onEdit={handleEdit} onLocate={revealHighlight} onLocateInPdf={revealInPdf}
+          />
         ))}
       </div>
     </div>

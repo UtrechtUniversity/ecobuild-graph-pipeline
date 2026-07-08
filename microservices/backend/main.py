@@ -428,6 +428,7 @@ def _update_run(run_id: int, **fields) -> None:
 _TAG_FIELDS = [
     "extraction_run_id", "tag_type", "group_id", "field", "value", "category",
     "anchor_text", "context", "match_score", "rationale", "verified", "extra_data",
+    "page_number", "bbox",
 ]
 
 
@@ -448,6 +449,7 @@ def labels_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
             value=decision.get("label"), anchor_text=decision.get("anchor_text"),
             context=decision.get("context"), match_score=decision.get("match_score"),
             rationale=decision.get("rationale"), verified=decision.get("verdict") == "YES",
+            page_number=decision.get("page_number"), bbox=decision.get("bbox"),
         )
         for decisions in result.get("labels", {}).values()
         for decision in decisions
@@ -469,6 +471,7 @@ def entities_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
                 extraction_run_id=extraction_run_id, tag_type="entity", group_id=group_id,
                 field=field_name, value=field_data.get("value"), context=field_data.get("context"),
                 match_score=field_data.get("context_match_score"), verified=field_data.get("context_verified"),
+                page_number=field_data.get("page_number"), bbox=field_data.get("bbox"),
             ))
     return tags
 
@@ -485,6 +488,7 @@ def design_strategies_to_tags(extraction_run_id: int, result: dict) -> list[dict
                 "implementation_details": strategy.get("implementation_details"),
                 "vocab_top_matches": strategy.get("vocab_top_matches"),
             },
+            page_number=strategy.get("page_number"), bbox=strategy.get("bbox"),
         )
         for strategy in result.get("design_strategies", [])
     ]
@@ -499,6 +503,7 @@ def ecosystem_services_to_tags(extraction_run_id: int, result: dict) -> list[dic
             anchor_text=service.get("anchor_text"), context=service.get("context"),
             match_score=service.get("anchor_match_score"), verified=service.get("anchor_verified"),
             extra_data={"vocab_top_matches": service.get("vocab_top_matches")},
+            page_number=service.get("page_number"), bbox=service.get("bbox"),
         )
         for service in result.get("ecosystem_services", [])
     ]
@@ -516,15 +521,19 @@ def extraction_result_to_tags(extraction_run_id: int, result: dict) -> list[dict
 
 def insert_tags(cursor: psycopg.Cursor, tags: list[dict]) -> None:
     for tag in tags:
-        params = {**tag, "extra_data": Jsonb(tag["extra_data"]) if tag.get("extra_data") is not None else None}
+        params = {
+            **tag,
+            "extra_data": Jsonb(tag["extra_data"]) if tag.get("extra_data") is not None else None,
+            "bbox": Jsonb(tag["bbox"]) if tag.get("bbox") is not None else None,
+        }
         cursor.execute(
             """
             INSERT INTO tags (extraction_run_id, tag_type, group_id, field, value, category,
                                anchor_text, context, match_score, rationale, verified, extra_data,
-                               review_status, added_manually)
+                               page_number, bbox, review_status, added_manually)
             VALUES (%(extraction_run_id)s, %(tag_type)s, %(group_id)s, %(field)s, %(value)s, %(category)s,
                     %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s, %(extra_data)s,
-                    %(review_status)s, %(added_manually)s)
+                    %(page_number)s, %(bbox)s, %(review_status)s, %(added_manually)s)
             """,
             params,
         )
@@ -549,7 +558,8 @@ def get_latest_done_run_id(cursor: psycopg.Cursor, paper_id: int) -> int | None:
 
 _TAG_READ_COLUMNS = [
     "id", "tag_type", "group_id", "field", "value", "category", "anchor_text", "context",
-    "match_score", "rationale", "verified", "extra_data", "review_status", "edited_value", "added_manually",
+    "match_score", "rationale", "verified", "extra_data", "page_number", "bbox",
+    "review_status", "edited_value", "added_manually",
 ]
 
 

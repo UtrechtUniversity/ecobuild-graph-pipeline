@@ -1,19 +1,30 @@
-# Override for using a remote Ollama instance instead of the local container.
+# Override for using a remote/host Ollama instance instead of the local container.
 #
 # Usage:
 #   docker compose -f docker-compose.yml -f docker-compose.remote-ollama.yml --profile extract up --build knowledge-extraction
 #
 # Make sure OLLAMA_HOST (and OLLAMA_LLM_MODEL / OLLAMA_EMBEDDING_MODEL) in .env
-# point at the remote Ollama server.
+# point at the remote Ollama server. For a host-local Ollama bound to
+# 127.0.0.1 (the common case), OLLAMA_HOST=http://localhost:<port> works
+# because of network_mode: host below — host.docker.internal only reaches
+# services bound to 0.0.0.0, not loopback-only ones.
 
 services:
   ollama: !reset null
 
   knowledge-extraction:
+    network_mode: host
+    ports: !reset null
     depends_on: !override
       document-db:
         condition: service_healthy
       neo4j:
         condition: service_healthy
+    environment:
+      # document-db/neo4j are also reached via host-mapped ports under host
+      # networking, since the container is off the compose bridge network.
+      DB_HOST: localhost
+      DB_PORT: 5433
+      NEO4J_URI: bolt://localhost:7687
     volumes:
       - /home/devuser/Projects/ecobuild-testdata:/app/test_papers/test_papers

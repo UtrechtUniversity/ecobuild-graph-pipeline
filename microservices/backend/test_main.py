@@ -60,7 +60,10 @@ class FakeCursor:
             done_runs = [r for r in self._runs if r["paper_id"] == params[0] and r["status"] == "done"]
             self._result = (done_runs[-1]["raw_result"],) if done_runs else None
         elif sql.startswith("INSERT INTO tags"):
-            self._tags.append(dict(params))
+            tag = dict(params)
+            if tag.get("extra_data") is not None and hasattr(tag["extra_data"], "obj"):
+                tag["extra_data"] = tag["extra_data"].obj
+            self._tags.append(tag)
 
     def fetchall(self):
         return self._result
@@ -121,28 +124,73 @@ def main_() -> None:
     }
     tags = main.labels_to_tags(7, label_result)
     assert len(tags) == 2
-    assert tags[0] == {
-        "extraction_run_id": 7, "tag_type": "label", "value": "governance",
-        "anchor_text": "the city council", "context": "As mandated by the city council in 2019...",
-        "match_score": 0.92, "rationale": "Discusses local governance policy.", "verified": True,
-    }
+    assert tags[0] == main._tag(
+        extraction_run_id=7, tag_type="label", value="governance",
+        anchor_text="the city council", context="As mandated by the city council in 2019...",
+        match_score=0.92, rationale="Discusses local governance policy.", verified=True,
+    )
     assert tags[1]["value"] == "empirical_urban_environment"
     assert tags[1]["verified"] is False  # UNVERIFIED decisions are not "YES"
 
+    # entities_to_tags() flattens each entity's per-field {value, context, ...}
+    # dicts into one tag row per field, clustered by a shared group_id — and
+    # skips flat (non-dict) fields like "type".
+    entity_result = {"entities": [
+        {
+            "type": "Building",
+            "name": {"value": "Casa Verde", "context": "the Casa Verde building", "context_verified": True, "context_match_score": 0.95},
+            "city": {"value": "Lisbon", "context": None, "context_verified": None, "context_match_score": None},
+        },
+        {"name": {"value": "Building B", "context": "Building B was studied", "context_verified": False, "context_match_score": 0.2}},
+    ]}
+    entity_tags = main.entities_to_tags(7, entity_result)
+    assert len(entity_tags) == 3  # name+city for entity 0, name for entity 1 ("type" is skipped)
+    assert entity_tags[0]["group_id"] == 0 and entity_tags[0]["field"] == "name" and entity_tags[0]["value"] == "Casa Verde"
+    assert entity_tags[1]["group_id"] == 0 and entity_tags[1]["field"] == "city"
+    assert entity_tags[2]["group_id"] == 1 and entity_tags[2]["value"] == "Building B"
+
+    # design_strategies_to_tags() / ecosystem_services_to_tags() put
+    # implementation_details/vocab_top_matches in extra_data, not flat columns.
+    design_result = {"design_strategies": [{
+        "name": "green roof", "anchor_text": "extensive green roof", "context": "an extensive green roof was installed",
+        "anchor_verified": True, "anchor_match_score": 0.88,
+        "implementation_details": ["30cm substrate depth"], "vocab_top_matches": [{"name": "green roof", "score": 0.99}],
+    }]}
+    design_tags = main.design_strategies_to_tags(7, design_result)
+    assert design_tags[0]["tag_type"] == "design_strategy"
+    assert design_tags[0]["extra_data"] == {
+        "implementation_details": ["30cm substrate depth"],
+        "vocab_top_matches": [{"name": "green roof", "score": 0.99}],
+    }
+
+    eco_result = {"ecosystem_services": [{
+        "name": "stormwater retention", "category": "regulating", "anchor_text": "retains stormwater",
+        "context": "the system retains stormwater during peak rainfall", "anchor_verified": True, "anchor_match_score": 0.81,
+        "vocab_top_matches": [{"name": "stormwater retention", "score": 0.97, "category": "regulating"}],
+    }]}
+    eco_tags = main.ecosystem_services_to_tags(7, eco_result)
+    assert eco_tags[0]["tag_type"] == "ecosystem_service" and eco_tags[0]["category"] == "regulating"
+
+    # extraction_result_to_tags() combines all four mappers over one result dict.
+    combined_result = {**label_result, **entity_result, **design_result, **eco_result}
+    combined_tags = main.extraction_result_to_tags(7, combined_result)
+    assert len(combined_tags) == len(tags) + len(entity_tags) + len(design_tags) + len(eco_tags)
+
     # Happy path: download succeeds, extraction service accepts it -> "done",
-    # its result JSON is persisted to the (fake) database, and its labels land
-    # in the tags table too, not just as raw_result JSON.
+    # its result JSON is persisted to the (fake) database, and every extractor's
+    # output (labels, entities, design strategies, ecosystem services) lands in
+    # the tags table too, not just as raw_result JSON.
     cursor = FakeCursor([{"id": 1, "title": "A", "authors": [], "query": "q", "open_access": True, "pdf_url": "http://x/a.pdf"}])
     run_id = main.create_run(cursor, 1, "downloading")
     with patch("main.get_db_connection", lambda: FakeConnection(cursor)), \
          patch("main.download_pdf", lambda url: b"%PDF-1.4 fake"), \
-         patch("main.notify_extraction", lambda paper_id, pdf_bytes: label_result):
+         patch("main.notify_extraction", lambda paper_id, pdf_bytes: combined_result):
         main.run_extraction(run_id, 1)
     run = cursor._latest_run(1)
     assert run["status"] == "done"
-    assert run["raw_result"] == label_result
+    assert run["raw_result"] == combined_result
     assert run["finished_at"] is not None
-    assert cursor._tags == main.labels_to_tags(run_id, label_result)
+    assert cursor._tags == main.extraction_result_to_tags(run_id, combined_result)
 
     # No pdf_url on record -> "failed" without ever calling the network.
     cursor = FakeCursor([{"id": 2, "title": "B", "authors": [], "query": "q", "open_access": False, "pdf_url": None}])

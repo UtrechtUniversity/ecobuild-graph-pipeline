@@ -422,32 +422,104 @@ def _update_run(run_id: int, **fields) -> None:
             update_run(cursor, run_id, **fields)
 
 
+_TAG_FIELDS = [
+    "extraction_run_id", "tag_type", "group_id", "field", "value", "category",
+    "anchor_text", "context", "match_score", "rationale", "verified", "extra_data",
+]
+
+
+def _tag(**fields) -> dict:
+    """A tags-table row, defaulted to None for any column a given extractor doesn't use."""
+    tag = dict.fromkeys(_TAG_FIELDS)
+    tag.update(fields)
+    return tag
+
+
 def labels_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
-    """Flattens the knowledge-extraction service's {"labels": {section: [decision, ...]}} shape into tag rows."""
+    """Flattens {"labels": {section: [decision, ...]}} into one tag row per label decision."""
+    return [
+        _tag(
+            extraction_run_id=extraction_run_id, tag_type="label",
+            value=decision.get("label"), anchor_text=decision.get("anchor_text"),
+            context=decision.get("context"), match_score=decision.get("match_score"),
+            rationale=decision.get("rationale"), verified=decision.get("verdict") == "YES",
+        )
+        for decisions in result.get("labels", {}).values()
+        for decision in decisions
+    ]
+
+
+def entities_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
+    """Flattens {"entities": [{field: {value, context, context_verified, ...}}]} into one tag row per verified field.
+
+    Each entity's fields share a group_id (their index in the list) so the
+    review UI can cluster them back into a single card.
+    """
     tags = []
-    for decisions in result.get("labels", {}).values():
-        for decision in decisions:
-            tags.append({
-                "extraction_run_id": extraction_run_id,
-                "tag_type": "label",
-                "value": decision.get("label"),
-                "anchor_text": decision.get("anchor_text"),
-                "context": decision.get("context"),
-                "match_score": decision.get("match_score"),
-                "rationale": decision.get("rationale"),
-                "verified": decision.get("verdict") == "YES",
-            })
+    for group_id, entity in enumerate(result.get("entities", [])):
+        for field_name, field_data in entity.items():
+            if not isinstance(field_data, dict) or "value" not in field_data:
+                continue
+            tags.append(_tag(
+                extraction_run_id=extraction_run_id, tag_type="entity", group_id=group_id,
+                field=field_name, value=field_data.get("value"), context=field_data.get("context"),
+                match_score=field_data.get("context_match_score"), verified=field_data.get("context_verified"),
+            ))
     return tags
+
+
+def design_strategies_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
+    """Flattens {"design_strategies": [...]} into one tag row per strategy."""
+    return [
+        _tag(
+            extraction_run_id=extraction_run_id, tag_type="design_strategy",
+            value=strategy.get("name"), anchor_text=strategy.get("anchor_text"),
+            context=strategy.get("context"), match_score=strategy.get("anchor_match_score"),
+            verified=strategy.get("anchor_verified"),
+            extra_data={
+                "implementation_details": strategy.get("implementation_details"),
+                "vocab_top_matches": strategy.get("vocab_top_matches"),
+            },
+        )
+        for strategy in result.get("design_strategies", [])
+    ]
+
+
+def ecosystem_services_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
+    """Flattens {"ecosystem_services": [...]} into one tag row per service."""
+    return [
+        _tag(
+            extraction_run_id=extraction_run_id, tag_type="ecosystem_service",
+            value=service.get("name"), category=service.get("category"),
+            anchor_text=service.get("anchor_text"), context=service.get("context"),
+            match_score=service.get("anchor_match_score"), verified=service.get("anchor_verified"),
+            extra_data={"vocab_top_matches": service.get("vocab_top_matches")},
+        )
+        for service in result.get("ecosystem_services", [])
+    ]
+
+
+def extraction_result_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
+    """Maps every extractor's output in a completed run's result JSON into tag rows."""
+    return (
+        labels_to_tags(extraction_run_id, result)
+        + entities_to_tags(extraction_run_id, result)
+        + design_strategies_to_tags(extraction_run_id, result)
+        + ecosystem_services_to_tags(extraction_run_id, result)
+    )
 
 
 def insert_tags(cursor: psycopg.Cursor, tags: list[dict]) -> None:
     for tag in tags:
+        params = {**tag, "extra_data": Jsonb(tag["extra_data"]) if tag.get("extra_data") is not None else None}
         cursor.execute(
             """
-            INSERT INTO tags (extraction_run_id, tag_type, value, anchor_text, context, match_score, rationale, verified)
-            VALUES (%(extraction_run_id)s, %(tag_type)s, %(value)s, %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s)
+            INSERT INTO tags (extraction_run_id, tag_type, group_id, field, value, category,
+                               anchor_text, context, match_score, rationale, verified, extra_data)
+            VALUES (%(extraction_run_id)s, %(tag_type)s, %(group_id)s, %(field)s, %(value)s, %(category)s,
+                    %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s, %(extra_data)s)
             """,
-            tag,
+            params,
         )
 
 
@@ -526,7 +598,7 @@ def run_extraction(run_id: int, paper_id: int) -> None:
         return
 
     _update_run(run_id, status="done", raw_result=result, finished=True)
-    _insert_tags(labels_to_tags(run_id, result))
+    _insert_tags(extraction_result_to_tags(run_id, result))
 
 
 class PaperExtractRequest(BaseModel):

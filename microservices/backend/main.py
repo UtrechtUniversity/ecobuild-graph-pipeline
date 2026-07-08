@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from uuid import uuid4
 from datetime import datetime, timedelta
+import asyncio
 import os
 import json
 import shutil
@@ -278,17 +279,17 @@ def _crawler_request(method: str, path: str, body: dict | None = None) -> dict:
 
 @app.get("/crawler/status")
 async def get_crawler_status():
-    return _crawler_request("GET", "/status")
+    return await asyncio.to_thread(_crawler_request, "GET", "/status")
 
 
 @app.post("/crawler/start")
 async def start_crawler():
-    return _crawler_request("POST", "/start")
+    return await asyncio.to_thread(_crawler_request, "POST", "/start")
 
 
 @app.post("/crawler/stop")
 async def stop_crawler():
-    return _crawler_request("POST", "/stop")
+    return await asyncio.to_thread(_crawler_request, "POST", "/stop")
 
 
 class QueryCreate(BaseModel):
@@ -297,17 +298,17 @@ class QueryCreate(BaseModel):
 
 @app.get("/crawler/queries")
 async def list_crawler_queries():
-    return _crawler_request("GET", "/queries")
+    return await asyncio.to_thread(_crawler_request, "GET", "/queries")
 
 
 @app.post("/crawler/queries")
 async def create_crawler_query(body: QueryCreate):
-    return _crawler_request("POST", "/queries", body.model_dump())
+    return await asyncio.to_thread(_crawler_request, "POST", "/queries", body.model_dump())
 
 
 @app.delete("/crawler/queries/{query_id}")
 async def delete_crawler_query(query_id: int):
-    return _crawler_request("DELETE", f"/queries/{query_id}")
+    return await asyncio.to_thread(_crawler_request, "DELETE", f"/queries/{query_id}")
 
 
 # --- PAPERS & KNOWLEDGE EXTRACTION ---
@@ -341,10 +342,14 @@ def _is_reachable(url: str, timeout: float = 2.0) -> bool:
 
 @app.get("/health")
 async def health():
+    crawler, knowledge_extraction = await asyncio.gather(
+        asyncio.to_thread(_is_reachable, f"{CRAWLER_URL}/status"),
+        asyncio.to_thread(_is_reachable, EXTRACTION_URL),
+    )
     return {
         "backend": True,
-        "crawler": _is_reachable(f"{CRAWLER_URL}/status"),
-        "knowledge_extraction": _is_reachable(EXTRACTION_URL),
+        "crawler": crawler,
+        "knowledge_extraction": knowledge_extraction,
     }
 
 # paper_id -> {"status": pending|downloading|extracting|done|failed, "error": str | None}

@@ -43,6 +43,7 @@ function highlightQueryMatches(query: string, title: string): React.ReactNode {
 const statusVariant: Record<ExtractionStatus, 'secondary' | 'warning' | 'success' | 'destructive'> = {
   pending: 'secondary',
   downloading: 'warning',
+  downloaded: 'success',
   extracting: 'warning',
   done: 'success',
   failed: 'destructive',
@@ -192,12 +193,12 @@ const PaperList: React.FC = () => {
                       variant={statusVariant[paper.extraction_status]}
                       className="capitalize"
                       title={
-                        paper.extraction_status === 'extracting' && paper.extraction_started_at
+                        spinningStatuses.includes(paper.extraction_status) && paper.extraction_started_at
                           ? formatElapsed(paper.extraction_started_at)
                           : undefined
                       }
                     >
-                      {paper.extraction_status === 'extracting' && <Loader2 className="size-3 animate-spin" />}
+                      {spinningStatuses.includes(paper.extraction_status) && <Loader2 className="size-3 animate-spin" />}
                       {paper.extraction_status}
                     </Badge>
                   </div>

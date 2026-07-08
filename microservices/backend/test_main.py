@@ -87,6 +87,13 @@ class FakeCursor:
             if tag is not None:
                 tag["review_status"] = status
             self._result = (tag_id,) if tag is not None else None
+        elif sql.startswith("UPDATE tags SET edited_value"):
+            edited_value, tag_id = params
+            tag = next((t for t in self._tags if t["id"] == tag_id), None)
+            if tag is not None:
+                tag["edited_value"] = edited_value
+                tag["review_status"] = "edited"
+            self._result = (tag_id,) if tag is not None else None
 
     def fetchall(self):
         return self._result
@@ -213,7 +220,8 @@ def main_() -> None:
     assert run["status"] == "done"
     assert run["raw_result"] == combined_result
     assert run["finished_at"] is not None
-    assert [{k: t[k] for k in main._TAG_FIELDS} for t in cursor._tags] == main.extraction_result_to_tags(run_id, combined_result)
+    inserted_keys = main._TAG_FIELDS + ["review_status", "added_manually"]
+    assert [{k: t[k] for k in inserted_keys} for t in cursor._tags] == main.extraction_result_to_tags(run_id, combined_result)
 
     # get_latest_done_run_id() + get_tags() are what GET /papers/{id}/results now
     # reads from — every inserted tag should come back with its DB-side defaults.
@@ -232,6 +240,27 @@ def main_() -> None:
     assert rejected["review_status"] == "rejected"
     assert len(cursor._tags) == len(combined_tags)  # nothing was deleted
     assert main.update_tag_review_status(cursor, 999999, "accepted") is False  # unknown id -> not found
+
+    # update_tag_value() records a correction as edited_value, leaving the
+    # original extractor "value" untouched, and marks review_status "edited".
+    another_tag_id = read_tags[1]["id"]
+    original_value = next(t for t in cursor._tags if t["id"] == another_tag_id)["value"]
+    assert main.update_tag_value(cursor, another_tag_id, "Corrected Name") is True
+    edited = next(t for t in cursor._tags if t["id"] == another_tag_id)
+    assert edited["edited_value"] == "Corrected Name"
+    assert edited["value"] == original_value  # original is never overwritten
+    assert edited["review_status"] == "edited"
+    assert main.update_tag_value(cursor, 999999, "x") is False  # unknown id -> not found
+
+    # add_manual_tag() creates a tag with added_manually=True and
+    # review_status "accepted" straight away — a human just typed it in,
+    # there's nothing left to review.
+    before_count = len(cursor._tags)
+    manual_tag = main.add_manual_tag(cursor, run_id, "design_strategy", "rainwater cistern")
+    assert manual_tag["added_manually"] is True and manual_tag["review_status"] == "accepted"
+    assert len(cursor._tags) == before_count + 1
+    stored_manual = next(t for t in cursor._tags if t["value"] == "rainwater cistern")
+    assert stored_manual["tag_type"] == "design_strategy" and stored_manual["added_manually"] is True
 
     # No pdf_url on record -> "failed" without ever calling the network.
     cursor = FakeCursor([{"id": 2, "title": "B", "authors": [], "query": "q", "open_access": False, "pdf_url": None}])

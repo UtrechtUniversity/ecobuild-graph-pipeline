@@ -429,10 +429,12 @@ _TAG_FIELDS = [
 ]
 
 
-def _tag(**fields) -> dict:
+def _tag(*, review_status: str = "pending", added_manually: bool = False, **fields) -> dict:
     """A tags-table row, defaulted to None for any column a given extractor doesn't use."""
     tag = dict.fromkeys(_TAG_FIELDS)
     tag.update(fields)
+    tag["review_status"] = review_status
+    tag["added_manually"] = added_manually
     return tag
 
 
@@ -516,9 +518,11 @@ def insert_tags(cursor: psycopg.Cursor, tags: list[dict]) -> None:
         cursor.execute(
             """
             INSERT INTO tags (extraction_run_id, tag_type, group_id, field, value, category,
-                               anchor_text, context, match_score, rationale, verified, extra_data)
+                               anchor_text, context, match_score, rationale, verified, extra_data,
+                               review_status, added_manually)
             VALUES (%(extraction_run_id)s, %(tag_type)s, %(group_id)s, %(field)s, %(value)s, %(category)s,
-                    %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s, %(extra_data)s)
+                    %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s, %(extra_data)s,
+                    %(review_status)s, %(added_manually)s)
             """,
             params,
         )
@@ -682,6 +686,56 @@ async def review_tag(tag_id: int, body: TagReviewRequest):
     if not found:
         raise HTTPException(status_code=404, detail="Tag not found")
     return {"id": tag_id, "review_status": body.status}
+
+
+def update_tag_value(cursor: psycopg.Cursor, tag_id: int, edited_value: str) -> bool:
+    """Records a reviewer's correction without touching the original extractor value. Returns whether the tag existed."""
+    cursor.execute(
+        "UPDATE tags SET edited_value = %s, review_status = 'edited' WHERE id = %s RETURNING id",
+        (edited_value, tag_id),
+    )
+    return cursor.fetchone() is not None
+
+
+class TagEditRequest(BaseModel):
+    value: str
+
+
+@app.post("/tags/{tag_id}/edit")
+async def edit_tag(tag_id: int, body: TagEditRequest):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            found = update_tag_value(cursor, tag_id, body.value)
+    if not found:
+        raise HTTPException(status_code=404, detail="Tag not found")
+    return {"id": tag_id, "edited_value": body.value, "review_status": "edited"}
+
+
+def add_manual_tag(cursor: psycopg.Cursor, extraction_run_id: int, tag_type: str, value: str) -> dict:
+    """A reviewer-added tag needs no review (a human just typed it), so it starts 'accepted'."""
+    tag = _tag(
+        extraction_run_id=extraction_run_id, tag_type=tag_type, value=value,
+        review_status="accepted", added_manually=True,
+    )
+    insert_tags(cursor, [tag])
+    return tag
+
+
+class TagCreateRequest(BaseModel):
+    tag_type: str
+    value: str
+
+
+@app.post("/papers/{paper_id}/tags")
+async def create_paper_tag(paper_id: int, body: TagCreateRequest):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            run_id = get_latest_done_run_id(cursor, paper_id)
+            if run_id is None:
+                raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
+            add_manual_tag(cursor, run_id, body.tag_type, body.value)
+            tags = get_tags(cursor, run_id)
+    return {"tags": tags}
 
 
 # Dummy long-running task

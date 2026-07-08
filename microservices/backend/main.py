@@ -531,6 +531,32 @@ def _insert_tags(tags: list[dict]) -> None:
             insert_tags(cursor, tags)
 
 
+def get_latest_done_run_id(cursor: psycopg.Cursor, paper_id: int) -> int | None:
+    cursor.execute(
+        "SELECT id FROM extraction_runs WHERE paper_id = %s AND status = 'done' ORDER BY id DESC LIMIT 1",
+        (paper_id,),
+    )
+    row = cursor.fetchone()
+    return row[0] if row else None
+
+
+_TAG_READ_COLUMNS = [
+    "id", "tag_type", "group_id", "field", "value", "category", "anchor_text", "context",
+    "match_score", "rationale", "verified", "extra_data", "review_status", "edited_value", "added_manually",
+]
+
+
+def get_tags(cursor: psycopg.Cursor, extraction_run_id: int) -> list[dict]:
+    cursor.execute(
+        f"""
+        SELECT {", ".join(_TAG_READ_COLUMNS)}
+        FROM tags WHERE extraction_run_id = %s ORDER BY id
+        """,
+        (extraction_run_id,),
+    )
+    return [dict(zip(_TAG_READ_COLUMNS, row)) for row in cursor.fetchall()]
+
+
 def get_paper(cursor: psycopg.Cursor, paper_id: int) -> dict | None:
     cursor.execute("SELECT pdf_url FROM papers WHERE id = %s", (paper_id,))
     row = cursor.fetchone()
@@ -630,18 +656,11 @@ async def extract_papers(body: PaperExtractRequest, background_tasks: Background
 async def get_paper_results(paper_id: int):
     with get_db_connection() as connection:
         with connection.cursor() as cursor:
-            cursor.execute(
-                """
-                SELECT raw_result FROM extraction_runs
-                WHERE paper_id = %s AND status = 'done'
-                ORDER BY id DESC LIMIT 1
-                """,
-                (paper_id,),
-            )
-            row = cursor.fetchone()
-    if row is None:
-        raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
-    return row[0] or {}
+            run_id = get_latest_done_run_id(cursor, paper_id)
+            if run_id is None:
+                raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
+            tags = get_tags(cursor, run_id)
+    return {"tags": tags}
 
 
 # Dummy long-running task

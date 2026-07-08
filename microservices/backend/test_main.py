@@ -16,6 +16,7 @@ class FakeCursor:
         self._runs = runs if runs is not None else []
         self._tags = []
         self._next_run_id = max((r["id"] for r in self._runs), default=0) + 1
+        self._next_tag_id = 1
         self._result = None
 
     def _latest_run(self, paper_id):
@@ -59,11 +60,27 @@ class FakeCursor:
         elif sql.startswith("SELECT raw_result FROM extraction_runs"):
             done_runs = [r for r in self._runs if r["paper_id"] == params[0] and r["status"] == "done"]
             self._result = (done_runs[-1]["raw_result"],) if done_runs else None
+        elif sql.startswith("SELECT id FROM extraction_runs"):
+            done_runs = [r for r in self._runs if r["paper_id"] == params[0] and r["status"] == "done"]
+            self._result = (done_runs[-1]["id"],) if done_runs else None
         elif sql.startswith("INSERT INTO tags"):
             tag = dict(params)
             if tag.get("extra_data") is not None and hasattr(tag["extra_data"], "obj"):
                 tag["extra_data"] = tag["extra_data"].obj
+            tag["id"] = self._next_tag_id
+            self._next_tag_id += 1
+            tag.setdefault("review_status", "pending")
+            tag.setdefault("edited_value", None)
+            tag.setdefault("added_manually", False)
             self._tags.append(tag)
+        elif sql.startswith("SELECT id, tag_type"):
+            run_id = params[0]
+            rows = [
+                tuple(tag[col] for col in main._TAG_READ_COLUMNS)
+                for tag in self._tags
+                if tag["extraction_run_id"] == run_id
+            ]
+            self._result = rows
 
     def fetchall(self):
         return self._result
@@ -190,7 +207,16 @@ def main_() -> None:
     assert run["status"] == "done"
     assert run["raw_result"] == combined_result
     assert run["finished_at"] is not None
-    assert cursor._tags == main.extraction_result_to_tags(run_id, combined_result)
+    assert [{k: t[k] for k in main._TAG_FIELDS} for t in cursor._tags] == main.extraction_result_to_tags(run_id, combined_result)
+
+    # get_latest_done_run_id() + get_tags() are what GET /papers/{id}/results now
+    # reads from — every inserted tag should come back with its DB-side defaults.
+    found_run_id = main.get_latest_done_run_id(cursor, 1)
+    assert found_run_id == run_id
+    read_tags = main.get_tags(cursor, found_run_id)
+    assert len(read_tags) == len(combined_tags)
+    assert {t["tag_type"] for t in read_tags} == {"label", "entity", "design_strategy", "ecosystem_service"}
+    assert all(t["review_status"] == "pending" and t["added_manually"] is False for t in read_tags)
 
     # No pdf_url on record -> "failed" without ever calling the network.
     cursor = FakeCursor([{"id": 2, "title": "B", "authors": [], "query": "q", "open_access": False, "pdf_url": None}])

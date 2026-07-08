@@ -1,11 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
+
+interface Tag {
+  id: number;
+  tag_type: string;
+  group_id: number | null;
+  field: string | null;
+  value: string | null;
+  category: string | null;
+  anchor_text: string | null;
+  context: string | null;
+  match_score: number | null;
+  rationale: string | null;
+  verified: boolean | null;
+  extra_data: Record<string, unknown> | null;
+  review_status: 'pending' | 'accepted' | 'rejected' | 'edited';
+  edited_value: string | null;
+  added_manually: boolean;
+}
+
+function humanizeTagType(tagType: string): string {
+  return tagType.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+}
+
+function groupByType(tags: Tag[]): [string, Tag[]][] {
+  const groups = new Map<string, Tag[]>();
+  for (const tag of tags) {
+    const group = groups.get(tag.tag_type) ?? [];
+    group.push(tag);
+    groups.set(tag.tag_type, group);
+  }
+  return Array.from(groups.entries());
+}
+
+function ConfidenceBadge({ tag }: { tag: Tag }) {
+  if (tag.verified === true) return <Badge variant="success">Verified</Badge>;
+  if (tag.verified === false) return <Badge variant="warning">Unverified</Badge>;
+  return <Badge variant="outline">N/A</Badge>;
+}
+
+function TagRow({ tag }: { tag: Tag }) {
+  return (
+    <details className="rounded-md border border-input bg-card px-3 py-2">
+      <summary className="flex cursor-pointer items-center justify-between gap-2 text-sm">
+        <span className="font-medium">{tag.value ?? '(no value)'}</span>
+        <span className="flex items-center gap-2">
+          {tag.category && <Badge variant="outline">{tag.category}</Badge>}
+          {tag.field && <Badge variant="outline">{tag.field}</Badge>}
+          <ConfidenceBadge tag={tag} />
+        </span>
+      </summary>
+      <div className="mt-2 flex flex-col gap-1 border-t border-input pt-2 text-xs text-muted-foreground">
+        {tag.context && <p><span className="font-medium text-foreground">Context: </span>{tag.context}</p>}
+        {tag.anchor_text && <p><span className="font-medium text-foreground">Anchor: </span>{tag.anchor_text}</p>}
+        {tag.rationale && <p><span className="font-medium text-foreground">Rationale: </span>{tag.rationale}</p>}
+        {tag.match_score !== null && (
+          <p><span className="font-medium text-foreground">Match score: </span>{tag.match_score.toFixed(2)}</p>
+        )}
+      </div>
+    </details>
+  );
+}
+
+function TagGroup({ tagType, tags }: { tagType: string; tags: Tag[] }) {
+  return (
+    <details className="rounded-md border border-input bg-card">
+      <summary className="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 font-serif text-base font-semibold">
+        <span>{humanizeTagType(tagType)}</span>
+        <Badge variant="secondary">{tags.length}</Badge>
+      </summary>
+      <div className="flex flex-col gap-2 border-t border-input p-3">
+        {tags.map((tag) => <TagRow key={tag.id} tag={tag} />)}
+      </div>
+    </details>
+  );
+}
 
 const PaperReview: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [results, setResults] = useState<Record<string, unknown> | null>(null);
+  const [tags, setTags] = useState<Tag[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,7 +93,8 @@ const PaperReview: React.FC = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        setResults(await response.json());
+        const data: { tags: Tag[] } = await response.json();
+        setTags(data.tags);
         setError(null);
       } catch (err) {
         console.error(`Failed to fetch results for paper ${id}:`, err);
@@ -41,19 +117,13 @@ const PaperReview: React.FC = () => {
 
       {loading && <p className="text-sm text-muted-foreground">Loading results…</p>}
       {error && <p className="text-sm text-destructive">{error}</p>}
+      {tags && tags.length === 0 && <p className="text-sm text-muted-foreground">No tags extracted for this paper.</p>}
 
-      {results && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Results</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <pre className="max-h-125 overflow-auto rounded-md bg-muted p-3 font-mono text-xs whitespace-pre-wrap break-all">
-              {JSON.stringify(results, null, 2)}
-            </pre>
-          </CardContent>
-        </Card>
-      )}
+      <div className="flex flex-col gap-4">
+        {tags && groupByType(tags).map(([tagType, groupTags]) => (
+          <TagGroup key={tagType} tagType={tagType} tags={groupTags} />
+        ))}
+      </div>
     </div>
   );
 };

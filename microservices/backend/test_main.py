@@ -65,14 +65,17 @@ def main_() -> None:
         "pdf_url": "http://x/a.pdf", "extraction_status": "pending", "extraction_error": None,
     }]
 
-    # Happy path: download succeeds, extraction service accepts it -> "done".
+    # Happy path: download succeeds, extraction service accepts it -> "done",
+    # and its result JSON is stored for later retrieval.
     main.extraction_status.clear()
+    main.extraction_results.clear()
     cursor = FakeCursor([{"id": 1, "title": "A", "authors": [], "query": "q", "open_access": True, "pdf_url": "http://x/a.pdf"}])
     with patch("main.get_db_connection", lambda: FakeConnection(cursor)), \
          patch("main.download_pdf", lambda url: b"%PDF-1.4 fake"), \
-         patch("main.notify_extraction", lambda paper_id, pdf_bytes: None):
+         patch("main.notify_extraction", lambda paper_id, pdf_bytes: {"Intro": [{"label": "x"}]}):
         main.run_extraction(1)
     assert main.extraction_status[1] == {"status": "done", "error": None}
+    assert main.extraction_results[1] == {"Intro": [{"label": "x"}]}
 
     # No pdf_url on record -> "failed" without ever calling the network.
     main.extraction_status.clear()

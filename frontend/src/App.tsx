@@ -14,9 +14,9 @@ function App() {
         <header className="border-b border-border bg-card">
           <div className="mx-auto flex max-w-5xl items-center gap-3 px-6 py-4">
             <FlaskConical className="size-6 text-primary" />
-            <Link to="/" className="font-serif text-xl font-semibold tracking-tight">
-              EcoBuild Paper Knowledge Extractor
-            </Link>
+            <h1 className="text-xl font-semibold tracking-tight">
+              <Link to="/">EcoBuild Paper Knowledge Extractor</Link>
+            </h1>
           </div>
         </header>
         <main className="mx-auto max-w-5xl px-6 py-8">

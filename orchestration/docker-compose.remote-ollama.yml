@@ -1,19 +1,37 @@
-# Override for using a remote Ollama instance instead of the local container.
+# Override for using a remote/host Ollama instance instead of the local container.
 #
 # Usage:
 #   docker compose -f docker-compose.yml -f docker-compose.remote-ollama.yml --profile extract up --build knowledge-extraction
 #
 # Make sure OLLAMA_HOST (and OLLAMA_LLM_MODEL / OLLAMA_EMBEDDING_MODEL) in .env
-# point at the remote Ollama server.
+# point at the remote Ollama server. For a host-local Ollama bound to
+# 127.0.0.1 (the common case), OLLAMA_HOST=http://localhost:<port> works
+# because of network_mode: host below — host.docker.internal only reaches
+# services bound to 0.0.0.0, not loopback-only ones.
 
 services:
   ollama: !reset null
 
   knowledge-extraction:
+    network_mode: host
+    ports: !reset null
     depends_on: !override
       document-db:
         condition: service_healthy
       neo4j:
         condition: service_healthy
+    environment:
+      # document-db/neo4j are also reached via host-mapped ports under host
+      # networking, since the container is off the compose bridge network
+      # (api-backend's http://knowledge-extraction:8001 won't resolve here
+      # either — point a locally-run backend at http://localhost:8002 instead).
+      DB_HOST: localhost
+      DB_PORT: 5433
+      NEO4J_URI: bolt://localhost:7687
+    # Host networking means no port mapping — bind directly to 8002 so it
+    # doesn't collide with paper-crawler's local dev server on 8001.
+    entrypoint: [ "/bin/sh", "-c", "python /app/scripts/pull_model.py && poetry run uvicorn src.service:app --host 0.0.0.0 --port 8002" ]
+    healthcheck:
+      test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8002/health')" ]
     volumes:
       - /home/devuser/Projects/ecobuild-testdata:/app/test_papers/test_papers

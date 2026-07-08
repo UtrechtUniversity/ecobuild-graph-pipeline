@@ -14,6 +14,16 @@ CREATE TABLE papers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP    /*timestamp*/
 );
 
+CREATE TABLE extraction_runs (
+    id SERIAL PRIMARY KEY,
+    paper_id INT NOT NULL REFERENCES papers(id),
+    status TEXT NOT NULL,                              /*pending|downloading|downloaded|extracting|done|failed*/
+    error TEXT,                                        /*error message, set when status = failed*/
+    raw_result JSONB,                                  /*knowledge-extraction's result JSON, set when status = done*/
+    started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    finished_at TIMESTAMP                              /*set once status reaches done or failed*/
+);
+
 CREATE TABLE search_queries (
     id SERIAL PRIMARY KEY,
     query TEXT NOT NULL UNIQUE,                        /*the search query the crawler runs*/

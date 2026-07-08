@@ -113,7 +113,15 @@ services:
     volumes:
       # Added for checking local pdfs and getting preprocessed results
       - ../microservices/knowledge-extraction/test_papers:/app/test_papers
-    entrypoint: [ "/bin/sh", "-c", "python /app/scripts/pull_model.py && poetry run python -m src.main" ]
+    # Pull the configured models before serving; the extraction API itself
+    # is the Dockerfile's default ENTRYPOINT (uvicorn src.service:app).
+    entrypoint: [ "/bin/sh", "-c", "python /app/scripts/pull_model.py && poetry run uvicorn src.service:app --host 0.0.0.0 --port 8001" ]
+    healthcheck:
+      test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   # NEW SERVICE: FastAPI Backend
   api-backend:

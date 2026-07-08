@@ -14,9 +14,9 @@ down:
 	docker compose -f orchestration/docker-compose.yml down
 
 # Starts db + backend + crawler + frontend + knowledge-extraction in the background.
-# extraction is a one-shot batch pipeline (builds its own image, needs neo4j +
-# ollama via the "extract" compose profile), not a long-lived server, but it's
-# backgrounded the same way so `make dev` brings everything up in one go.
+# extraction runs via Docker (builds its own image, needs neo4j + ollama via
+# the "extract" compose profile) rather than poetry, so it's backgrounded the
+# same way so `make dev` brings everything up in one go.
 # `stop` targets the local processes by command substring, and the extraction
 # containers by compose profile, so no pidfile bookkeeping.
 dev: up
@@ -27,7 +27,7 @@ dev: up
 	@echo "backend:  http://localhost:8000  (log: /tmp/backend.log)"
 	@echo "crawler:  http://localhost:8001  (log: /tmp/crawler.log)"
 	@echo "frontend: http://localhost:3000  (log: /tmp/frontend.log)"
-	@echo "extract:  (log: /tmp/extract.log)"
+	@echo "extract:  http://localhost:8002  (log: /tmp/extract.log)"
 
 stop:
 	-pkill -f 'uvicorn main:app'
@@ -37,10 +37,10 @@ stop:
 	@echo "stopped"
 
 status:
-	@ss -ltnp 2>/dev/null | grep -E ':(3000|8000|8001)\b' || echo "nothing on 3000/8000/8001"
+	@ss -ltnp 2>/dev/null | grep -E ':(3000|8000|8001|8002)\b' || echo "nothing on 3000/8000/8001/8002"
 	@docker ps --format '{{.Names}}: {{.Ports}}'
 
-# One-shot batch pipeline, not a long-lived server. Needs neo4j + ollama,
-# hence the "extract" compose profile. Also callable on its own via `make extract`.
+# Serves the extraction API via Docker. Needs neo4j + ollama, hence the
+# "extract" compose profile. Also callable on its own via `make extract`.
 extract:
 	$(MAKE) -C microservices/knowledge-extraction dev

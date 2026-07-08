@@ -12,6 +12,7 @@ import shutil
 import urllib.request
 import urllib.error
 import psycopg
+from psycopg.types.json import Jsonb
 
 # Import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
@@ -352,20 +353,22 @@ async def health():
         "knowledge_extraction": knowledge_extraction,
     }
 
-# paper_id -> {"status": pending|downloading|extracting|done|failed, "error": str | None}
-# ponytail: in-memory, resets on restart. Move to a DB column if status needs to
-# survive a backend restart or be visible to other processes.
-extraction_status: dict[int, dict] = {}
-
-# paper_id -> knowledge-extraction's result JSON (labels, extracted sections, etc.)
-extraction_results: dict[int, dict] = {}
-
-
 def get_papers(cursor: psycopg.Cursor) -> list[dict]:
-    cursor.execute("SELECT id, title, authors, query, open_access, pdf_url FROM papers ORDER BY id")
+    cursor.execute("""
+        SELECT p.id, p.title, p.authors, p.query, p.open_access, p.pdf_url,
+               r.status, r.error, r.started_at
+        FROM papers p
+        LEFT JOIN LATERAL (
+            SELECT status, error, started_at
+            FROM extraction_runs
+            WHERE paper_id = p.id
+            ORDER BY id DESC
+            LIMIT 1
+        ) r ON true
+        ORDER BY p.id
+    """)
     papers = []
-    for paper_id, title, authors, query, open_access, pdf_url in cursor.fetchall():
-        state = extraction_status.get(paper_id, {"status": "pending", "error": None})
+    for paper_id, title, authors, query, open_access, pdf_url, status, error, started_at in cursor.fetchall():
         papers.append({
             "id": paper_id,
             "title": title,
@@ -373,10 +376,50 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
             "query": query,
             "open_access": open_access,
             "pdf_url": pdf_url,
-            "extraction_status": state["status"],
-            "extraction_error": state["error"],
+            "extraction_status": status or "pending",
+            "extraction_error": error,
+            "extraction_started_at": started_at.isoformat() if started_at else None,
         })
     return papers
+
+
+def create_run(cursor: psycopg.Cursor, paper_id: int, status: str) -> int:
+    """Starts a new extraction_runs row for a paper, returning its id."""
+    cursor.execute(
+        "INSERT INTO extraction_runs (paper_id, status) VALUES (%s, %s) RETURNING id",
+        (paper_id, status),
+    )
+    return cursor.fetchone()[0]
+
+
+def update_run(
+    cursor: psycopg.Cursor,
+    run_id: int,
+    *,
+    status: str,
+    error: str | None = None,
+    raw_result: dict | None = None,
+    finished: bool = False,
+) -> None:
+    """Updates an extraction_runs row's status/error/result, stamping finished_at once terminal."""
+    cursor.execute(
+        """
+        UPDATE extraction_runs
+        SET status = %s,
+            error = %s,
+            raw_result = COALESCE(%s, raw_result),
+            finished_at = COALESCE(%s, finished_at)
+        WHERE id = %s
+        """,
+        (status, error, Jsonb(raw_result) if raw_result is not None else None,
+         datetime.now() if finished else None, run_id),
+    )
+
+
+def _update_run(run_id: int, **fields) -> None:
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            update_run(cursor, run_id, **fields)
 
 
 def get_paper(cursor: psycopg.Cursor, paper_id: int) -> dict | None:
@@ -397,47 +440,55 @@ def download_pdf(pdf_url: str) -> bytes:
 
 def notify_extraction(paper_id: int, pdf_bytes: bytes) -> dict:
     """Hands the downloaded PDF off to the knowledge-extraction service, returning its result JSON."""
-    # ponytail: knowledge-extraction has no HTTP API yet (it's still a batch script
-    # over a hardcoded test_papers dir), so this call fails until it grows a
-    # POST /extract endpoint. No changes needed here once it does.
     request = urllib.request.Request(
         f"{EXTRACTION_URL}/extract?paper_id={paper_id}",
         method="POST",
         data=pdf_bytes,
         headers={"Content-Type": "application/pdf"},
     )
-    with urllib.request.urlopen(request, timeout=10) as response:
+    # Runs LLM/embedding calls over the whole paper, so this is minutes, not seconds.
+    with urllib.request.urlopen(request, timeout=300) as response:
         return json.loads(response.read())
 
 
-def run_extraction(paper_id: int) -> None:
-    """Downloads a paper's PDF and hands it to knowledge-extraction, tracking status."""
-    with get_db_connection() as connection:
-        with connection.cursor() as cursor:
-            paper = get_paper(cursor, paper_id)
+def pdf_path(paper_id: int) -> str:
+    return os.path.join(PAPERS_DIR, f"{paper_id}.pdf")
 
-    if not paper or not paper["pdf_url"]:
-        extraction_status[paper_id] = {"status": "failed", "error": "No PDF URL available for this paper"}
-        return
+
+def run_extraction(run_id: int, paper_id: int) -> None:
+    """Downloads a paper's PDF (skipping if already on disk) and hands it to knowledge-extraction, tracking status."""
+    path = pdf_path(paper_id)
+
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            pdf_bytes = f.read()
+    else:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                paper = get_paper(cursor, paper_id)
+
+        if not paper or not paper["pdf_url"]:
+            _update_run(run_id, status="failed", error="No PDF URL available for this paper", finished=True)
+            return
+
+        try:
+            pdf_bytes = download_pdf(paper["pdf_url"])
+        except Exception as e:
+            _update_run(run_id, status="failed", error=f"Download failed: {e}", finished=True)
+            return
+
+        with open(path, "wb") as f:
+            f.write(pdf_bytes)
+
+    _update_run(run_id, status="extracting")
 
     try:
-        pdf_bytes = download_pdf(paper["pdf_url"])
+        result = notify_extraction(paper_id, pdf_bytes)
     except Exception as e:
-        extraction_status[paper_id] = {"status": "failed", "error": f"Download failed: {e}"}
+        _update_run(run_id, status="failed", error=f"Knowledge extraction unreachable: {e}", finished=True)
         return
 
-    with open(os.path.join(PAPERS_DIR, f"{paper_id}.pdf"), "wb") as f:
-        f.write(pdf_bytes)
-
-    extraction_status[paper_id] = {"status": "extracting", "error": None}
-
-    try:
-        extraction_results[paper_id] = notify_extraction(paper_id, pdf_bytes)
-    except Exception as e:
-        extraction_status[paper_id] = {"status": "failed", "error": f"Knowledge extraction unreachable: {e}"}
-        return
-
-    extraction_status[paper_id] = {"status": "done", "error": None}
+    _update_run(run_id, status="done", raw_result=result, finished=True)
 
 
 class PaperExtractRequest(BaseModel):
@@ -456,17 +507,31 @@ async def list_papers():
 
 @app.post("/papers/extract")
 async def extract_papers(body: PaperExtractRequest, background_tasks: BackgroundTasks):
-    for paper_id in body.paper_ids:
-        extraction_status[paper_id] = {"status": "downloading", "error": None}
-        background_tasks.add_task(run_extraction, paper_id)
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            for paper_id in body.paper_ids:
+                status = "downloaded" if os.path.exists(pdf_path(paper_id)) else "downloading"
+                run_id = create_run(cursor, paper_id, status)
+                background_tasks.add_task(run_extraction, run_id, paper_id)
     return {"queued": body.paper_ids}
 
 
 @app.get("/papers/{paper_id}/results")
 async def get_paper_results(paper_id: int):
-    if extraction_status.get(paper_id, {}).get("status") != "done":
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT raw_result FROM extraction_runs
+                WHERE paper_id = %s AND status = 'done'
+                ORDER BY id DESC LIMIT 1
+                """,
+                (paper_id,),
+            )
+            row = cursor.fetchone()
+    if row is None:
         raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
-    return extraction_results.get(paper_id, {})
+    return row[0] or {}
 
 
 # Dummy long-running task

@@ -1,7 +1,7 @@
 # main.py
 
 from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException # Import HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 from typing import Literal
 from uuid import uuid4
@@ -755,6 +755,14 @@ async def create_paper_tag(paper_id: int, body: TagCreateRequest):
             add_manual_tag(cursor, run_id, body.tag_type, body.value)
             tags = get_tags(cursor, run_id)
     return {"tags": tags}
+
+
+@app.get("/papers/{paper_id}/pdf")
+async def get_paper_pdf(paper_id: int):
+    path = pdf_path(paper_id)
+    if not os.path.exists(path):
+        raise HTTPException(status_code=404, detail="No PDF on disk for this paper")
+    return FileResponse(path, media_type="application/pdf")
 
 
 # Dummy long-running task

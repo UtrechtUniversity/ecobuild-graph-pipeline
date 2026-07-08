@@ -16,6 +16,18 @@ interface Paper {
   extraction_error: string | null;
 }
 
+function highlightQueryMatches(query: string, title: string): React.ReactNode {
+  const titleLower = title.toLowerCase();
+  const parts = query.split(/("[^"]*")/g);
+  return parts.map((part, i) => {
+    const phrase = part.replace(/^"|"$/g, '');
+    if (part.startsWith('"') && phrase && titleLower.includes(phrase.toLowerCase())) {
+      return <strong key={i}>{part}</strong>;
+    }
+    return part;
+  });
+}
+
 const statusVariant: Record<ExtractionStatus, 'secondary' | 'warning' | 'success' | 'destructive'> = {
   pending: 'secondary',
   downloading: 'warning',
@@ -148,7 +160,13 @@ const PaperList: React.FC = () => {
                     )}
                     <span className="text-xs text-muted-foreground">
                       {paper.authors.join(', ') || 'Unknown authors'}
-                      {paper.query && ` · found via "${paper.query}"`}
+                      {paper.query && (
+                        <>
+                          {' · found via "'}
+                          {highlightQueryMatches(paper.query, paper.title)}
+                          {'"'}
+                        </>
+                      )}
                     </span>
                     {paper.extraction_status === 'failed' && paper.extraction_error && (
                       <span className="text-xs text-destructive">{paper.extraction_error}</span>

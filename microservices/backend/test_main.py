@@ -14,6 +14,7 @@ class FakeCursor:
     def __init__(self, papers, runs=None):
         self._papers = papers
         self._runs = runs if runs is not None else []
+        self._tags = []
         self._next_run_id = max((r["id"] for r in self._runs), default=0) + 1
         self._result = None
 
@@ -58,6 +59,8 @@ class FakeCursor:
         elif sql.startswith("SELECT raw_result FROM extraction_runs"):
             done_runs = [r for r in self._runs if r["paper_id"] == params[0] and r["status"] == "done"]
             self._result = (done_runs[-1]["raw_result"],) if done_runs else None
+        elif sql.startswith("INSERT INTO tags"):
+            self._tags.append(dict(params))
 
     def fetchall(self):
         return self._result
@@ -99,18 +102,47 @@ def main_() -> None:
         "extraction_started_at": None,
     }]
 
+    # labels_to_tags() flattens the service's {"labels": {section: [decision, ...]}}
+    # shape into one tag row per decision, regardless of how many sections there are.
+    label_result = {
+        "paper_id": 1,
+        "labels": {
+            "Intro": [{
+                "label": "governance", "verdict": "YES", "anchor_text": "the city council",
+                "context": "As mandated by the city council in 2019...", "match_score": 0.92,
+                "rationale": "Discusses local governance policy.",
+            }],
+            "Methods": [{
+                "label": "empirical_urban_environment", "verdict": "UNVERIFIED", "anchor_text": "field measurements",
+                "context": "Field measurements were taken across the site.", "match_score": 0.41,
+                "rationale": None,
+            }],
+        },
+    }
+    tags = main.labels_to_tags(7, label_result)
+    assert len(tags) == 2
+    assert tags[0] == {
+        "extraction_run_id": 7, "tag_type": "label", "value": "governance",
+        "anchor_text": "the city council", "context": "As mandated by the city council in 2019...",
+        "match_score": 0.92, "rationale": "Discusses local governance policy.", "verified": True,
+    }
+    assert tags[1]["value"] == "empirical_urban_environment"
+    assert tags[1]["verified"] is False  # UNVERIFIED decisions are not "YES"
+
     # Happy path: download succeeds, extraction service accepts it -> "done",
-    # and its result JSON is persisted to the (fake) database, not just held in memory.
+    # its result JSON is persisted to the (fake) database, and its labels land
+    # in the tags table too, not just as raw_result JSON.
     cursor = FakeCursor([{"id": 1, "title": "A", "authors": [], "query": "q", "open_access": True, "pdf_url": "http://x/a.pdf"}])
     run_id = main.create_run(cursor, 1, "downloading")
     with patch("main.get_db_connection", lambda: FakeConnection(cursor)), \
          patch("main.download_pdf", lambda url: b"%PDF-1.4 fake"), \
-         patch("main.notify_extraction", lambda paper_id, pdf_bytes: {"Intro": [{"label": "x"}]}):
+         patch("main.notify_extraction", lambda paper_id, pdf_bytes: label_result):
         main.run_extraction(run_id, 1)
     run = cursor._latest_run(1)
     assert run["status"] == "done"
-    assert run["raw_result"] == {"Intro": [{"label": "x"}]}
+    assert run["raw_result"] == label_result
     assert run["finished_at"] is not None
+    assert cursor._tags == main.labels_to_tags(run_id, label_result)
 
     # No pdf_url on record -> "failed" without ever calling the network.
     cursor = FakeCursor([{"id": 2, "title": "B", "authors": [], "query": "q", "open_access": False, "pdf_url": None}])

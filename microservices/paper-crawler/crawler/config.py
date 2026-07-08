@@ -1,3 +1,3 @@
-RATE_LIMIT = 5 # seconds between requests
+RATE_LIMIT = 1 # seconds between requests
 LOG_LEVEL = "INFO"
 

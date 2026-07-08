@@ -2,7 +2,10 @@
 
 Run directly: `poetry run python -m crawler.test_main`
 """
-from crawler.main import add_query, get_queries, remove_query
+import threading
+from unittest.mock import Mock, patch
+
+from crawler.main import add_query, get_queries, handle_query, remove_query
 
 
 class FakeCursor:
@@ -60,5 +63,23 @@ def main() -> None:
     print("crawler.main search_queries self-check passed")
 
 
+def test_handle_query_sleeps_between_every_request() -> None:
+    """Rate limit is cumulative across all requests, including paginated ones."""
+    pages = [
+        Mock(status_code=200, json=lambda: {"total": 2, "data": [], "next": 1}),
+        Mock(status_code=200, json=lambda: {"total": 2, "data": []}),  # no "next": last page
+    ]
+    with patch("crawler.main.session.get", side_effect=pages) as mock_get, \
+         patch("crawler.main.sleep") as mock_sleep:
+        result = handle_query(Mock(), "test query", threading.Event())
+
+    assert result is None
+    assert mock_get.call_count == 2
+    assert mock_sleep.call_count == 2
+
+    print("crawler.main handle_query rate-limit self-check passed")
+
+
 if __name__ == "__main__":
     main()
+    test_handle_query_sleeps_between_every_request()

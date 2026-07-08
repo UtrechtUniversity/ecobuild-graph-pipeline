@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Loader2 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 
-type ExtractionStatus = 'pending' | 'downloading' | 'extracting' | 'done' | 'failed';
+type ExtractionStatus = 'pending' | 'downloading' | 'downloaded' | 'extracting' | 'done' | 'failed';
+
+const spinningStatuses: ExtractionStatus[] = ['downloading', 'extracting'];
 
 interface Paper {
   id: number;
@@ -14,6 +17,15 @@ interface Paper {
   pdf_url: string | null;
   extraction_status: ExtractionStatus;
   extraction_error: string | null;
+  extraction_started_at: string | null;
+}
+
+function formatElapsed(startedAt: string): string {
+  const seconds = Math.max(0, Math.floor((Date.now() - new Date(startedAt).getTime()) / 1000));
+  const minutes = Math.floor(seconds / 60);
+  const elapsed = minutes > 0 ? `${minutes}m ${seconds % 60}s` : `${seconds}s`;
+  const started = new Date(startedAt).toLocaleTimeString();
+  return `Started ${started} · ${elapsed} ago`;
 }
 
 function highlightQueryMatches(query: string, title: string): React.ReactNode {
@@ -176,7 +188,16 @@ const PaperList: React.FC = () => {
                     <Badge variant={paper.open_access ? 'success' : 'outline'}>
                       {paper.open_access ? 'Open access' : 'Closed access'}
                     </Badge>
-                    <Badge variant={statusVariant[paper.extraction_status]} className="capitalize">
+                    <Badge
+                      variant={statusVariant[paper.extraction_status]}
+                      className="capitalize"
+                      title={
+                        paper.extraction_status === 'extracting' && paper.extraction_started_at
+                          ? formatElapsed(paper.extraction_started_at)
+                          : undefined
+                      }
+                    >
+                      {paper.extraction_status === 'extracting' && <Loader2 className="size-3 animate-spin" />}
                       {paper.extraction_status}
                     </Badge>
                   </div>

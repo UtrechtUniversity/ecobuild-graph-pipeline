@@ -365,7 +365,7 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
     cursor.execute("SELECT id, title, authors, query, open_access, pdf_url FROM papers ORDER BY id")
     papers = []
     for paper_id, title, authors, query, open_access, pdf_url in cursor.fetchall():
-        state = extraction_status.get(paper_id, {"status": "pending", "error": None})
+        state = extraction_status.get(paper_id, {"status": "pending", "error": None, "started_at": None})
         papers.append({
             "id": paper_id,
             "title": title,
@@ -375,6 +375,7 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
             "pdf_url": pdf_url,
             "extraction_status": state["status"],
             "extraction_error": state["error"],
+            "extraction_started_at": state.get("started_at"),
         })
     return papers
 
@@ -397,47 +398,56 @@ def download_pdf(pdf_url: str) -> bytes:
 
 def notify_extraction(paper_id: int, pdf_bytes: bytes) -> dict:
     """Hands the downloaded PDF off to the knowledge-extraction service, returning its result JSON."""
-    # ponytail: knowledge-extraction has no HTTP API yet (it's still a batch script
-    # over a hardcoded test_papers dir), so this call fails until it grows a
-    # POST /extract endpoint. No changes needed here once it does.
     request = urllib.request.Request(
         f"{EXTRACTION_URL}/extract?paper_id={paper_id}",
         method="POST",
         data=pdf_bytes,
         headers={"Content-Type": "application/pdf"},
     )
-    with urllib.request.urlopen(request, timeout=10) as response:
+    # Runs LLM/embedding calls over the whole paper, so this is minutes, not seconds.
+    with urllib.request.urlopen(request, timeout=300) as response:
         return json.loads(response.read())
 
 
+def pdf_path(paper_id: int) -> str:
+    return os.path.join(PAPERS_DIR, f"{paper_id}.pdf")
+
+
 def run_extraction(paper_id: int) -> None:
-    """Downloads a paper's PDF and hands it to knowledge-extraction, tracking status."""
-    with get_db_connection() as connection:
-        with connection.cursor() as cursor:
-            paper = get_paper(cursor, paper_id)
+    """Downloads a paper's PDF (skipping if already on disk) and hands it to knowledge-extraction, tracking status."""
+    started_at = extraction_status[paper_id]["started_at"]
+    path = pdf_path(paper_id)
 
-    if not paper or not paper["pdf_url"]:
-        extraction_status[paper_id] = {"status": "failed", "error": "No PDF URL available for this paper"}
-        return
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            pdf_bytes = f.read()
+    else:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                paper = get_paper(cursor, paper_id)
 
-    try:
-        pdf_bytes = download_pdf(paper["pdf_url"])
-    except Exception as e:
-        extraction_status[paper_id] = {"status": "failed", "error": f"Download failed: {e}"}
-        return
+        if not paper or not paper["pdf_url"]:
+            extraction_status[paper_id] = {"status": "failed", "error": "No PDF URL available for this paper", "started_at": started_at}
+            return
 
-    with open(os.path.join(PAPERS_DIR, f"{paper_id}.pdf"), "wb") as f:
-        f.write(pdf_bytes)
+        try:
+            pdf_bytes = download_pdf(paper["pdf_url"])
+        except Exception as e:
+            extraction_status[paper_id] = {"status": "failed", "error": f"Download failed: {e}", "started_at": started_at}
+            return
 
-    extraction_status[paper_id] = {"status": "extracting", "error": None}
+        with open(path, "wb") as f:
+            f.write(pdf_bytes)
+
+    extraction_status[paper_id] = {"status": "extracting", "error": None, "started_at": started_at}
 
     try:
         extraction_results[paper_id] = notify_extraction(paper_id, pdf_bytes)
     except Exception as e:
-        extraction_status[paper_id] = {"status": "failed", "error": f"Knowledge extraction unreachable: {e}"}
+        extraction_status[paper_id] = {"status": "failed", "error": f"Knowledge extraction unreachable: {e}", "started_at": started_at}
         return
 
-    extraction_status[paper_id] = {"status": "done", "error": None}
+    extraction_status[paper_id] = {"status": "done", "error": None, "started_at": started_at}
 
 
 class PaperExtractRequest(BaseModel):
@@ -457,7 +467,8 @@ async def list_papers():
 @app.post("/papers/extract")
 async def extract_papers(body: PaperExtractRequest, background_tasks: BackgroundTasks):
     for paper_id in body.paper_ids:
-        extraction_status[paper_id] = {"status": "downloading", "error": None}
+        status = "downloaded" if os.path.exists(pdf_path(paper_id)) else "downloading"
+        extraction_status[paper_id] = {"status": status, "error": None, "started_at": datetime.now().isoformat()}
         background_tasks.add_task(run_extraction, paper_id)
     return {"queued": body.paper_ids}
 

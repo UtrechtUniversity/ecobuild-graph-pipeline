@@ -22,9 +22,16 @@ services:
         condition: service_healthy
     environment:
       # document-db/neo4j are also reached via host-mapped ports under host
-      # networking, since the container is off the compose bridge network.
+      # networking, since the container is off the compose bridge network
+      # (api-backend's http://knowledge-extraction:8001 won't resolve here
+      # either — point a locally-run backend at http://localhost:8002 instead).
       DB_HOST: localhost
       DB_PORT: 5433
       NEO4J_URI: bolt://localhost:7687
+    # Host networking means no port mapping — bind directly to 8002 so it
+    # doesn't collide with paper-crawler's local dev server on 8001.
+    entrypoint: [ "/bin/sh", "-c", "python /app/scripts/pull_model.py && poetry run uvicorn src.service:app --host 0.0.0.0 --port 8002" ]
+    healthcheck:
+      test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8002/health')" ]
     volumes:
       - /home/devuser/Projects/ecobuild-testdata:/app/test_papers/test_papers

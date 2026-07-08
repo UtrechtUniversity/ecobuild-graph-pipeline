@@ -15,9 +15,9 @@ endif
 install:
 	poetry install --no-root
 
-# One-shot extraction pipeline (not a long-lived server). Needs document-db,
-# neo4j and ollama, and reads PDFs from a path only mounted inside the
-# container, so this runs via the shared compose file instead of poetry directly.
+# Serves the extraction API (POST /extract). Needs document-db, neo4j and
+# ollama, and reads/writes under a path only mounted inside the container,
+# so this runs via the shared compose file instead of poetry directly.
 dev:
 	$(COMPOSE) --profile extract up --build knowledge-extraction
 

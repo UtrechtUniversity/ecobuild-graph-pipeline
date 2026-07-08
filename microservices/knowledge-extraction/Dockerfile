@@ -27,6 +27,9 @@ COPY test_papers ./test_papers
 # Make sure logs show up immediately
 ENV PYTHONUNBUFFERED=1
 
-# Run the pipeline main module via poetry
-ENTRYPOINT ["poetry", "run", "python", "-m", "src.main"]
+EXPOSE 8001
+
+# Serve the extraction API (POST /extract); the batch CLI (src.main) is still
+# runnable directly for local testing over the test_papers directory.
+ENTRYPOINT ["poetry", "run", "uvicorn", "src.service:app", "--host", "0.0.0.0", "--port", "8001"]
 

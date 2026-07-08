@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
@@ -53,9 +54,6 @@ const PaperList: React.FC = () => {
   const [selected, setSelected] = useState<Set<number>>(new Set());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [expandedId, setExpandedId] = useState<number | null>(null);
-  const [results, setResults] = useState<Record<number, Record<string, unknown>>>({});
-  const [resultsError, setResultsError] = useState<string | null>(null);
 
   const fetchPapers = useCallback(async () => {
     try {
@@ -86,25 +84,6 @@ const PaperList: React.FC = () => {
 
   const toggleAll = () => {
     setSelected((prev) => (prev.size === papers.length ? new Set() : new Set(papers.map((p) => p.id))));
-  };
-
-  const toggleExpanded = async (paper: Paper) => {
-    if (expandedId === paper.id) {
-      setExpandedId(null);
-      return;
-    }
-    setExpandedId(paper.id);
-    setResultsError(null);
-    if (results[paper.id]) return;
-    try {
-      const response = await fetch(`http://localhost:8000/papers/${paper.id}/results`);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const data = await response.json();
-      setResults((prev) => ({ ...prev, [paper.id]: data }));
-    } catch (err) {
-      console.error(`Failed to fetch results for paper ${paper.id}:`, err);
-      setResultsError('Failed to load extraction results.');
-    }
   };
 
   const handleExtract = async () => {
@@ -159,17 +138,7 @@ const PaperList: React.FC = () => {
                     onChange={() => toggle(paper.id)}
                   />
                   <div className="flex flex-1 flex-col gap-1">
-                    {extracted ? (
-                      <button
-                        type="button"
-                        onClick={() => toggleExpanded(paper)}
-                        className="text-left font-medium underline-offset-2 hover:underline"
-                      >
-                        {paper.title}
-                      </button>
-                    ) : (
-                      <span className="font-medium">{paper.title}</span>
-                    )}
+                    <span className="font-medium">{paper.title}</span>
                     <span className="text-xs text-muted-foreground">
                       {paper.authors.join(', ') || 'Unknown authors'}
                       {paper.query && (
@@ -200,19 +169,13 @@ const PaperList: React.FC = () => {
                       {paper.extraction_status === 'extracting' && <Loader2 className="size-3 animate-spin" />}
                       {paper.extraction_status}
                     </Badge>
-                  </div>
-                </div>
-                {extracted && expandedId === paper.id && (
-                  <div className="mt-3 border-t border-input pt-3">
-                    {resultsError ? (
-                      <p className="text-sm text-destructive">{resultsError}</p>
-                    ) : (
-                      <pre className="max-h-100 overflow-auto rounded-md bg-muted p-3 font-mono text-xs whitespace-pre-wrap break-all">
-                        {results[paper.id] ? JSON.stringify(results[paper.id], null, 2) : 'Loading…'}
-                      </pre>
+                    {extracted && (
+                      <Button asChild size="sm" variant="outline">
+                        <Link to={`/papers/${paper.id}/review`}>Investigate results</Link>
+                      </Button>
                     )}
                   </div>
-                )}
+                </div>
               </li>
             );
           })}

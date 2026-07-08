@@ -3,6 +3,7 @@
 from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException # Import HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from typing import Literal
 from uuid import uuid4
 from datetime import datetime, timedelta
 import asyncio
@@ -661,6 +662,26 @@ async def get_paper_results(paper_id: int):
                 raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
             tags = get_tags(cursor, run_id)
     return {"tags": tags}
+
+
+def update_tag_review_status(cursor: psycopg.Cursor, tag_id: int, status: str) -> bool:
+    """Sets a tag's review_status (accepted/rejected are both soft — the row is never deleted). Returns whether the tag existed."""
+    cursor.execute("UPDATE tags SET review_status = %s WHERE id = %s RETURNING id", (status, tag_id))
+    return cursor.fetchone() is not None
+
+
+class TagReviewRequest(BaseModel):
+    status: Literal["accepted", "rejected"]
+
+
+@app.post("/tags/{tag_id}/review")
+async def review_tag(tag_id: int, body: TagReviewRequest):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            found = update_tag_review_status(cursor, tag_id, body.status)
+    if not found:
+        raise HTTPException(status_code=404, detail="Tag not found")
+    return {"id": tag_id, "review_status": body.status}
 
 
 # Dummy long-running task

@@ -81,6 +81,12 @@ class FakeCursor:
                 if tag["extraction_run_id"] == run_id
             ]
             self._result = rows
+        elif sql.startswith("UPDATE tags SET review_status"):
+            status, tag_id = params
+            tag = next((t for t in self._tags if t["id"] == tag_id), None)
+            if tag is not None:
+                tag["review_status"] = status
+            self._result = (tag_id,) if tag is not None else None
 
     def fetchall(self):
         return self._result
@@ -217,6 +223,15 @@ def main_() -> None:
     assert len(read_tags) == len(combined_tags)
     assert {t["tag_type"] for t in read_tags} == {"label", "entity", "design_strategy", "ecosystem_service"}
     assert all(t["review_status"] == "pending" and t["added_manually"] is False for t in read_tags)
+
+    # update_tag_review_status() sets review_status without touching anything
+    # else, and never deletes the row (accept/reject are both soft).
+    some_tag_id = read_tags[0]["id"]
+    assert main.update_tag_review_status(cursor, some_tag_id, "rejected") is True
+    rejected = next(t for t in cursor._tags if t["id"] == some_tag_id)
+    assert rejected["review_status"] == "rejected"
+    assert len(cursor._tags) == len(combined_tags)  # nothing was deleted
+    assert main.update_tag_review_status(cursor, 999999, "accepted") is False  # unknown id -> not found
 
     # No pdf_url on record -> "failed" without ever calling the network.
     cursor = FakeCursor([{"id": 2, "title": "B", "authors": [], "query": "q", "open_access": False, "pdf_url": None}])

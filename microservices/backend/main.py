@@ -422,6 +422,43 @@ def _update_run(run_id: int, **fields) -> None:
             update_run(cursor, run_id, **fields)
 
 
+def labels_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
+    """Flattens the knowledge-extraction service's {"labels": {section: [decision, ...]}} shape into tag rows."""
+    tags = []
+    for decisions in result.get("labels", {}).values():
+        for decision in decisions:
+            tags.append({
+                "extraction_run_id": extraction_run_id,
+                "tag_type": "label",
+                "value": decision.get("label"),
+                "anchor_text": decision.get("anchor_text"),
+                "context": decision.get("context"),
+                "match_score": decision.get("match_score"),
+                "rationale": decision.get("rationale"),
+                "verified": decision.get("verdict") == "YES",
+            })
+    return tags
+
+
+def insert_tags(cursor: psycopg.Cursor, tags: list[dict]) -> None:
+    for tag in tags:
+        cursor.execute(
+            """
+            INSERT INTO tags (extraction_run_id, tag_type, value, anchor_text, context, match_score, rationale, verified)
+            VALUES (%(extraction_run_id)s, %(tag_type)s, %(value)s, %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s)
+            """,
+            tag,
+        )
+
+
+def _insert_tags(tags: list[dict]) -> None:
+    if not tags:
+        return
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            insert_tags(cursor, tags)
+
+
 def get_paper(cursor: psycopg.Cursor, paper_id: int) -> dict | None:
     cursor.execute("SELECT pdf_url FROM papers WHERE id = %s", (paper_id,))
     row = cursor.fetchone()
@@ -489,6 +526,7 @@ def run_extraction(run_id: int, paper_id: int) -> None:
         return
 
     _update_run(run_id, status="done", raw_result=result, finished=True)
+    _insert_tags(labels_to_tags(run_id, result))
 
 
 class PaperExtractRequest(BaseModel):

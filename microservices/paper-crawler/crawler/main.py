@@ -81,6 +81,8 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
 
         # send request
         response = session.get(url, params=query_params, headers=headers, timeout=30)
+        # rate limit is cumulative across all requests, so sleep after every one (including the last page)
+        sleep(RATE_LIMIT)
 
         if response.status_code == 200:
             logger.debug(f"Request succesful")
@@ -149,9 +151,6 @@ def run_crawl(stop_event: threading.Event) -> None:
                     raise RuntimeError("rate limiting")
                 elif failure_status is not None:
                     raise RuntimeError(f"request failed (HTTP {failure_status})")
-
-                # sleep to respect rate limit
-                sleep(RATE_LIMIT)
 
 
 if __name__ == "__main__":

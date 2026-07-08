@@ -332,6 +332,9 @@ EXTRACTION_URL = os.getenv("EXTRACTION_URL", "http://knowledge-extraction:8001")
 # survive a backend restart or be visible to other processes.
 extraction_status: dict[int, dict] = {}
 
+# paper_id -> knowledge-extraction's result JSON (labels, extracted sections, etc.)
+extraction_results: dict[int, dict] = {}
+
 
 def get_papers(cursor: psycopg.Cursor) -> list[dict]:
     cursor.execute("SELECT id, title, authors, query, open_access, pdf_url FROM papers ORDER BY id")
@@ -367,8 +370,8 @@ def download_pdf(pdf_url: str) -> bytes:
     return content
 
 
-def notify_extraction(paper_id: int, pdf_bytes: bytes) -> None:
-    """Hands the downloaded PDF off to the knowledge-extraction service."""
+def notify_extraction(paper_id: int, pdf_bytes: bytes) -> dict:
+    """Hands the downloaded PDF off to the knowledge-extraction service, returning its result JSON."""
     # ponytail: knowledge-extraction has no HTTP API yet (it's still a batch script
     # over a hardcoded test_papers dir), so this call fails until it grows a
     # POST /extract endpoint. No changes needed here once it does.
@@ -378,8 +381,8 @@ def notify_extraction(paper_id: int, pdf_bytes: bytes) -> None:
         data=pdf_bytes,
         headers={"Content-Type": "application/pdf"},
     )
-    with urllib.request.urlopen(request, timeout=10):
-        pass
+    with urllib.request.urlopen(request, timeout=10) as response:
+        return json.loads(response.read())
 
 
 def run_extraction(paper_id: int) -> None:
@@ -404,7 +407,7 @@ def run_extraction(paper_id: int) -> None:
     extraction_status[paper_id] = {"status": "extracting", "error": None}
 
     try:
-        notify_extraction(paper_id, pdf_bytes)
+        extraction_results[paper_id] = notify_extraction(paper_id, pdf_bytes)
     except Exception as e:
         extraction_status[paper_id] = {"status": "failed", "error": f"Knowledge extraction unreachable: {e}"}
         return
@@ -432,6 +435,13 @@ async def extract_papers(body: PaperExtractRequest, background_tasks: Background
         extraction_status[paper_id] = {"status": "downloading", "error": None}
         background_tasks.add_task(run_extraction, paper_id)
     return {"queued": body.paper_ids}
+
+
+@app.get("/papers/{paper_id}/results")
+async def get_paper_results(paper_id: int):
+    if extraction_status.get(paper_id, {}).get("status") != "done":
+        raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
+    return extraction_results.get(paper_id, {})
 
 
 # Dummy long-running task

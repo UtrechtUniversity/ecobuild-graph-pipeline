@@ -1,8 +1,9 @@
-.PHONY: install up down dev stop status
+.PHONY: install up down dev stop status extract
 
 install:
 	$(MAKE) -C microservices/backend install
 	$(MAKE) -C microservices/paper-crawler install
+	$(MAKE) -C microservices/knowledge-extraction install
 	$(MAKE) -C frontend install
 
 # Postgres etc., via the orchestration compose file.
@@ -31,3 +32,8 @@ stop:
 status:
 	@ss -ltnp 2>/dev/null | grep -E ':(3000|8000|8001)\b' || echo "nothing on 3000/8000/8001"
 	@docker ps --format '{{.Names}}: {{.Ports}}'
+
+# One-shot batch pipeline, not a long-lived server, so it's run separately
+# from `dev`/`stop`. Needs neo4j + ollama, hence the "extract" compose profile.
+extract:
+	$(MAKE) -C microservices/knowledge-extraction dev

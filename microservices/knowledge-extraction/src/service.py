@@ -8,6 +8,7 @@ import logging
 import os
 from contextlib import asynccontextmanager
 
+import pymupdf
 from fastapi import FastAPI, HTTPException, Request
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
@@ -58,6 +59,36 @@ def health():
     return {"status": "ok"}
 
 
+def _locate_in_pdf(doc: pymupdf.Document, text: str | None) -> dict | None:
+    """Finds `text`'s first page + bounding box in the PDF, or None if not found (e.g. no text layer)."""
+    if not text:
+        return None
+    for page_index in range(len(doc)):
+        rects = doc[page_index].search_for(text)
+        if rects:
+            r = rects[0]
+            return {"page_number": page_index, "bbox": {"x0": r.x0, "y0": r.y0, "x1": r.x1, "y1": r.y1}}
+    return None
+
+
+def _attach_locations(doc: pymupdf.Document, items: list[dict]) -> None:
+    """Adds page_number/bbox to each item with a "context" key, in place."""
+    for item in items:
+        location = _locate_in_pdf(doc, item.get("context"))
+        if location:
+            item.update(location)
+
+
+def _attach_entity_locations(doc: pymupdf.Document, entities: list[dict]) -> None:
+    """Same as _attach_locations, but entities nest their context one level down, per field."""
+    for entity in entities:
+        for field_data in entity.values():
+            if isinstance(field_data, dict) and "context" in field_data:
+                location = _locate_in_pdf(doc, field_data.get("context"))
+                if location:
+                    field_data.update(location)
+
+
 @app.post("/extract")
 async def extract(paper_id: int, request: Request):
     pdf_bytes = await request.body()
@@ -103,12 +134,26 @@ async def extract(paper_id: int, request: Request):
         ecosystem_result = resolve_ecosystem_service_contexts(ecosystem_result, raw_text)
         ecosystem_result = pipeline["resolver"].resolve_ecosystem_service_matches(ecosystem_result)
 
+        # Locate each verified context in the actual PDF pages, for the review UI's
+        # PDF highlight view. Best-effort: a scanned/OCR-less PDF just won't match,
+        # and callers degrade gracefully (no PDF highlight, everything else unaffected).
+        doc = pymupdf.Document(pdf_path)
+        try:
+            for section_labels in labels.values():
+                _attach_locations(doc, section_labels)
+            _attach_entity_locations(doc, entity_result.get("entities", []))
+            _attach_locations(doc, design_result.get("design_strategies", []))
+            _attach_locations(doc, ecosystem_result.get("ecosystem_services", []))
+        finally:
+            doc.close()
+
         return {
             "paper_id": paper_id,
             "labels": labels,
             "entities": entity_result.get("entities", []),
             "design_strategies": design_result.get("design_strategies", []),
             "ecosystem_services": ecosystem_result.get("ecosystem_services", []),
+            "raw_text": raw_text,
         }
     finally:
         os.remove(pdf_path)

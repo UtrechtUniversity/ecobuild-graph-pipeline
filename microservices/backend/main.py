@@ -3,6 +3,7 @@
 from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException # Import HTTPException
 from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
+from typing import Literal
 from uuid import uuid4
 from datetime import datetime, timedelta
 import asyncio
@@ -399,6 +400,7 @@ def update_run(
     status: str,
     error: str | None = None,
     raw_result: dict | None = None,
+    raw_text: str | None = None,
     finished: bool = False,
 ) -> None:
     """Updates an extraction_runs row's status/error/result, stamping finished_at once terminal."""
@@ -408,10 +410,11 @@ def update_run(
         SET status = %s,
             error = %s,
             raw_result = COALESCE(%s, raw_result),
+            raw_text = COALESCE(%s, raw_text),
             finished_at = COALESCE(%s, finished_at)
         WHERE id = %s
         """,
-        (status, error, Jsonb(raw_result) if raw_result is not None else None,
+        (status, error, Jsonb(raw_result) if raw_result is not None else None, raw_text,
          datetime.now() if finished else None, run_id),
     )
 
@@ -425,13 +428,16 @@ def _update_run(run_id: int, **fields) -> None:
 _TAG_FIELDS = [
     "extraction_run_id", "tag_type", "group_id", "field", "value", "category",
     "anchor_text", "context", "match_score", "rationale", "verified", "extra_data",
+    "page_number", "bbox",
 ]
 
 
-def _tag(**fields) -> dict:
+def _tag(*, review_status: str = "pending", added_manually: bool = False, **fields) -> dict:
     """A tags-table row, defaulted to None for any column a given extractor doesn't use."""
     tag = dict.fromkeys(_TAG_FIELDS)
     tag.update(fields)
+    tag["review_status"] = review_status
+    tag["added_manually"] = added_manually
     return tag
 
 
@@ -443,6 +449,7 @@ def labels_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
             value=decision.get("label"), anchor_text=decision.get("anchor_text"),
             context=decision.get("context"), match_score=decision.get("match_score"),
             rationale=decision.get("rationale"), verified=decision.get("verdict") == "YES",
+            page_number=decision.get("page_number"), bbox=decision.get("bbox"),
         )
         for decisions in result.get("labels", {}).values()
         for decision in decisions
@@ -464,6 +471,7 @@ def entities_to_tags(extraction_run_id: int, result: dict) -> list[dict]:
                 extraction_run_id=extraction_run_id, tag_type="entity", group_id=group_id,
                 field=field_name, value=field_data.get("value"), context=field_data.get("context"),
                 match_score=field_data.get("context_match_score"), verified=field_data.get("context_verified"),
+                page_number=field_data.get("page_number"), bbox=field_data.get("bbox"),
             ))
     return tags
 
@@ -480,6 +488,7 @@ def design_strategies_to_tags(extraction_run_id: int, result: dict) -> list[dict
                 "implementation_details": strategy.get("implementation_details"),
                 "vocab_top_matches": strategy.get("vocab_top_matches"),
             },
+            page_number=strategy.get("page_number"), bbox=strategy.get("bbox"),
         )
         for strategy in result.get("design_strategies", [])
     ]
@@ -494,6 +503,7 @@ def ecosystem_services_to_tags(extraction_run_id: int, result: dict) -> list[dic
             anchor_text=service.get("anchor_text"), context=service.get("context"),
             match_score=service.get("anchor_match_score"), verified=service.get("anchor_verified"),
             extra_data={"vocab_top_matches": service.get("vocab_top_matches")},
+            page_number=service.get("page_number"), bbox=service.get("bbox"),
         )
         for service in result.get("ecosystem_services", [])
     ]
@@ -511,13 +521,19 @@ def extraction_result_to_tags(extraction_run_id: int, result: dict) -> list[dict
 
 def insert_tags(cursor: psycopg.Cursor, tags: list[dict]) -> None:
     for tag in tags:
-        params = {**tag, "extra_data": Jsonb(tag["extra_data"]) if tag.get("extra_data") is not None else None}
+        params = {
+            **tag,
+            "extra_data": Jsonb(tag["extra_data"]) if tag.get("extra_data") is not None else None,
+            "bbox": Jsonb(tag["bbox"]) if tag.get("bbox") is not None else None,
+        }
         cursor.execute(
             """
             INSERT INTO tags (extraction_run_id, tag_type, group_id, field, value, category,
-                               anchor_text, context, match_score, rationale, verified, extra_data)
+                               anchor_text, context, match_score, rationale, verified, extra_data,
+                               page_number, bbox, review_status, added_manually)
             VALUES (%(extraction_run_id)s, %(tag_type)s, %(group_id)s, %(field)s, %(value)s, %(category)s,
-                    %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s, %(extra_data)s)
+                    %(anchor_text)s, %(context)s, %(match_score)s, %(rationale)s, %(verified)s, %(extra_data)s,
+                    %(page_number)s, %(bbox)s, %(review_status)s, %(added_manually)s)
             """,
             params,
         )
@@ -529,6 +545,33 @@ def _insert_tags(tags: list[dict]) -> None:
     with get_db_connection() as connection:
         with connection.cursor() as cursor:
             insert_tags(cursor, tags)
+
+
+def get_latest_done_run_id(cursor: psycopg.Cursor, paper_id: int) -> int | None:
+    cursor.execute(
+        "SELECT id FROM extraction_runs WHERE paper_id = %s AND status = 'done' ORDER BY id DESC LIMIT 1",
+        (paper_id,),
+    )
+    row = cursor.fetchone()
+    return row[0] if row else None
+
+
+_TAG_READ_COLUMNS = [
+    "id", "tag_type", "group_id", "field", "value", "category", "anchor_text", "context",
+    "match_score", "rationale", "verified", "extra_data", "page_number", "bbox",
+    "review_status", "edited_value", "added_manually",
+]
+
+
+def get_tags(cursor: psycopg.Cursor, extraction_run_id: int) -> list[dict]:
+    cursor.execute(
+        f"""
+        SELECT {", ".join(_TAG_READ_COLUMNS)}
+        FROM tags WHERE extraction_run_id = %s ORDER BY id
+        """,
+        (extraction_run_id,),
+    )
+    return [dict(zip(_TAG_READ_COLUMNS, row)) for row in cursor.fetchall()]
 
 
 def get_paper(cursor: psycopg.Cursor, paper_id: int) -> dict | None:
@@ -597,7 +640,7 @@ def run_extraction(run_id: int, paper_id: int) -> None:
         _update_run(run_id, status="failed", error=f"Knowledge extraction unreachable: {e}", finished=True)
         return
 
-    _update_run(run_id, status="done", raw_result=result, finished=True)
+    _update_run(run_id, status="done", raw_result=result, raw_text=result.get("raw_text"), finished=True)
     _insert_tags(extraction_result_to_tags(run_id, result))
 
 
@@ -630,18 +673,98 @@ async def extract_papers(body: PaperExtractRequest, background_tasks: Background
 async def get_paper_results(paper_id: int):
     with get_db_connection() as connection:
         with connection.cursor() as cursor:
-            cursor.execute(
-                """
-                SELECT raw_result FROM extraction_runs
-                WHERE paper_id = %s AND status = 'done'
-                ORDER BY id DESC LIMIT 1
-                """,
-                (paper_id,),
-            )
-            row = cursor.fetchone()
-    if row is None:
-        raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
-    return row[0] or {}
+            run_id = get_latest_done_run_id(cursor, paper_id)
+            if run_id is None:
+                raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
+            tags = get_tags(cursor, run_id)
+    return {"tags": tags}
+
+
+def get_raw_text(cursor: psycopg.Cursor, extraction_run_id: int) -> str | None:
+    cursor.execute("SELECT raw_text FROM extraction_runs WHERE id = %s", (extraction_run_id,))
+    row = cursor.fetchone()
+    return row[0] if row else None
+
+
+@app.get("/papers/{paper_id}/text")
+async def get_paper_text(paper_id: int):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            run_id = get_latest_done_run_id(cursor, paper_id)
+            text = get_raw_text(cursor, run_id) if run_id is not None else None
+    if text is None:
+        raise HTTPException(status_code=404, detail="No extracted text for this paper")
+    return {"text": text}
+
+
+def update_tag_review_status(cursor: psycopg.Cursor, tag_id: int, status: str) -> bool:
+    """Sets a tag's review_status (accepted/rejected are both soft — the row is never deleted). Returns whether the tag existed."""
+    cursor.execute("UPDATE tags SET review_status = %s WHERE id = %s RETURNING id", (status, tag_id))
+    return cursor.fetchone() is not None
+
+
+class TagReviewRequest(BaseModel):
+    status: Literal["accepted", "rejected"]
+
+
+@app.post("/tags/{tag_id}/review")
+async def review_tag(tag_id: int, body: TagReviewRequest):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            found = update_tag_review_status(cursor, tag_id, body.status)
+    if not found:
+        raise HTTPException(status_code=404, detail="Tag not found")
+    return {"id": tag_id, "review_status": body.status}
+
+
+def update_tag_value(cursor: psycopg.Cursor, tag_id: int, edited_value: str) -> bool:
+    """Records a reviewer's correction without touching the original extractor value. Returns whether the tag existed."""
+    cursor.execute(
+        "UPDATE tags SET edited_value = %s, review_status = 'edited' WHERE id = %s RETURNING id",
+        (edited_value, tag_id),
+    )
+    return cursor.fetchone() is not None
+
+
+class TagEditRequest(BaseModel):
+    value: str
+
+
+@app.post("/tags/{tag_id}/edit")
+async def edit_tag(tag_id: int, body: TagEditRequest):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            found = update_tag_value(cursor, tag_id, body.value)
+    if not found:
+        raise HTTPException(status_code=404, detail="Tag not found")
+    return {"id": tag_id, "edited_value": body.value, "review_status": "edited"}
+
+
+def add_manual_tag(cursor: psycopg.Cursor, extraction_run_id: int, tag_type: str, value: str) -> dict:
+    """A reviewer-added tag needs no review (a human just typed it), so it starts 'accepted'."""
+    tag = _tag(
+        extraction_run_id=extraction_run_id, tag_type=tag_type, value=value,
+        review_status="accepted", added_manually=True,
+    )
+    insert_tags(cursor, [tag])
+    return tag
+
+
+class TagCreateRequest(BaseModel):
+    tag_type: str
+    value: str
+
+
+@app.post("/papers/{paper_id}/tags")
+async def create_paper_tag(paper_id: int, body: TagCreateRequest):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            run_id = get_latest_done_run_id(cursor, paper_id)
+            if run_id is None:
+                raise HTTPException(status_code=404, detail="No completed extraction results for this paper")
+            add_manual_tag(cursor, run_id, body.tag_type, body.value)
+            tags = get_tags(cursor, run_id)
+    return {"tags": tags}
 
 
 @app.get("/papers/{paper_id}/pdf")

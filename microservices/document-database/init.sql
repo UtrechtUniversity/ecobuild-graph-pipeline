@@ -20,6 +20,7 @@ CREATE TABLE extraction_runs (
     status TEXT NOT NULL,                              /*pending|downloading|downloaded|extracting|done|failed*/
     error TEXT,                                        /*error message, set when status = failed*/
     raw_result JSONB,                                  /*knowledge-extraction's result JSON, set when status = done*/
+    raw_text TEXT,                                     /*full extracted document text, set when status = done — source for tag context highlighting*/
     started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     finished_at TIMESTAMP                              /*set once status reaches done or failed*/
 );
@@ -38,6 +39,8 @@ CREATE TABLE tags (
     rationale TEXT,                                     /*LLM's justification, where the extractor produces one*/
     verified BOOLEAN,                                  /*the extractor's own verdict (YES/verified vs UNVERIFIED/unverified)*/
     extra_data JSONB,                                   /*structured extras that don't fit flat columns, e.g. vocab_top_matches/implementation_details*/
+    page_number INT,                                    /*0-indexed PDF page where context was located, via pymupdf search_for; null if not found (e.g. no text layer)*/
+    bbox JSONB,                                         /*{x0,y0,x1,y1} bounding box on that page, same units as pymupdf's Page.rect*/
     review_status TEXT NOT NULL DEFAULT 'pending',      /*pending|accepted|rejected|edited*/
     edited_value TEXT,                                  /*reviewer's correction, set when review_status = 'edited'*/
     added_manually BOOLEAN NOT NULL DEFAULT FALSE,      /*true for tags a reviewer added, not the extractor*/

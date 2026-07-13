@@ -2,8 +2,12 @@
 # Tool for semantic matching of extracted design strategies and ecosystem services onto existing vocabulary
 # ======================= #
 
+import hashlib
 import logging
 import math
+import os
+import pickle
+from pathlib import Path
 from typing import Optional
 
 from llama_index.core.embeddings import BaseEmbedding
@@ -12,6 +16,11 @@ import numpy as np
 import requests
 
 logger = logging.getLogger(__name__)
+
+# Vocabulary embeddings never change unless the taxonomy or model does, so
+# cache them to disk instead of re-requesting ~200 embeddings on every start.
+# ponytail: cache dir must be on a mounted volume to survive container recreation.
+_CACHE_DIR = Path(os.environ.get("EMBEDDING_CACHE_DIR", "/app/.cache"))
 
 
 # ── Full taxonomy of ecosystem services ──────────────────────────────────────
@@ -376,11 +385,10 @@ class EntityResolutionMatcher:
         # Embed "{name}: {description}" — richer signal than the name alone.
         self._eco_names: list[str] = []
         self._eco_categories: list[str] = []
+        eco_strings = [f"{name}: {description}" for name, _, description in ECOSYSTEM_SERVICES_TAXONOMY]
+        eco_embeddings = self._embed_vocab("eco", eco_strings)
         self._eco_embeddings: list[np.ndarray] = []
-
-        for name, category, description in ECOSYSTEM_SERVICES_TAXONOMY:
-            vocab_string = f"{name}: {description}"
-            emb = self.embed(vocab_string)
+        for (name, category, _), emb in zip(ECOSYSTEM_SERVICES_TAXONOMY, eco_embeddings):
             if emb is not None:
                 self._eco_names.append(name)
                 self._eco_categories.append(category)
@@ -394,10 +402,9 @@ class EntityResolutionMatcher:
         # ── Design strategies ─────────────────────────────────────────────
         # Only names available — embed the name string directly.
         self._ds_names: list[str] = []
+        ds_embeddings = self._embed_vocab("ds", DESIGN_STRATEGIES_TAXONOMY)
         self._ds_embeddings: list[np.ndarray] = []
-
-        for name in DESIGN_STRATEGIES_TAXONOMY:
-            emb = self.embed(name)
+        for name, emb in zip(DESIGN_STRATEGIES_TAXONOMY, ds_embeddings):
             if emb is not None:
                 self._ds_names.append(name)
                 self._ds_embeddings.append(emb)
@@ -406,6 +413,26 @@ class EntityResolutionMatcher:
             f"  Embedded {len(self._ds_embeddings)}/{len(DESIGN_STRATEGIES_TAXONOMY)} "
             f"design strategy vocabulary terms."
         )
+
+    def _embed_vocab(self, cache_key: str, items: list[str]) -> list[Optional[np.ndarray]]:
+        """Embed `items`, reusing a disk cache keyed by model + content hash."""
+        vocab_hash = hashlib.sha256("\x00".join(items).encode()).hexdigest()[:16]
+        model_slug = self.embedding_model.model_name.replace("/", "_")
+        cache_file = _CACHE_DIR / f"{cache_key}_{model_slug}_{vocab_hash}.pkl"
+
+        if cache_file.exists():
+            logger.info(f"  Loading '{cache_key}' vocabulary embeddings from cache: {cache_file}")
+            with cache_file.open("rb") as f:
+                return pickle.load(f)
+
+        embeddings = [self.embed(item) for item in items]
+        try:
+            _CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            with cache_file.open("wb") as f:
+                pickle.dump(embeddings, f)
+        except OSError as e:
+            logger.warning(f"Could not write embedding cache {cache_file}: {e}")
+        return embeddings
 
     # ── Ollama embedding call ─────────────────────────────────────────────────
 

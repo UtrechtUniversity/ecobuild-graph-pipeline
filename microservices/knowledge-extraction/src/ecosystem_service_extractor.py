@@ -135,11 +135,11 @@ The JSON object MUST follow this structure:
     "ecosystem_services": [
         {{
             "name": "ecosystem service name from taxonomy",
-            "anchor": "five to ten exact words from the paper",
+            "anchor": "five to ten exact words from the paper"
         }},
         {{
             "name": "another ecosystem service name from taxonomy",
-            "anchor": null,
+            "anchor": null
         }}
     ]
 }}
@@ -241,19 +241,9 @@ class EcosystemServiceExtractor:
         if verbose:
             logger.info("Extracting ecosystem services from text...")
 
-        # Build and send prompt
+        # Build and send prompt (retries internally on empty/truncated responses)
         prompt = self.prompt_builder.build_ecosystem_service_extraction_prompt(text, file_name)
-        response = self.llm_interface.query(prompt)
-
-        if verbose and not response:
-            logger.warning("Empty response from Ollama")
-
-        # Extract JSON
-        raw_results = self.llm_interface.extract_json(response)
-
-        # Debug output
-        if not raw_results.get('ecosystem_services') and verbose:
-            logger.debug(f"Raw LLM response: {response[:300]}...")
+        raw_results = self.llm_interface.query_json(prompt)
 
         services = raw_results.get('ecosystem_services', [])
 

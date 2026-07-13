@@ -171,18 +171,10 @@ class EntityInformationExtractor:
         if verbose:
             print("Extracting entities from text...")
 
+        # Build and send prompt (retries internally on empty/truncated responses)
         prompt = self.prompt_builder.build_building_extraction_prompt(text, file_name)
-        response = self.llm_interface.query(prompt)
-        
-        if verbose and not response:
-            print("  Warning: Empty response from Ollama interface.")
-        
-        raw_results = self.llm_interface.extract_json(response)
-        
-        # Debug: if entities is empty, log the response for inspection
-        if not raw_results.get('entities') and verbose:
-            print(f"  Debug: Raw LLM response was: {response[:200]}...")
-        
+        raw_results = self.llm_interface.query_json(prompt)
+
         # Ensure we have a list of entities
         entities = raw_results.get('entities', [])
         if isinstance(raw_results, dict) and not entities and any(key in raw_results for key in ['name', 'type', 'city']):

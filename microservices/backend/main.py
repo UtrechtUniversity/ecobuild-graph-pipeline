@@ -328,6 +328,15 @@ def get_db_connection() -> psycopg.Connection:
 PAPERS_DIR = "downloaded_papers"
 os.makedirs(PAPERS_DIR, exist_ok=True)
 
+# Manual fallback for papers automated download can't reach (bot-walled
+# publishers, etc.): drop/upload a PDF named "{paper_id}.pdf" here and the
+# watcher below picks it up, runs it through the normal extraction pipeline,
+# and files it under extracted/ once done.
+MANUAL_DIR = "manual_uploads"
+MANUAL_EXTRACTED_DIR = os.path.join(MANUAL_DIR, "extracted")
+os.makedirs(MANUAL_EXTRACTED_DIR, exist_ok=True)
+MANUAL_POLL_SECONDS = 5
+
 EXTRACTION_URL = os.getenv("EXTRACTION_URL", "http://knowledge-extraction:8001")
 
 
@@ -357,6 +366,7 @@ async def health():
 def get_papers(cursor: psycopg.Cursor) -> list[dict]:
     cursor.execute("""
         SELECT p.id, p.title, p.authors, p.query, p.open_access, p.pdf_url,
+               p.ss_id, p.url, p.doi, p.abstract, p.relevance_checked, p.relevant, p.created_at,
                r.status, r.error, r.started_at
         FROM papers p
         LEFT JOIN LATERAL (
@@ -369,7 +379,8 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
         ORDER BY p.id
     """)
     papers = []
-    for paper_id, title, authors, query, open_access, pdf_url, status, error, started_at in cursor.fetchall():
+    for (paper_id, title, authors, query, open_access, pdf_url, ss_id, url, doi, abstract,
+         relevance_checked, relevant, created_at, status, error, started_at) in cursor.fetchall():
         papers.append({
             "id": paper_id,
             "title": title,
@@ -377,6 +388,13 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
             "query": query,
             "open_access": open_access,
             "pdf_url": pdf_url,
+            "ss_id": ss_id,
+            "url": url,
+            "doi": doi,
+            "abstract": abstract,
+            "relevance_checked": relevance_checked,
+            "relevant": relevant,
+            "created_at": created_at.isoformat() if created_at else None,
             "extraction_status": status or "pending",
             "extraction_error": error,
             "extraction_started_at": started_at.isoformat() if started_at else None,
@@ -581,8 +599,18 @@ def get_paper(cursor: psycopg.Cursor, paper_id: int) -> dict | None:
 
 
 def download_pdf(pdf_url: str) -> bytes:
-    """Downloads PDF bytes, raising ValueError if the response isn't a PDF."""
-    request = urllib.request.Request(pdf_url, headers={"User-Agent": "ecobuild-graph-pipeline"})
+    """Downloads PDF bytes, raising ValueError if the response isn't a PDF.
+
+    # ponytail: some publishers (MDPI, Elsevier, ...) 403 a self-identifying bot
+    # User-Agent outright; a normal browser UA + Accept header clears that for
+    # publishers that only check headers. It won't help against an IP-reputation
+    # block from a datacenter egress — that needs a different network path, not
+    # a code fix.
+    """
+    request = urllib.request.Request(pdf_url, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+        "Accept": "application/pdf,text/html,*/*",
+    })
     with urllib.request.urlopen(request, timeout=30) as response:
         content = response.read()
     if content[:5] != b"%PDF-":
@@ -642,6 +670,64 @@ def run_extraction(run_id: int, paper_id: int) -> None:
 
     _update_run(run_id, status="done", raw_result=result, raw_text=result.get("raw_text"), finished=True)
     _insert_tags(extraction_result_to_tags(run_id, result))
+
+
+def _run_in_progress(paper_id: int) -> bool:
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT 1 FROM extraction_runs WHERE paper_id = %s AND status IN ('downloading', 'extracting') LIMIT 1",
+                (paper_id,),
+            )
+            return cursor.fetchone() is not None
+
+
+def _process_manual_upload(filename: str) -> None:
+    """Runs one manual_uploads/{paper_id}.pdf through the normal pipeline, then files it under extracted/."""
+    paper_id = int(filename[: -len(".pdf")])
+    src_path = os.path.join(MANUAL_DIR, filename)
+
+    if _run_in_progress(paper_id):
+        return  # already being handled (this tick or the normal download flow) — leave it for next time
+
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            run_id = create_run(cursor, paper_id, "downloaded")
+
+    # run_extraction() skips downloading when pdf_path(paper_id) already exists,
+    # so staging the manual file there reuses the whole pipeline unchanged.
+    cached_path = pdf_path(paper_id)
+    shutil.copy(src_path, cached_path)
+    try:
+        run_extraction(run_id, paper_id)
+    finally:
+        os.remove(cached_path)
+
+    shutil.move(src_path, os.path.join(MANUAL_EXTRACTED_DIR, filename))
+
+
+def _process_manual_uploads() -> None:
+    for filename in sorted(os.listdir(MANUAL_DIR)):
+        if not filename.lower().endswith(".pdf") or not filename[: -len(".pdf")].isdigit():
+            continue  # not a "{paper_id}.pdf" — leave whatever this is alone
+        try:
+            _process_manual_upload(filename)
+        except Exception as e:
+            print(f"[manual_upload_watcher] failed on {filename}: {e}")
+
+
+async def manual_upload_watcher() -> None:
+    while True:
+        try:
+            await asyncio.to_thread(_process_manual_uploads)
+        except Exception as e:
+            print(f"[manual_upload_watcher] tick failed: {e}")
+        await asyncio.sleep(MANUAL_POLL_SECONDS)
+
+
+@app.on_event("startup")
+async def start_manual_upload_watcher():
+    asyncio.create_task(manual_upload_watcher())
 
 
 class PaperExtractRequest(BaseModel):
@@ -773,6 +859,19 @@ async def get_paper_pdf(paper_id: int):
     if not os.path.exists(path):
         raise HTTPException(status_code=404, detail="No PDF on disk for this paper")
     return FileResponse(path, media_type="application/pdf")
+
+
+@app.post("/papers/{paper_id}/upload")
+async def upload_paper_pdf(paper_id: int, file: UploadFile = File(...)):
+    """Manual fallback for when automated download fails: drops the PDF into
+    manual_uploads/, where the watcher (see manual_upload_watcher) picks it up
+    and runs it through the normal extraction pipeline."""
+    content = await file.read()
+    if content[:5] != b"%PDF-":
+        raise HTTPException(status_code=400, detail="Uploaded file is not a PDF")
+    with open(os.path.join(MANUAL_DIR, f"{paper_id}.pdf"), "wb") as f:
+        f.write(content)
+    return {"queued": paper_id}
 
 
 # Dummy long-running task

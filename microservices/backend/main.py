@@ -308,6 +308,11 @@ async def create_crawler_query(body: QueryCreate):
     return await asyncio.to_thread(_crawler_request, "POST", "/queries", body.model_dump())
 
 
+@app.put("/crawler/queries/{query_id}")
+async def update_crawler_query(query_id: int, body: QueryCreate):
+    return await asyncio.to_thread(_crawler_request, "PUT", f"/queries/{query_id}", body.model_dump())
+
+
 @app.delete("/crawler/queries/{query_id}")
 async def delete_crawler_query(query_id: int):
     return await asyncio.to_thread(_crawler_request, "DELETE", f"/queries/{query_id}")

@@ -20,6 +20,10 @@ db_port = os.getenv("DB_PORT")
 db_name = os.getenv("DB_NAME")
 api_key = os.getenv('SS_API_KEY')
 
+# search_queries is shared across crawlers (one row per source); this crawler
+# only ever touches its own rows.
+SOURCE = "semantic_scholar"
+
 
 def get_connection() -> psycopg.Connection:
     return psycopg.connect(
@@ -28,15 +32,15 @@ def get_connection() -> psycopg.Connection:
 
 
 def get_queries(cursor: psycopg.Cursor) -> list[dict]:
-    """Returns all configured search queries as {id, query} dicts."""
-    cursor.execute("SELECT id, query FROM search_queries ORDER BY id")
+    """Returns this crawler's configured search queries as {id, query} dicts."""
+    cursor.execute("SELECT id, query FROM search_queries WHERE source = %s ORDER BY id", (SOURCE,))
     return [{"id": row[0], "query": row[1]} for row in cursor.fetchall()]
 
 
 def add_query(cursor: psycopg.Cursor, query: str) -> dict:
     cursor.execute(
-        "INSERT INTO search_queries (query) VALUES (%s) RETURNING id, query",
-        (query,),
+        "INSERT INTO search_queries (query, source) VALUES (%s, %s) RETURNING id, query",
+        (query, SOURCE),
     )
     row = cursor.fetchone()
     return {"id": row[0], "query": row[1]}
@@ -44,8 +48,18 @@ def add_query(cursor: psycopg.Cursor, query: str) -> dict:
 
 def remove_query(cursor: psycopg.Cursor, query_id: int) -> bool:
     """Returns True if a query was deleted, False if query_id didn't exist."""
-    cursor.execute("DELETE FROM search_queries WHERE id = %s", (query_id,))
+    cursor.execute("DELETE FROM search_queries WHERE id = %s AND source = %s", (query_id, SOURCE))
     return cursor.rowcount > 0
+
+
+def update_query(cursor: psycopg.Cursor, query_id: int, query: str) -> dict | None:
+    """Returns the updated {id, query}, or None if query_id didn't exist."""
+    cursor.execute(
+        "UPDATE search_queries SET query = %s WHERE id = %s AND source = %s RETURNING id, query",
+        (query, query_id, SOURCE),
+    )
+    row = cursor.fetchone()
+    return {"id": row[0], "query": row[1]} if row else None
 
 headers = {"x-api-key": api_key}
 url = "https://api.semanticscholar.org/graph/v1/paper/search"

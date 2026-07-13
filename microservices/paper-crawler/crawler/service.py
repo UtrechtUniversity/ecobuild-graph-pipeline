@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from psycopg.errors import UniqueViolation
 
 from .crawler_logger import logger
-from .main import add_query, get_connection, get_queries, remove_query, run_crawl
+from .main import add_query, get_connection, get_queries, remove_query, run_crawl, update_query
 
 app = FastAPI()
 
@@ -80,6 +80,22 @@ async def create_query(body: QueryCreate):
                 return add_query(cursor, query)
             except UniqueViolation:
                 raise HTTPException(status_code=409, detail="query already exists")
+
+
+@app.put("/queries/{query_id}")
+async def edit_query(query_id: int, body: QueryCreate):
+    query = body.query.strip()
+    if not query:
+        raise HTTPException(status_code=422, detail="query must not be empty")
+    with get_connection() as connection:
+        with connection.cursor() as cursor:
+            try:
+                updated = update_query(cursor, query_id, query)
+            except UniqueViolation:
+                raise HTTPException(status_code=409, detail="query already exists")
+    if not updated:
+        raise HTTPException(status_code=404, detail=f"query '{query_id}' not found")
+    return updated
 
 
 @app.delete("/queries/{query_id}")

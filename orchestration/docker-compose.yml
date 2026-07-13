@@ -22,6 +22,7 @@ services:
 
   neo4j:
     image: neo4j:5.20
+    hostname: neo4j
     restart: always
     environment:
       NEO4J_AUTH: neo4j/${NEO4J_PASSWORD}
@@ -143,6 +144,11 @@ services:
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       DB_NAME: ${POSTGRES_DB}
       DB_PORT: 5432
+      # Optional egress proxy for download_pdf() — see .env.template. Blank
+      # HTTPS_PROXY/HTTP_PROXY are no-ops; urllib only proxies when set.
+      HTTPS_PROXY: ${HTTPS_PROXY}
+      HTTP_PROXY: ${HTTP_PROXY}
+      NO_PROXY: ${NO_PROXY}
     healthcheck:
       test: [ "CMD", "/app/.venv/bin/python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
       interval: 10s

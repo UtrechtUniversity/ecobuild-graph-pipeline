@@ -371,7 +371,8 @@ async def health():
 def get_papers(cursor: psycopg.Cursor) -> list[dict]:
     cursor.execute("""
         SELECT p.id, p.title, p.authors, p.query, p.open_access, p.pdf_url,
-               p.ss_id, p.url, p.doi, p.abstract, p.relevance_checked, p.relevant, p.created_at,
+               p.ss_id, p.url, p.doi, p.venue, p.citation_count, p.abstract,
+               p.relevance_checked, p.relevant, p.created_at,
                r.status, r.error, r.started_at
         FROM papers p
         LEFT JOIN LATERAL (
@@ -384,7 +385,7 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
         ORDER BY p.id
     """)
     papers = []
-    for (paper_id, title, authors, query, open_access, pdf_url, ss_id, url, doi, abstract,
+    for (paper_id, title, authors, query, open_access, pdf_url, ss_id, url, doi, venue, citation_count, abstract,
          relevance_checked, relevant, created_at, status, error, started_at) in cursor.fetchall():
         papers.append({
             "id": paper_id,
@@ -396,6 +397,8 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
             "ss_id": ss_id,
             "url": url,
             "doi": doi,
+            "venue": venue,
+            "citation_count": citation_count,
             "abstract": abstract,
             "relevance_checked": relevance_checked,
             "relevant": relevant,

@@ -88,8 +88,8 @@ def main() -> None:
 def test_handle_query_sleeps_between_every_request() -> None:
     """Rate limit is cumulative across all requests, including paginated ones."""
     pages = [
-        Mock(status_code=200, json=lambda: {"total": 2, "data": [], "next": 1}),
-        Mock(status_code=200, json=lambda: {"total": 2, "data": []}),  # no "next": last page
+        Mock(status_code=200, json=lambda: {"total": 2, "data": [], "token": "page2"}),
+        Mock(status_code=200, json=lambda: {"total": 2, "data": []}),  # no "token": last page
     ]
     with patch("crawler.main.session.get", side_effect=pages) as mock_get, \
          patch("crawler.main.sleep") as mock_sleep:
@@ -98,10 +98,25 @@ def test_handle_query_sleeps_between_every_request() -> None:
     assert result is None
     assert mock_get.call_count == 2
     assert mock_sleep.call_count == 2
+    assert "token" not in mock_get.call_args_list[0].kwargs["params"]
+    assert mock_get.call_args_list[1].kwargs["params"]["token"] == "page2"
 
     print("crawler.main handle_query rate-limit self-check passed")
+
+
+def test_handle_query_tolerates_zero_results() -> None:
+    """S2 omits the "data" field entirely (not data: []) when a query has zero hits."""
+    page = Mock(status_code=200, json=lambda: {"total": 0})
+    with patch("crawler.main.session.get", return_value=page), \
+         patch("crawler.main.sleep"):
+        result = handle_query(Mock(), "no hits query", threading.Event())
+
+    assert result is None
+
+    print("crawler.main handle_query zero-results self-check passed")
 
 
 if __name__ == "__main__":
     main()
     test_handle_query_sleeps_between_every_request()
+    test_handle_query_tolerates_zero_results()

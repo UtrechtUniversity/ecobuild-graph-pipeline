@@ -6,6 +6,9 @@ For every paper we store:
 - Title
 - Authors
 - url within semantic scholar
+- DOI
+- venue (conference/journal)
+- citation count (at crawl time)
 - abstract
 - url of the pdf
 - whether the paper is publicly accessible

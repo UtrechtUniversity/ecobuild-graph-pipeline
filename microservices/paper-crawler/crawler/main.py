@@ -88,7 +88,7 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
     while not stop_event.is_set():
 
         query_params = {
-            "fields": "paperId,title,year,url,abstract,citationCount,isOpenAccess,openAccessPdf,authors",
+            "fields": "paperId,title,year,url,abstract,citationCount,isOpenAccess,openAccessPdf,authors,externalIds,venue",
             "query": query,
             "offset": offset,
         }
@@ -126,18 +126,21 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
 def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
     """Writes paper and current query to the document database"""
     template = (
-        "INSERT INTO papers (ss_id, title, authors, url, abstract, pdf_url, open_access, query) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (ss_id) DO NOTHING"
+        "INSERT INTO papers (ss_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (ss_id) DO NOTHING"
     )
     ss_id = paper["paperId"]
     title = paper["title"]
     authors = [author["name"] for author in paper.get("authors") or []]
     url = paper["url"]
+    doi = (paper.get("externalIds") or {}).get("DOI")
+    venue = paper.get("venue") or None
+    citation_count = paper.get("citationCount")
     abstract = paper["abstract"]
     open_access = paper["isOpenAccess"]
     pdf_url = extract_pdf_url(paper.get("openAccessPdf"))
 
-    cursor.execute(template, (ss_id, title, authors, url, abstract, pdf_url, open_access, query))
+    cursor.execute(template, (ss_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query))
 
 def extract_pdf_url(open_access_pdf: dict | None) -> str | None:
     """Extracts the pdf url from the openAccessPdf field, if present"""

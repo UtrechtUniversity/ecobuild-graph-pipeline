@@ -5,6 +5,8 @@ CREATE TABLE papers (
     authors TEXT[],                                   /*Names of the authors*/
     url TEXT UNIQUE,                                  /*url to the article within semantic scholar*/
     doi TEXT UNIQUE,                                  /*doi to the article*/
+    venue TEXT,                                       /*conference/journal name, as reported by semantic scholar*/
+    citation_count INT,                               /*citation count at crawl time*/
     abstract TEXT,                                    /*abstract of the article*/
     pdf_url TEXT,                                     /*url of the pdf*/
     open_access BOOL,                                 /*whether the pdf is openly accessible*/

@@ -38,7 +38,14 @@ pipeline: dict = {}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    llm = Ollama(model=OLLAMA_LLM_MODEL, base_url=OLLAMA_HOST, context_window=14000, temperature=0.11, request_timeout=180.0)
+    # ponytail: 14000 was sized for llama3.2's default context and never
+    # revisited after switching to a bigger remote model — real papers'
+    # whole-document prompts (text + few-shot examples + instructions) can run
+    # 18-27k tokens, silently truncating and producing valid-but-empty results
+    # instead of an error. qwen3.6:35b-a3b supports up to 262144; 32768 covers
+    # every paper we've seen with headroom. Bump further if a paper still comes
+    # back empty despite non-trivial content.
+    llm = Ollama(model=OLLAMA_LLM_MODEL, base_url=OLLAMA_HOST, context_window=32768, temperature=0.11, request_timeout=180.0)
     embed_model = OllamaEmbedding(model_name=OLLAMA_EMBEDDING_MODEL, base_url=OLLAMA_HOST, request_timeout=180.0)
     pipeline["preprocessor"] = PaperPreprocessor(llm, embed_model=embed_model)
     pipeline["labeler"] = LLMLabeler(llm, fuzzy_threshold=0.8)

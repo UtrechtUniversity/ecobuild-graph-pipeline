@@ -2,6 +2,7 @@
 
 Run directly: `poetry run python -m test_main`
 """
+import os
 from datetime import datetime
 from unittest.mock import patch
 
@@ -31,6 +32,8 @@ class FakeCursor:
                 run = self._latest_run(p["id"])
                 rows.append((
                     p["id"], p["title"], p["authors"], p["query"], p["open_access"], p["pdf_url"],
+                    p.get("ss_id"), p.get("url"), p.get("doi"), p.get("abstract"),
+                    p.get("relevance_checked"), p.get("relevant"), p.get("created_at"),
                     run["status"] if run else None,
                     run["error"] if run else None,
                     run["started_at"] if run else None,
@@ -60,6 +63,12 @@ class FakeCursor:
                 run["raw_text"] = raw_text
             if finished_at is not None:
                 run["finished_at"] = finished_at
+        elif sql.startswith("SELECT 1 FROM extraction_runs"):
+            in_progress = [
+                r for r in self._runs
+                if r["paper_id"] == params[0] and r["status"] in ("downloading", "extracting")
+            ]
+            self._result = (1,) if in_progress else None
         elif sql.startswith("SELECT id FROM extraction_runs"):
             done_runs = [r for r in self._runs if r["paper_id"] == params[0] and r["status"] == "done"]
             self._result = (done_runs[-1]["id"],) if done_runs else None
@@ -132,11 +141,17 @@ class FakeConnection:
 def main_() -> None:
     # get_papers() reports "pending" for papers with no extraction run yet.
     cursor = FakeCursor([
-        {"id": 1, "title": "A", "authors": ["X"], "query": "q", "open_access": True, "pdf_url": "http://x/a.pdf"},
+        {
+            "id": 1, "title": "A", "authors": ["X"], "query": "q", "open_access": True, "pdf_url": "http://x/a.pdf",
+            "ss_id": "ss1", "url": "http://semanticscholar.org/a", "doi": "10.1/a", "abstract": "An abstract.",
+            "relevance_checked": True, "relevant": True, "created_at": None,
+        },
     ])
     assert main.get_papers(cursor) == [{
         "id": 1, "title": "A", "authors": ["X"], "query": "q", "open_access": True,
-        "pdf_url": "http://x/a.pdf", "extraction_status": "pending", "extraction_error": None,
+        "pdf_url": "http://x/a.pdf", "ss_id": "ss1", "url": "http://semanticscholar.org/a",
+        "doi": "10.1/a", "abstract": "An abstract.", "relevance_checked": True, "relevant": True,
+        "created_at": None, "extraction_status": "pending", "extraction_error": None,
         "extraction_started_at": None,
     }]
 
@@ -298,6 +313,52 @@ def main_() -> None:
     run = cursor._latest_run(3)
     assert run["status"] == "failed"
     assert "unreachable" in run["error"]
+
+    # Manual-upload watcher: a "{paper_id}.pdf" dropped in manual_uploads/ runs
+    # through the normal pipeline and ends up in manual_uploads/extracted/,
+    # while unrelated files and in-progress papers are left alone.
+    import shutil
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmp:
+        manual_dir = os.path.join(tmp, "manual_uploads")
+        extracted_dir = os.path.join(manual_dir, "extracted")
+        papers_dir = os.path.join(tmp, "downloaded_papers")
+        os.makedirs(extracted_dir)
+        os.makedirs(papers_dir)
+        with open(os.path.join(manual_dir, "42.pdf"), "wb") as f:
+            f.write(b"%PDF-1.4 fake")
+        with open(os.path.join(manual_dir, "notes.txt"), "w") as f:
+            f.write("not a paper")  # should be left untouched, not a "{paper_id}.pdf"
+
+        cursor = FakeCursor([{"id": 42, "title": "D", "authors": [], "query": "q", "open_access": True, "pdf_url": None}])
+        with patch("main.MANUAL_DIR", manual_dir), \
+             patch("main.MANUAL_EXTRACTED_DIR", extracted_dir), \
+             patch("main.PAPERS_DIR", papers_dir), \
+             patch("main.get_db_connection", lambda: FakeConnection(cursor)), \
+             patch("main.notify_extraction", lambda paper_id, pdf_bytes: combined_result):
+            main._process_manual_uploads()
+
+        assert not os.path.exists(os.path.join(manual_dir, "42.pdf"))  # picked up...
+        assert os.path.exists(os.path.join(extracted_dir, "42.pdf"))  # ...and filed away
+        assert os.path.exists(os.path.join(manual_dir, "notes.txt"))  # untouched
+        assert not os.path.exists(os.path.join(papers_dir, "42.pdf"))  # staging copy cleaned up
+        assert cursor._latest_run(42)["status"] == "done"
+
+        # A paper already mid-extraction is left for next tick, not double-processed.
+        with open(os.path.join(manual_dir, "43.pdf"), "wb") as f:
+            f.write(b"%PDF-1.4 fake")
+        cursor = FakeCursor(
+            [{"id": 43, "title": "E", "authors": [], "query": "q", "open_access": True, "pdf_url": None}],
+            runs=[{"id": 1, "paper_id": 43, "status": "extracting", "error": None, "raw_result": None,
+                   "raw_text": None, "started_at": datetime.now(), "finished_at": None}],
+        )
+        with patch("main.MANUAL_DIR", manual_dir), \
+             patch("main.MANUAL_EXTRACTED_DIR", extracted_dir), \
+             patch("main.PAPERS_DIR", papers_dir), \
+             patch("main.get_db_connection", lambda: FakeConnection(cursor)):
+            main._process_manual_uploads()
+        assert os.path.exists(os.path.join(manual_dir, "43.pdf"))  # still there, not touched this tick
 
     print("backend papers/extraction self-check passed")
 

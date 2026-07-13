@@ -271,11 +271,10 @@ class LLMLabeler:
         source_text: str,
         label_descriptions: dict[Label, str],
     ) -> dict[str, dict]:
-        """Send the classification prompt and parse the JSON response."""
+        """Send the classification prompt and parse the JSON response (retries internally on empty/truncated responses)."""
         prompt = _build_prompt(source_text, label_descriptions)
-        raw_text = self._interface.query(prompt)
-        parsed   = self._interface.extract_json(raw_text)
- 
+        parsed = self._interface.query_json(prompt)
+
         if not parsed:
             logger.error("[LLMLabeler] extract_json returned empty — defaulting all to NO.")
             return {

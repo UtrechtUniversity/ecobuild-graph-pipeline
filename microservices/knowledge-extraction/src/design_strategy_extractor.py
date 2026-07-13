@@ -237,20 +237,10 @@ class DesignStrategyExtractor:
         if verbose:
             logger.info("Extracting design strategies from text...")
         
-        # Build and send prompt
+        # Build and send prompt (retries internally on empty/truncated responses)
         prompt = self.prompt_builder.build_design_strategy_extraction_prompt(text, file_name)
-        response = self.llm_interface.query(prompt)
-        
-        if verbose and not response:
-            logger.warning("Empty response from Ollama")
-        
-        # Extract JSON
-        raw_results = self.llm_interface.extract_json(response)
-        
-        # Debug output
-        if not raw_results.get('design_strategies') and verbose:
-            logger.debug(f"Raw LLM response: {response[:300]}...")
-        
+        raw_results = self.llm_interface.query_json(prompt)
+
         strategies = raw_results.get('design_strategies', [])
         
         if verbose:

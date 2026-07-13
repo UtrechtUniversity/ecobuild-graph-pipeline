@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Cog, Pause, Play } from 'lucide-react';
 import QueryManager from './QueryManager';
 
@@ -15,7 +15,7 @@ const ServiceStatus: React.FC = () => {
   const [health, setHealth] = useState<Health | null>(null);
   const [crawlerStatus, setCrawlerStatus] = useState<CrawlerStatus | null>(null);
   const [busy, setBusy] = useState(false);
-  const queryDialogRef = useRef<HTMLDialogElement>(null);
+  const [queryDialogOpen, setQueryDialogOpen] = useState(false);
 
   const fetchStatus = useCallback(async () => {
     try {
@@ -42,6 +42,15 @@ const ServiceStatus: React.FC = () => {
     const interval = setInterval(fetchStatus, 5000);
     return () => clearInterval(interval);
   }, [fetchStatus]);
+
+  useEffect(() => {
+    if (!queryDialogOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setQueryDialogOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [queryDialogOpen]);
 
   const toggleCrawler = async () => {
     const action = crawlerStatus === 'running' ? 'stop' : 'start';
@@ -82,7 +91,7 @@ const ServiceStatus: React.FC = () => {
                 </button>
                 <button
                   type="button"
-                  onClick={() => queryDialogRef.current?.showModal()}
+                  onClick={() => setQueryDialogOpen(true)}
                   aria-label="Manage search queries"
                   className="flex items-center text-muted-foreground hover:text-foreground"
                 >
@@ -93,15 +102,20 @@ const ServiceStatus: React.FC = () => {
           </span>
         );
       })}
-      <dialog
-        ref={queryDialogRef}
-        onClick={(e) => {
-          if (e.target === queryDialogRef.current) queryDialogRef.current?.close();
-        }}
-        className="m-auto w-full max-w-md rounded-lg p-0 backdrop:bg-black/50"
-      >
-        <QueryManager />
-      </dialog>
+      {queryDialogOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setQueryDialogOpen(false);
+          }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+        >
+          <div style={{ height: '70vh', maxWidth: '640px' }} className="flex w-full flex-col rounded-lg">
+            <QueryManager />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,14 +5,14 @@ Run directly: `poetry run python -m crawler.test_main`
 import threading
 from unittest.mock import Mock, patch
 
-from crawler.main import add_query, get_queries, handle_query, remove_query
+from crawler.main import add_query, get_queries, handle_query, remove_query, update_query
 
 
 class FakeCursor:
     """In-memory stand-in for a psycopg cursor, just enough for these three queries."""
 
     def __init__(self):
-        self._rows = []
+        self._rows = []  # (id, query, source)
         self._next_id = 1
         self._result = None
         self._rowcount = 0
@@ -20,17 +20,27 @@ class FakeCursor:
     def execute(self, sql, params=()):
         sql = sql.strip()
         if sql.startswith("SELECT"):
-            self._result = list(self._rows)
+            source = params[0]
+            self._result = [(r[0], r[1]) for r in self._rows if r[2] == source]
         elif sql.startswith("INSERT"):
-            row = (self._next_id, params[0])
+            query, source = params
+            row = (self._next_id, query, source)
             self._rows.append(row)
             self._next_id += 1
-            self._result = row
+            self._result = (row[0], row[1])
         elif sql.startswith("DELETE"):
-            query_id = params[0]
+            query_id, source = params
             before = len(self._rows)
-            self._rows = [r for r in self._rows if r[0] != query_id]
+            self._rows = [r for r in self._rows if not (r[0] == query_id and r[2] == source)]
             self._rowcount = before - len(self._rows)
+        elif sql.startswith("UPDATE"):
+            query, query_id, source = params
+            for i, row in enumerate(self._rows):
+                if row[0] == query_id and row[2] == source:
+                    self._rows[i] = (query_id, query, source)
+                    self._result = (query_id, query)
+                    return
+            self._result = None
 
     def fetchall(self):
         return self._result
@@ -59,6 +69,18 @@ def main() -> None:
     assert get_queries(cursor) == [{"id": 2, "query": "rainwater harvesting effectiveness morocco"}]
 
     assert remove_query(cursor, 999) is False
+
+    add_query(cursor, "original text")
+    row_id = get_queries(cursor)[-1]["id"]
+    assert update_query(cursor, row_id, "edited text") == {"id": row_id, "query": "edited text"}
+    assert get_queries(cursor)[-1] == {"id": row_id, "query": "edited text"}
+    assert update_query(cursor, 999, "nope") is None
+
+    # a row belonging to another crawler's source is invisible to this one
+    cursor._rows.append((9001, "scopus-only query", "scopus"))
+    assert all(q["id"] != 9001 for q in get_queries(cursor))
+    assert remove_query(cursor, 9001) is False
+    assert update_query(cursor, 9001, "nope") is None
 
     print("crawler.main search_queries self-check passed")
 

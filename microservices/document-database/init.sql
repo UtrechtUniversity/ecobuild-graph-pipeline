@@ -49,12 +49,14 @@ CREATE TABLE tags (
 
 CREATE TABLE search_queries (
     id SERIAL PRIMARY KEY,
-    query TEXT NOT NULL UNIQUE,                        /*the search query the crawler runs*/
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    source TEXT NOT NULL DEFAULT 'semantic_scholar',   /*which crawler this query belongs to, e.g. 'semantic_scholar' | 'scopus'*/
+    query TEXT NOT NULL,                               /*the search query the crawler runs*/
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (source, query)
 );
 
 -- seed with the queries that used to be hardcoded in crawler/config.py
-INSERT INTO search_queries (query) VALUES
-    ('Green roof effect on evaporation'),
-    ('rainwater harvesting effectiveness morocco');
+INSERT INTO search_queries (source, query) VALUES
+    ('semantic_scholar', 'Green roof effect on evaporation'),
+    ('semantic_scholar', 'rainwater harvesting effectiveness morocco');
 

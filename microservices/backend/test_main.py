@@ -32,7 +32,8 @@ class FakeCursor:
                 run = self._latest_run(p["id"])
                 rows.append((
                     p["id"], p["title"], p["authors"], p["query"], p["open_access"], p["pdf_url"],
-                    p.get("ss_id"), p.get("url"), p.get("doi"), p.get("abstract"),
+                    p.get("source"), p.get("external_id"), p.get("url"), p.get("doi"),
+                    p.get("venue"), p.get("citation_count"), p.get("abstract"),
                     p.get("relevance_checked"), p.get("relevant"), p.get("created_at"),
                     run["status"] if run else None,
                     run["error"] if run else None,
@@ -143,14 +144,16 @@ def main_() -> None:
     cursor = FakeCursor([
         {
             "id": 1, "title": "A", "authors": ["X"], "query": "q", "open_access": True, "pdf_url": "http://x/a.pdf",
-            "ss_id": "ss1", "url": "http://semanticscholar.org/a", "doi": "10.1/a", "abstract": "An abstract.",
+            "source": "semantic_scholar", "external_id": "ss1", "url": "http://semanticscholar.org/a", "doi": "10.1/a",
+            "venue": "Journal of X", "citation_count": 5, "abstract": "An abstract.",
             "relevance_checked": True, "relevant": True, "created_at": None,
         },
     ])
     assert main.get_papers(cursor) == [{
         "id": 1, "title": "A", "authors": ["X"], "query": "q", "open_access": True,
-        "pdf_url": "http://x/a.pdf", "ss_id": "ss1", "url": "http://semanticscholar.org/a",
-        "doi": "10.1/a", "abstract": "An abstract.", "relevance_checked": True, "relevant": True,
+        "pdf_url": "http://x/a.pdf", "source": "semantic_scholar", "external_id": "ss1",
+        "url": "http://semanticscholar.org/a", "doi": "10.1/a", "venue": "Journal of X", "citation_count": 5,
+        "abstract": "An abstract.", "relevance_checked": True, "relevant": True,
         "created_at": None, "extraction_status": "pending", "extraction_error": None,
         "extraction_started_at": None,
     }]

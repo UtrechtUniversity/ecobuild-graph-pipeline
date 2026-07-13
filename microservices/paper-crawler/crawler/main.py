@@ -6,11 +6,11 @@ from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
 import psycopg
 
-from time import sleep
 from typing import Dict
 
 from .config import RATE_LIMIT
 from .crawler_logger import logger
+from .rate_limiter import FixedDelay
 
 # Initialize environment variables
 db_user = os.getenv("DB_USER")
@@ -72,6 +72,8 @@ session.mount("https://", HTTPAdapter(max_retries=Retry(
     raise_on_status=False,  # return the failing response instead of raising, so existing status_code handling still applies
 )))
 
+rate_limiter = FixedDelay(RATE_LIMIT)
+
 logger.info("Crawler initialized")
 
 
@@ -96,8 +98,8 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
 
         # send request
         response = session.get(url, params=query_params, headers=headers, timeout=30)
-        # rate limit is cumulative across all requests, so sleep after every one (including the last page)
-        sleep(RATE_LIMIT)
+        # rate limit is cumulative across all requests, so wait after every one (including the last page)
+        rate_limiter.wait()
 
         if response.status_code == 200:
             logger.debug(f"Request succesful")
@@ -126,10 +128,10 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
 def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
     """Writes paper and current query to the document database"""
     template = (
-        "INSERT INTO papers (ss_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
+        "INSERT INTO papers (source, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (source, external_id) DO NOTHING"
     )
-    ss_id = paper["paperId"]
+    external_id = paper["paperId"]
     title = paper["title"]
     authors = [author["name"] for author in paper.get("authors") or []]
     url = paper["url"]
@@ -140,7 +142,7 @@ def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
     open_access = paper["isOpenAccess"]
     pdf_url = extract_pdf_url(paper.get("openAccessPdf"))
 
-    cursor.execute(template, (ss_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query))
+    cursor.execute(template, (SOURCE, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query))
 
 def extract_pdf_url(open_access_pdf: dict | None) -> str | None:
     """Extracts the pdf url from the openAccessPdf field, if present"""

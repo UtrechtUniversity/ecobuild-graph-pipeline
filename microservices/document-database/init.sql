@@ -1,11 +1,12 @@
 CREATE TABLE papers (
     id SERIAL PRIMARY KEY,
-    ss_id TEXT NOT NULL UNIQUE,                              /*Semantic scholar internal ID*/
+    source TEXT NOT NULL DEFAULT 'semantic_scholar',  /*which crawler found this paper, e.g. 'semantic_scholar' | 'scopus'*/
+    external_id TEXT NOT NULL,                        /*the source's own paper ID (S2 paperId, Scopus SCOPUS_ID, ...)*/
     title TEXT NOT NULL,                              /*Title of the paper*/
     authors TEXT[],                                   /*Names of the authors*/
-    url TEXT UNIQUE,                                  /*url to the article within semantic scholar*/
-    doi TEXT UNIQUE,                                  /*doi to the article*/
-    venue TEXT,                                       /*conference/journal name, as reported by semantic scholar*/
+    url TEXT,                                         /*url to the article within its source*/
+    doi TEXT,                                         /*doi to the article*/
+    venue TEXT,                                       /*conference/journal name, as reported by the source*/
     citation_count INT,                               /*citation count at crawl time*/
     abstract TEXT,                                    /*abstract of the article*/
     pdf_url TEXT,                                     /*url of the pdf*/
@@ -13,7 +14,11 @@ CREATE TABLE papers (
     query TEXT,                                       /*the query that found this article*/
     relevance_checked BOOL,                           /*whether this has been checked for relevance*/
     relevant BOOL,                                    /*whether it is relevant*/
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP    /*timestamp*/
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   /*timestamp*/
+    UNIQUE (source, external_id)
+    -- url/doi dropped from UNIQUE: the same paper can legitimately show up via two
+    -- sources with the same DOI/URL. Cross-source dedup by DOI is a real future
+    -- feature, not handled here.
 );
 
 CREATE TABLE extraction_runs (

@@ -9,6 +9,11 @@ type ExtractionStatus = 'pending' | 'downloading' | 'downloaded' | 'extracting' 
 
 const spinningStatuses: ExtractionStatus[] = ['downloading', 'extracting'];
 
+const SOURCE_LABELS: Record<string, string> = {
+  semantic_scholar: 'Semantic Scholar',
+  scopus: 'Scopus',
+};
+
 interface Paper {
   id: number;
   title: string;
@@ -16,7 +21,8 @@ interface Paper {
   query: string | null;
   open_access: boolean | null;
   pdf_url: string | null;
-  ss_id: string;
+  source: string;
+  external_id: string;
   url: string | null;
   doi: string | null;
   abstract: string | null;
@@ -383,7 +389,7 @@ const PaperList: React.FC = () => {
                         <a href={paper.url} target="_blank" rel="noreferrer" className="underline">{paper.url}</a>
                       </p>
                     )}
-                    <p><span className="font-medium text-foreground">Semantic Scholar ID: </span>{paper.ss_id}</p>
+                    <p><span className="font-medium text-foreground">{SOURCE_LABELS[paper.source] ?? paper.source} ID: </span>{paper.external_id}</p>
                     <p>
                       <span className="font-medium text-foreground">Relevance: </span>
                       {paper.relevance_checked ? (paper.relevant ? 'Checked — relevant' : 'Checked — not relevant') : 'Not checked'}

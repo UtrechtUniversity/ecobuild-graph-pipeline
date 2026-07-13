@@ -92,12 +92,12 @@ def test_handle_query_sleeps_between_every_request() -> None:
         Mock(status_code=200, json=lambda: {"total": 2, "data": []}),  # no "token": last page
     ]
     with patch("crawler.main.session.get", side_effect=pages) as mock_get, \
-         patch("crawler.main.sleep") as mock_sleep:
+         patch("crawler.main.rate_limiter.wait") as mock_wait:
         result = handle_query(Mock(), "test query", threading.Event())
 
     assert result is None
     assert mock_get.call_count == 2
-    assert mock_sleep.call_count == 2
+    assert mock_wait.call_count == 2
     assert "token" not in mock_get.call_args_list[0].kwargs["params"]
     assert mock_get.call_args_list[1].kwargs["params"]["token"] == "page2"
 
@@ -108,7 +108,7 @@ def test_handle_query_tolerates_zero_results() -> None:
     """S2 omits the "data" field entirely (not data: []) when a query has zero hits."""
     page = Mock(status_code=200, json=lambda: {"total": 0})
     with patch("crawler.main.session.get", return_value=page), \
-         patch("crawler.main.sleep"):
+         patch("crawler.main.rate_limiter.wait"):
         result = handle_query(Mock(), "no hits query", threading.Event())
 
     assert result is None

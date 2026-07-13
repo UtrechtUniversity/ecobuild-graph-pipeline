@@ -62,7 +62,7 @@ def update_query(cursor: psycopg.Cursor, query_id: int, query: str) -> dict | No
     return {"id": row[0], "query": row[1]} if row else None
 
 headers = {"x-api-key": api_key}
-url = "https://api.semanticscholar.org/graph/v1/paper/search"
+url = "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
 
 # ponytail: urllib3's Retry already honors S2's Retry-After header on 429s,
 # so a plain Session+adapter covers backoff without hand-rolled retry logic.
@@ -82,16 +82,17 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
     had to be abandoned, None otherwise (including if stopped early).
     """
     logger.info(f"Handling output of query '{query}'")
-    # (re)set offset as 0 to start at first results
-    offset = 0
+    # bulk search paginates via an opaque continuation token, not an offset
+    token = None
 
     while not stop_event.is_set():
 
         query_params = {
             "fields": "paperId,title,year,url,abstract,citationCount,isOpenAccess,openAccessPdf,authors,externalIds,venue",
             "query": query,
-            "offset": offset,
         }
+        if token:
+            query_params["token"] = token
 
         # send request
         response = session.get(url, params=query_params, headers=headers, timeout=30)
@@ -106,15 +107,14 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
             total_responses = response['total']
             logger.debug(f"Found {total_responses} responses")
 
-            for paper in response["data"]: 
+            for paper in response.get("data", []):
                 # store in DB
                 logger.debug(f"Found paper: {paper['title']}")
                 write_to_db(cursor, query, paper)
 
-            # semantic scholar API should provide us with a 'next' if there are more pages left
-            try:  
-                offset = response["next"]
-            except KeyError: # if there are no more pages left, excit loop for this query
+            # bulk search returns a "token" for the next page, omitted on the last page
+            token = response.get("token")
+            if not token:
                 break
         else:
             logger.error(f"Request failed, giving up on query '{query}'. Status code: {response.status_code} ")
@@ -127,7 +127,7 @@ def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
     """Writes paper and current query to the document database"""
     template = (
         "INSERT INTO papers (ss_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (ss_id) DO NOTHING"
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
     )
     ss_id = paper["paperId"]
     title = paper["title"]
@@ -164,6 +164,7 @@ def run_crawl(stop_event: threading.Event) -> None:
                     break
 
                 failure_status = handle_query(cursor, query, stop_event)
+                connection.commit()
                 if failure_status == 429:
                     raise RuntimeError("rate limiting")
                 elif failure_status is not None:

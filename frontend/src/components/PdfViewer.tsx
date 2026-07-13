@@ -38,7 +38,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ paperId, tags, focusTagId, onHigh
     let cancelled = false;
     (async () => {
       try {
-        const loaded = await pdfjsLib.getDocument(`http://localhost:8000/papers/${paperId}/pdf`).promise;
+        const loaded = await pdfjsLib.getDocument({ url: `http://localhost:8000/papers/${paperId}/pdf` }).promise;
         if (!cancelled) setDoc(loaded);
       } catch (err) {
         console.error(`Failed to load PDF for paper ${paperId}:`, err);

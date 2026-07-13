@@ -39,6 +39,19 @@ function groupByType(tags: Tag[]): [string, Tag[]][] {
   return Array.from(groups.entries());
 }
 
+// Groups by displayed value so recurring labels (same value, several
+// occurrences in the paper) collapse into one card with a count.
+function groupByValue(tags: Tag[]): [string, Tag[]][] {
+  const groups = new Map<string, Tag[]>();
+  for (const tag of tags) {
+    const key = tag.edited_value ?? tag.value ?? '(no value)';
+    const group = groups.get(key) ?? [];
+    group.push(tag);
+    groups.set(key, group);
+  }
+  return Array.from(groups.entries());
+}
+
 function ConfidenceBadge({ tag }: { tag: Tag }) {
   if (tag.verified === true) return <Badge variant="success">Verified</Badge>;
   if (tag.verified === false) return <Badge variant="warning">Unverified</Badge>;
@@ -56,28 +69,52 @@ function tagGroupId(tagType: string): string {
   return `tag-group-${tagType}`;
 }
 
+function labelGroupId(value: string): string {
+  return `label-group-${value}`;
+}
+
 function textHighlightId(tagId: number): string {
   return `text-highlight-${tagId}`;
 }
 
+const FLASH_CLASSES = ['ring-2', 'ring-primary', 'bg-primary/20'];
+
+// Only one element flashes at a time — rapid hovers/clicks (e.g. sweeping
+// across cards) would otherwise leave several highlights glowing at once,
+// each waiting on its own now-orphaned timeout.
+let activeFlash: { el: Element; timeoutId: ReturnType<typeof setTimeout> } | null = null;
+
 function flash(el: Element | null) {
+  if (activeFlash) {
+    activeFlash.el.classList.remove(...FLASH_CLASSES);
+    clearTimeout(activeFlash.timeoutId);
+    activeFlash = null;
+  }
   if (!el) return;
-  el.classList.add('ring-2', 'ring-primary');
-  setTimeout(() => el.classList.remove('ring-2', 'ring-primary'), 1500);
+  el.classList.add(...FLASH_CLASSES);
+  const timeoutId = setTimeout(() => {
+    el.classList.remove(...FLASH_CLASSES);
+    activeFlash = null;
+  }, 1500);
+  activeFlash = { el, timeoutId };
 }
 
-function TagRow({ tag, onReview, onEdit, onLocate, onLocateInPdf }: {
+function TagRow({ tag, onReview, onEdit, onLocate, onLocateInPdf, onHover }: {
   tag: Tag; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void; onLocateInPdf: (tagId: number) => void;
+  onHover: (tagId: number) => void;
 }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(tag.edited_value ?? tag.value ?? '');
   const displayValue = tag.edited_value ?? tag.value ?? '(no value)';
 
   return (
-    <details id={tagRowId(tag.id)} className="rounded-md border border-input bg-card px-3 py-2">
+    <details id={tagRowId(tag.id)} className="rounded-md border border-input bg-card px-3 py-2" onMouseEnter={() => onHover(tag.id)}>
       <summary className="flex cursor-pointer items-center justify-between gap-2 text-sm">
-        <span className="font-medium">{displayValue}</span>
-        <span className="flex items-center gap-2">
+        <span className="flex min-w-0 items-center gap-2 font-medium">
+          <span className="truncate">{displayValue}</span>
+          {tag.match_score !== null && <Badge variant="outline" className="shrink-0">{tag.match_score.toFixed(2)}</Badge>}
+        </span>
+        <span className="flex shrink-0 flex-wrap items-center justify-end gap-1">
           {tag.added_manually && <Badge variant="secondary">Added</Badge>}
           {tag.review_status === 'edited' && <Badge variant="secondary">Edited</Badge>}
           {tag.review_status === 'accepted' && <Badge variant="success">Accepted</Badge>}
@@ -123,19 +160,44 @@ function TagRow({ tag, onReview, onEdit, onLocate, onLocateInPdf }: {
   );
 }
 
-function TagGroup({ tagType, tags, onReview, onEdit, onLocate, onLocateInPdf }: {
-  tagType: string; tags: Tag[]; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void; onLocateInPdf: (tagId: number) => void;
+function TagGroup({ id, title, tags, onReview, onEdit, onLocate, onLocateInPdf, onHover }: {
+  id: string; title: string; tags: Tag[]; onReview: ReviewHandler; onEdit: EditHandler; onLocate: (tagId: number) => void; onLocateInPdf: (tagId: number) => void;
+  onHover: (tagId: number) => void;
 }) {
   return (
-    <details id={tagGroupId(tagType)} className="rounded-md border border-input bg-card">
+    <details id={id} className="rounded-md border border-input bg-card">
       <summary className="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 font-serif text-base font-semibold">
-        <span>{humanizeTagType(tagType)}</span>
+        <span>{title}</span>
         <Badge variant="secondary">{tags.length}</Badge>
       </summary>
       <div className="flex flex-col gap-2 border-t border-input p-3">
-        {tags.map((tag) => <TagRow key={tag.id} tag={tag} onReview={onReview} onEdit={onEdit} onLocate={onLocate} onLocateInPdf={onLocateInPdf} />)}
+        {tags.map((tag) => <TagRow key={tag.id} tag={tag} onReview={onReview} onEdit={onEdit} onLocate={onLocate} onLocateInPdf={onLocateInPdf} onHover={onHover} />)}
       </div>
     </details>
+  );
+}
+
+// One card per recurring label value. Sorted by match score so the
+// best-supported occurrence leads. Accepting any occurrence accepts the
+// whole group — a label is either validated for this paper or it isn't,
+// occurrence-by-occurrence acceptance would just be busywork.
+function ValueGroup({ value, tags, onReview, onAcceptGroup, onEdit, onLocate, onLocateInPdf, onHover }: {
+  value: string; tags: Tag[]; onReview: ReviewHandler; onAcceptGroup: (tagIds: number[]) => void;
+  onEdit: EditHandler; onLocate: (tagId: number) => void; onLocateInPdf: (tagId: number) => void;
+  onHover: (tagId: number) => void;
+}) {
+  const sorted = useMemo(() => [...tags].sort((a, b) => (b.match_score ?? -1) - (a.match_score ?? -1)), [tags]);
+  const groupIds = useMemo(() => tags.map((t) => t.id), [tags]);
+  const handleReview: ReviewHandler = (tagId, status) => {
+    if (status === 'accepted') onAcceptGroup(groupIds);
+    else onReview(tagId, status);
+  };
+
+  return (
+    <TagGroup
+      id={labelGroupId(value)} title={value} tags={sorted}
+      onReview={handleReview} onEdit={onEdit} onLocate={onLocate} onLocateInPdf={onLocateInPdf} onHover={onHover}
+    />
   );
 }
 
@@ -196,12 +258,9 @@ function buildHighlightSegments(text: string, tags: Tag[], onHighlightClick: (ta
 function PaperText({ text, tags, onHighlightClick }: { text: string; tags: Tag[]; onHighlightClick: (tagId: number) => void }) {
   const segments = useMemo(() => buildHighlightSegments(text, tags, onHighlightClick), [text, tags, onHighlightClick]);
   return (
-    <details className="rounded-md border border-input bg-card">
-      <summary className="cursor-pointer px-4 py-3 font-serif text-base font-semibold">Extracted text</summary>
-      <div className="max-h-150 overflow-auto whitespace-pre-wrap border-t border-input p-4 text-sm leading-relaxed">
-        {segments}
-      </div>
-    </details>
+    <div className="max-h-150 overflow-auto whitespace-pre-wrap rounded-md border border-input bg-card p-4 text-sm leading-relaxed">
+      {segments}
+    </div>
   );
 }
 
@@ -243,6 +302,7 @@ const PaperReview: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [focusPdfTagId, setFocusPdfTagId] = useState<number | null>(null);
+  const [viewTab, setViewTab] = useState<'text' | 'pdf'>('text');
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -286,7 +346,8 @@ const PaperReview: React.FC = () => {
   const revealTag = (tagId: number) => {
     const tag = tags?.find((t) => t.id === tagId);
     if (!tag) return;
-    const groupEl = document.getElementById(tagGroupId(tag.tag_type)) as HTMLDetailsElement | null;
+    const groupId = tag.tag_type === 'label' ? labelGroupId(tag.edited_value ?? tag.value ?? '(no value)') : tagGroupId(tag.tag_type);
+    const groupEl = document.getElementById(groupId) as HTMLDetailsElement | null;
     const rowEl = document.getElementById(tagRowId(tagId)) as HTMLDetailsElement | null;
     if (groupEl) groupEl.open = true;
     if (rowEl) rowEl.open = true;
@@ -294,13 +355,36 @@ const PaperReview: React.FC = () => {
     flash(rowEl);
   };
 
-  const revealHighlight = (tagId: number) => {
+  // Scrolls/flashes the text highlight if that panel happens to be visible;
+  // a no-op otherwise (nothing to see on a `hidden` panel). Doesn't touch
+  // which tab is active — used for hover, where flipping tabs would fight
+  // the user for control.
+  const peekHighlight = (tagId: number) => {
     const el = document.getElementById(textHighlightId(tagId));
     el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     flash(el);
   };
 
-  const revealInPdf = (tagId: number) => setFocusPdfTagId(tagId);
+  const peekInPdf = (tagId: number) => setFocusPdfTagId(tagId);
+
+  const revealHighlight = (tagId: number) => {
+    setViewTab('text');
+    // The text panel may have been hidden (inactive tab) a moment ago; defer
+    // to the next frame so it's laid out before we scroll to it.
+    requestAnimationFrame(() => peekHighlight(tagId));
+  };
+
+  const revealInPdf = (tagId: number) => {
+    setViewTab('pdf');
+    peekInPdf(tagId);
+  };
+
+  // Hovering a card previews its location in both panels without stealing
+  // the active tab, so browsing rows doesn't yank the viewer around.
+  const handleHoverTag = (tagId: number) => {
+    peekHighlight(tagId);
+    peekInPdf(tagId);
+  };
 
   const handleReview: ReviewHandler = async (tagId, status) => {
     try {
@@ -313,6 +397,24 @@ const PaperReview: React.FC = () => {
       setTags((prev) => prev && prev.map((t) => (t.id === tagId ? { ...t, review_status: status } : t)));
     } catch (err) {
       console.error(`Failed to update review status for tag ${tagId}:`, err);
+    }
+  };
+
+  // Accepting one occurrence of a recurring label accepts every occurrence
+  // of that label — there's no per-tag review endpoint for "accept a set",
+  // so this just fires the single-tag endpoint for each id in parallel.
+  const handleAcceptGroup = async (tagIds: number[]) => {
+    try {
+      await Promise.all(tagIds.map((tagId) =>
+        fetch(`http://localhost:8000/tags/${tagId}/review`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: 'accepted' }),
+        }),
+      ));
+      setTags((prev) => prev && prev.map((t) => (tagIds.includes(t.id) ? { ...t, review_status: 'accepted' } : t)));
+    } catch (err) {
+      console.error('Failed to accept label group:', err);
     }
   };
 
@@ -355,6 +457,14 @@ const PaperReview: React.FC = () => {
       .map((t) => ({ id: t.id, page_number: t.page_number, bbox: t.bbox })),
     [visibleTags],
   );
+  const labelValueGroups = useMemo(
+    () => groupByValue(visibleTags.filter((t) => t.tag_type === 'label')),
+    [visibleTags],
+  );
+  const otherTypeGroups = useMemo(
+    () => groupByType(visibleTags.filter((t) => t.tag_type !== 'label')),
+    [visibleTags],
+  );
 
   return (
     <div className="flex flex-col gap-6">
@@ -370,15 +480,39 @@ const PaperReview: React.FC = () => {
 
       {knownTagTypes.length > 0 && <AddTagForm tagTypes={knownTagTypes} onAdd={handleAdd} />}
 
-      {text && <PaperText text={text} tags={visibleTags} onHighlightClick={revealTag} />}
+      <div className="flex gap-4">
+        {labelValueGroups.length > 0 && (
+          <div className="flex w-80 shrink-0 flex-col gap-3">
+            <h3 className="font-serif text-lg font-semibold">Labels</h3>
+            {labelValueGroups.map(([value, groupTags]) => (
+              <ValueGroup
+                key={value} value={value} tags={groupTags}
+                onReview={handleReview} onAcceptGroup={handleAcceptGroup} onEdit={handleEdit}
+                onLocate={revealHighlight} onLocateInPdf={revealInPdf} onHover={handleHoverTag}
+              />
+            ))}
+          </div>
+        )}
 
-      {id && <PdfViewer paperId={id} tags={pdfTags} focusTagId={focusPdfTagId} onHighlightClick={revealTag} />}
+        <div className="flex flex-1 flex-col gap-2">
+          <div className="flex gap-2">
+            <Button size="sm" variant={viewTab === 'text' ? 'default' : 'outline'} onClick={() => setViewTab('text')}>Text view</Button>
+            <Button size="sm" variant={viewTab === 'pdf' ? 'default' : 'outline'} onClick={() => setViewTab('pdf')}>PDF view</Button>
+          </div>
+          <div className={viewTab === 'text' ? undefined : 'hidden'}>
+            {text && <PaperText text={text} tags={visibleTags} onHighlightClick={revealTag} />}
+          </div>
+          <div className={viewTab === 'pdf' ? undefined : 'hidden'}>
+            {id && <PdfViewer paperId={id} tags={pdfTags} focusTagId={focusPdfTagId} onHighlightClick={revealTag} />}
+          </div>
+        </div>
+      </div>
 
       <div className="flex flex-col gap-4">
-        {groupByType(visibleTags).map(([tagType, groupTags]) => (
+        {otherTypeGroups.map(([tagType, groupTags]) => (
           <TagGroup
-            key={tagType} tagType={tagType} tags={groupTags}
-            onReview={handleReview} onEdit={handleEdit} onLocate={revealHighlight} onLocateInPdf={revealInPdf}
+            key={tagType} id={tagGroupId(tagType)} title={humanizeTagType(tagType)} tags={groupTags}
+            onReview={handleReview} onEdit={handleEdit} onLocate={revealHighlight} onLocateInPdf={revealInPdf} onHover={handleHoverTag}
           />
         ))}
       </div>

@@ -506,6 +506,18 @@ def get_ecosystem_service_paper_counts(cursor: psycopg.Cursor) -> list[dict]:
     ]
 
 
+def get_paper_counts_by_venue(cursor: psycopg.Cursor) -> list[dict]:
+    """Counts papers per publication venue — the meta study's per-venue totals."""
+    cursor.execute("""
+        SELECT venue AS name, COUNT(*) AS paper_count
+        FROM papers
+        WHERE venue IS NOT NULL
+        GROUP BY venue
+        ORDER BY paper_count DESC, name
+    """)
+    return [{"name": name, "paper_count": count} for name, count in cursor.fetchall()]
+
+
 def get_paper_year_counts(cursor: psycopg.Cursor, field: str, value: str) -> list[dict]:
     """Papers-per-year for a single design_strategy/ecosystem_service value — the meta study's per-DS/ES timeline.
 
@@ -905,6 +917,16 @@ async def ecosystem_service_stats():
         raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
     except (neo4j.exceptions.Neo4jError, neo4j.exceptions.DriverError) as e:
         raise HTTPException(status_code=502, detail=f"Metastudy knowledge graph unreachable: {e}")
+
+
+@app.get("/stats/venues")
+async def venue_stats():
+    try:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                return get_paper_counts_by_venue(cursor)
+    except psycopg.OperationalError as e:
+        raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
 
 
 @app.get("/stats/papers-by-year")

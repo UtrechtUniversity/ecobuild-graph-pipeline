@@ -144,7 +144,7 @@ services:
       - knowledge-extraction-cache:/app/.cache
     # Pull the configured models before serving; the extraction API itself
     # is the Dockerfile's default ENTRYPOINT (uvicorn src.service:app).
-    entrypoint: [ "/bin/sh", "-c", "python /app/scripts/pull_model.py && poetry run uvicorn src.service:app --host 0.0.0.0 --port 8001" ]
+    entrypoint: [ "/bin/sh", "-c", "python /app/scripts/pull_model.py && poetry run uvicorn src.service:app --host 0.0.0.0 --port 8001 --no-access-log" ]
     healthcheck:
       test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')" ]
       interval: 10s

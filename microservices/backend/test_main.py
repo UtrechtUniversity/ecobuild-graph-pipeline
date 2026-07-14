@@ -24,17 +24,23 @@ class FakeCursor:
         matches = [r for r in self._runs if r["paper_id"] == paper_id]
         return matches[-1] if matches else None
 
+    def _search_filter(self, like_params):
+        papers = self._papers
+        if like_params:
+            needle = like_params[0].strip("%").lower()
+            def matches(p):
+                fields = [p.get("title"), p.get("abstract"), p.get("query"), *p.get("authors", [])]
+                return any(needle in (f or "").lower() for f in fields)
+            papers = [p for p in papers if matches(p)]
+        return papers
+
     def execute(self, sql, params=()):
         sql = " ".join(sql.split())
-        if sql.startswith("SELECT p.id, p.title"):
+        if sql.startswith("SELECT COUNT(*) FROM papers"):
+            self._result = (len(self._search_filter(list(params))),)
+        elif sql.startswith("SELECT p.id, p.title"):
             *like_params, limit, offset = params
-            papers = self._papers
-            if like_params:
-                needle = like_params[0].strip("%").lower()
-                def matches(p):
-                    fields = [p.get("title"), p.get("abstract"), p.get("query"), *p.get("authors", [])]
-                    return any(needle in (f or "").lower() for f in fields)
-                papers = [p for p in papers if matches(p)]
+            papers = self._search_filter(like_params)
             rows = []
             for p in papers[offset:offset + limit]:
                 run = self._latest_run(p["id"])
@@ -186,6 +192,10 @@ def main_() -> None:
          "abstract": None, "open_access": None, "pdf_url": None, "created_at": None},
     ])
     assert [p["id"] for p in main.get_papers(search_cursor, limit=50, offset=0, q="heat")] == [1, 2, 3]
+
+    # count_papers() reports the total match count regardless of limit/offset.
+    assert main.count_papers(paged_cursor) == 5
+    assert main.count_papers(search_cursor, q="heat") == 3
 
     # labels_to_tags() flattens the service's {"labels": {section: [decision, ...]}}
     # shape into one tag row per decision, regardless of how many sections there are.

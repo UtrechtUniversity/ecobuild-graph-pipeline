@@ -25,6 +25,8 @@ interface Paper {
   external_id: string;
   url: string | null;
   doi: string | null;
+  venue: string | null;
+  citation_count: number | null;
   abstract: string | null;
   relevance_checked: boolean | null;
   relevant: boolean | null;
@@ -492,6 +494,12 @@ const PaperList: React.FC = () => {
                       </p>
                     )}
                     <p><span className="font-medium text-foreground">{SOURCE_LABELS[paper.source] ?? paper.source} ID: </span>{paper.external_id}</p>
+                    {paper.venue && (
+                      <p><span className="font-medium text-foreground">Venue: </span>{paper.venue}</p>
+                    )}
+                    {paper.citation_count !== null && (
+                      <p><span className="font-medium text-foreground">Citations: </span>{paper.citation_count}</p>
+                    )}
                     <p>
                       <span className="font-medium text-foreground">Relevance: </span>
                       {paper.relevance_checked ? (paper.relevant ? 'Checked — relevant' : 'Checked — not relevant') : 'Not checked'}

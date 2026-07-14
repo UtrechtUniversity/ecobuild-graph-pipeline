@@ -7,4 +7,4 @@ install:
 # -u VIRTUAL_ENV: ignore any venv activated in the parent shell (e.g. by an
 # IDE) so poetry always targets this project's own .venv, not a stray one.
 dev: install
-	set -a; . ./.env; set +a; env -u VIRTUAL_ENV poetry run uvicorn crawler.service:app --host 0.0.0.0 --port 8003
+	set -a; . ./.env; set +a; env -u VIRTUAL_ENV poetry run uvicorn crawler.service:app --host 0.0.0.0 --port 8003 --log-level error

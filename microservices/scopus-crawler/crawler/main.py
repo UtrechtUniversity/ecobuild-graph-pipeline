@@ -32,18 +32,29 @@ def get_connection() -> psycopg.Connection:
 
 
 def get_queries(cursor: psycopg.Cursor) -> list[dict]:
-    """Returns this crawler's configured search queries as {id, query} dicts."""
-    cursor.execute("SELECT id, query FROM search_queries WHERE source = %s ORDER BY id", (SOURCE,))
-    return [{"id": row[0], "query": row[1]} for row in cursor.fetchall()]
-
-
-def add_query(cursor: psycopg.Cursor, query: str) -> dict:
+    """Returns this crawler's configured search queries as {id, query, design_strategy, ecosystem_service} dicts."""
     cursor.execute(
-        "INSERT INTO search_queries (query, source) VALUES (%s, %s) RETURNING id, query",
-        (query, SOURCE),
+        "SELECT id, query, design_strategy, ecosystem_service FROM search_queries WHERE source = %s ORDER BY id",
+        (SOURCE,),
+    )
+    return [
+        {"id": row[0], "query": row[1], "design_strategy": row[2], "ecosystem_service": row[3]}
+        for row in cursor.fetchall()
+    ]
+
+
+def add_query(
+    cursor: psycopg.Cursor, query: str, design_strategy: str | None = None, ecosystem_service: str | None = None,
+) -> dict:
+    cursor.execute(
+        """
+        INSERT INTO search_queries (query, source, design_strategy, ecosystem_service)
+        VALUES (%s, %s, %s, %s) RETURNING id, query, design_strategy, ecosystem_service
+        """,
+        (query, SOURCE, design_strategy, ecosystem_service),
     )
     row = cursor.fetchone()
-    return {"id": row[0], "query": row[1]}
+    return {"id": row[0], "query": row[1], "design_strategy": row[2], "ecosystem_service": row[3]}
 
 
 def remove_query(cursor: psycopg.Cursor, query_id: int) -> bool:
@@ -52,14 +63,20 @@ def remove_query(cursor: psycopg.Cursor, query_id: int) -> bool:
     return cursor.rowcount > 0
 
 
-def update_query(cursor: psycopg.Cursor, query_id: int, query: str) -> dict | None:
-    """Returns the updated {id, query}, or None if query_id didn't exist."""
+def update_query(
+    cursor: psycopg.Cursor, query_id: int, query: str,
+    design_strategy: str | None = None, ecosystem_service: str | None = None,
+) -> dict | None:
+    """Returns the updated {id, query, design_strategy, ecosystem_service}, or None if query_id didn't exist."""
     cursor.execute(
-        "UPDATE search_queries SET query = %s WHERE id = %s AND source = %s RETURNING id, query",
-        (query, query_id, SOURCE),
+        """
+        UPDATE search_queries SET query = %s, design_strategy = %s, ecosystem_service = %s
+        WHERE id = %s AND source = %s RETURNING id, query, design_strategy, ecosystem_service
+        """,
+        (query, design_strategy, ecosystem_service, query_id, SOURCE),
     )
     row = cursor.fetchone()
-    return {"id": row[0], "query": row[1]} if row else None
+    return {"id": row[0], "query": row[1], "design_strategy": row[2], "ecosystem_service": row[3]} if row else None
 
 
 headers = {"X-ELS-APIKey": api_key or "", "Accept": "application/json"}
@@ -102,6 +119,11 @@ def _to_int(value) -> int | None:
     if value is None or value == "":
         return None
     return int(value)
+
+
+def _to_year(cover_date: str | None) -> int | None:
+    """Scopus reports prism:coverDate as 'YYYY-MM-DD'."""
+    return int(cover_date[:4]) if cover_date else None
 
 
 def _scopus_id(entry: Dict) -> str:
@@ -187,8 +209,8 @@ def handle_query(cursor: psycopg.Cursor, query_id: int, query: str, stop_event: 
 def write_to_db(cursor: psycopg.Cursor, query_id: int, query: str, entry: Dict, abstract_response: Dict) -> None:
     """Writes a search result, enriched with its abstract-retrieval data, to the document database."""
     template = (
-        "INSERT INTO papers (source, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
+        "INSERT INTO papers (source, external_id, title, authors, url, doi, venue, citation_count, year, abstract, pdf_url, open_access, query) "
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
     )
     external_id = _scopus_id(entry)
     title = entry.get("dc:title")
@@ -197,12 +219,13 @@ def write_to_db(cursor: psycopg.Cursor, query_id: int, query: str, entry: Dict, 
     doi = entry.get("prism:doi")
     venue = entry.get("prism:publicationName")
     citation_count = _to_int(entry.get("citedby-count"))
+    year = _to_year(entry.get("prism:coverDate"))
     abstract = _abstract_text(abstract_response)
     open_access = _to_bool(entry.get("openaccessFlag"))
     pdf_url = None  # Scopus is an abstract/citation index, not a full-text host — see README
 
     cursor.execute(template, (
-        SOURCE, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query,
+        SOURCE, external_id, title, authors, url, doi, venue, citation_count, year, abstract, pdf_url, open_access, query,
     ))
     record_match(cursor, query_id, doi, external_id)
 

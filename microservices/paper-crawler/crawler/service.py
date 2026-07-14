@@ -12,6 +12,8 @@ app = FastAPI()
 
 class QueryCreate(BaseModel):
     query: str
+    design_strategy: str | None = None
+    ecosystem_service: str | None = None
 
 
 _lock = threading.Lock()
@@ -77,7 +79,7 @@ async def create_query(body: QueryCreate):
     with get_connection() as connection:
         with connection.cursor() as cursor:
             try:
-                return add_query(cursor, query)
+                return add_query(cursor, query, body.design_strategy, body.ecosystem_service)
             except UniqueViolation:
                 raise HTTPException(status_code=409, detail="query already exists")
 
@@ -90,7 +92,7 @@ async def edit_query(query_id: int, body: QueryCreate):
     with get_connection() as connection:
         with connection.cursor() as cursor:
             try:
-                updated = update_query(cursor, query_id, query)
+                updated = update_query(cursor, query_id, query, body.design_strategy, body.ecosystem_service)
             except UniqueViolation:
                 raise HTTPException(status_code=409, detail="query already exists")
     if not updated:

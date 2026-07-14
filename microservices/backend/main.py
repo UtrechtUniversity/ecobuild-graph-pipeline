@@ -14,6 +14,7 @@ import urllib.request
 import urllib.error
 import psycopg
 from psycopg.types.json import Jsonb
+import neo4j
 
 # Import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
@@ -301,6 +302,8 @@ async def stop_crawler(source: str):
 
 class QueryCreate(BaseModel):
     query: str
+    design_strategy: str | None = None
+    ecosystem_service: str | None = None
 
 
 @app.get("/crawlers/{source}/queries")
@@ -436,6 +439,98 @@ def get_papers(cursor: psycopg.Cursor, limit: int = 50, offset: int = 0, q: str 
             "extraction_started_at": started_at.isoformat() if started_at else None,
         })
     return papers
+
+
+def get_paper_counts_by_query_field(cursor: psycopg.Cursor, field: str) -> list[dict]:
+    """Counts distinct matched papers per query's design_strategy/ecosystem_service — the meta study's per-DS/ES totals."""
+    assert field in ("design_strategy", "ecosystem_service"), field
+    cursor.execute(f"""
+        SELECT sq.{field} AS name, COUNT(DISTINCT pq.paper_id) AS paper_count
+        FROM search_queries sq
+        JOIN paper_queries pq ON pq.query_id = sq.id
+        WHERE sq.{field} IS NOT NULL
+        GROUP BY sq.{field}
+        ORDER BY paper_count DESC, name
+    """)
+    return [{"name": name, "paper_count": count} for name, count in cursor.fetchall()]
+
+
+# DS->ES mapping lives in a separate, externally-hosted Neo4j knowledge graph
+# (not the local `neo4j` service) — cached in-process since it's a slow-moving
+# taxonomy and the external server shouldn't be hit on every page load.
+_META_NEO4J_TTL = timedelta(minutes=10)
+_meta_neo4j_cache: dict = {"pairs": None, "fetched_at": None}
+
+
+def _get_meta_neo4j_driver() -> neo4j.Driver:
+    return neo4j.GraphDatabase.driver(
+        os.environ["META_NEO4J_URI"],
+        auth=(os.environ["META_NEO4J_USER"], os.environ["META_NEO4J_PASSWORD"]),
+    )
+
+
+def get_design_strategy_ecosystem_service_pairs() -> list[tuple[str, str]]:
+    """Fetches (design_strategy, ecosystem_service) pairs from the (DesignStrategy)-[:GENERATES]->(EcosystemService) graph."""
+    fetched_at = _meta_neo4j_cache["fetched_at"]
+    if fetched_at is not None and datetime.now() - fetched_at < _META_NEO4J_TTL:
+        return _meta_neo4j_cache["pairs"]
+
+    driver = _get_meta_neo4j_driver()
+    try:
+        with driver.session(database=os.environ["META_NEO4J_DATABASE"]) as session:
+            result = session.run(
+                "MATCH (d:DesignStrategy)-[:GENERATES]->(e:EcosystemService) RETURN d.name AS ds, e.name AS es"
+            )
+            pairs = [(record["ds"], record["es"]) for record in result]
+    finally:
+        driver.close()
+
+    _meta_neo4j_cache["pairs"] = pairs
+    _meta_neo4j_cache["fetched_at"] = datetime.now()
+    return pairs
+
+
+def get_ecosystem_service_paper_counts(cursor: psycopg.Cursor) -> list[dict]:
+    """Map-reduces each design strategy's paper count onto the ecosystem service(s) it GENERATES."""
+    ds_counts = {row["name"]: row["paper_count"] for row in get_paper_counts_by_query_field(cursor, "design_strategy")}
+
+    es_totals: dict[str, int] = {}
+    for ds, es in get_design_strategy_ecosystem_service_pairs():
+        count = ds_counts.get(ds)
+        if count:
+            es_totals[es] = es_totals.get(es, 0) + count
+
+    return [
+        {"name": name, "paper_count": count}
+        for name, count in sorted(es_totals.items(), key=lambda item: (-item[1], item[0]))
+    ]
+
+
+def get_paper_year_counts(cursor: psycopg.Cursor, field: str, value: str) -> list[dict]:
+    """Papers-per-year for a single design_strategy/ecosystem_service value — the meta study's per-DS/ES timeline.
+
+    An ecosystem_service isn't tagged on search_queries directly (see
+    get_ecosystem_service_paper_counts); it's rolled up from whichever design
+    strategies the DS->ES graph says generate it.
+    """
+    assert field in ("design_strategy", "ecosystem_service"), field
+    if field == "design_strategy":
+        design_strategies = [value]
+    else:
+        design_strategies = [ds for ds, es in get_design_strategy_ecosystem_service_pairs() if es == value]
+        if not design_strategies:
+            return []
+
+    cursor.execute("""
+        SELECT p.year AS year, COUNT(DISTINCT p.id) AS paper_count
+        FROM search_queries sq
+        JOIN paper_queries pq ON pq.query_id = sq.id
+        JOIN papers p ON p.id = pq.paper_id
+        WHERE sq.design_strategy = ANY(%s) AND p.year IS NOT NULL
+        GROUP BY p.year
+        ORDER BY p.year
+    """, (design_strategies,))
+    return [{"year": year, "paper_count": count} for year, count in cursor.fetchall()]
 
 
 def create_run(cursor: psycopg.Cursor, paper_id: int, status: str) -> int:
@@ -788,6 +883,40 @@ async def papers_count(q: str | None = None):
                 return {"total": count_papers(cursor, q)}
     except psycopg.OperationalError as e:
         raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
+
+
+@app.get("/stats/design-strategies")
+async def design_strategy_stats():
+    try:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                return get_paper_counts_by_query_field(cursor, "design_strategy")
+    except psycopg.OperationalError as e:
+        raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
+
+
+@app.get("/stats/ecosystem-services")
+async def ecosystem_service_stats():
+    try:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                return get_ecosystem_service_paper_counts(cursor)
+    except psycopg.OperationalError as e:
+        raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
+    except (neo4j.exceptions.Neo4jError, neo4j.exceptions.DriverError) as e:
+        raise HTTPException(status_code=502, detail=f"Metastudy knowledge graph unreachable: {e}")
+
+
+@app.get("/stats/papers-by-year")
+async def papers_by_year_stats(field: Literal["design_strategy", "ecosystem_service"], value: str):
+    try:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                return get_paper_year_counts(cursor, field, value)
+    except psycopg.OperationalError as e:
+        raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
+    except (neo4j.exceptions.Neo4jError, neo4j.exceptions.DriverError) as e:
+        raise HTTPException(status_code=502, detail=f"Metastudy knowledge graph unreachable: {e}")
 
 
 @app.post("/papers/extract")

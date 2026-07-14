@@ -375,8 +375,17 @@ async def health():
         **dict(zip(sources, crawler_reachability)),
     }
 
-def get_papers(cursor: psycopg.Cursor) -> list[dict]:
-    cursor.execute("""
+def get_papers(cursor: psycopg.Cursor, limit: int = 50, offset: int = 0, q: str | None = None) -> list[dict]:
+    where_clause = ""
+    params: list = []
+    if q:
+        where_clause = """WHERE (
+            p.title ILIKE %s OR p.abstract ILIKE %s OR p.query ILIKE %s
+            OR EXISTS (SELECT 1 FROM unnest(p.authors) a WHERE a ILIKE %s)
+        )"""
+        needle = f"%{q}%"
+        params = [needle, needle, needle, needle]
+    cursor.execute(f"""
         SELECT p.id, p.title, p.authors, p.query, p.open_access, p.pdf_url,
                p.source, p.external_id, p.url, p.doi, p.venue, p.citation_count, p.abstract,
                p.relevance_checked, p.relevant, p.created_at,
@@ -389,8 +398,10 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
             ORDER BY id DESC
             LIMIT 1
         ) r ON true
+        {where_clause}
         ORDER BY p.id
-    """)
+        LIMIT %s OFFSET %s
+    """, (*params, limit, offset))
     papers = []
     for (paper_id, title, authors, query, open_access, pdf_url, source, external_id, url, doi, venue, citation_count, abstract,
          relevance_checked, relevant, created_at, status, error, started_at) in cursor.fetchall():
@@ -751,11 +762,11 @@ class PaperExtractRequest(BaseModel):
 
 
 @app.get("/papers")
-async def list_papers():
+async def list_papers(limit: int = 50, offset: int = 0, q: str | None = None):
     try:
         with get_db_connection() as connection:
             with connection.cursor() as cursor:
-                return get_papers(cursor)
+                return get_papers(cursor, limit, offset, q)
     except psycopg.OperationalError as e:
         raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
 

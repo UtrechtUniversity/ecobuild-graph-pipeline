@@ -27,8 +27,16 @@ class FakeCursor:
     def execute(self, sql, params=()):
         sql = " ".join(sql.split())
         if sql.startswith("SELECT p.id, p.title"):
+            *like_params, limit, offset = params
+            papers = self._papers
+            if like_params:
+                needle = like_params[0].strip("%").lower()
+                def matches(p):
+                    fields = [p.get("title"), p.get("abstract"), p.get("query"), *p.get("authors", [])]
+                    return any(needle in (f or "").lower() for f in fields)
+                papers = [p for p in papers if matches(p)]
             rows = []
-            for p in self._papers:
+            for p in papers[offset:offset + limit]:
                 run = self._latest_run(p["id"])
                 rows.append((
                     p["id"], p["title"], p["authors"], p["query"], p["open_access"], p["pdf_url"],
@@ -157,6 +165,27 @@ def main_() -> None:
         "created_at": None, "extraction_status": "pending", "extraction_error": None,
         "extraction_started_at": None,
     }]
+
+    # get_papers() pages through results with limit/offset, ordered by id.
+    paged_cursor = FakeCursor([{"id": i, "title": f"P{i}", "authors": [], "query": None,
+                                 "open_access": None, "pdf_url": None, "created_at": None} for i in range(1, 6)])
+    assert [p["id"] for p in main.get_papers(paged_cursor, limit=2, offset=0)] == [1, 2]
+    assert [p["id"] for p in main.get_papers(paged_cursor, limit=2, offset=4)] == [5]
+    assert main.get_papers(paged_cursor, limit=2, offset=10) == []
+
+    # get_papers() search (q) matches title, abstract, matched-query, or any author,
+    # case-insensitively, regardless of which field it hits.
+    search_cursor = FakeCursor([
+        {"id": 1, "title": "Urban Heat Islands", "authors": ["Jane Doe"], "query": None,
+         "abstract": "cooling strategies", "open_access": None, "pdf_url": None, "created_at": None},
+        {"id": 2, "title": "Unrelated Paper", "authors": ["Bob Smith"], "query": '"heat pump"',
+         "abstract": None, "open_access": None, "pdf_url": None, "created_at": None},
+        {"id": 3, "title": "Also Unrelated", "authors": ["Ann Heatly"], "query": None,
+         "abstract": None, "open_access": None, "pdf_url": None, "created_at": None},
+        {"id": 4, "title": "No Match Here", "authors": ["Someone Else"], "query": None,
+         "abstract": None, "open_access": None, "pdf_url": None, "created_at": None},
+    ])
+    assert [p["id"] for p in main.get_papers(search_cursor, limit=50, offset=0, q="heat")] == [1, 2, 3]
 
     # labels_to_tags() flattens the service's {"labels": {section: [decision, ...]}}
     # shape into one tag row per decision, regardless of how many sections there are.

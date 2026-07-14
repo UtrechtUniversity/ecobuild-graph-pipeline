@@ -375,16 +375,25 @@ async def health():
         **dict(zip(sources, crawler_reachability)),
     }
 
+def _papers_search_filter(q: str | None) -> tuple[str, list]:
+    if not q:
+        return "", []
+    where_clause = """WHERE (
+        p.title ILIKE %s OR p.abstract ILIKE %s OR p.query ILIKE %s
+        OR EXISTS (SELECT 1 FROM unnest(p.authors) a WHERE a ILIKE %s)
+    )"""
+    needle = f"%{q}%"
+    return where_clause, [needle, needle, needle, needle]
+
+
+def count_papers(cursor: psycopg.Cursor, q: str | None = None) -> int:
+    where_clause, params = _papers_search_filter(q)
+    cursor.execute(f"SELECT COUNT(*) FROM papers p {where_clause}", params)
+    return cursor.fetchone()[0]
+
+
 def get_papers(cursor: psycopg.Cursor, limit: int = 50, offset: int = 0, q: str | None = None) -> list[dict]:
-    where_clause = ""
-    params: list = []
-    if q:
-        where_clause = """WHERE (
-            p.title ILIKE %s OR p.abstract ILIKE %s OR p.query ILIKE %s
-            OR EXISTS (SELECT 1 FROM unnest(p.authors) a WHERE a ILIKE %s)
-        )"""
-        needle = f"%{q}%"
-        params = [needle, needle, needle, needle]
+    where_clause, params = _papers_search_filter(q)
     cursor.execute(f"""
         SELECT p.id, p.title, p.authors, p.query, p.open_access, p.pdf_url,
                p.source, p.external_id, p.url, p.doi, p.venue, p.citation_count, p.abstract,
@@ -767,6 +776,16 @@ async def list_papers(limit: int = 50, offset: int = 0, q: str | None = None):
         with get_db_connection() as connection:
             with connection.cursor() as cursor:
                 return get_papers(cursor, limit, offset, q)
+    except psycopg.OperationalError as e:
+        raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
+
+
+@app.get("/papers/count")
+async def papers_count(q: str | None = None):
+    try:
+        with get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                return {"total": count_papers(cursor, q)}
     except psycopg.OperationalError as e:
         raise HTTPException(status_code=502, detail=f"Document database unreachable: {e}")
 

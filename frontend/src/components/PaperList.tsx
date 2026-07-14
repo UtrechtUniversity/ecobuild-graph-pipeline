@@ -166,6 +166,7 @@ const PAGE_SIZE = 50;
 
 const PaperList: React.FC = () => {
   const [papers, setPapers] = useState<Paper[]>([]);
+  const [totalCount, setTotalCount] = useState<number | null>(null);
   const [hasMore, setHasMore] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [search, setSearch] = useState('');
@@ -208,6 +209,13 @@ const PaperList: React.FC = () => {
     return `http://localhost:8000/papers?${params}`;
   }, [debouncedSearch]);
 
+  const countUrl = useCallback(() => {
+    const params = new URLSearchParams();
+    if (debouncedSearch) params.set('q', debouncedSearch);
+    const query = params.toString();
+    return `http://localhost:8000/papers/count${query ? `?${query}` : ''}`;
+  }, [debouncedSearch]);
+
   // Guards the 5s poll and infinite-scroll's loadMore from ever running at the
   // same time — otherwise a poll response computed with a stale (smaller) limit
   // can land after loadMore appended a page and wipe it back out.
@@ -220,20 +228,27 @@ const PaperList: React.FC = () => {
     fetchBusyRef.current = true;
     try {
       const limit = Math.max(papers.length, PAGE_SIZE);
-      const response = await fetch(papersUrl(limit, 0));
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const data: Paper[] = await response.json();
+      const [papersResponse, countResponse] = await Promise.all([
+        fetch(papersUrl(limit, 0)),
+        fetch(countUrl()),
+      ]);
+      if (!papersResponse.ok) throw new Error(`HTTP error! status: ${papersResponse.status}`);
+      const data: Paper[] = await papersResponse.json();
       setPapers(data);
       setHasMore(data.length === limit);
       setError(null);
       logFailures(data);
+      if (countResponse.ok) {
+        const { total } = await countResponse.json();
+        setTotalCount(total);
+      }
     } catch (err) {
       console.error('Failed to fetch papers:', err);
       setError('Failed to reach the backend.');
     } finally {
       fetchBusyRef.current = false;
     }
-  }, [papers.length, papersUrl, logFailures]);
+  }, [papers.length, papersUrl, countUrl, logFailures]);
 
   useEffect(() => {
     refreshLoaded();
@@ -343,7 +358,7 @@ const PaperList: React.FC = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Papers ({papers.length}{hasMore ? '+' : ''})</CardTitle>
+        <CardTitle>Papers ({totalCount ?? papers.length})</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {error && <p className="text-sm text-destructive">{error}</p>}

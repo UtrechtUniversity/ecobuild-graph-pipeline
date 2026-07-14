@@ -12,7 +12,7 @@ from crawler.main import (
 
 
 class FakeCursor:
-    """In-memory stand-in for a psycopg cursor, just enough for search_queries + papers writes."""
+    """In-memory stand-in for a psycopg cursor, just enough for search_queries + papers + paper_queries writes."""
 
     def __init__(self):
         self._rows = []  # (id, query, source)
@@ -20,10 +20,13 @@ class FakeCursor:
         self._result = None
         self._rowcount = 0
         self.papers_written = []
+        self.paper_queries_written = []
+        self._next_paper_id = 1
+        self._last_paper_id = None
 
     def execute(self, sql, params=()):
         sql = sql.strip()
-        if sql.startswith("SELECT"):
+        if sql.startswith("SELECT id, query FROM search_queries"):
             source = params[0]
             self._result = [(r[0], r[1]) for r in self._rows if r[2] == source]
         elif sql.startswith("INSERT INTO search_queries"):
@@ -34,6 +37,12 @@ class FakeCursor:
             self._result = (row[0], row[1])
         elif sql.startswith("INSERT INTO papers"):
             self.papers_written.append(params)
+            self._last_paper_id = self._next_paper_id
+            self._next_paper_id += 1
+        elif sql.startswith("SELECT id FROM papers"):
+            self._result = (self._last_paper_id,)
+        elif sql.startswith("INSERT INTO paper_queries"):
+            self.paper_queries_written.append(params)
         elif sql.startswith("DELETE"):
             query_id, source = params
             before = len(self._rows)
@@ -117,7 +126,7 @@ def test_write_to_db_prefers_full_abstract_authors_over_search_snippet() -> None
         "coredata": {"dc:description": "Full abstract text."},
         "authors": {"author": {"preferred-name": {"ce:indexed-name": "Doe, John"}}},
     }
-    write_to_db(cursor, "test query", entry, abstract_response)
+    write_to_db(cursor, 7, "test query", entry, abstract_response)
 
     assert len(cursor.papers_written) == 1
     source, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query = cursor.papers_written[0]
@@ -129,13 +138,16 @@ def test_write_to_db_prefers_full_abstract_authors_over_search_snippet() -> None
     assert pdf_url is None
     assert abstract == "Full abstract text."
 
+    # the match is recorded against the resolved paper, linked to the query that found it
+    assert cursor.paper_queries_written == [(cursor._last_paper_id, 7)]
+
     print("crawler.main write_to_db self-check passed")
 
 
 def test_write_to_db_falls_back_to_search_snippet_when_abstract_unavailable() -> None:
     cursor = FakeCursor()
     entry = {"dc:identifier": "SCOPUS_ID:2", "dc:title": "B Paper", "dc:creator": "Roe J."}
-    write_to_db(cursor, "test query", entry, {})  # abstract retrieval failed/unentitled
+    write_to_db(cursor, 7, "test query", entry, {})  # abstract retrieval failed/unentitled
 
     _, _, _, authors, *_ = cursor.papers_written[0]
     assert authors == ["Roe J."]
@@ -158,7 +170,7 @@ def test_handle_query_paginates_and_rate_limits_search_and_abstract_calls() -> N
     with patch("crawler.main.session.get", side_effect=[page_1, abstract_response, page_2, abstract_response]) as mock_get, \
          patch("crawler.main.rate_limiter.wait") as mock_wait, \
          patch("crawler.main.PAGE_SIZE", 1):  # forces a second page fetch with only 2 total results
-        result = handle_query(FakeCursor(), "test query", threading.Event())
+        result = handle_query(FakeCursor(), 7, "test query", threading.Event())
 
     assert result is None
     assert mock_get.call_count == 4  # 2 search pages + 2 abstract lookups
@@ -174,7 +186,7 @@ def test_handle_query_skips_empty_result_placeholder() -> None:
     }})
     with patch("crawler.main.session.get", return_value=empty), \
          patch("crawler.main.rate_limiter.wait"):
-        result = handle_query(FakeCursor(), "no matches query", threading.Event())
+        result = handle_query(FakeCursor(), 7, "no matches query", threading.Event())
 
     assert result is None
     print("crawler.main empty-results self-check passed")

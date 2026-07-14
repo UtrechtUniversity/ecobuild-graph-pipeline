@@ -77,7 +77,7 @@ rate_limiter = FixedDelay(RATE_LIMIT)
 logger.info("Crawler initialized")
 
 
-def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event) -> int | None:
+def handle_query(cursor: psycopg.Cursor, query_id: int, query: str, stop_event: threading.Event) -> int | None:
     """Gathers all papers corresponding to the specified query.
 
     Returns the failing HTTP status code if a request failed and the query
@@ -112,7 +112,7 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
             for paper in response.get("data", []):
                 # store in DB
                 logger.debug(f"Found paper: {paper['title']}")
-                write_to_db(cursor, query, paper)
+                write_to_db(cursor, query_id, query, paper)
 
             # bulk search returns a "token" for the next page, omitted on the last page
             token = response.get("token")
@@ -125,11 +125,11 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
     return None
 
 
-def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
+def write_to_db(cursor: psycopg.Cursor, query_id: int, query: str, paper: Dict) -> None:
     """Writes paper and current query to the document database"""
     template = (
         "INSERT INTO papers (source, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (source, external_id) DO NOTHING"
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
     )
     external_id = paper["paperId"]
     title = paper["title"]
@@ -143,6 +143,23 @@ def write_to_db(cursor: psycopg.Cursor, query: str, paper: Dict) -> None:
     pdf_url = extract_pdf_url(paper.get("openAccessPdf"))
 
     cursor.execute(template, (SOURCE, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query))
+    record_match(cursor, query_id, doi, external_id)
+
+
+def record_match(cursor: psycopg.Cursor, query_id: int, doi: str | None, external_id: str) -> None:
+    """Links this query to whichever papers row now represents it — the one just
+    inserted, or (if a doi/source+external_id conflict dropped the insert) the
+    pre-existing one — so per-query match counts stay accurate even for papers
+    a different source (or an earlier query) already found."""
+    cursor.execute(
+        "SELECT id FROM papers WHERE (doi IS NOT NULL AND doi = %s) OR (source = %s AND external_id = %s) LIMIT 1",
+        (doi, SOURCE, external_id),
+    )
+    paper_id = cursor.fetchone()[0]
+    cursor.execute(
+        "INSERT INTO paper_queries (paper_id, query_id) VALUES (%s, %s) ON CONFLICT DO NOTHING",
+        (paper_id, query_id),
+    )
 
 def extract_pdf_url(open_access_pdf: dict | None) -> str | None:
     """Extracts the pdf url from the openAccessPdf field, if present"""
@@ -159,13 +176,13 @@ def run_crawl(stop_event: threading.Event) -> None:
     """
     with get_connection() as connection:
         with connection.cursor() as cursor:
-            queries = [q["query"] for q in get_queries(cursor)]
+            queries = get_queries(cursor)
 
-            for query in queries:
+            for q in queries:
                 if stop_event.is_set():
                     break
 
-                failure_status = handle_query(cursor, query, stop_event)
+                failure_status = handle_query(cursor, q["id"], q["query"], stop_event)
                 connection.commit()
                 if failure_status == 429:
                     raise RuntimeError("rate limiting")

@@ -16,10 +16,13 @@ CREATE TABLE papers (
     relevant BOOL,                                    /*whether it is relevant*/
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   /*timestamp*/
     UNIQUE (source, external_id)
-    -- url/doi dropped from UNIQUE: the same paper can legitimately show up via two
-    -- sources with the same DOI/URL. Cross-source dedup by DOI is a real future
-    -- feature, not handled here.
 );
+
+-- Cross-source dedup: if a paper with the same DOI already exists (from either
+-- source), a second crawler's insert silently no-ops via a bare
+-- ON CONFLICT DO NOTHING instead of creating a second row. url stays unindexed —
+-- less reliably unique across sources than DOI, not worth enforcing.
+CREATE UNIQUE INDEX papers_doi_key ON papers (doi) WHERE doi IS NOT NULL;
 
 CREATE TABLE extraction_runs (
     id SERIAL PRIMARY KEY,
@@ -66,4 +69,14 @@ CREATE TABLE search_queries (
 INSERT INTO search_queries (source, query) VALUES
     ('semantic_scholar', 'Green roof effect on evaporation'),
     ('semantic_scholar', 'rainwater harvesting effectiveness morocco');
+
+-- Records every query that matched a paper, independent of papers-table dedup —
+-- a query still gets credit for a match even if that paper's insert was dropped
+-- as a duplicate (same DOI, or already found by this same query/source before).
+-- This is what per-query match counts for the meta study are computed from.
+CREATE TABLE paper_queries (
+    paper_id INT NOT NULL REFERENCES papers(id),
+    query_id INT NOT NULL REFERENCES search_queries(id),
+    PRIMARY KEY (paper_id, query_id)
+);
 

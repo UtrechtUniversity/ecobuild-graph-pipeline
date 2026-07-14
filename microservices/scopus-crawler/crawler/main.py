@@ -145,7 +145,7 @@ def _abstract_authors(abstract_response: Dict) -> list[str]:
     return names
 
 
-def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event) -> int | None:
+def handle_query(cursor: psycopg.Cursor, query_id: int, query: str, stop_event: threading.Event) -> int | None:
     """Gathers all papers corresponding to the specified query.
 
     Returns the failing HTTP status code if a request failed and the query
@@ -175,7 +175,7 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
                 continue  # Scopus returns a single {"error": "..."} entry when a query matches nothing
             logger.debug(f"Found paper: {entry.get('dc:title')}")
             abstract_response = fetch_abstract(_scopus_id(entry))
-            write_to_db(cursor, query, entry, abstract_response)
+            write_to_db(cursor, query_id, query, entry, abstract_response)
 
         start += PAGE_SIZE
         if start >= total or not entries:
@@ -184,11 +184,11 @@ def handle_query(cursor: psycopg.Cursor, query: str, stop_event: threading.Event
     return None
 
 
-def write_to_db(cursor: psycopg.Cursor, query: str, entry: Dict, abstract_response: Dict) -> None:
+def write_to_db(cursor: psycopg.Cursor, query_id: int, query: str, entry: Dict, abstract_response: Dict) -> None:
     """Writes a search result, enriched with its abstract-retrieval data, to the document database."""
     template = (
         "INSERT INTO papers (source, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (source, external_id) DO NOTHING"
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
     )
     external_id = _scopus_id(entry)
     title = entry.get("dc:title")
@@ -204,6 +204,23 @@ def write_to_db(cursor: psycopg.Cursor, query: str, entry: Dict, abstract_respon
     cursor.execute(template, (
         SOURCE, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query,
     ))
+    record_match(cursor, query_id, doi, external_id)
+
+
+def record_match(cursor: psycopg.Cursor, query_id: int, doi: str | None, external_id: str) -> None:
+    """Links this query to whichever papers row now represents it — the one just
+    inserted, or (if a doi/source+external_id conflict dropped the insert) the
+    pre-existing one — so per-query match counts stay accurate even for papers
+    a different source (or an earlier query) already found."""
+    cursor.execute(
+        "SELECT id FROM papers WHERE (doi IS NOT NULL AND doi = %s) OR (source = %s AND external_id = %s) LIMIT 1",
+        (doi, SOURCE, external_id),
+    )
+    paper_id = cursor.fetchone()[0]
+    cursor.execute(
+        "INSERT INTO paper_queries (paper_id, query_id) VALUES (%s, %s) ON CONFLICT DO NOTHING",
+        (paper_id, query_id),
+    )
 
 
 def run_crawl(stop_event: threading.Event) -> None:
@@ -214,13 +231,14 @@ def run_crawl(stop_event: threading.Event) -> None:
     """
     with get_connection() as connection:
         with connection.cursor() as cursor:
-            queries = [q["query"] for q in get_queries(cursor)]
+            queries = get_queries(cursor)
 
-            for query in queries:
+            for q in queries:
                 if stop_event.is_set():
                     break
 
-                failure_status = handle_query(cursor, query, stop_event)
+                failure_status = handle_query(cursor, q["id"], q["query"], stop_event)
+                connection.commit()
                 if failure_status is not None:
                     raise RuntimeError(f"request failed (HTTP {failure_status})")
 

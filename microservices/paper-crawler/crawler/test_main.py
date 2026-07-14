@@ -5,7 +5,7 @@ Run directly: `poetry run python -m crawler.test_main`
 import threading
 from unittest.mock import Mock, patch
 
-from crawler.main import add_query, get_queries, handle_query, remove_query, update_query
+from crawler.main import SOURCE, add_query, get_queries, handle_query, record_match, remove_query, update_query
 
 
 class FakeCursor:
@@ -93,7 +93,7 @@ def test_handle_query_sleeps_between_every_request() -> None:
     ]
     with patch("crawler.main.session.get", side_effect=pages) as mock_get, \
          patch("crawler.main.rate_limiter.wait") as mock_wait:
-        result = handle_query(Mock(), "test query", threading.Event())
+        result = handle_query(Mock(), 1, "test query", threading.Event())
 
     assert result is None
     assert mock_get.call_count == 2
@@ -109,14 +109,46 @@ def test_handle_query_tolerates_zero_results() -> None:
     page = Mock(status_code=200, json=lambda: {"total": 0})
     with patch("crawler.main.session.get", return_value=page), \
          patch("crawler.main.rate_limiter.wait"):
-        result = handle_query(Mock(), "no hits query", threading.Event())
+        result = handle_query(Mock(), 1, "no hits query", threading.Event())
 
     assert result is None
 
     print("crawler.main handle_query zero-results self-check passed")
 
 
+class FakePapersCursor:
+    """Minimal stand-in for testing record_match's resolve-then-link SQL pattern."""
+
+    def __init__(self, existing_paper_id: int):
+        self.existing_paper_id = existing_paper_id
+        self.executed = []
+
+    def execute(self, sql, params=()):
+        self.executed.append((sql.strip(), params))
+
+    def fetchone(self):
+        return (self.existing_paper_id,)
+
+
+def test_record_match_links_query_to_resolved_paper_id() -> None:
+    """Whatever paper_id the dedup SELECT resolves to (new insert or pre-existing
+    row from a doi/source+external_id conflict) is what gets linked to the query."""
+    cursor = FakePapersCursor(existing_paper_id=42)
+    record_match(cursor, query_id=7, doi="10.1/x", external_id="abc")
+
+    select_sql, select_params = cursor.executed[0]
+    assert select_sql.startswith("SELECT id FROM papers")
+    assert select_params == ("10.1/x", SOURCE, "abc")
+
+    insert_sql, insert_params = cursor.executed[1]
+    assert insert_sql.startswith("INSERT INTO paper_queries")
+    assert insert_params == (42, 7)
+
+    print("crawler.main record_match self-check passed")
+
+
 if __name__ == "__main__":
     main()
     test_handle_query_sleeps_between_every_request()
     test_handle_query_tolerates_zero_results()
+    test_record_match_links_query_to_resolved_paper_id()

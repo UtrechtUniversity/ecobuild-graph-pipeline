@@ -263,13 +263,18 @@ async def get_experiment_details(experiment_id: str):
     return result
 
 
-CRAWLER_URL = os.getenv("CRAWLER_URL", "http://crawler:8000")
+CRAWLER_URLS = {
+    "semantic_scholar": os.getenv("SS_CRAWLER_URL", "http://crawler:8000"),
+    "scopus": os.getenv("SCOPUS_CRAWLER_URL", "http://scopus-crawler:8000"),
+}
 
 
-def _crawler_request(method: str, path: str, body: dict | None = None) -> dict:
+def _crawler_request(source: str, method: str, path: str, body: dict | None = None) -> dict:
+    if source not in CRAWLER_URLS:
+        raise HTTPException(status_code=404, detail=f"Unknown crawler source '{source}'")
     data = json.dumps(body).encode() if body is not None else None
     headers = {"Content-Type": "application/json"} if data else {}
-    request = urllib.request.Request(f"{CRAWLER_URL}{path}", method=method, data=data, headers=headers)
+    request = urllib.request.Request(f"{CRAWLER_URLS[source]}{path}", method=method, data=data, headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=10) as response:
             return json.loads(response.read())
@@ -279,43 +284,43 @@ def _crawler_request(method: str, path: str, body: dict | None = None) -> dict:
         raise HTTPException(status_code=502, detail=f"Crawler unreachable: {e}")
 
 
-@app.get("/crawler/status")
-async def get_crawler_status():
-    return await asyncio.to_thread(_crawler_request, "GET", "/status")
+@app.get("/crawlers/{source}/status")
+async def get_crawler_status(source: str):
+    return await asyncio.to_thread(_crawler_request, source, "GET", "/status")
 
 
-@app.post("/crawler/start")
-async def start_crawler():
-    return await asyncio.to_thread(_crawler_request, "POST", "/start")
+@app.post("/crawlers/{source}/start")
+async def start_crawler(source: str):
+    return await asyncio.to_thread(_crawler_request, source, "POST", "/start")
 
 
-@app.post("/crawler/stop")
-async def stop_crawler():
-    return await asyncio.to_thread(_crawler_request, "POST", "/stop")
+@app.post("/crawlers/{source}/stop")
+async def stop_crawler(source: str):
+    return await asyncio.to_thread(_crawler_request, source, "POST", "/stop")
 
 
 class QueryCreate(BaseModel):
     query: str
 
 
-@app.get("/crawler/queries")
-async def list_crawler_queries():
-    return await asyncio.to_thread(_crawler_request, "GET", "/queries")
+@app.get("/crawlers/{source}/queries")
+async def list_crawler_queries(source: str):
+    return await asyncio.to_thread(_crawler_request, source, "GET", "/queries")
 
 
-@app.post("/crawler/queries")
-async def create_crawler_query(body: QueryCreate):
-    return await asyncio.to_thread(_crawler_request, "POST", "/queries", body.model_dump())
+@app.post("/crawlers/{source}/queries")
+async def create_crawler_query(source: str, body: QueryCreate):
+    return await asyncio.to_thread(_crawler_request, source, "POST", "/queries", body.model_dump())
 
 
-@app.put("/crawler/queries/{query_id}")
-async def update_crawler_query(query_id: int, body: QueryCreate):
-    return await asyncio.to_thread(_crawler_request, "PUT", f"/queries/{query_id}", body.model_dump())
+@app.put("/crawlers/{source}/queries/{query_id}")
+async def update_crawler_query(source: str, query_id: int, body: QueryCreate):
+    return await asyncio.to_thread(_crawler_request, source, "PUT", f"/queries/{query_id}", body.model_dump())
 
 
-@app.delete("/crawler/queries/{query_id}")
-async def delete_crawler_query(query_id: int):
-    return await asyncio.to_thread(_crawler_request, "DELETE", f"/queries/{query_id}")
+@app.delete("/crawlers/{source}/queries/{query_id}")
+async def delete_crawler_query(source: str, query_id: int):
+    return await asyncio.to_thread(_crawler_request, source, "DELETE", f"/queries/{query_id}")
 
 
 # --- PAPERS & KNOWLEDGE EXTRACTION ---
@@ -358,20 +363,22 @@ def _is_reachable(url: str, timeout: float = 2.0) -> bool:
 
 @app.get("/health")
 async def health():
-    crawler, knowledge_extraction = await asyncio.gather(
-        asyncio.to_thread(_is_reachable, f"{CRAWLER_URL}/status"),
+    sources = list(CRAWLER_URLS)
+    reachability = await asyncio.gather(
+        *(asyncio.to_thread(_is_reachable, f"{CRAWLER_URLS[source]}/status") for source in sources),
         asyncio.to_thread(_is_reachable, EXTRACTION_URL),
     )
+    *crawler_reachability, knowledge_extraction = reachability
     return {
         "backend": True,
-        "crawler": crawler,
         "knowledge_extraction": knowledge_extraction,
+        **dict(zip(sources, crawler_reachability)),
     }
 
 def get_papers(cursor: psycopg.Cursor) -> list[dict]:
     cursor.execute("""
         SELECT p.id, p.title, p.authors, p.query, p.open_access, p.pdf_url,
-               p.ss_id, p.url, p.doi, p.venue, p.citation_count, p.abstract,
+               p.source, p.external_id, p.url, p.doi, p.venue, p.citation_count, p.abstract,
                p.relevance_checked, p.relevant, p.created_at,
                r.status, r.error, r.started_at
         FROM papers p
@@ -385,7 +392,7 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
         ORDER BY p.id
     """)
     papers = []
-    for (paper_id, title, authors, query, open_access, pdf_url, ss_id, url, doi, venue, citation_count, abstract,
+    for (paper_id, title, authors, query, open_access, pdf_url, source, external_id, url, doi, venue, citation_count, abstract,
          relevance_checked, relevant, created_at, status, error, started_at) in cursor.fetchall():
         papers.append({
             "id": paper_id,
@@ -394,7 +401,8 @@ def get_papers(cursor: psycopg.Cursor) -> list[dict]:
             "query": query,
             "open_access": open_access,
             "pdf_url": pdf_url,
-            "ss_id": ss_id,
+            "source": source,
+            "external_id": external_id,
             "url": url,
             "doi": doi,
             "venue": venue,

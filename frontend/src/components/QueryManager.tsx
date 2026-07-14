@@ -7,7 +7,12 @@ interface SearchQuery {
   query: string;
 }
 
-const QueryManager: React.FC = () => {
+interface QueryManagerProps {
+  source: string;
+  label: string;
+}
+
+const QueryManager: React.FC<QueryManagerProps> = ({ source, label }) => {
   const [queries, setQueries] = useState<SearchQuery[]>([]);
   const [newQuery, setNewQuery] = useState('');
   const [search, setSearch] = useState('');
@@ -20,7 +25,7 @@ const QueryManager: React.FC = () => {
 
   const fetchQueries = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:8000/crawler/queries');
+      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries`);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       setQueries(await response.json());
       setError(null);
@@ -28,7 +33,7 @@ const QueryManager: React.FC = () => {
       console.error('Failed to fetch search queries:', err);
       setError('Failed to reach the crawler.');
     }
-  }, []);
+  }, [source]);
 
   useEffect(() => {
     fetchQueries();
@@ -40,7 +45,7 @@ const QueryManager: React.FC = () => {
     if (!query) return;
     setBusy(true);
     try {
-      const response = await fetch('http://localhost:8000/crawler/queries', {
+      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),
@@ -74,7 +79,7 @@ const QueryManager: React.FC = () => {
     if (!query) return;
     setSavingId(id);
     try {
-      const response = await fetch(`http://localhost:8000/crawler/queries/${id}`, {
+      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),
@@ -96,7 +101,7 @@ const QueryManager: React.FC = () => {
   const handleRemove = async (id: number) => {
     setRemovingId(id);
     try {
-      const response = await fetch(`http://localhost:8000/crawler/queries/${id}`, { method: 'DELETE' });
+      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries/${id}`, { method: 'DELETE' });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       await fetchQueries();
     } catch (err) {
@@ -110,7 +115,7 @@ const QueryManager: React.FC = () => {
   return (
     <Card className="flex h-full flex-col overflow-hidden">
       <CardHeader>
-        <CardTitle>Search Queries</CardTitle>
+        <CardTitle>{label} Search Queries</CardTitle>
       </CardHeader>
       <CardContent className="flex min-h-0 flex-1 flex-col gap-4">
         {error && <p className="text-sm text-destructive">{error}</p>}

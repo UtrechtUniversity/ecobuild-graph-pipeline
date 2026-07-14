@@ -1,11 +1,12 @@
 CREATE TABLE papers (
     id SERIAL PRIMARY KEY,
-    ss_id TEXT NOT NULL UNIQUE,                              /*Semantic scholar internal ID*/
+    source TEXT NOT NULL DEFAULT 'semantic_scholar',  /*which crawler found this paper, e.g. 'semantic_scholar' | 'scopus'*/
+    external_id TEXT NOT NULL,                        /*the source's own paper ID (S2 paperId, Scopus SCOPUS_ID, ...)*/
     title TEXT NOT NULL,                              /*Title of the paper*/
     authors TEXT[],                                   /*Names of the authors*/
-    url TEXT UNIQUE,                                  /*url to the article within semantic scholar*/
-    doi TEXT UNIQUE,                                  /*doi to the article*/
-    venue TEXT,                                       /*conference/journal name, as reported by semantic scholar*/
+    url TEXT,                                         /*url to the article within its source*/
+    doi TEXT,                                         /*doi to the article*/
+    venue TEXT,                                       /*conference/journal name, as reported by the source*/
     citation_count INT,                               /*citation count at crawl time*/
     abstract TEXT,                                    /*abstract of the article*/
     pdf_url TEXT,                                     /*url of the pdf*/
@@ -13,8 +14,15 @@ CREATE TABLE papers (
     query TEXT,                                       /*the query that found this article*/
     relevance_checked BOOL,                           /*whether this has been checked for relevance*/
     relevant BOOL,                                    /*whether it is relevant*/
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP    /*timestamp*/
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   /*timestamp*/
+    UNIQUE (source, external_id)
 );
+
+-- Cross-source dedup: if a paper with the same DOI already exists (from either
+-- source), a second crawler's insert silently no-ops via a bare
+-- ON CONFLICT DO NOTHING instead of creating a second row. url stays unindexed —
+-- less reliably unique across sources than DOI, not worth enforcing.
+CREATE UNIQUE INDEX papers_doi_key ON papers (doi) WHERE doi IS NOT NULL;
 
 CREATE TABLE extraction_runs (
     id SERIAL PRIMARY KEY,
@@ -61,4 +69,14 @@ CREATE TABLE search_queries (
 INSERT INTO search_queries (source, query) VALUES
     ('semantic_scholar', 'Green roof effect on evaporation'),
     ('semantic_scholar', 'rainwater harvesting effectiveness morocco');
+
+-- Records every query that matched a paper, independent of papers-table dedup —
+-- a query still gets credit for a match even if that paper's insert was dropped
+-- as a duplicate (same DOI, or already found by this same query/source before).
+-- This is what per-query match counts for the meta study are computed from.
+CREATE TABLE paper_queries (
+    paper_id INT NOT NULL REFERENCES papers(id),
+    query_id INT NOT NULL REFERENCES search_queries(id),
+    PRIMARY KEY (paper_id, query_id)
+);
 

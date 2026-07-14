@@ -44,7 +44,7 @@ services:
 
   crawler:
     # No profiles: runs by default as a long-lived service, started/stopped via
-    # the api-backend's /crawler/* endpoints instead of a one-shot batch job.
+    # the api-backend's /crawlers/semantic_scholar/* endpoints instead of a one-shot batch job.
     build:
       context: ../microservices/paper-crawler
       dockerfile: Dockerfile
@@ -62,6 +62,32 @@ services:
       - "8001:8000" # <--- CHANGED: Mapped to host port 8001 to avoid conflict
     # Note: If crawler's internal code also makes requests to other services,
     # it can still use their service names (e.g., http://api-backend:8000) inside the Docker network.
+    healthcheck:
+      test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  scopus-crawler:
+    # Same shape as `crawler`, second independent source — started/stopped via
+    # the api-backend's /crawlers/scopus/* endpoints.
+    build:
+      context: ../microservices/scopus-crawler
+      dockerfile: Dockerfile
+    depends_on:
+      document-db:
+        condition: service_healthy
+    environment:
+      DB_HOST: document-db
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
+      DB_PORT: 5432
+      SCOPUS_API_KEY: ${SCOPUS_API_KEY}
+      SCOPUS_INSTTOKEN: ${SCOPUS_INSTTOKEN}
+    ports:
+      - "8004:8000"
     healthcheck:
       test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
       interval: 10s
@@ -139,7 +165,8 @@ services:
       document-db:
         condition: service_healthy
     environment:
-      CRAWLER_URL: http://crawler:8000
+      SS_CRAWLER_URL: http://crawler:8000
+      SCOPUS_CRAWLER_URL: http://scopus-crawler:8000
       EXTRACTION_URL: http://knowledge-extraction:8001
       DB_HOST: document-db
       DB_USER: ${POSTGRES_USER}

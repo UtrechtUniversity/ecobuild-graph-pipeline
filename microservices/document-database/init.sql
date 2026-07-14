@@ -8,6 +8,7 @@ CREATE TABLE papers (
     doi TEXT,                                         /*doi to the article*/
     venue TEXT,                                       /*conference/journal name, as reported by the source*/
     citation_count INT,                               /*citation count at crawl time*/
+    year INT,                                         /*publication year, as reported by the source; null if unknown*/
     abstract TEXT,                                    /*abstract of the article*/
     pdf_url TEXT,                                     /*url of the pdf*/
     open_access BOOL,                                 /*whether the pdf is openly accessible*/
@@ -61,14 +62,16 @@ CREATE TABLE search_queries (
     id SERIAL PRIMARY KEY,
     source TEXT NOT NULL DEFAULT 'semantic_scholar',   /*which crawler this query belongs to, e.g. 'semantic_scholar' | 'scopus'*/
     query TEXT NOT NULL,                               /*the search query the crawler runs*/
+    design_strategy TEXT,                              /*the design strategy this query is investigating, e.g. 'Green roof'; null if not categorized*/
+    ecosystem_service TEXT,                            /*the ecosystem service this query is investigating, e.g. 'Evaporative cooling'; null if not categorized*/
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (source, query)
 );
 
 -- seed with the queries that used to be hardcoded in crawler/config.py
-INSERT INTO search_queries (source, query) VALUES
-    ('semantic_scholar', 'Green roof effect on evaporation'),
-    ('semantic_scholar', 'rainwater harvesting effectiveness morocco');
+INSERT INTO search_queries (source, query, design_strategy, ecosystem_service) VALUES
+    ('semantic_scholar', 'Green roof effect on evaporation', 'Green roof', 'Evaporative cooling'),
+    ('semantic_scholar', 'rainwater harvesting effectiveness morocco', 'Rainwater harvesting', NULL);
 
 -- Records every query that matched a paper, independent of papers-table dedup —
 -- a query still gets credit for a match even if that paper's insert was dropped

@@ -173,6 +173,11 @@ services:
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       DB_NAME: ${POSTGRES_DB}
       DB_PORT: 5432
+      # Read-only connection to the metastudy DS->ES knowledge graph (external, see .env.template)
+      META_NEO4J_URI: ${META_NEO4J_URI}
+      META_NEO4J_USER: ${META_NEO4J_USER}
+      META_NEO4J_PASSWORD: ${META_NEO4J_PASSWORD}
+      META_NEO4J_DATABASE: ${META_NEO4J_DATABASE}
       # Optional egress proxy for download_pdf() — see .env.template. Blank
       # HTTPS_PROXY/HTTP_PROXY are no-ops; urllib only proxies when set.
       HTTPS_PROXY: ${HTTPS_PROXY}

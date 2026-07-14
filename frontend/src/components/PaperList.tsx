@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Loader2, CircleAlert, Play, RotateCcw, Upload, Search } from 'lucide-react';
+import { Loader2, CircleAlert, Play, RotateCcw, Upload, Search, TestTube } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -357,8 +357,11 @@ const PaperList: React.FC = () => {
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0">
         <CardTitle>Papers ({totalCount ?? papers.length})</CardTitle>
+        <Button asChild size="icon" variant="outline" className="size-8" title="Meta-study">
+          <Link to="/metastudy"><TestTube className="size-4" /></Link>
+        </Button>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {error && <p className="text-sm text-destructive">{error}</p>}

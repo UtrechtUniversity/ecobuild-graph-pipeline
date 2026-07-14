@@ -17,6 +17,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^1.23.0",
     "pdfjs-dist": "^6.1.200",
+    "plotly.js-dist-min": "^3.7.0",
     "react": "^19",
     "react-dom": "^19",
     "react-router-dom": "^7.6.3",

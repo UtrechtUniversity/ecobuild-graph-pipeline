@@ -15,7 +15,7 @@ class FakeCursor:
     """In-memory stand-in for a psycopg cursor, just enough for search_queries + papers + paper_queries writes."""
 
     def __init__(self):
-        self._rows = []  # (id, query, source)
+        self._rows = []  # (id, query, source, design_strategy, ecosystem_service)
         self._next_id = 1
         self._result = None
         self._rowcount = 0
@@ -26,15 +26,15 @@ class FakeCursor:
 
     def execute(self, sql, params=()):
         sql = sql.strip()
-        if sql.startswith("SELECT id, query FROM search_queries"):
+        if sql.startswith("SELECT id, query, design_strategy, ecosystem_service FROM search_queries"):
             source = params[0]
-            self._result = [(r[0], r[1]) for r in self._rows if r[2] == source]
+            self._result = [(r[0], r[1], r[3], r[4]) for r in self._rows if r[2] == source]
         elif sql.startswith("INSERT INTO search_queries"):
-            query, source = params
-            row = (self._next_id, query, source)
+            query, source, design_strategy, ecosystem_service = params
+            row = (self._next_id, query, source, design_strategy, ecosystem_service)
             self._rows.append(row)
             self._next_id += 1
-            self._result = (row[0], row[1])
+            self._result = (row[0], row[1], row[3], row[4])
         elif sql.startswith("INSERT INTO papers"):
             self.papers_written.append(params)
             self._last_paper_id = self._next_paper_id
@@ -49,11 +49,11 @@ class FakeCursor:
             self._rows = [r for r in self._rows if not (r[0] == query_id and r[2] == source)]
             self._rowcount = before - len(self._rows)
         elif sql.startswith("UPDATE"):
-            query, query_id, source = params
+            query, design_strategy, ecosystem_service, query_id, source = params
             for i, row in enumerate(self._rows):
                 if row[0] == query_id and row[2] == source:
-                    self._rows[i] = (query_id, query, source)
-                    self._result = (query_id, query)
+                    self._rows[i] = (query_id, query, source, design_strategy, ecosystem_service)
+                    self._result = (query_id, query, design_strategy, ecosystem_service)
                     return
             self._result = None
 
@@ -72,16 +72,23 @@ def test_search_queries_scoped_to_scopus_source() -> None:
     cursor = FakeCursor()
 
     assert get_queries(cursor) == []
-    created = add_query(cursor, "green infrastructure runoff")
-    assert created == {"id": 1, "query": "green infrastructure runoff"}
-    assert get_queries(cursor) == [{"id": 1, "query": "green infrastructure runoff"}]
+    created = add_query(cursor, "green infrastructure runoff", "Green infrastructure", "Stormwater retention")
+    assert created == {
+        "id": 1, "query": "green infrastructure runoff",
+        "design_strategy": "Green infrastructure", "ecosystem_service": "Stormwater retention",
+    }
+    assert get_queries(cursor) == [created]
 
-    assert update_query(cursor, 1, "edited") == {"id": 1, "query": "edited"}
+    updated = {
+        "id": 1, "query": "edited",
+        "design_strategy": "Green infrastructure", "ecosystem_service": "Stormwater retention",
+    }
+    assert update_query(cursor, 1, "edited", "Green infrastructure", "Stormwater retention") == updated
     assert remove_query(cursor, 1) is True
     assert remove_query(cursor, 999) is False
 
     # a row belonging to another crawler's source is invisible to this one
-    cursor._rows.append((9001, "semantic-scholar-only query", "semantic_scholar"))
+    cursor._rows.append((9001, "semantic-scholar-only query", "semantic_scholar", None, None))
     assert all(q["id"] != 9001 for q in get_queries(cursor))
     assert remove_query(cursor, 9001) is False
 
@@ -119,7 +126,7 @@ def test_write_to_db_prefers_full_abstract_authors_over_search_snippet() -> None
     entry = {
         "dc:identifier": "SCOPUS_ID:1", "dc:title": "A Paper", "dc:creator": "Doe J.",
         "prism:doi": "10.1/x", "prism:publicationName": "Journal of Things",
-        "citedby-count": "3", "openaccessFlag": "true",
+        "citedby-count": "3", "openaccessFlag": "true", "prism:coverDate": "2021-05-01",
         "link": [{"@ref": "scopus", "@href": "https://scopus.com/1"}],
     }
     abstract_response = {
@@ -129,11 +136,12 @@ def test_write_to_db_prefers_full_abstract_authors_over_search_snippet() -> None
     write_to_db(cursor, 7, "test query", entry, abstract_response)
 
     assert len(cursor.papers_written) == 1
-    source, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query = cursor.papers_written[0]
+    source, external_id, title, authors, url, doi, venue, citation_count, year, abstract, pdf_url, open_access, query = cursor.papers_written[0]
     assert source == "scopus"
     assert external_id == "1"
     assert authors == ["Doe, John"]  # full name from abstract retrieval, not the "Doe J." snippet
     assert citation_count == 3
+    assert year == 2021
     assert open_access is True
     assert pdf_url is None
     assert abstract == "Full abstract text."

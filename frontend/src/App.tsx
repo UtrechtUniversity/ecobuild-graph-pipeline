@@ -5,6 +5,7 @@ import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
 import PaperList from './components/PaperList';
 import PaperReview from './components/PaperReview';
+import MetaStudy from './components/MetaStudy';
 import ServiceStatus from './components/ServiceStatus';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             />
             <Route path="/experiments/:id" element={<ExperimentDetail />} />
             <Route path="/papers/:id/review" element={<PaperReview />} />
+            <Route path="/metastudy" element={<MetaStudy />} />
           </Routes>
         </main>
       </div>

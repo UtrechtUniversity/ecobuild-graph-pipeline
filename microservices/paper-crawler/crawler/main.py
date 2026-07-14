@@ -32,18 +32,29 @@ def get_connection() -> psycopg.Connection:
 
 
 def get_queries(cursor: psycopg.Cursor) -> list[dict]:
-    """Returns this crawler's configured search queries as {id, query} dicts."""
-    cursor.execute("SELECT id, query FROM search_queries WHERE source = %s ORDER BY id", (SOURCE,))
-    return [{"id": row[0], "query": row[1]} for row in cursor.fetchall()]
-
-
-def add_query(cursor: psycopg.Cursor, query: str) -> dict:
+    """Returns this crawler's configured search queries as {id, query, design_strategy, ecosystem_service} dicts."""
     cursor.execute(
-        "INSERT INTO search_queries (query, source) VALUES (%s, %s) RETURNING id, query",
-        (query, SOURCE),
+        "SELECT id, query, design_strategy, ecosystem_service FROM search_queries WHERE source = %s ORDER BY id",
+        (SOURCE,),
+    )
+    return [
+        {"id": row[0], "query": row[1], "design_strategy": row[2], "ecosystem_service": row[3]}
+        for row in cursor.fetchall()
+    ]
+
+
+def add_query(
+    cursor: psycopg.Cursor, query: str, design_strategy: str | None = None, ecosystem_service: str | None = None,
+) -> dict:
+    cursor.execute(
+        """
+        INSERT INTO search_queries (query, source, design_strategy, ecosystem_service)
+        VALUES (%s, %s, %s, %s) RETURNING id, query, design_strategy, ecosystem_service
+        """,
+        (query, SOURCE, design_strategy, ecosystem_service),
     )
     row = cursor.fetchone()
-    return {"id": row[0], "query": row[1]}
+    return {"id": row[0], "query": row[1], "design_strategy": row[2], "ecosystem_service": row[3]}
 
 
 def remove_query(cursor: psycopg.Cursor, query_id: int) -> bool:
@@ -52,14 +63,20 @@ def remove_query(cursor: psycopg.Cursor, query_id: int) -> bool:
     return cursor.rowcount > 0
 
 
-def update_query(cursor: psycopg.Cursor, query_id: int, query: str) -> dict | None:
-    """Returns the updated {id, query}, or None if query_id didn't exist."""
+def update_query(
+    cursor: psycopg.Cursor, query_id: int, query: str,
+    design_strategy: str | None = None, ecosystem_service: str | None = None,
+) -> dict | None:
+    """Returns the updated {id, query, design_strategy, ecosystem_service}, or None if query_id didn't exist."""
     cursor.execute(
-        "UPDATE search_queries SET query = %s WHERE id = %s AND source = %s RETURNING id, query",
-        (query, query_id, SOURCE),
+        """
+        UPDATE search_queries SET query = %s, design_strategy = %s, ecosystem_service = %s
+        WHERE id = %s AND source = %s RETURNING id, query, design_strategy, ecosystem_service
+        """,
+        (query, design_strategy, ecosystem_service, query_id, SOURCE),
     )
     row = cursor.fetchone()
-    return {"id": row[0], "query": row[1]} if row else None
+    return {"id": row[0], "query": row[1], "design_strategy": row[2], "ecosystem_service": row[3]} if row else None
 
 headers = {"x-api-key": api_key}
 url = "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
@@ -128,8 +145,8 @@ def handle_query(cursor: psycopg.Cursor, query_id: int, query: str, stop_event: 
 def write_to_db(cursor: psycopg.Cursor, query_id: int, query: str, paper: Dict) -> None:
     """Writes paper and current query to the document database"""
     template = (
-        "INSERT INTO papers (source, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
+        "INSERT INTO papers (source, external_id, title, authors, url, doi, venue, citation_count, year, abstract, pdf_url, open_access, query) "
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING"
     )
     external_id = paper["paperId"]
     title = paper["title"]
@@ -138,11 +155,12 @@ def write_to_db(cursor: psycopg.Cursor, query_id: int, query: str, paper: Dict) 
     doi = (paper.get("externalIds") or {}).get("DOI")
     venue = paper.get("venue") or None
     citation_count = paper.get("citationCount")
+    year = paper.get("year")
     abstract = paper["abstract"]
     open_access = paper["isOpenAccess"]
     pdf_url = extract_pdf_url(paper.get("openAccessPdf"))
 
-    cursor.execute(template, (SOURCE, external_id, title, authors, url, doi, venue, citation_count, abstract, pdf_url, open_access, query))
+    cursor.execute(template, (SOURCE, external_id, title, authors, url, doi, venue, citation_count, year, abstract, pdf_url, open_access, query))
     record_match(cursor, query_id, doi, external_id)
 
 

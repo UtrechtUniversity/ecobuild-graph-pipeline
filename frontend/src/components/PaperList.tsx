@@ -208,9 +208,16 @@ const PaperList: React.FC = () => {
     return `http://localhost:8000/papers?${params}`;
   }, [debouncedSearch]);
 
+  // Guards the 5s poll and infinite-scroll's loadMore from ever running at the
+  // same time — otherwise a poll response computed with a stale (smaller) limit
+  // can land after loadMore appended a page and wipe it back out.
+  const fetchBusyRef = useRef(false);
+
   // Re-fetches only the pages already loaded, so the 5s status poll doesn't
   // pull in papers the user hasn't scrolled to yet.
   const refreshLoaded = useCallback(async () => {
+    if (fetchBusyRef.current) return;
+    fetchBusyRef.current = true;
     try {
       const limit = Math.max(papers.length, PAGE_SIZE);
       const response = await fetch(papersUrl(limit, 0));
@@ -223,6 +230,8 @@ const PaperList: React.FC = () => {
     } catch (err) {
       console.error('Failed to fetch papers:', err);
       setError('Failed to reach the backend.');
+    } finally {
+      fetchBusyRef.current = false;
     }
   }, [papers.length, papersUrl, logFailures]);
 
@@ -233,7 +242,8 @@ const PaperList: React.FC = () => {
   }, [refreshLoaded]);
 
   const loadMore = useCallback(async () => {
-    if (loadingMore || !hasMore) return;
+    if (fetchBusyRef.current || !hasMore) return;
+    fetchBusyRef.current = true;
     setLoadingMore(true);
     try {
       const response = await fetch(papersUrl(PAGE_SIZE, papers.length));
@@ -247,8 +257,9 @@ const PaperList: React.FC = () => {
       setError('Failed to load more papers.');
     } finally {
       setLoadingMore(false);
+      fetchBusyRef.current = false;
     }
-  }, [loadingMore, hasMore, papers.length, papersUrl, logFailures]);
+  }, [hasMore, papers.length, papersUrl, logFailures]);
 
   // Infinite scroll: load the next page once the sentinel row at the bottom
   // of the list scrolls into view.

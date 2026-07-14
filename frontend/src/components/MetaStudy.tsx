@@ -99,6 +99,7 @@ const MetaStudy: React.FC = () => (
   <div className="flex flex-col gap-8">
     <StatCard title="Studies per design strategy (DS)" path="/stats/design-strategies" />
     <StatCard title="Studies per ecosystem service (ES)" path="/stats/ecosystem-services" />
+    <StatCard title="Studies per publication venue" path="/stats/venues" />
     <PapersByYearCard />
   </div>
 );

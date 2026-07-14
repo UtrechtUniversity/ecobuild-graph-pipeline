@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Loader2, CircleAlert, Play, RotateCcw, Upload } from 'lucide-react';
+import { Loader2, CircleAlert, Play, RotateCcw, Upload, Search } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -162,8 +162,14 @@ function StatusPill({ paper }: { paper: Paper }) {
   );
 }
 
+const PAGE_SIZE = 50;
+
 const PaperList: React.FC = () => {
   const [papers, setPapers] = useState<Paper[]>([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   const [selected, setSelected] = useState<Set<number>>(new Set());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -173,31 +179,99 @@ const PaperList: React.FC = () => {
   // thrown), so there's no network error to catch — this logs them once each so
   // they still show up in devtools like a real error would.
   const loggedFailures = useRef<Set<number>>(new Set());
+  const sentinelRef = useRef<HTMLLIElement>(null);
 
-  const fetchPapers = useCallback(async () => {
-    try {
-      const response = await fetch('http://localhost:8000/papers');
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const data: Paper[] = await response.json();
-      setPapers(data);
-      setError(null);
-      for (const paper of data) {
-        if (paper.extraction_status === 'failed' && !loggedFailures.current.has(paper.id)) {
-          loggedFailures.current.add(paper.id);
-          console.error(`Extraction failed for paper ${paper.id} (${paper.title}): ${paper.extraction_error}`);
-        }
+  const logFailures = useCallback((data: Paper[]) => {
+    for (const paper of data) {
+      if (paper.extraction_status === 'failed' && !loggedFailures.current.has(paper.id)) {
+        loggedFailures.current.add(paper.id);
+        console.error(`Extraction failed for paper ${paper.id} (${paper.title}): ${paper.extraction_error}`);
       }
-    } catch (err) {
-      console.error('Failed to fetch papers:', err);
-      setError('Failed to reach the backend.');
     }
   }, []);
 
+  // Debounce the search box so every keystroke doesn't fire a request.
   useEffect(() => {
-    fetchPapers();
-    const interval = setInterval(fetchPapers, 5000);
+    const timeout = setTimeout(() => setDebouncedSearch(search.trim()), 300);
+    return () => clearTimeout(timeout);
+  }, [search]);
+
+  // A new search term invalidates the loaded pages — start over from page 1.
+  useEffect(() => {
+    setPapers([]);
+    setHasMore(true);
+  }, [debouncedSearch]);
+
+  const papersUrl = useCallback((limit: number, offset: number) => {
+    const params = new URLSearchParams({ limit: String(limit), offset: String(offset) });
+    if (debouncedSearch) params.set('q', debouncedSearch);
+    return `http://localhost:8000/papers?${params}`;
+  }, [debouncedSearch]);
+
+  // Guards the 5s poll and infinite-scroll's loadMore from ever running at the
+  // same time — otherwise a poll response computed with a stale (smaller) limit
+  // can land after loadMore appended a page and wipe it back out.
+  const fetchBusyRef = useRef(false);
+
+  // Re-fetches only the pages already loaded, so the 5s status poll doesn't
+  // pull in papers the user hasn't scrolled to yet.
+  const refreshLoaded = useCallback(async () => {
+    if (fetchBusyRef.current) return;
+    fetchBusyRef.current = true;
+    try {
+      const limit = Math.max(papers.length, PAGE_SIZE);
+      const response = await fetch(papersUrl(limit, 0));
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data: Paper[] = await response.json();
+      setPapers(data);
+      setHasMore(data.length === limit);
+      setError(null);
+      logFailures(data);
+    } catch (err) {
+      console.error('Failed to fetch papers:', err);
+      setError('Failed to reach the backend.');
+    } finally {
+      fetchBusyRef.current = false;
+    }
+  }, [papers.length, papersUrl, logFailures]);
+
+  useEffect(() => {
+    refreshLoaded();
+    const interval = setInterval(refreshLoaded, 5000);
     return () => clearInterval(interval);
-  }, [fetchPapers]);
+  }, [refreshLoaded]);
+
+  const loadMore = useCallback(async () => {
+    if (fetchBusyRef.current || !hasMore) return;
+    fetchBusyRef.current = true;
+    setLoadingMore(true);
+    try {
+      const response = await fetch(papersUrl(PAGE_SIZE, papers.length));
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data: Paper[] = await response.json();
+      setPapers((prev) => [...prev, ...data]);
+      setHasMore(data.length === PAGE_SIZE);
+      logFailures(data);
+    } catch (err) {
+      console.error('Failed to load more papers:', err);
+      setError('Failed to load more papers.');
+    } finally {
+      setLoadingMore(false);
+      fetchBusyRef.current = false;
+    }
+  }, [hasMore, papers.length, papersUrl, logFailures]);
+
+  // Infinite scroll: load the next page once the sentinel row at the bottom
+  // of the list scrolls into view.
+  useEffect(() => {
+    const node = sentinelRef.current;
+    if (!node || !hasMore) return;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) loadMore();
+    });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [loadMore, hasMore]);
 
   const toggle = (id: number) => {
     setSelected((prev) => {
@@ -221,7 +295,7 @@ const PaperList: React.FC = () => {
         body: JSON.stringify({ paper_ids: paperIds }),
       });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      await fetchPapers();
+      await refreshLoaded();
     } catch (err) {
       console.error('Failed to start extraction:', err);
       setError('Failed to start extraction.');
@@ -246,7 +320,7 @@ const PaperList: React.FC = () => {
       body.append('file', file);
       const response = await fetch(`http://localhost:8000/papers/${paperId}/upload`, { method: 'POST', body });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      await fetchPapers();
+      await refreshLoaded();
     } catch (err) {
       console.error('Failed to upload PDF:', err);
       setError('Failed to upload PDF.');
@@ -269,10 +343,20 @@ const PaperList: React.FC = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Papers ({papers.length})</CardTitle>
+        <CardTitle>Papers ({papers.length}{hasMore ? '+' : ''})</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {error && <p className="text-sm text-destructive">{error}</p>}
+        <div className="relative">
+          <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search title, authors, matched keywords, abstract…"
+            className="w-full rounded-md border border-input bg-transparent py-1.5 pl-8 pr-3 text-sm outline-none focus:border-ring"
+          />
+        </div>
         <div className="flex items-center justify-between">
           <label className="flex items-center gap-2 text-sm text-muted-foreground">
             <input
@@ -403,7 +487,14 @@ const PaperList: React.FC = () => {
             );
           })}
           {papers.length === 0 && (
-            <p className="text-sm text-muted-foreground">No papers found yet.</p>
+            <p className="text-sm text-muted-foreground">
+              {debouncedSearch ? 'No papers match your search.' : 'No papers found yet.'}
+            </p>
+          )}
+          {hasMore && (
+            <li ref={sentinelRef} className="py-2 text-center text-xs text-muted-foreground">
+              {loadingMore ? 'Loading more…' : ''}
+            </li>
           )}
         </ul>
       </CardContent>

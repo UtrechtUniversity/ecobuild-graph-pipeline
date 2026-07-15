@@ -1,21 +1,38 @@
-# Paste this block into the *existing* Caddyfile already running as
-# ecobuild-caddy-1 on hpvig.science.uu.nl — that container already owns
-# 80/443 and TLS for this host, so we don't run our own Caddy.
+# One Caddy instance, one domain, two applications:
 #
-# One-time setup on that host, so ecobuild-caddy-1 can resolve
-# `frontend`/`api-backend` by name instead of us publishing them to the host:
+# - The root path serves the Dream Building Recommender (its own web UI, its
+#   own API, and its own knowledge extractor) via the existing catch-all
+#   reverse_proxy to {$WEB_HOST}:{$WEB_PORT} below.
+# - /ecobuild-autolit serves Paper Crawler and Analytics, a separate
+#   application with its own frontend and its own API, added as the two
+#   handle_path blocks below. Caddy evaluates handle_path/handle before a
+#   bare reverse_proxy regardless of file order, so these take priority over
+#   the root catch-all without disturbing anything about how the Dream
+#   Building Recommender is served.
+#
+# One-time setup so this Caddy instance can resolve Paper Crawler and
+# Analytics' `frontend`/`api-backend` containers by name instead of
+# publishing them to the host:
 #   docker network create ecobuild-edge
-# ...then add `ecobuild-edge` to ecobuild-caddy-1's own compose service
-# (alongside whatever network it already has), and to this project's
-# frontend/api-backend services (already done in orchestration/docker-compose.yml).
+# ...then add `ecobuild-edge` to this Caddy container's own compose service
+# (Paper Crawler and Analytics' frontend/api-backend already join it, see
+# orchestration/docker-compose.yml).
 #
 # If this proxy strips the /ecobuild-autolit prefix before forwarding instead
 # of passing it through intact, drop the prefix from both handle_path
 # matchers below (and from BASE_PATH/API_BASE in orchestration/.env).
-handle_path /ecobuild-autolit/api/* {
-	reverse_proxy api-backend:8000
+{
+    email {$CADDY_EMAIL}
 }
 
-handle_path /ecobuild-autolit/* {
-	reverse_proxy frontend:80
+{$DOMAIN} {
+    handle_path /ecobuild-autolit/api/* {
+        reverse_proxy api-backend:8000
+    }
+
+    handle_path /ecobuild-autolit/* {
+        reverse_proxy frontend:80
+    }
+
+    reverse_proxy {$WEB_HOST}:{$WEB_PORT}
 }

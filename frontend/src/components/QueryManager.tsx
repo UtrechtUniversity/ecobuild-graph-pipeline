@@ -1,3 +1,4 @@
+import { API_BASE } from '../config';
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
@@ -31,7 +32,7 @@ const QueryManager: React.FC<QueryManagerProps> = ({ source, label }) => {
 
   const fetchQueries = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries`);
+      const response = await fetch(`${API_BASE}/crawlers/${source}/queries`);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       setQueries(await response.json());
       setError(null);
@@ -51,7 +52,7 @@ const QueryManager: React.FC<QueryManagerProps> = ({ source, label }) => {
     if (!query) return;
     setBusy(true);
     try {
-      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries`, {
+      const response = await fetch(`${API_BASE}/crawlers/${source}/queries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -95,7 +96,7 @@ const QueryManager: React.FC<QueryManagerProps> = ({ source, label }) => {
     if (!query) return;
     setSavingId(id);
     try {
-      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries/${id}`, {
+      const response = await fetch(`${API_BASE}/crawlers/${source}/queries/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -121,7 +122,7 @@ const QueryManager: React.FC<QueryManagerProps> = ({ source, label }) => {
   const handleRemove = async (id: number) => {
     setRemovingId(id);
     try {
-      const response = await fetch(`http://localhost:8000/crawlers/${source}/queries/${id}`, { method: 'DELETE' });
+      const response = await fetch(`${API_BASE}/crawlers/${source}/queries/${id}`, { method: 'DELETE' });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       await fetchQueries();
     } catch (err) {

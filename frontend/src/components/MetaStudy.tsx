@@ -1,3 +1,4 @@
+import { API_BASE } from '../config';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import PlotHistogram from './PlotHistogram';
@@ -18,7 +19,7 @@ function useStat<T>(path: string) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8000${path}`)
+    fetch(`${API_BASE}${path}`)
       .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
       .then(setData)
       .catch(() => setError('Failed to reach the backend.'));
@@ -64,7 +65,7 @@ const PapersByYearCard: React.FC = () => {
     const name = selected.slice(3);
     setData(null);
     setError(null);
-    fetch(`http://localhost:8000/stats/papers-by-year?field=${field}&value=${encodeURIComponent(name)}`)
+    fetch(`${API_BASE}/stats/papers-by-year?field=${field}&value=${encodeURIComponent(name)}`)
       .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
       .then(setData)
       .catch(() => setError('Failed to reach the backend.'));

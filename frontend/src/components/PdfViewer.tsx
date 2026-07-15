@@ -1,3 +1,4 @@
+import { API_BASE } from '../config';
 import React, { useEffect, useRef, useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import type { PDFDocumentProxy } from 'pdfjs-dist';
@@ -38,7 +39,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ paperId, tags, focusTagId, onHigh
     let cancelled = false;
     (async () => {
       try {
-        const loaded = await pdfjsLib.getDocument({ url: `http://localhost:8000/papers/${paperId}/pdf` }).promise;
+        const loaded = await pdfjsLib.getDocument({ url: `${API_BASE}/papers/${paperId}/pdf` }).promise;
         if (!cancelled) setDoc(loaded);
       } catch (err) {
         console.error(`Failed to load PDF for paper ${paperId}:`, err);

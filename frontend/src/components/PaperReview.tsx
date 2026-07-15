@@ -1,3 +1,4 @@
+import { API_BASE } from '../config';
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -309,7 +310,7 @@ const PaperReview: React.FC = () => {
       if (!id) return;
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8000/papers/${id}/results`);
+        const response = await fetch(`${API_BASE}/papers/${id}/results`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -331,7 +332,7 @@ const PaperReview: React.FC = () => {
     const fetchText = async () => {
       if (!id) return;
       try {
-        const response = await fetch(`http://localhost:8000/papers/${id}/text`);
+        const response = await fetch(`${API_BASE}/papers/${id}/text`);
         if (!response.ok) return; // no extracted text yet — text panel just doesn't render
         const data: { text: string } = await response.json();
         setText(data.text);
@@ -388,7 +389,7 @@ const PaperReview: React.FC = () => {
 
   const handleReview: ReviewHandler = async (tagId, status) => {
     try {
-      const response = await fetch(`http://localhost:8000/tags/${tagId}/review`, {
+      const response = await fetch(`${API_BASE}/tags/${tagId}/review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status }),
@@ -406,7 +407,7 @@ const PaperReview: React.FC = () => {
   const handleAcceptGroup = async (tagIds: number[]) => {
     try {
       await Promise.all(tagIds.map((tagId) =>
-        fetch(`http://localhost:8000/tags/${tagId}/review`, {
+        fetch(`${API_BASE}/tags/${tagId}/review`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status: 'accepted' }),
@@ -420,7 +421,7 @@ const PaperReview: React.FC = () => {
 
   const handleEdit: EditHandler = async (tagId, value) => {
     try {
-      const response = await fetch(`http://localhost:8000/tags/${tagId}/edit`, {
+      const response = await fetch(`${API_BASE}/tags/${tagId}/edit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value }),
@@ -435,7 +436,7 @@ const PaperReview: React.FC = () => {
   const handleAdd = async (tagType: string, value: string) => {
     if (!id) return;
     try {
-      const response = await fetch(`http://localhost:8000/papers/${id}/tags`, {
+      const response = await fetch(`${API_BASE}/papers/${id}/tags`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ tag_type: tagType, value }),

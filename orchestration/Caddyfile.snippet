@@ -1,0 +1,21 @@
+# Paste this block into the *existing* Caddyfile already running as
+# ecobuild-caddy-1 on hpvig.science.uu.nl — that container already owns
+# 80/443 and TLS for this host, so we don't run our own Caddy.
+#
+# One-time setup on that host, so ecobuild-caddy-1 can resolve
+# `frontend`/`api-backend` by name instead of us publishing them to the host:
+#   docker network create ecobuild-edge
+# ...then add `ecobuild-edge` to ecobuild-caddy-1's own compose service
+# (alongside whatever network it already has), and to this project's
+# frontend/api-backend services (already done in orchestration/docker-compose.yml).
+#
+# If this proxy strips the /ecobuild-autolit prefix before forwarding instead
+# of passing it through intact, drop the prefix from both handle_path
+# matchers below (and from BASE_PATH/API_BASE in orchestration/.env).
+handle_path /ecobuild-autolit/api/* {
+	reverse_proxy api-backend:8000
+}
+
+handle_path /ecobuild-autolit/* {
+	reverse_proxy frontend:80
+}

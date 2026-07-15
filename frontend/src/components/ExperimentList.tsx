@@ -1,4 +1,5 @@
 // src/components/ExperimentList.tsx
+import { API_BASE } from '../config';
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
@@ -41,7 +42,7 @@ const ExperimentList = forwardRef<
 
   const fetchExperiments = async () => {
     try {
-      const response = await fetch('http://localhost:8000/status');
+      const response = await fetch(`${API_BASE}/status`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -67,7 +68,7 @@ const ExperimentList = forwardRef<
     }
     setRemovingId(id);
     try {
-      const response = await fetch(`http://localhost:8000/queue/${id}`, {
+      const response = await fetch(`${API_BASE}/queue/${id}`, {
         method: 'DELETE',
       });
 

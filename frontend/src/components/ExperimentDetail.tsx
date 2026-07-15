@@ -1,3 +1,4 @@
+import { API_BASE } from '../config';
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -28,7 +29,7 @@ const ExperimentDetail: React.FC = () => {
       if (!id) return;
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8000/experiments/${id}`);
+        const response = await fetch(`${API_BASE}/experiments/${id}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

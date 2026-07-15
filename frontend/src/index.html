@@ -11,6 +11,11 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Placeholders substituted by entrypoint.sh at container start (deploy);
+         left as-is in `bun run dev`, where config.ts's defaults apply instead. -->
+    <script>
+      window.__CONFIG__ = { API_BASE: "__API_BASE__", BASE_PATH: "__BASE_PATH__" };
+    </script>
     <script type="module" src="./frontend.tsx"></script>
   </body>
 </html>

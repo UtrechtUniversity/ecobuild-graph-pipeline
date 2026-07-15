@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FlaskConical } from 'lucide-react';
+import { BASE_PATH } from './config';
 import ExperimentList from './components/ExperimentList';
 import ExperimentDetail from './components/ExperimentDetail';
 import PaperList from './components/PaperList';
@@ -10,7 +11,7 @@ import ServiceStatus from './components/ServiceStatus';
 
 function App() {
   return (
-    <Router>
+    <Router basename={BASE_PATH}>
       <div className="min-h-screen bg-background">
         <header className="border-b border-border bg-card">
           <div className="mx-auto flex max-w-5xl items-center gap-3 px-6 py-4">

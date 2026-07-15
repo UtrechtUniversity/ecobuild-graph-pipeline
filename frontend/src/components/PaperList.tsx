@@ -1,3 +1,4 @@
+import { API_BASE } from '../config';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Loader2, CircleAlert, Play, RotateCcw, Upload, Search, TestTube } from 'lucide-react';
@@ -97,7 +98,7 @@ function StatusPill({ paper }: { paper: Paper }) {
 
   useEffect(() => {
     if (!showPanel || paper.extraction_status !== 'done' || tags !== null) return;
-    fetch(`http://localhost:8000/papers/${paper.id}/results`)
+    fetch(`${API_BASE}/papers/${paper.id}/results`)
       .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
       .then((data) => setTags(data.tags))
       .catch(() => setTagsFailed(true));
@@ -208,14 +209,14 @@ const PaperList: React.FC = () => {
   const papersUrl = useCallback((limit: number, offset: number) => {
     const params = new URLSearchParams({ limit: String(limit), offset: String(offset) });
     if (debouncedSearch) params.set('q', debouncedSearch);
-    return `http://localhost:8000/papers?${params}`;
+    return `${API_BASE}/papers?${params}`;
   }, [debouncedSearch]);
 
   const countUrl = useCallback(() => {
     const params = new URLSearchParams();
     if (debouncedSearch) params.set('q', debouncedSearch);
     const query = params.toString();
-    return `http://localhost:8000/papers/count${query ? `?${query}` : ''}`;
+    return `${API_BASE}/papers/count${query ? `?${query}` : ''}`;
   }, [debouncedSearch]);
 
   // Guards the 5s poll and infinite-scroll's loadMore from ever running at the
@@ -306,7 +307,7 @@ const PaperList: React.FC = () => {
   const startExtraction = async (paperIds: number[]) => {
     setBusy(true);
     try {
-      const response = await fetch('http://localhost:8000/papers/extract', {
+      const response = await fetch(`${API_BASE}/papers/extract`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ paper_ids: paperIds }),
@@ -335,7 +336,7 @@ const PaperList: React.FC = () => {
     try {
       const body = new FormData();
       body.append('file', file);
-      const response = await fetch(`http://localhost:8000/papers/${paperId}/upload`, { method: 'POST', body });
+      const response = await fetch(`${API_BASE}/papers/${paperId}/upload`, { method: 'POST', body });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       await refreshLoaded();
     } catch (err) {

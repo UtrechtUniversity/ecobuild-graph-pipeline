@@ -1,3 +1,4 @@
+import { API_BASE } from '../config';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Cog, Pause, Play } from 'lucide-react';
 import QueryManager from './QueryManager';
@@ -27,7 +28,7 @@ const ServiceStatus: React.FC = () => {
 
   const fetchStatus = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:8000/health');
+      const response = await fetch(`${API_BASE}/health`);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       setHealth(await response.json());
     } catch (err) {
@@ -38,7 +39,7 @@ const ServiceStatus: React.FC = () => {
     const statuses = await Promise.all(
       CRAWLERS.map(async ({ key }) => {
         try {
-          const response = await fetch(`http://localhost:8000/crawlers/${key}/status`);
+          const response = await fetch(`${API_BASE}/crawlers/${key}/status`);
           if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
           const data = await response.json();
           return [key, data.status as CrawlerStatus] as const;
@@ -69,7 +70,7 @@ const ServiceStatus: React.FC = () => {
     const action = crawlerStatus[key] === 'running' ? 'stop' : 'start';
     setBusyKey(key);
     try {
-      const response = await fetch(`http://localhost:8000/crawlers/${key}/${action}`, { method: 'POST' });
+      const response = await fetch(`${API_BASE}/crawlers/${key}/${action}`, { method: 'POST' });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       setCrawlerStatus((prev) => ({ ...prev, [key]: data.status }));

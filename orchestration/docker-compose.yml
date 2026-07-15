@@ -9,7 +9,11 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - "5433:5432"
+      # Bound to loopback only: `make dev` needs this reachable from the host
+      # (native backend/crawlers connect via localhost:5433, see their
+      # .env's DB_HOST/DB_PORT), but it has no business being reachable from
+      # outside the box, especially once this same file is used for `make deploy`.
+      - "127.0.0.1:5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ../microservices/document-database/init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -31,8 +35,11 @@ services:
       NEO4J_apoc_import_file_enabled: 'true'
       NEO4J_apoc_import_file_use__neo4j__config: 'true'
     ports:
-      - "7474:7474" # Browser UI
-      - "7687:7687" # Bolt protocol
+      # Loopback-only: convenience for opening Neo4j Browser / bolt from the
+      # host during dev. knowledge-extraction reaches this over the compose
+      # network by service name regardless, so nothing needs it published.
+      - "127.0.0.1:7474:7474" # Browser UI
+      - "127.0.0.1:7687:7687" # Bolt protocol
     volumes:
       - neo4j_data:/data
     healthcheck:
@@ -58,8 +65,9 @@ services:
       DB_NAME: ${POSTGRES_DB}
       DB_PORT: 5432
       SS_API_KEY: ${SS_API_KEY}
-    ports:
-      - "8001:8000" # <--- CHANGED: Mapped to host port 8001 to avoid conflict
+    # Not published: only used via the Docker network (api-backend calls it
+    # as http://crawler:8000). Never runs in `make dev` either — that target
+    # runs this natively via poetry instead. See microservices/paper-crawler/Makefile.
     # Note: If crawler's internal code also makes requests to other services,
     # it can still use their service names (e.g., http://api-backend:8000) inside the Docker network.
     healthcheck:
@@ -86,8 +94,8 @@ services:
       DB_PORT: 5432
       SCOPUS_API_KEY: ${SCOPUS_API_KEY}
       SCOPUS_INSTTOKEN: ${SCOPUS_INSTTOKEN}
-    ports:
-      - "8004:8000"
+    # Not published: only reached via the Docker network (api-backend calls
+    # it as http://scopus-crawler:8000). Never runs in `make dev` either.
     healthcheck:
       test: [ "CMD", "poetry", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')" ]
       interval: 10s
@@ -100,7 +108,9 @@ services:
     image: ollama/ollama:latest
     container_name: orchestration-ollama-1
     ports:
-      - "11434:11434"
+      # Loopback-only: convenience for pulling/managing models by hand.
+      # knowledge-extraction reaches it over the compose network regardless.
+      - "127.0.0.1:11434:11434"
     volumes:
       - ~/.ollama:/root/.ollama
     healthcheck:
@@ -136,7 +146,9 @@ services:
       OLLAMA_LLM_MODEL: ${OLLAMA_LLM_MODEL}
       OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL}
     ports:
-      - "8002:8001" # Changed from 8001 to 8002 to avoid potential future conflict if 8001 is used
+      # Loopback-only: convenience for curling /extract directly during dev.
+      # api-backend reaches it over the compose network regardless.
+      - "127.0.0.1:8002:8001"
     volumes:
       # Added for checking local pdfs and getting preprocessed results
       - ../microservices/knowledge-extraction/test_papers:/app/test_papers
@@ -159,8 +171,12 @@ services:
       context: ../microservices/backend # Path to your FastAPI backend directory
       dockerfile: Dockerfile # Name of the Dockerfile in that directory
     # No profiles, so it runs by default
-    ports:
-      - "8000:8000" # Expose FastAPI backend on host port 8000
+    # Not published to the host: reached instead over the ecobuild-edge
+    # network by the existing ecobuild-caddy-1 (see orchestration/Caddyfile.snippet).
+    # `make dev` runs the backend natively instead (see microservices/backend/Makefile).
+    networks:
+      - default
+      - ecobuild-edge
     depends_on:
       document-db:
         condition: service_healthy
@@ -196,8 +212,17 @@ services:
       context: ../frontend # Path to your frontend directory
       dockerfile: Dockerfile # Name of the Dockerfile in that directory
     # No profiles, so it runs by default
-    ports:
-      - "3000:80" # Expose Nginx (internal port 80) on host port 3000
+    # Not published to the host: reached instead over the ecobuild-edge
+    # network by the existing ecobuild-caddy-1 (see orchestration/Caddyfile.snippet).
+    # `make dev` runs the frontend natively instead (see frontend/Makefile).
+    networks:
+      - default
+      - ecobuild-edge
+    environment:
+      # Baked into index.html by frontend/entrypoint.sh at container start;
+      # see orchestration/.env.template.
+      API_BASE: ${API_BASE}
+      BASE_PATH: ${BASE_PATH}
     depends_on:
       api-backend:
         # Frontend depends on backend API being available
@@ -213,3 +238,13 @@ volumes:
   pgdata:
   neo4j_data:
   knowledge-extraction-cache:
+
+networks:
+  # Shared with the existing ecobuild-caddy-1 stack already running on this
+  # host, so it can reverse_proxy to frontend/api-backend by name instead of
+  # us publishing them to the host. One-time setup on the deploy host:
+  #   docker network create ecobuild-edge
+  # ...then add `ecobuild-edge` to ecobuild-caddy-1's own compose file too
+  # (see orchestration/Caddyfile.snippet).
+  ecobuild-edge:
+    external: true

@@ -41,6 +41,8 @@ Thumbs.db
 
 # Data/Large Files
 *.pdf
+orchestration/papers.sql
+orchestration/papers-pdfs.tar.gz
 neo4j_data/
 neo4j_imports/
 results/

@@ -59,4 +59,9 @@ extract:
 # for this project regardless of which profile started them.
 deploy:
 	docker network create ecobuild-edge 2>/dev/null || true
+	# `up --build` pulls every base image in parallel, which some Docker Hub
+	# auth.docker.io deploys reject ("Bad Request") even though a plain
+	# sequential `docker pull` of the same images works fine. Pre-pull one at
+	# a time so the parallel build step below hits local cache instead.
+	for i in python:3.12-slim python:3.12-slim-bookworm oven/bun:1.3.14 nginx:alpine; do docker pull $$i; done
 	docker compose -f orchestration/docker-compose.yml --profile extract up -d --build

@@ -52,10 +52,11 @@ extract:
 # frontend/api-backend — the already-running ecobuild-caddy-1 on the deploy
 # host reaches them over the shared "ecobuild-edge" network instead (see
 # orchestration/Caddyfile.snippet). `docker network create` is idempotent,
-# so this is safe to run every time, not just the first. docker-compose.deploy.yml
-# skips the local ollama container, same as dev — see that file.
+# so this is safe to run every time, not just the first. The local ollama
+# container is opt-in only (profile "local-ollama", not requested here) —
+# see OLLAMA_HOST in .env.template.
 # `make down` tears this back down too — it stops whatever containers exist
 # for this project regardless of which profile started them.
 deploy:
 	docker network create ecobuild-edge 2>/dev/null || true
-	docker compose -f orchestration/docker-compose.yml -f orchestration/docker-compose.deploy.yml --profile extract up -d --build
+	docker compose -f orchestration/docker-compose.yml --profile extract up -d --build

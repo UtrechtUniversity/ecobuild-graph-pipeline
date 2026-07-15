@@ -103,8 +103,13 @@ services:
       retries: 5
       start_period: 20s
 
+  # Dedicated profile, separate from "extract": neither `make dev`/`make extract`
+  # nor `make deploy` ever wants a local Ollama (both point OLLAMA_HOST at the
+  # shared server at 131.211.44.88:11434 instead — see .env.template and
+  # docker-compose.remote-ollama.yml). This service exists only as an opt-in
+  # escape hatch (`--profile local-ollama`) for running fully offline.
   ollama:
-    profiles: [ "extract" ]
+    profiles: [ "local-ollama" ]
     image: ollama/ollama:latest
     container_name: orchestration-ollama-1
     ports:
@@ -129,10 +134,11 @@ services:
     depends_on:
       document-db:
         condition: service_healthy
-      ollama:
-        condition: service_healthy
       neo4j:
         condition: service_healthy
+      # Not ollama: it's opt-in only (see the ollama service above), reached
+      # via OLLAMA_HOST regardless of whether it's the local container or
+      # the shared 131.211.44.88 server.
     environment:
       DB_HOST: document-db
       DB_USER: ${POSTGRES_USER}
@@ -177,6 +183,12 @@ services:
     networks:
       - default
       - ecobuild-edge
+    volumes:
+      # Downloaded/uploaded PDFs (main.py's PAPERS_DIR/MANUAL_DIR) — without
+      # this they live in the container's writable layer and vanish on every
+      # `make deploy` rebuild.
+      - paper-pdfs:/app/downloaded_papers
+      - paper-manual-uploads:/app/manual_uploads
     depends_on:
       document-db:
         condition: service_healthy
@@ -238,6 +250,8 @@ volumes:
   pgdata:
   neo4j_data:
   knowledge-extraction-cache:
+  paper-pdfs:
+  paper-manual-uploads:
 
 networks:
   # Shared with the existing ecobuild-caddy-1 stack already running on this

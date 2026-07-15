@@ -1,4 +1,6 @@
-# Override for using a remote/host Ollama instance instead of the local container.
+# Override for reaching a host-local Ollama tunnel instead of the (opt-in
+# only, see docker-compose.yml) local ollama container — neither this nor
+# that container is used by default; see OLLAMA_HOST in .env.template.
 #
 # Usage:
 #   docker compose -f docker-compose.yml -f docker-compose.remote-ollama.yml --profile extract up --build knowledge-extraction
@@ -10,16 +12,9 @@
 # services bound to 0.0.0.0, not loopback-only ones.
 
 services:
-  ollama: !reset null
-
   knowledge-extraction:
     network_mode: host
     ports: !reset null
-    depends_on: !override
-      document-db:
-        condition: service_healthy
-      neo4j:
-        condition: service_healthy
     environment:
       # document-db/neo4j are also reached via host-mapped ports under host
       # networking, since the container is off the compose bridge network

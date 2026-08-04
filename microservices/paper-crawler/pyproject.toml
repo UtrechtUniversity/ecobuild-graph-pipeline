@@ -10,8 +10,8 @@ python = "^3.12"
 requests = "^2.33.0"
 dotenv = "^0.9.9"
 psycopg = {extras = ["binary"], version = "^3.2.9"}
-fastapi = ">=0.116.1,<0.141.0"
-uvicorn = ">=0.35,<0.52"
+fastapi = ">=0.116.1,<0.142.0"
+uvicorn = ">=0.35,<0.53"
 
 
 [tool.poetry.group.test.dependencies]

@@ -18,7 +18,7 @@ llama-index = "^0.14.18"
 llama-index-core = "^0.14.18"
 llama-index-llms-ollama = "^0.10.0"
 llama-index-embeddings-ollama = "^0.9.0"
-fastapi = ">=0.139,<0.141"
+fastapi = ">=0.139,<0.142"
 uvicorn = "^0.51.0"
 
 

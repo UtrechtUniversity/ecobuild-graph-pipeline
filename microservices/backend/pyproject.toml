@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-uvicorn = "^0.52.3"
+uvicorn = "^0.52.4"
 fastapi = "^0.141.1"
 sqlalchemy = "^2.0.52"
 psycopg = {extras = ["binary"], version = "^3.3.4"}

@@ -10,7 +10,7 @@ python = "^3.12"
 uvicorn = "^0.52.4"
 fastapi = "^0.141.1"
 sqlalchemy = "^2.0.52"
-psycopg = {extras = ["binary"], version = "^3.3.4"}
+psycopg = {extras = ["binary"], version = "^3.3.5"}
 pydantic = "^2.13.5"
 python-multipart = "^0.0.32"
 neo4j = ">=5.28.1,<6.0.0"

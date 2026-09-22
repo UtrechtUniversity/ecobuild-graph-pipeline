@@ -7,10 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-uvicorn = "^0.52.4"
+uvicorn = "^0.53.0"
 fastapi = "^0.141.1"
-sqlalchemy = "^2.0.52"
-psycopg = {extras = ["binary"], version = "^3.3.5"}
+sqlalchemy = "^2.0.54"
+psycopg = {extras = ["binary"], version = "^3.3.6"}
 pydantic = "^2.13.5"
 python-multipart = "^0.0.32"
 neo4j = ">=5.28.1,<6.0.0"

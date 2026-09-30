@@ -1,5 +1,12 @@
 # EcoBuild Graph Pipeline (AUTO-KG-LIT)
 
+> **⚠️ Archived: this project has been merged into EcoBUILD.**
+> Development continues in the EcoBUILD repository, where the crawlers,
+> knowledge extraction and paper review (`/admin/papers`) now live. This repo
+> is kept read-only for reference. The final state, including the experiments
+> system, stats views and Ollama compose files that were not ported, is tagged
+> [`final-before-retirement`](../../tree/final-before-retirement).
+
 This repo orchestrates a pipeline that turns a folder of academic PDFs about
 sustainable building design (green roofs, living walls, ecosystem services,
 etc.) into a Neo4j knowledge graph, with a small web UI for tracking
